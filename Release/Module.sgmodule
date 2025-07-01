@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-06-29 11:18:26
+#!desc=2025-07-01 11:27:19
 #!arguments=哔哩哔哩·显示最常访问:false, 哔哩哔哩·屏蔽置顶广告:true, YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -1703,6 +1703,7 @@ http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v1\/search\/hot_
 http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v4\/search\/hint 'if (getpath(["data"]) | has("hint_words")) then (setpath(["data","hint_words"]; [])) else . end'
 http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v4\/search\/trending\? 'if (getpath(["data"]) | has("hint_word")) then (setpath(["data","hint_word"]; {})) else . end'
 http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v4\/search\/trending\? 'if (getpath(["data"]) | has("queries")) then (setpath(["data","queries"]; [])) else . end'
+http-response-jq ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api '.data.objects["OpenAPP-&-FlashAD"] = [] | .data.objects["InTheaters-&-BoxAD"] = []'
 
 [Script]
 12306 =type=http-request, pattern=^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/12306.js, requires-body=true, max-size=0

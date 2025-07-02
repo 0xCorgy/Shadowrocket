@@ -53,6 +53,7 @@ jobs:
           naisi_files_to_check=(
             "Rewrite/NaisiConfig/QuanX.conf"
             "Rewrite/NaisiConfig/Loon.conf"
+            "Rewrite/NaisiConfig/Surge.conf"
           )
           declare -A naisi_downloaded_urls
           declare -A naisi_downloaded_files

@@ -1,12 +1,12 @@
-## [仓库简介](#仓库简介)
-本[仓库](https://github.com/XiangwanGuan/Shadowrocket)由[向晚](https://t.me/xiangwanguan)维护，提供[Shadowrocket](https://apps.apple.com/app/shadowrocket/id932747118)的多款[配置文件](#配置说明)、一款[融合模块](#融合模块)，部分资源由生成器自动构建；<br>
+## [项目简介](#项目简介)
+本[项目](https://github.com/XiangwanGuan/Shadowrocket)由[向晚](https://t.me/xiangwanguan)维护，提供[Shadowrocket](https://apps.apple.com/app/shadowrocket/id932747118)的多款[配置文件](#配置说明)、一款[融合模块](#融合模块)，部分资源由生成器自动构建；<br>
 如果此项目对您有帮助，欢迎给予Star；若有其他需求或问题，请提交Issues！<br>
 
 ---
 
 ### [重要声明](#重要声明)
 禁止在中国大陆的任何平台传播此项目！<br>
-禁止将本仓库中的任何内容用于违法活动或用于盈利目的！<br>
+禁止将本项目中的任何内容用于违法活动或用于盈利目的！<br>
 本项目仅供学习交流及测试，使用本项目中的内容所造成的一切后果，均由使用者承担！<br>
 
 ---
@@ -17,7 +17,7 @@ Apple/Microsoft/Google：**系统服务商**已单独分流；<br>
 ChatGPT/Copilot/Gemini等：**AI工具**已单独分流；<br>
 WeChat/Telegram：**即时通讯工具**类已单独分流，降低因策略变化导致封号的风险；<br>
 **国内地址**与**国际地址**，**国内媒体**与**国际媒体**，分别进行分流处理；<br>
-本仓库所使用的**规则集**源于[blackmatrix7](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket)，由[GitHub Actions](https://github.com/XiangwanGuan/Shadowrocket/blob/main/.github/workflows/Sync-RuleFiles.yml)**每日自动同步**；<br>
+本项目所使用的**规则集**源于[blackmatrix7](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket)，由[GitHub Actions](https://github.com/XiangwanGuan/Shadowrocket/blob/main/.github/workflows/Sync-RuleFiles.yml)**每日自动同步**；<br>
 
 如何安装：<br>
 使用安装Shadowrocket的手机访问此页面，点击安装链接，一键跳转安装；<br>
@@ -79,7 +79,7 @@ Telegram使用**新加坡节点**，Google、AI工具使用**美国节点**；<b
 ### [融合模块](#融合模块)
 [融合模块](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Release/Module.sgmodule)由[GitHub Actions](https://github.com/XiangwanGuan/Shadowrocket/blob/main/.github/workflows/Generate-ModuleFiles.yml)调用[生成器](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Generator/Builder.py)依据[生成列表](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Generator/Generate.conf)而构建，随规则变化，不定期更新；<br>
 规则构成：以[向晚](https://t.me/xiangwanguan)基于[fmz200的重写合集](https://github.com/fmz200/wool_scripts/blob/main/QuantumultX/rewrite/chongxie.txt)与[zirawell的重写合集](https://github.com/zirawell/R-Store/blob/main/Rule/QuanX/Adblock/All/filter/allAdBlock.list)定制，并持续手动维护的[重写合集](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Rewrite/XiangwanConfig/Collection.conf)为基础，融合了[小红书](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Rewrite/XiangwanConfig/Rednote.conf)、[哔哩哔哩](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Rewrite/XiangwanConfig/Bilibili.conf)、[YouTube](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Rewrite/XiangwanConfig/YouTube.conf)、[高德地图](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Rewrite/XiangwanConfig/Amap.js)、[一汽大众](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Rewrite/XiangwanConfig/FAWVW.js)的专用规则；<br>
-所有[远程资源](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Rewrite/JSInventory.md)由[GitHub Actions](https://github.com/XiangwanGuan/Shadowrocket/blob/main/.github/workflows/Sync-RewriteFiles.yml)依据[构建列表](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Rewrite/JSGenerator.conf)每日自动构建&监测&清理，所有列表内指向的资源已重定向至[当前仓库](https://github.com/XiangwanGuan/Shadowrocket/tree/main/Rewrite/JavaScript)；<br>
+所有[远程资源](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Rewrite/JSInventory.md)由[GitHub Actions](https://github.com/XiangwanGuan/Shadowrocket/blob/main/.github/workflows/Sync-RewriteFiles.yml)依据[构建列表](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Rewrite/JSGenerator.conf)每日自动构建&监测&清理，所有列表内指向的资源已重定向至[当前项目](https://github.com/XiangwanGuan/Shadowrocket/tree/main/Rewrite/JavaScript)；<br>
 
 使用须知：使用融合模块，**必须开启MitM**，教程参考下方的[推荐设置](#推荐设置)；<br>
 特别警告：融合模块**已移除“解锁类”功能**，请支持开发者！如本项目侵犯了您的利益，请提交Issues进行移除，谢谢！<br>

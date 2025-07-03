@@ -152,6 +152,7 @@ ca-p12 =
 [*@Loyalsoldier*](https://github.com/Loyalsoldier/geoip)
 [*@Maasea*](https://github.com/Maasea/sgmodule)
 [*@NobyDa*](https://github.com/NobyDa/Script)
+[*@QingRex*](https://github.com/QingRex/LoonKissSurge)
 [*@Sliverkiss*](https://github.com/Sliverkiss/QuantumultX)
 [*@zirawell*](https://github.com/zirawell/R-Store)
 [*@zZPiglet*](https://github.com/zZPiglet/Task)<br>

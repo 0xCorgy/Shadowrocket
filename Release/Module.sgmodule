@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-03 21:00:27
+#!desc=2025-07-03 21:28:06
 #!arguments=哔哩哔哩·显示最常访问:false, 哔哩哔哩·屏蔽置顶广告:true, YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -1705,8 +1705,9 @@ URL-REGEX, ^http:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 ^https?:\/\/mall\.meituan\.com\/api\/c\/homepage\/bubble\/operate\/info data-type=json data="{"code": 0}" header="Content-Type:application/json"
 ^https?:\/\/oneapp-api\.faw-vw\.com\/benefits\/benefitsCard\/getInfo\/v1\?.* data-type=json data="{"returnStatus":"SUCCEED","hasMore":false,"data":[]}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(activity\/getSquareActivityList|theme\/getThemeList|post\/getPostsByTags)\/v1\?.* data-type=json data="{"returnStatus":"SUCCEED","hasMore":false,"data":[]}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(collection\/getCollectionList)\/v1\?.* data-type=json data="{"returnStatus":"SUCCEED","hasMore":false,"data":{}}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(customize\/getCustomizePageName|recommend\/getRecommendInfoFlows)\/v1\?.* data-type=json data="{"returnStatus":"SUCCEED","hasMore":false,"data":[]}" status-code=200 header="Content-Type:application/json"
-^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(evaluate\/getEvaluateCards|collection\/getCollectionList)\/v1\?.* data-type=json data="{"returnStatus":"SUCCEED","hasMore":false,"data":{}}" status-code=200 header="Content-Type:application/json"
+^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(evaluate\/getEvaluateCards)\/v1\?.* data-type=json data="" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v1\?.*showPositionCode=VWAPP_(ICE|MEB)_(OPEN_SCREEN_ADS|CAR_ZHIHU_COLLEGE) data-type=json data="{"returnStatus":"SUCCEED","hasMore":false,"data":[]}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v1\?.*showPositionCode=VWAPP_(ICE|MEB)_HOME_(OWNER_BANNER|PROSPECTS_BANNER|CUSTOM_BANNER|KONGO|CUSTOM_KONGO) data-type=json data="{"returnStatus":"SUCCEED","hasMore":false,"data":[]}" status-code=200 header="Content-Type:application/json"
 ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v1\?.*showPositionCode=VWAPP_HOME_BUOY data-type=json data="{"returnStatus":"SUCCEED","hasMore":false,"data":[]}" status-code=200 header="Content-Type:application/json"

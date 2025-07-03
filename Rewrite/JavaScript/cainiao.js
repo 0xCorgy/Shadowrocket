@@ -1,10 +1,18 @@
-// 2024-09-27 11:50
+/********************************
+Cainian Remove Ads - Version 1.0
+Checkout Source - https://raw.githubusercontent.com/RuCu6/QuanX/main/Scripts/cainiao.js
+Please note that you may need to reinstall app for script to work.
+
+QuantumultX rewrite link:
+https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/QuanX/Adblock/App/C/菜鸟裹裹/rewrite/cainiao.conf
+
+********************************/
 
 const url = $request.url;
 if (!$response.body) $done({});
 let obj = JSON.parse($response.body);
 
-if (url.includes("/mtop.cainiao.guoguo.nbnetflow.ads.mshow")) {
+if (url.includes(".guoguo.nbnetflow.ads.mshow")) {
   // 首页
   if (obj?.data) {
     const items = [
@@ -37,7 +45,7 @@ if (url.includes("/mtop.cainiao.guoguo.nbnetflow.ads.mshow")) {
       }
     }
   }
-} else if (url.includes("/mtop.cainiao.guoguo.nbnetflow.ads.show")) {
+} else if (url.includes(".guoguo.nbnetflow.ads.show")) {
   // 我的页面
   if (obj?.data?.result?.length > 0) {
     // 29338 寄件会员
@@ -45,15 +53,15 @@ if (url.includes("/mtop.cainiao.guoguo.nbnetflow.ads.mshow")) {
     // 33927 绿色能量
     // 36649 回收旧物
     obj.data.result = obj.data.result.filter(
-      (i) =>
-        !(
-          i?.materialContentMapper?.adItemDetail ||
-          (i?.materialContentMapper?.bgImg && i?.materialContentMapper?.advRecGmtModifiedTime) ||
-          ["common_header_banner", "entertainment", "interests", "kuaishou_banner"]?.includes(
-            i?.materialContentMapper?.group_id
-          ) ||
-          ["29338", "29339", "32103", "33927", "36649"]?.includes(i?.id)
-        )
+        (i) =>
+            !(
+                i?.materialContentMapper?.adItemDetail ||
+                (i?.materialContentMapper?.bgImg && i?.materialContentMapper?.advRecGmtModifiedTime) ||
+                ["common_header_banner", "entertainment", "interests", "kuaishou_banner"]?.includes(
+                    i?.materialContentMapper?.group_id
+                ) ||
+                ["29338", "29339", "32103", "33927", "36649"]?.includes(i?.id)
+            )
     );
     for (let i of obj.data.result) {
       if (i?.materialContentMapper?.show_tips_content) {
@@ -62,22 +70,27 @@ if (url.includes("/mtop.cainiao.guoguo.nbnetflow.ads.mshow")) {
       }
     }
   }
-} else if (url.includes("/mtop.cainiao.nbpresentation.pickup.empty.page.get")) {
+} else if (url.includes(".nbfriend.message.conversation.list")) {
+  // 消息中心
+  if (obj?.data?.data?.length > 0) {
+    obj.data.data = obj.data.data.filter((i) => i?.conversationId?.includes("logistic_message"));
+  }
+} else if (url.includes(".nbpresentation.pickup.empty.page.get")) {
   // 取件页面
   if (obj?.data?.result) {
     let ggContent = obj.data.result.content;
     if (ggContent?.middle?.length > 0) {
       ggContent.middle = ggContent.middle.filter(
-        (i) =>
-          ![
-            "guoguo_pickup_empty_page_relation_add", // 添加亲友
-            "guoguo_pickup_helper_feedback", // 反馈组件
-            "guoguo_pickup_helper_tip_view" // 取件小助手
-          ]?.includes(i?.template?.name)
+          (i) =>
+              ![
+                "guoguo_pickup_empty_page_relation_add", // 添加亲友
+                "guoguo_pickup_helper_feedback", // 反馈组件
+                "guoguo_pickup_helper_tip_view" // 取件小助手
+              ]?.includes(i?.template?.name)
       );
     }
   }
-} else if (url.includes("/mtop.cainiao.nbpresentation.protocol.homepage.get")) {
+} else if (url.includes(".nbpresentation.protocol.homepage.get")) {
   // 首页
   if (obj?.data?.result?.dataList?.length > 0) {
     let newLists = [];
@@ -130,29 +143,6 @@ if (url.includes("/mtop.cainiao.guoguo.nbnetflow.ads.mshow")) {
     }
     obj.data.result.dataList = newLists;
   }
-} else if (url.includes("/mtop.nbfriend.message.conversation.list")) {
-  // 消息中心
-  if (obj?.data?.data?.length > 0) {
-    obj.data.data = obj.data.data.filter((i) => i?.conversationId?.includes("logistic_message"));
-  }
-} else if (url.includes("/mtop.cainiao.app.mine.main")) {
-  // 我的页面
-  if (obj?.data) {
-    const items = [
-      "activity", // 热门活动
-      "asset", // 我的权益
-      "banner", // 底部滚动横图
-      "content"
-      // "header", // 头部信息
-      // "order" // 我的订单
-      // "packageArea", // 包裹导入
-    ];
-    for (let i of items) {
-      if (obj.data?.[i]) {
-        delete obj.data[i];
-      }
-    }
-  }
 }
 
-$done({ body: JSON.stringify(obj) });
+$done({body: JSON.stringify(obj)});

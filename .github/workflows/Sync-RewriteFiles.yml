@@ -25,9 +25,9 @@ jobs:
           mkdir -p Rewrite/JavaScript
           mkdir -p Rewrite/NaisiConfig
           mkdir -p Rewrite/NaisiScripts
+          mkdir -p Rewrite/QingRexConfig
           mkdir -p Rewrite/ZirawellConfig
           mkdir -p Rewrite/ZirawellScripts
-          mkdir -p Rewrite/QingRexConfig
 
       - name: Define file paths and links
         run: |
@@ -48,15 +48,13 @@ jobs:
       - name: Download QingRexConfig files
         run: |
           mkdir -p Rewrite/QingRexConfig
-          curl -sL https://github.com/QingRex/LoonKissSurge/tree/main/Surge/Official \
-          | grep -oE '/QingRex/LoonKissSurge/blob/main/Surge/Official/[^"]+' \
-          | sed 's|/blob/|/raw/|' \
-          | while read -r path; do
-              raw_url="https://github.com${path}"
-              filename=$(basename "$path")
-              echo "Downloading $filename from $raw_url"
-              curl -fsS -o "Rewrite/QingRexConfig/$filename" "$raw_url" || true
-            done
+
+          api_url="https://api.github.com/repos/QingRex/LoonKissSurge/contents/Surge/Official"
+          curl -s "$api_url" | grep '"download_url":' | cut -d '"' -f 4 | while read -r raw_url; do
+            filename=$(basename "$raw_url")
+            echo "Downloading $filename from $raw_url"
+            curl -fsSL "$raw_url" -o "Rewrite/QingRexConfig/$filename" || echo "Failed: $raw_url"
+          done
 
       - name: Clear previous JSInventory.md contents
         run: |

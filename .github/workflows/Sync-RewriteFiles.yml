@@ -49,11 +49,11 @@ jobs:
         run: |
           mkdir -p Rewrite/QingRexConfig
 
-          api_url="https://api.github.com/repos/QingRex/LoonKissSurge/contents/Surge/Official"
-          curl -s "$api_url" | grep '"download_url":' | cut -d '"' -f 4 | while read -r raw_url; do
+          api_url="https://api.github.com/repos/QingRex/LoonKissSurge/contents/Surge"
+          curl -s "$api_url" | grep '"download_url":' | cut -d '"' -f 4 | grep '\.sgmodule$' | while read -r raw_url; do
             filename=$(basename "$raw_url")
             echo "Downloading $filename from $raw_url"
-            curl -fsSL "$raw_url" -o "Rewrite/QingRexConfig/$filename" || echo "Failed: $raw_url"
+            curl -fsSL "$raw_url" -o "Rewrite/QingRexConfig/$filename" || (echo "Retrying..." && curl -fsSL "$raw_url" -o "Rewrite/QingRexConfig/$filename") || true
           done
 
       - name: Clear previous JSInventory.md contents

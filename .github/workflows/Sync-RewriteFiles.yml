@@ -27,6 +27,7 @@ jobs:
           mkdir -p Rewrite/NaisiScripts
           mkdir -p Rewrite/ZirawellConfig
           mkdir -p Rewrite/ZirawellScripts
+          mkdir -p Rewrite/QingRexConfig
 
       - name: Define file paths and links
         run: |

@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-03 19:10:23
+#!desc=2025-07-03 19:34:22
 #!arguments=哔哩哔哩·显示最常访问:false, 哔哩哔哩·屏蔽置顶广告:true, YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -9,6 +9,7 @@ DOMAIN, adsmind.ugdtimg.com, REJECT
 DOMAIN, adx-bj.anythinktech.com, REJECT
 DOMAIN, adx-os.bridgeturbo.com, REJECT
 DOMAIN, aegis.qq.com, REJECT
+DOMAIN, amap-aos-info-nogw.amap.com, REJECT
 DOMAIN, api.biliapi.com, REJECT
 DOMAIN, api.biliapi.net, REJECT
 DOMAIN, app.biliapi.com, REJECT
@@ -18,6 +19,7 @@ DOMAIN, appcloud2.in.zhihu.com, REJECT
 DOMAIN, crash2.zhihu.com, REJECT
 DOMAIN, da.bridgeturbo.com, REJECT
 DOMAIN, et.ykccn.com, REJECT
+DOMAIN, free-aos-cdn-image.amap.com, REJECT
 DOMAIN, hc-ssp.sm.cn, REJECT
 DOMAIN, httpdns-sdk.n.netease.com, REJECT
 DOMAIN, httpdns.calorietech.com, REJECT
@@ -51,6 +53,7 @@ DOMAIN-SUFFIX, omgmta.qq.com, REJECT
 DOMAIN-SUFFIX, omgmta1.qq.com, REJECT
 DOMAIN-SUFFIX, static-res.qq.com, REJECT
 DOMAIN-SUFFIX, tpns.tencent.com, REJECT
+DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 DOMAIN-SUFFIX, video.mpush.qq.com, REJECT
 DOMAIN-KEYWORD, 1258344696.file.myqcloud.com, REJECT
 DOMAIN-KEYWORD, pgdt.gtimg.c, REJECT

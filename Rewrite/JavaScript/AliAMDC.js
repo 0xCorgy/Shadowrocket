@@ -17,8 +17,9 @@ const url = $request.url;
 const header = $request.headers;
 const ua = header["User-Agent"] || header["user-agent"];
 if (url.includes("/amdc/mobileDispatch")) {
-  if (ua.includes("AMapiPhone") ||
+  if (
       ua.includes("Alibaba") ||
+      ua.includes("AMapiPhone") ||
       ua.includes("Cainiao4iPhone") ||
       ua.includes("Hema4iPhone") ||
       ua.includes("%E6%B7%98%E5%AE%9D") ||

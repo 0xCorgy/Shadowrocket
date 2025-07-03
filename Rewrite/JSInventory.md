@@ -5,7 +5,6 @@ https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/51card.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/555Ad.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js<br>
-https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/baidumap.js<br>
 https://raw.githubusercontent.com/NobyDa/Script/master/Bahamut/BahamutAnimeAds.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/blued.js<br>
@@ -16,7 +15,6 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cnftp.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/coolapk.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/dianyinglieshou.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/youdao/dict-youdao-ad.js<br>
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/didi/didiAds.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fenbi.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/Flightradar24.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fly.js<br>
@@ -92,7 +90,6 @@ https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/meitu
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/meituanwm.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/mishop.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/pdd.js<br>
-https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ppx.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/qmai.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/quark.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/sdb.js<br>
@@ -113,7 +110,6 @@ https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/zhihu
 https://raw.githubusercontent.com/Maasea/sgmodule/refs/heads/master/Script/Youtube/youtube.response.js<br>
 https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/AliAMDC.js<br>
 https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/Amap.js<br>
-https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/FAWVW.js<br>
 https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/ReplaceBody.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xiaohongshu/xiaohongshu.js<br>
 https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/dist/bilibili.airborne.js<br>

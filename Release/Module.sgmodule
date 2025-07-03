@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-03 18:19:16
+#!desc=2025-07-03 18:30:49
 #!arguments=哔哩哔哩·显示最常访问:false, 哔哩哔哩·屏蔽置顶广告:true, YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -827,7 +827,7 @@ URL-REGEX, ^http:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 ^https?:\/\/emdcadvertise\.eastmoney\.com\/infoService\/v\d - reject
 ^https?:\/\/emisdatacenteraws\.hafoo\.com\/ad\/api\/v2\/appMarket - reject-dict
 ^https?:\/\/enjoy\.cdn-static\.abchina\.com\/yx-engine-web\/file\/download\/(?!7dc2|fe96|cea3|06a8|1b11|d57b|6918|61db|2d58|aa23|) - reject-200
-^https?:\/\/ep\.kugou\.com\/v\d\/album_shop\/get_entrance_info - reject-200
+^https?:\/\/ep\.kugou\.com\/v\d\/album_shop\/get_entrance_info - reject-dict
 ^https?:\/\/ether-pack\.pangolin-sdk-toutiao\.com\/union\/endcard\/ - reject
 ^https?:\/\/evs\.500\.com\/esinfo\/loading\/loading - reject
 ^https?:\/\/explorer\.tratao\.com\/api\/client\/v4\/xtransfer\/ad\/ - reject
@@ -855,7 +855,7 @@ URL-REGEX, ^http:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 ^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/640\/h\/\d{3,4} - reject
 ^https?:\/\/fuss10\.elemecdn\.com\/.+\/w\/750\/h\/\d{3,4} - reject
 ^https?:\/\/fuwu\.nhsa\.gov\.cn\/ebus\/fuwu\/api\/base\/cms\/iep\/web\/cms\/hmpgcfg\/queryAppHmpgCfgByApp - reject
-^https?:\/\/fx\.service\.kugou\.com\/mfx-kugoulive\/ad\/ - reject-200
+^https?:\/\/fx\.service\.kugou\.com\/mfx-kugoulive\/ad\/ - reject-dict
 ^https?:\/\/g(.*)\.dushu365\.com\/chief-orch\/config\/config\/v\d+\/(shortCut|appUpdateUnite|loadingAd|appConfig) - reject
 ^https?:\/\/g(.*)\.dushu365\.com\/fandeng-orch\/bookboy\/v\d+\/vipPagePop - reject
 ^https?:\/\/g(.*)\.dushu365\.com\/fandeng-orch\/dual2211\/config - reject
@@ -872,15 +872,15 @@ URL-REGEX, ^http:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 ^https?:\/\/gaia\.ch\.com\/ECProduct\/popupWindow - reject
 ^https?:\/\/gaia\.ch\.com\/ECPromotion\/appFlash - reject
 ^https?:\/\/games\.mobileapi\.hupu\.com(\/.+)?\/(interfaceAd|status\/init) - reject-200
-^https?:\/\/gateway(retry)?\.kugou\.com\/adp\/ad\/ - reject-200
-^https?:\/\/gateway(retry)?\.kugou\.com\/adp\/bubble\/v\d\/song_play - reject-200
-^https?:\/\/gateway(retry)?\.kugou\.com\/ads\.gateway\/ - reject-200
-^https?:\/\/gateway(retry)?\.kugou\.com\/mstc\/musicsymbol\/v\d\/system\/profile - reject-200
-^https?:\/\/gateway(retry)?\.kugou\.com\/ocean\/v\d\/sound\/banner - reject-200
-^https?:\/\/gateway(retry)?\.kugou\.com\/r\/v\d\/general\/putin\/midad - reject-200
-^https?:\/\/gateway(retry)?\.kugou\.com\/searchnofocus\/v\d\/search_no_focus_word - reject-200
-^https?:\/\/gateway(retry)?\.kugou\.com\/singerdiscuss\/v\d\/entrance\/comment - reject-200
-^https?:\/\/gateway(retry)?\.kugou\.com\/v\d\/feeds\/follow_feed_fallback - reject-200
+^https?:\/\/gateway(retry)?\.kugou\.com\/adp\/ad\/ - reject-dict
+^https?:\/\/gateway(retry)?\.kugou\.com\/adp\/bubble\/v\d\/song_play - reject-dict
+^https?:\/\/gateway(retry)?\.kugou\.com\/ads\.gateway\/ - reject-dict
+^https?:\/\/gateway(retry)?\.kugou\.com\/mstc\/musicsymbol\/v\d\/system\/profile - reject-dict
+^https?:\/\/gateway(retry)?\.kugou\.com\/ocean\/v\d\/sound\/banner - reject-dict
+^https?:\/\/gateway(retry)?\.kugou\.com\/r\/v\d\/general\/putin\/midad - reject-dict
+^https?:\/\/gateway(retry)?\.kugou\.com\/searchnofocus\/v\d\/search_no_focus_word - reject-dict
+^https?:\/\/gateway(retry)?\.kugou\.com\/singerdiscuss\/v\d\/entrance\/comment - reject-dict
+^https?:\/\/gateway(retry)?\.kugou\.com\/v\d\/feeds\/follow_feed_fallback - reject-dict
 ^https?:\/\/gateway\.36kr\.com\/api\/adx\/ad\/show - reject
 ^https?:\/\/gateway\.benewtech\.cn\/resources-app\/app\/startup\/prepage - reject-dict
 ^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/adSortList - reject-dict
@@ -928,8 +928,8 @@ URL-REGEX, ^http:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 ^https?:\/\/gw\.line\.naver\.jp\/lass\/api\/v1\/ads$ - reject
 ^https?:\/\/gw\.line\.naver\.jp\/tr\/event$ - reject
 ^https?:\/\/gw\.xiaocantech\.com\/g\/pa - reject-dict
-^https?:\/\/gzacshow\.kugou\.com\/mfanxing-home\/cdn\/room\/index\/list_v2 - reject-200
-^https?:\/\/gzacshow\.kugou\.com\/mfx-rt-show\/cdn\/mo\/show\/headline - reject-200
+^https?:\/\/gzacshow\.kugou\.com\/mfanxing-home\/cdn\/room\/index\/list_v - reject-dict
+^https?:\/\/gzacshow\.kugou\.com\/mfx-rt-show\/cdn\/mo\/show\/headline - reject-dict
 ^https?:\/\/h5\.m\.goofish\.com\/app\/idleFish-F2e\/idlefish-pop - reject
 ^https?:\/\/h5api\.sginput\.qq\.com\/v\d\/gcenter\/ios\/homepage - reject-dict
 ^https?:\/\/h5app\.kuwo\.cn\/m\/bdvipact2205\/index\.html\?fromsrc=huodong - reject-dict
@@ -958,7 +958,7 @@ URL-REGEX, ^http:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 ^https?:\/\/hweb-manager\.huazhu\.com\/bundle\/upgrade\/check - reject-dict
 ^https?:\/\/hweb-manager\.huazhu\.com\/hotels\/ad\/ - reject-dict
 ^https?:\/\/hweb-manager\.huazhu\.com\/notice\/getAppPopupNotifyAlert - reject-dict
-^https?:\/\/hwstore\.kugou\.com\/v\d\/get_store_data - reject-200
+^https?:\/\/hwstore\.kugou\.com\/v\d\/get_store_data - reject-dict
 ^https?:\/\/hz\.yxzq\.com\/news-configserver\/api\/v1\/query\/banner_advertisement - reject-dict
 ^https?:\/\/i\d\.hdslb\.com\/bfs\/fawkes - reject-dict
 ^https?:\/\/i\d\.hdslb\.com\/bfs\/manga-static\/\w+\.(jpg|png)$ - reject-200
@@ -1087,7 +1087,7 @@ URL-REGEX, ^http:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 ^https?:\/\/luckman\.suning\.com\/luck-web\/policy\/v\d\/msf\/index\.do - reject-200
 ^https?:\/\/m.360buyimg\.com\/mobilecms\/s1125x2436_jfs\/ - reject-200
 ^https?:\/\/m1\.ad\.10010\.com\/noticeMag\/images\/imageUpload\/2\d{3} - reject-img
-^https?:\/\/m1fxgroup\.kugou\.com\/fxsing\/yqc\/alongInfo\/getUserAlongInfo - reject-200
+^https?:\/\/m1fxgroup\.kugou\.com\/fxsing\/yqc\/alongInfo\/getUserAlongInfo - reject-dict
 ^https?:\/\/m\.360buyimg\.com\/babel\/jfs\/t1\/[0-9]{6}\/[0-9]{2}\/[0-9]{5}\/[0-9]{6}\/.*.jpg - reject-200
 ^https?:\/\/m\.aty\.sohu\.com\/openload? - reject-img
 ^https?:\/\/m\.client\.10010\.com\/mobileService\/(activity|customer)\/(accountListData|get_client_adv|get_startadv) - reject-img

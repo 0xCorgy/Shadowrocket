@@ -4,11 +4,13 @@
 https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/51card.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js<br>
+https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js<br>
 https://raw.githubusercontent.com/NobyDa/Script/master/Bahamut/BahamutAnimeAds.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/blued.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/bohe/bohe_ads.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/caixin/caixinAd.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cmschina/cmschina.js<br>
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cnftp.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/dianyinglieshou.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fenbi.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/Flightradar24.js<br>

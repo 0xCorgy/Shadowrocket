@@ -98,7 +98,7 @@ def build_sgmodule(rule_text, project_name):
     map_local_lines = []
     for match in re.finditer(maplocal_pattern, rule_text, re.MULTILINE):
         regex, params_str = match.group(1).strip(), match.group(2).strip()
-        data_match = re.search(r'data=\s*(".*"|{.*}|[.*])', params_str)
+        data_match = re.search(r'data=\s*(["\'].*["\']|{.*}|\[.*\])', params_str)
         data = data_match.group(1) if data_match else ''
         params_str_wo_data = params_str[:data_match.start()] + params_str[data_match.end():] if data_match else params_str
         lexer = shlex.shlex(params_str_wo_data, posix=False)
@@ -158,7 +158,7 @@ def build_sgmodule(rule_text, project_name):
         binary_body_mode_match = re.search(r'binary-body-mode\s*=\s*(true|false)', line)
         if binary_body_mode_match:
             params.append(f"binary-body-mode={binary_body_mode_match.group(1)}")
-        argument_match = re.search(r'argument\s*=\s*(".*"|{.*}|[.*])', line)
+        argument_match = re.search(r'argument\s*=\s*(["\'].*["\']|{.*}|\[.*\])', line)
         if argument_match:
             params.append(f'argument={argument_match.group(1)}')
         script_line = ', '.join(params)

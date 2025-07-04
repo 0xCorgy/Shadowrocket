@@ -49,8 +49,6 @@ jobs:
 
       - name: Download QingRexConfig files
         run: |
-          mkdir -p Rewrite/QingRexConfig
-
           api_url="https://api.github.com/repos/QingRex/LoonKissSurge/contents/Surge"
           curl -s "$api_url" | grep '"download_url":' | cut -d '"' -f 4 | grep '\.sgmodule$' | while read -r raw_url; do
             filename=$(basename "$raw_url")

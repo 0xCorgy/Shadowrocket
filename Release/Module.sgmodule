@@ -1,11 +1,10 @@
 #!name=融合模块
-#!desc=2025-07-04 14:50:35
+#!desc=2025-07-04 15:13:41
 #!arguments=哔哩哔哩·显示最常访问:false, 哔哩哔哩·屏蔽置顶广告:true, YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
 [Rule]
 DOMAIN, access.if.iqiyi.com, REJECT
-DOMAIN, activity.video.qq.com, REJECT
 DOMAIN, ad.seeyouyima.com, REJECT
 DOMAIN, ad.tencentmusic.com, REJECT
 DOMAIN, adbehavior.wsa.ximalaya.com, REJECT
@@ -25,7 +24,6 @@ DOMAIN, advert.mafengwo.cn, REJECT
 DOMAIN, adx-api.zdmimg.com, REJECT
 DOMAIN, adx-bj.anythinktech.com, REJECT
 DOMAIN, adx-os.bridgeturbo.com, REJECT
-DOMAIN, aegis.qq.com, REJECT
 DOMAIN, amap-aos-info-nogw.amap.com, REJECT
 DOMAIN, api.biliapi.com, REJECT
 DOMAIN, api.biliapi.net, REJECT
@@ -48,13 +46,13 @@ DOMAIN, httpdns-sdk.n.netease.com, REJECT
 DOMAIN, httpdns.music.163.com, REJECT
 DOMAIN, httpdns.n.netease.com, REJECT
 DOMAIN, httpdns.yunxindns.com, REJECT
-DOMAIN, iacc.qq.com, REJECT
 DOMAIN, iadmat.nosdn.127.net, REJECT
 DOMAIN, iadmatapk.nosdn.127.net, REJECT
 DOMAIN, iadmusicmat.music.126.net, REJECT
 DOMAIN, images.pinduoduo.com, REJECT
 DOMAIN, info4.video.qq.com, REJECT
 DOMAIN, info6.video.qq.com, REJECT
+DOMAIN, ios.video.mpush.qq.com, REJECT
 DOMAIN, jp.ad.gameley.com, REJECT
 DOMAIN, kad.gotokeep.com, REJECT
 DOMAIN, lofter.httpdns.c.163.com, REJECT
@@ -62,10 +60,10 @@ DOMAIN, mi.gdt.qq.com, REJECT
 DOMAIN, mobads.baidu.com, REJECT
 DOMAIN, mqtt.zhihu.com, REJECT
 DOMAIN, music.httpdns.c.163.com, REJECT
+DOMAIN, otheve.beacon.qq.com, REJECT
+DOMAIN, pgdt.gtimg.cn, REJECT
 DOMAIN, pgdt.ugdtimg.com, REJECT
 DOMAIN, qh-material.taobao.com, REJECT
-DOMAIN, rdelivery.qq.com, REJECT
-DOMAIN, rmonitor.qq.com, REJECT
 DOMAIN, rttrack.ddxq.mobi, REJECT
 DOMAIN, s3plus.meituan.net, REJECT
 DOMAIN, sdk.ad.sfys365.com, REJECT
@@ -79,29 +77,20 @@ DOMAIN, th-b.pinduoduo.com, REJECT
 DOMAIN, th.pinduoduo.com, REJECT
 DOMAIN, titan.pinduoduo.com, REJECT-NO-DROP
 DOMAIN, toblog.ctobsnssdk.com, REJECT
+DOMAIN, tpns.qq.com, REJECT
 DOMAIN, trackercollect.ddxq.mobi, REJECT
-DOMAIN, tux.qq.com, REJECT
-DOMAIN, ugchsy.gtimg.com, REJECT
 DOMAIN, v2mi.gdt.qq.com, REJECT
+DOMAIN, vv6.video.qq.com, REJECT
 DOMAIN, ysad.yy.com, REJECT
 DOMAIN, zlsdk.1rtb.net, REJECT
 DOMAIN, zxid-m.mobileservice.cn, REJECT
 DOMAIN-SUFFIX, admobile.top, REJECT
-DOMAIN-SUFFIX, api.poll.video.qq.com, REJECT
 DOMAIN-SUFFIX, gdt.qq.com, REJECT
-DOMAIN-SUFFIX, gdtimg.com, REJECT
 DOMAIN-SUFFIX, l.qq.com, REJECT
-DOMAIN-SUFFIX, omgmta.qq.com, REJECT
-DOMAIN-SUFFIX, omgmta1.qq.com, REJECT
-DOMAIN-SUFFIX, static-res.qq.com, REJECT
-DOMAIN-SUFFIX, tpns.tencent.com, REJECT
 DOMAIN-SUFFIX, v.smtcdns.com, REJECT
-DOMAIN-SUFFIX, video.mpush.qq.com, REJECT
-DOMAIN-KEYWORD, 1258344696.file.myqcloud.com, REJECT
-DOMAIN-KEYWORD, pgdt.gtimg.c, REJECT
 DOMAIN-KEYWORD, trace.qq.com, REJECT
 DOMAIN-KEYWORD, trace.video.qq.com, REJECT
-DOMAIN-KEYWORD, track.qq.com, REJECT
+IP-CIDR, 47.110.187.87/32, REJECT, no-resolve
 IP-CIDR, 59.111.239.61/32, REJECT, no-resolve
 IP-CIDR, 59.111.239.62/32, REJECT, no-resolve
 IP-CIDR, 103.41.167.237/32, REJECT, no-resolve
@@ -113,13 +102,15 @@ IP-CIDR, 115.236.121.195/32, REJECT, no-resolve
 IP-CIDR, 116.211.198.237/32, REJECT, no-resolve
 IP-CIDR, 118.89.204.198/32, REJECT, no-resolve
 IP-CIDR, 180.76.76.200/32, REJECT, no-resolve
-IP-CIDR, 183.201.213.194/24, REJECT, no-resolve
 IP-CIDR, 2402:4e00:1200:ed00:0:9089:6dac:96b6/128, REJECT, no-resolve
 AND, ((IP-ASN,45090,no-resolve),(DEST-PORT,25641),(PROTOCOL,TCP)), REJECT
 AND, ((IP-ASN,63646,no-resolve),(DEST-PORT,25641),(PROTOCOL,TCP)), REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,youtubei.googleapis.com)), REJECT-NO-DROP
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,googlevideo.com)), REJECT-NO-DROP
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,xiaohongshu.com)), REJECT-NO-DROP
+URL-REGEX, ^http:\/\/apd-vlive\.apdcdn\.tc\.qq\.com\/vmind\.qqvideo\.tc\.qq\.com\/\w+, REJECT
+URL-REGEX, ^http:\/\/apd-\w+\.v\.smtcdns\.com\/(defaultts|omts|vmind\.qqvideo)\.tc\.qq\.com\/\w+, REJECT
+URL-REGEX, ^http:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.video)\.qq\.com\/\w+, REJECT
 URL-REGEX, ^https?:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/, REJECT
 URL-REGEX, ^https?:\/\/log\.stat\.kugou\.com\/mobile\/ad\.html, REJECT
 URL-REGEX, ^https?:\/\/rich\.kuwo\.cn\/AdService\/, REJECT-TINYGIF
@@ -1627,6 +1618,7 @@ URL-REGEX, ^https?:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 ^https?:\/\/venus\.yhd\.com\/memhome\/launchConfig - reject
 ^https?:\/\/vip\d\.kuwo\.cn\/commercia\/vipconf\/projectPage\/getPageContent - reject-dict
 ^https?:\/\/vod-movie\.maoyan\.com\/vod\/video\/onlineMovies\.json - reject-dict
+^https?:\/\/vv\.video\.qq\.com\/(diff|get)vmind - reject-dict
 ^https?:\/\/vv\.video\.qq\.com\/getvmind\? - reject-200
 ^https?:\/\/w\.line\.me\/adp\/api\/ad\/v\d\/ - reject
 ^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.alsc\.eleme\.\w+\.trigger\.respond - reject-dict
@@ -2392,6 +2384,7 @@ ReplaceBody =type=http-response, pattern=^https?:\/\/m\.lkcoffee\.com\/ecapi\/re
 ReplaceBody =type=http-response, pattern=^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api\?bannerInfos=%5B%7B%22cinemaI, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, argument="WX_index_mp-&-boxAD"->"WX_index_mp-&-boxAD0",max-size=0
 ReplaceBody =type=http-response, pattern=^https?:\/\/mobile\.yangkeduo\.com\/proxy\/api\/api\/express\/post\/waybill\/red_packet\/goods_list$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, argument="list":\[.+\]->"list":[],max-size=0
 ReplaceBody =type=http-response, pattern=^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, argument="data":\{.+\}->"data":{},max-size=0
+ReplaceBody =type=http-response, pattern=^https?:\/\/vv\.video\.qq\.com\/getvinfo, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, argument=&sppreviewtype=\d(.*)&spsrt=\d->&sppreviewtype=0$1&spsrt=0,max-size=0
 ReplaceBody =type=http-response, pattern=^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.venus\.shopresourceservice\.getshopresource, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, argument=posterList->random_body,max-size=0
 ReplaceBody =type=http-response, pattern=^https?:\/\/www\.flyert\.com(\.cn)?\/.*\.php\?.*module=basicdata&type=forumlist, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, argument=adv->adv0,max-size=0
 ReplaceBody =type=http-response, pattern=^https?:\/\/www\.i3zh\.com, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, argument=cm-pop-up-banners->SUCCEED,max-size=0

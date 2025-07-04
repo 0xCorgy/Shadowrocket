@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-04 11:37:45
+#!desc=2025-07-04 12:18:59
 #!arguments=哔哩哔哩·显示最常访问:false, 哔哩哔哩·屏蔽置顶广告:true, YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -120,19 +120,19 @@ AND, ((IP-ASN,63646,no-resolve),(DEST-PORT,25641),(PROTOCOL,TCP)), REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,youtubei.googleapis.com)), REJECT-NO-DROP
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,googlevideo.com)), REJECT-NO-DROP
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,xiaohongshu.com)), REJECT-NO-DROP
-URL-REGEX, ^http:\/\/upos-sz-static\.bilivideo\.com\/ssaxcode\/\w{2}\/\w{2}\/\w{32}-1-SPLASH, REJECT-DICT
-URL-REGEX, ^http:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 URL-REGEX, ^https?:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/, REJECT
 URL-REGEX, ^https?:\/\/log\.stat\.kugou\.com\/mobile\/ad\.html, REJECT
 URL-REGEX, ^https?:\/\/rich\.kuwo\.cn\/AdService\/, REJECT-TINYGIF
 URL-REGEX, ^https?:\/\/rich\.kuwo\.cn\/EcomResourceServer\/, REJECT-TINYGIF
 URL-REGEX, ^https?:\/\/searchrecterm\.kuwo\.cn\/recterm\.s, REJECT-TINYGIF
+URL-REGEX, ^https?:\/\/upos-sz-static\.bilivideo\.com\/ssaxcode\/\w{2}\/\w{2}\/\w{32}-1-SPLASH, REJECT-DICT
 URL-REGEX, ^https?:\/\/vip\d\.kuwo\.cn\/vip\/v\d\/sysinfo\?op=getRePayAndDoPayBox, REJECT-TINYGIF
 URL-REGEX, ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/album\/adBar\/, REJECT-TINYGIF
 URL-REGEX, ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/app\/newMenuList\/menuListInfo, REJECT-TINYGIF
 URL-REGEX, ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/app\/pasterAdvert\/, REJECT-TINYGIF
 URL-REGEX, ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/app\/startup\/config, REJECT-TINYGIF
 URL-REGEX, ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/user\/freeMode\/, REJECT-TINYGIF
+URL-REGEX, ^https?:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 
 [URL Rewrite]
 ^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/music\/common\/upload\/t_splash_info\/ - reject
@@ -2127,6 +2127,7 @@ http-response-jq ^https?:\/\/user-api\.smzdm\.com\/vip$ 'delpaths([["data","bann
 http-response-jq ^https?:\/\/user-api\.smzdm\.com\/vip$ 'delpaths([["data","big_banner"]])'
 http-response-jq ^https?:\/\/user-api\.smzdm\.com\/vip$ 'delpaths([["data","top_banner"]])'
 http-response-jq ^https?:\/\/v0-client-lz\.rili\.cn\/lizhi\/api\/zhwnl\/cal_module\/(datas|config)\? '.data |= map(select(.module_name as $name | ["实用工具","会员下icon","天气页面_右上角图标","天气页面_24小时","天气页面_15日","每日插屏","下拉屏保","星座Tab（黄历页）"] | index($name) != null))'
+http-response-jq ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/tingshu\/index\/radio 'walk(if type == "object" and .type == "stripAdvert" then del(.child) else . end)'
 http-response-jq ^https?:\/\/www\.gaoding\.com\/api\/v\d\/oc\/exhibitions\/(templates|all_editor_tools)\/resources$ 'walk(if type == "object" and .badge_img_url? then .badge_img_url="" else . end)'
 http-response-jq ^https?:\/\/www\.gaoding\.com\/api\/v\d\/oc\/exhibitions\/app_mine\/resources$ '.pits |= map(select(.module_type != "BANNER"))'
 http-response-jq ^https?:\/\/www\.gaoding\.com\/api\/v\d\/oc\/exhibitions\/template\/resources$ '.pits |= map(select(.module_type != "BANNER"))'
@@ -2144,7 +2145,6 @@ http-response-jq ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/home\
 http-response-jq ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/home\/getHomePageV 'delpaths([["data","multiPlatformBanner"]])'
 http-response-jq ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/home\/getHomePageV 'delpaths([["data","newEvaluations"]])'
 http-response-jq ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/home\/getHomePageV 'delpaths([["data","specialSaleBannerPhotoUrl"]])'
-http-response-jq http-response ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/tingshu\/index\/radio 'walk(if type == "object" and .type == "stripAdvert" then del(.child) else . end)'
 
 [Script]
 12306 =type=http-request, pattern=^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/12306.js, requires-body=true, max-size=0

@@ -31,7 +31,10 @@ jobs:
         python Generator/Builder.py
 
     - name: Rebase on upstream
-      run: git pull --rebase origin main
+      run: |
+        git stash
+        git pull --rebase origin main
+        git stash pop || exit 1
 
     - name: Commit & push generated ModuleRules
       uses: EndBug/add-and-commit@v9

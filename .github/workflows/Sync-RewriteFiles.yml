@@ -332,7 +332,10 @@ jobs:
           done
 
       - name: Rebase on upstream
-        run: git pull --rebase origin main
+        run: |
+          git stash
+          git pull --rebase origin main
+          git stash pop || exit 1
 
       - name: Commit & Copy RewriteFiles
         uses: EndBug/add-and-commit@v9

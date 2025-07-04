@@ -70,7 +70,10 @@ jobs:
         echo "" >> Rules/Ai.list && cat Rules/Grok.list >> Rules/Ai.list
 
     - name: Rebase on upstream
-      run: git pull --rebase origin main
+      run: |
+        git stash
+        git pull --rebase origin main
+        git stash pop || exit 1
 
     - name: Commit & copy RuleFiles
       uses: EndBug/add-and-commit@v9

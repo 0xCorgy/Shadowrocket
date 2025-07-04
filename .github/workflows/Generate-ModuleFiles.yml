@@ -12,6 +12,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -27,6 +29,9 @@ jobs:
     - name: Run Python script
       run: |
         python Generator/Builder.py
+
+    - name: Rebase on upstream
+      run: git pull --rebase origin main
 
     - name: Commit & push generated ModuleRules
       uses: EndBug/add-and-commit@v9

@@ -30,7 +30,7 @@ jobs:
       run: |
         python Generator/Builder.py
 
-    - name: Rebase on upstream
+    - name: Stash and rebase
       run: |
         git stash
         git pull --rebase origin main

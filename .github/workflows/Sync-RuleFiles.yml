@@ -69,7 +69,7 @@ jobs:
         echo "" >> Rules/Ai.list && cat Rules/Claude.list >> Rules/Ai.list
         echo "" >> Rules/Ai.list && cat Rules/Grok.list >> Rules/Ai.list
 
-    - name: Rebase on upstream
+    - name: Stash and rebase
       run: |
         git stash
         git pull --rebase origin main

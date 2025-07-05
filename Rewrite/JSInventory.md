@@ -4,14 +4,12 @@
 https://raw.githubusercontent.com/kokoryh/Script/master/js/12306.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/51card.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/adrive/adrive.js<br>
-https://raw.githubusercontent.com/app2smile/rules/master/js/adsense.js<br>
 https://raw.githubusercontent.com/NobyDa/Script/master/Bahamut/BahamutAnimeAds.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/blued.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/bohe/bohe_ads.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/caixin/caixinAd.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cmschina/cmschina.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cnftp.js<br>
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/dianyinglieshou.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fenbi.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/Flightradar24.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fly.js<br>
@@ -34,7 +32,6 @@ https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js<br>
 https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/umetrip/umetrip_ads.js<br>
 https://raw.githubusercontent.com/zZPiglet/Task/master/asset/UnblockURLinWeChat.js<br>
-https://raw.githubusercontent.com/app2smile/rules/master/js/vgtime.js<br>
 https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/AdBlock/xmApp/wnbz.js<br>
 https://raw.githubusercontent.com/Keywos/rule/main/script/wy/js/wyres.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xiaotucc.js<br>

@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-05 22:06:48
+#!desc=2025-07-05 22:26:14
 #!arguments=哔哩哔哩·显示最常访问:false, 哔哩哔哩·屏蔽置顶广告:true, YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -147,7 +147,6 @@ DOMAIN, ido.gepush.com, REJECT
 DOMAIN, ido.getui.net, REJECT
 DOMAIN, ii.gdt.qq.com, REJECT
 DOMAIN, im-x.jd.com, REJECT
-DOMAIN, images.pinduoduo.com, REJECT
 DOMAIN, info4.video.qq.com, REJECT
 DOMAIN, info6.video.qq.com, REJECT
 DOMAIN, init.supersonicads.com, REJECT
@@ -155,7 +154,6 @@ DOMAIN, ios.bugly.qq.com, REJECT
 DOMAIN, ios.video.mpush.qq.com, REJECT
 DOMAIN, is.snssdk.com, REJECT
 DOMAIN, janapi.jd.com, REJECT
-DOMAIN, jp.ad.gameley.com, REJECT
 DOMAIN, jump.admobile.top, REJECT
 DOMAIN, kad.gotokeep.com, REJECT
 DOMAIN, lf-ad-ies.bytecdn.cn, REJECT
@@ -195,7 +193,6 @@ DOMAIN, pgdt.gtimg.cn, REJECT
 DOMAIN, pgdt.ugdtimg.com, REJECT
 DOMAIN, plbslog.umeng.com, REJECT
 DOMAIN, pro.bugly.qq.com, REJECT
-DOMAIN, qh-material.taobao.com, REJECT
 DOMAIN, qzs.gdtimg.com, REJECT
 DOMAIN, qzs.qq.com, REJECT
 DOMAIN, res1.hubcloud.com.cn, REJECT
@@ -205,7 +202,6 @@ DOMAIN, rpe.xdplt.com, REJECT
 DOMAIN, rttrack.ddxq.mobi, REJECT
 DOMAIN, s.jpush.cn, REJECT
 DOMAIN, s3a.pstatp.com, REJECT
-DOMAIN, s3plus.meituan.net, REJECT
 DOMAIN, sdfp.snssdk.com, REJECT
 DOMAIN, sdk-conf.getui.com, REJECT
 DOMAIN, sdk-data.ubixioe.com, REJECT
@@ -275,7 +271,6 @@ DOMAIN, wup.imtt.qq.com, REJECT
 DOMAIN, xlog.jd.com, REJECT
 DOMAIN, ysad.yy.com, REJECT
 DOMAIN, yumao.puata.info, REJECT
-DOMAIN, zlsdk.1rtb.net, REJECT
 DOMAIN, ztoken.uyunad.com, REJECT
 DOMAIN, zxid-m.mobileservice.cn, REJECT
 DOMAIN-SUFFIX, 66mobi.com, REJECT

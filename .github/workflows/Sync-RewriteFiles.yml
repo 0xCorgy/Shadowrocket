@@ -333,9 +333,9 @@ jobs:
 
       - name: Stash and rebase
         run: |
-          git stash
+          git diff --quiet || git stash
           git pull --rebase origin main
-          git stash pop || exit 1
+          if git stash list | grep -q .; then git stash pop; fi
 
       - name: Commit & Copy RewriteFiles
         uses: EndBug/add-and-commit@v9

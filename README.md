@@ -83,9 +83,7 @@ Telegram使用**新加坡节点**，Google、AI工具使用**美国节点**；<b
 
 使用须知：使用融合模块，**必须开启MitM**，教程参考下方的[推荐设置](#推荐设置)；<br>
 特别警告：融合模块**已移除“解锁类”功能**，请支持开发者！<br>
-
-如本项目侵犯了您的利益，请提交Issues，我会第一时间进行移除，谢谢！<br>
-如果您不希望我收集您的规则，请提交Issues，我会第一时间进行移除，谢谢！<br>
+如本项目侵犯了您的利益，或不希望我收集您的规则，请提交Issues，我会第一时间进行移除，谢谢！<br>
 
 [![一键安装 融合模块](https://img.shields.io/static/v1?label=一键安装&message=融合模块&color=grey&logo=googledocs&logoColor=white&labelColor=blue&messageColor=white)](https://xiangwanguan.github.io/Shadowrocket/Static/Redirect.html?url=shadowrocket://install?module=https://xiangwanguan.github.io/Shadowrocket/Release/Module.sgmodule)<br>
 

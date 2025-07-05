@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-05 12:30:44
+#!desc=2025-07-05 12:39:15
 #!arguments=哔哩哔哩·显示最常访问:false, 哔哩哔哩·屏蔽置顶广告:true, YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -312,7 +312,6 @@ DOMAIN-KEYWORD, trace.qq.com, REJECT
 DOMAIN-KEYWORD, trace.video.qq.com, REJECT
 DOMAIN-KEYWORD, video-cn.snssdk.com, REJECT
 IP-CIDR, 47.110.187.87/32, REJECT, no-resolve
-IP-CIDR,47.110.187.87/32, REJECT,no-resolve
 IP-CIDR, 59.111.239.61/32, REJECT, no-resolve
 IP-CIDR, 59.111.239.62/32, REJECT, no-resolve
 IP-CIDR, 103.41.167.237/32, REJECT, no-resolve

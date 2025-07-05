@@ -1,12 +1,12 @@
 /*
 # > 高德地图
 # 高德地图应用净化；
-# 原作者：@zirawell，由向晚重写维护；
+# 原作者：@zirawell，@RuCu6，由向晚重写维护；
 
 # 更新时间: 20250703
 # 规则链接: https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/Amap.js
 
-[Rule]
+[rule]
 DOMAIN, amap-aos-info-nogw.amap.com, REJECT
 DOMAIN, free-aos-cdn-image.amap.com, REJECT
 DOMAIN-SUFFIX, v.smtcdns.com, REJECT

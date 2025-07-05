@@ -1,7 +1,7 @@
 /*
 # > AMDC
 # 用于阿里系应用，拦截AMDC请求，并修改响应内容；
-# 由向晚重写维护；
+# 原作者：@zirawell，由向晚重写维护；
 
 # 更新时间: 20250703
 # 规则链接: https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/AliAMDC.js

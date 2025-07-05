@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-05 23:20:24
+#!desc=2025-07-05 23:37:28
 #!arguments=哔哩哔哩·显示最常访问:false, 哔哩哔哩·屏蔽置顶广告:true, YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -37,14 +37,20 @@ DOMAIN, app.biliapi.net, REJECT
 DOMAIN, appcloud.zhihu.com, REJECT
 DOMAIN, appcloud2.in.zhihu.com, REJECT
 DOMAIN, axxd.xmseeyouyima.com, REJECT
+DOMAIN, bds.snssdk.com, REJECT
 DOMAIN, cdn-ad.wtzw.com, REJECT
 DOMAIN, cdn-new-ad.wtzw.com, REJECT
 DOMAIN, crash2.zhihu.com, REJECT
 DOMAIN, da.bridgeturbo.com, REJECT
 DOMAIN, ddfs-public.ddimg.mobi, REJECT
+DOMAIN, dm.bytedance.com, REJECT
+DOMAIN, dm.pstatp.com, REJECT
+DOMAIN, dm.toutiao.com, REJECT
 DOMAIN, dsp-ad.yy.com, REJECT
 DOMAIN, et.ykccn.com, REJECT
+DOMAIN, extlog.snssdk.com, REJECT
 DOMAIN, free-aos-cdn-image.amap.com, REJECT
+DOMAIN, gromore.pangolin-sdk-toutiao.com, REJECT
 DOMAIN, gwp.xiaojukeji.com, REJECT
 DOMAIN, hc-ssp.sm.cn, REJECT
 DOMAIN, httpdns-sdk.n.netease.com, REJECT
@@ -52,21 +58,30 @@ DOMAIN, httpdns.calorietech.com, REJECT
 DOMAIN, httpdns.music.163.com, REJECT
 DOMAIN, httpdns.n.netease.com, REJECT
 DOMAIN, httpdns.yunxindns.com, REJECT
+DOMAIN, i.snssdk.com, REJECT
 DOMAIN, iadmat.nosdn.127.net, REJECT
 DOMAIN, iadmatapk.nosdn.127.net, REJECT
 DOMAIN, iadmusicmat.music.126.net, REJECT
 DOMAIN, info4.video.qq.com, REJECT
 DOMAIN, info6.video.qq.com, REJECT
 DOMAIN, ios.video.mpush.qq.com, REJECT
+DOMAIN, is.snssdk.com, REJECT
 DOMAIN, kad.gotokeep.com, REJECT
 DOMAIN, lofter.httpdns.c.163.com, REJECT
+DOMAIN, log.snssdk.com, REJECT
 DOMAIN, mi.gdt.qq.com, REJECT
+DOMAIN, mon.zijieapi.com, REJECT
 DOMAIN, mqtt.zhihu.com, REJECT
+DOMAIN, mssdk-bu.bytedance.com, REJECT
+DOMAIN, mssdk.volces.com, REJECT
 DOMAIN, music.httpdns.c.163.com, REJECT
 DOMAIN, otheve.beacon.qq.com, REJECT
+DOMAIN, pangolin.snssdk.com, REJECT
 DOMAIN, pgdt.gtimg.cn, REJECT
 DOMAIN, pgdt.ugdtimg.com, REJECT
 DOMAIN, rttrack.ddxq.mobi, REJECT
+DOMAIN, s3a.pstatp.com, REJECT
+DOMAIN, sdfp.snssdk.com, REJECT
 DOMAIN, sdk.ad.sfys365.com, REJECT
 DOMAIN, splash.yy.com, REJECT
 DOMAIN, splashimgretrybssdl.cloud.kugou.com, REJECT
@@ -77,6 +92,8 @@ DOMAIN, th-a.pinduoduo.com, REJECT
 DOMAIN, th-b.pinduoduo.com, REJECT
 DOMAIN, th.pinduoduo.com, REJECT
 DOMAIN, titan.pinduoduo.com, REJECT-NO-DROP
+DOMAIN, tosv.boe.byted.org, REJECT
+DOMAIN, tosv.byted.org, REJECT
 DOMAIN, tpns.qq.com, REJECT
 DOMAIN, trackercollect.ddxq.mobi, REJECT
 DOMAIN, v2mi.gdt.qq.com, REJECT
@@ -86,8 +103,13 @@ DOMAIN, zxid-m.mobileservice.cn, REJECT
 DOMAIN-SUFFIX, gdt.qq.com, REJECT
 DOMAIN-SUFFIX, l.qq.com, REJECT
 DOMAIN-SUFFIX, v.smtcdns.com, REJECT
+DOMAIN-KEYWORD, -ad-sign.byteimg.com, REJECT
+DOMAIN-KEYWORD, -ad.byteoversea.com, REJECT
+DOMAIN-KEYWORD, asiad.byteactivity, REJECT
+DOMAIN-KEYWORD, log-api.pangolin-sdk-toutiao, REJECT
 DOMAIN-KEYWORD, trace.qq.com, REJECT
 DOMAIN-KEYWORD, trace.video.qq.com, REJECT
+DOMAIN-KEYWORD, video-cn.snssdk.com, REJECT
 IP-CIDR, 47.110.187.87/32, REJECT, no-resolve
 IP-CIDR, 59.111.239.61/32, REJECT, no-resolve
 IP-CIDR, 59.111.239.62/32, REJECT, no-resolve
@@ -101,6 +123,24 @@ IP-CIDR, 116.211.198.237/32, REJECT, no-resolve
 IP-CIDR, 118.89.204.198/32, REJECT, no-resolve
 IP-CIDR, 180.76.76.200/32, REJECT, no-resolve
 IP-CIDR, 2402:4e00:1200:ed00:0:9089:6dac:96b6/128, REJECT, no-resolve
+AND, ((DOMAIN-KEYWORD,-ad-),(DOMAIN-SUFFIX,byteimg.com)), REJECT
+AND, ((DOMAIN-KEYWORD,-ttam-),(DOMAIN-SUFFIX,ibyteimg.com)), REJECT
+AND, ((DOMAIN-KEYWORD,ads),(DOMAIN-KEYWORD,-normal-lq),(DOMAIN-SUFFIX,zijieapi.com)), REJECT
+AND, ((DOMAIN-KEYWORD,ads),(DOMAIN-KEYWORD,normal),(DOMAIN-SUFFIX,zijieapi.com)), REJECT
+AND, ((DOMAIN-KEYWORD,api),(DOMAIN-KEYWORD,-access-),(DOMAIN-SUFFIX,pangle.io)), REJECT
+AND, ((DOMAIN-KEYWORD,api),(DOMAIN-KEYWORD,-dual-event-),(DOMAIN-SUFFIX,pangle.io)), REJECT
+AND, ((DOMAIN-KEYWORD,api),(DOMAIN-KEYWORD,-log-),(DOMAIN-SUFFIX,pangle.io)), REJECT
+AND, ((DOMAIN-KEYWORD,api),(DOMAIN-KEYWORD,pangolin),(DOMAIN-SUFFIX,sgsnssdk.com)), REJECT
+AND, ((DOMAIN-KEYWORD,if),(DOMAIN-KEYWORD,-analytics.bytescm.com)), REJECT
+AND, ((DOMAIN-KEYWORD,lf),(DOMAIN-KEYWORD,-analytics.bytescm.com)), REJECT
+AND, ((DOMAIN-KEYWORD,lf),(DOMAIN-KEYWORD,-short.bytetos.com)), REJECT
+AND, ((DOMAIN-KEYWORD,pangolin),(DOMAIN-SUFFIX,sgsnssdk.com)), REJECT
+AND, ((DOMAIN-KEYWORD,s),(DOMAIN-KEYWORD,-fe-scm.pglstatp-toutiao.com)), REJECT
+AND, ((DOMAIN-KEYWORD,sf),(DOMAIN-KEYWORD,-be-pack.pglstatp-toutiao.com)), REJECT
+AND, ((DOMAIN-KEYWORD,sf),(DOMAIN-KEYWORD,-static.i18n-pglstatp.com)), REJECT
+AND, ((DOMAIN-KEYWORD,sf),(DOMAIN-KEYWORD,-ttcdn-tos.pstatp.com)), REJECT
+AND, ((DOMAIN-KEYWORD,ssdk-),(DOMAIN-SUFFIX,pangle.io)), REJECT
+AND, ((DOMAIN-KEYWORD,v),(DOMAIN-KEYWORD,-be-pack.pglstatp-toutiao.com)), REJECT
 AND, ((IP-ASN,45090,no-resolve),(DEST-PORT,25641),(PROTOCOL,TCP)), REJECT
 AND, ((IP-ASN,63646,no-resolve),(DEST-PORT,25641),(PROTOCOL,TCP)), REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,youtubei.googleapis.com)), REJECT-NO-DROP
@@ -110,6 +150,7 @@ URL-REGEX, ^https?:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/, REJECT
 URL-REGEX, ^https?:\/\/apd-vlive\.apdcdn\.tc\.qq\.com\/vmind\.qqvideo\.tc\.qq\.com\/\w+, REJECT
 URL-REGEX, ^https?:\/\/apd-\w+\.v\.smtcdns\.com\/(defaultts|omts|vmind\.qqvideo)\.tc\.qq\.com\/\w+, REJECT
 URL-REGEX, ^https?:\/\/log\.stat\.kugou\.com\/mobile\/ad\.html, REJECT
+URL-REGEX, ^https?:\/\/p\d+-be-pack-sign\.pglstatp-toutiao\.com\/(ad-app-package|web\.business\.image)\/, REJECT
 URL-REGEX, ^https?:\/\/rich\.kuwo\.cn\/AdService\/, REJECT-TINYGIF
 URL-REGEX, ^https?:\/\/rich\.kuwo\.cn\/EcomResourceServer\/, REJECT-TINYGIF
 URL-REGEX, ^https?:\/\/searchrecterm\.kuwo\.cn\/recterm\.s, REJECT-TINYGIF

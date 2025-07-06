@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-05 23:37:28
+#!desc=2025-07-06 13:48:01
 #!arguments=哔哩哔哩·显示最常访问:false, 哔哩哔哩·屏蔽置顶广告:true, YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -69,13 +69,11 @@ DOMAIN, is.snssdk.com, REJECT
 DOMAIN, kad.gotokeep.com, REJECT
 DOMAIN, lofter.httpdns.c.163.com, REJECT
 DOMAIN, log.snssdk.com, REJECT
-DOMAIN, mi.gdt.qq.com, REJECT
 DOMAIN, mon.zijieapi.com, REJECT
 DOMAIN, mqtt.zhihu.com, REJECT
 DOMAIN, mssdk-bu.bytedance.com, REJECT
 DOMAIN, mssdk.volces.com, REJECT
 DOMAIN, music.httpdns.c.163.com, REJECT
-DOMAIN, otheve.beacon.qq.com, REJECT
 DOMAIN, pangolin.snssdk.com, REJECT
 DOMAIN, pgdt.gtimg.cn, REJECT
 DOMAIN, pgdt.ugdtimg.com, REJECT
@@ -96,12 +94,10 @@ DOMAIN, tosv.boe.byted.org, REJECT
 DOMAIN, tosv.byted.org, REJECT
 DOMAIN, tpns.qq.com, REJECT
 DOMAIN, trackercollect.ddxq.mobi, REJECT
-DOMAIN, v2mi.gdt.qq.com, REJECT
 DOMAIN, vv6.video.qq.com, REJECT
 DOMAIN, ysad.yy.com, REJECT
 DOMAIN, zxid-m.mobileservice.cn, REJECT
 DOMAIN-SUFFIX, gdt.qq.com, REJECT
-DOMAIN-SUFFIX, l.qq.com, REJECT
 DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 DOMAIN-KEYWORD, -ad-sign.byteimg.com, REJECT
 DOMAIN-KEYWORD, -ad.byteoversea.com, REJECT

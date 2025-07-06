@@ -3,7 +3,7 @@
 # 高德地图应用净化；
 # 原作者：@zirawell，@RuCu6，由向晚重写维护；
 
-# 更新时间: 20250703
+# 更新时间: 20250706
 # 规则链接: https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/Amap.js
 
 [rule]
@@ -14,8 +14,8 @@ DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 [rewrite_local]
 ^https?:\/\/.*\.amap\.com\/ws\/banner\/lists\/\? url reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/boss\/(order\/car\/king_toolbox_car_bubble|tips\/onscene_visual_optimization) url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(?>car-end|route-plan) url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/(?>main-page-assets|main-page-location|ridewalk-end-fc) url reject-dict
+^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(car-end|route-plan) url reject-dict
+^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/(main-page-assets|main-page-location|ridewalk-end-fc) url reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull_mp\? url reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/app\/startup\/init\? url reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/shield\/scene\/recommend\? url reject-dict
@@ -27,8 +27,8 @@ DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 ^https?:\/\/.*\.amap\.com\/ws\/boss\/(car\/order\/content_info|order_web\/friendly_information) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/bus\/plan\/integrate\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/c3frontend\/af-(hotel|launch)\/page\/main\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/(?>card-service-plan-home|main-page) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/perception\/drive\/(?>routeInfo|routePlan) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/perception\/drive\/(routeInfo|routePlan) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource(\/home)?\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv\d\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js

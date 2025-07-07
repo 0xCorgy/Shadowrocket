@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-07 10:32:42
+#!desc=2025-07-07 10:43:42
 #!arguments=哔哩哔哩·显示最常访问:false, 哔哩哔哩·屏蔽置顶广告:true, YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -2239,7 +2239,6 @@ babytree =type=http-response, pattern=^https?:\/\/go\.babytree\.com\/go_pregnanc
 baiduPan =type=http-response, pattern=^https?:\/\/pan\.baidu\.com\/api\/getsyscfg\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/baiduPan.js, requires-body=true, max-size=0
 baiduPan =type=http-response, pattern=^https?:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/baiduPan.js, requires-body=true, max-size=0
 bilibili.airborne =type=http-request, pattern=^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.playerunite\.v1\.Player\/PlayViewUnite$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/bilibili.airborne.js, requires-body=true, max-size=0, binary-body-mode=true
-bilibili.airborne =type=http-request, pattern=^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.community\.service\.dm\.v1\.DM\/DmSegMobile$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/bilibili.airborne.js, requires-body=true, max-size=0, binary-body-mode=true
 bilibili.protobuf =type=http-response, pattern=^https?:\/\/(?:grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.(?:app\.(?:show\.v1\.Popular\/Index|dynamic\.v2\.Dynamic\/DynAll|view(?:unite)?\.v1\.View\/(?:View|ViewProgress|RelatesFeed)|playurl\.v1\.PlayURL\/PlayView|playerunite\.v1\.Player\/PlayViewUnite)|polymer\.app\.search\.v1\.Search\/SearchAll|community\.service\.dm\.v1\.DM\/DmView|main\.community\.reply\.v1\.Reply\/MainList|pgc\.gateway\.player\.v2\.PlayURL\/PlayView)$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/bilibili.protobuf.js, requires-body=true, max-size=0, binary-body-mode=true, argument="{"showUpList":"{{{哔哩哔哩·显示最常访问}}}","filterTopReplies":{{{哔哩哔哩·屏蔽置顶广告}}}}"
 bilibiliManga =type=http-response, pattern=^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Home\/HomeFeed, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/bilibiliManga.js, requires-body=true, max-size=0
 bilibiliManga =type=http-response, pattern=^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.User\/GetInitInfo, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/bilibiliManga.js, requires-body=true, max-size=0

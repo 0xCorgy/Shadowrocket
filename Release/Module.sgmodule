@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-08 10:13:49
+#!desc=2025-07-08 10:36:52
 #!arguments=哔哩哔哩·显示最常访问:false, 哔哩哔哩·屏蔽置顶广告:true, YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -2082,15 +2082,15 @@ http-response-jq ^https?:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? '
 http-response-jq ^https?:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? 'delpaths([["Result","cards",4]])'
 http-response-jq ^https?:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? 'delpaths([["Result","cards",5]])'
 http-response-jq ^https?:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? 'delpaths([["Result","cards",9]])'
-http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/benefits\/benefitsCard\/getInfo\/v1\?.* '{"returnStatus":"SUCCEED","hasMore":false,"data":[]}'
-http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(activity\/getSquareActivityList|theme\/getThemeList|post\/getPostsByTags)\/v1\?.* '{"returnStatus":"SUCCEED","hasMore":false,"data":[]}'
-http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(collection\/getCollectionList)\/v1\?.* '{"returnStatus":"SUCCEED","hasMore":false,"data":{}}'
-http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(customize\/getCustomizePageName|recommend\/getRecommendInfoFlows)\/v1\?.* '{"returnStatus":"SUCCEED","hasMore":false,"data":[]}'
-http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(evaluate\/getEvaluateCards)\/v1\?.* '{"returnStatus":"SUCCEED","hasMore":false,"data":[]}'
-http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v1\?.*showPositionCode=VWAPP_(ICE|MEB)_(OPEN_SCREEN_ADS|CAR_ZHIHU_COLLEGE) '{"returnStatus":"SUCCEED","hasMore":false,"data":[]}'
-http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v1\?.*showPositionCode=VWAPP_(ICE|MEB)_HOME_(OWNER_BANNER|PROSPECTS_BANNER|CUSTOM_BANNER|KONGO|CUSTOM_KONGO) '{"returnStatus":"SUCCEED","hasMore":false,"data":[]}'
-http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v1\?.*showPositionCode=VWAPP_HOME_BUOY '{"returnStatus":"SUCCEED","hasMore":false,"data":[]}'
-http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/search\/firstPage\/getPromptList\/v1\?.* '{"returnStatus":"SUCCEED","hasMore":false,"data":[]}'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/benefits\/benefitsCard\/getInfo\/v1\?.* '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(activity\/getSquareActivityList|theme\/getThemeList|post\/getPostsByTags)\/v1\?.* '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(collection\/getCollectionList)\/v1\?.* '. = { returnStatus: "SUCCEED", hasMore: false, data: {} }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(customize\/getCustomizePageName|recommend\/getRecommendInfoFlows)\/v1\?.* '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/(evaluate\/getEvaluateCards)\/v1\?.* '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v1\?.*showPositionCode=VWAPP_(ICE|MEB)_(OPEN_SCREEN_ADS|CAR_ZHIHU_COLLEGE) '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v1\?.*showPositionCode=VWAPP_(ICE|MEB)_HOME_(OWNER_BANNER|PROSPECTS_BANNER|CUSTOM_BANNER|KONGO|CUSTOM_KONGO) '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v1\?.*showPositionCode=VWAPP_HOME_BUOY '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
+http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/search\/firstPage\/getPromptList\/v1\?.* '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
 http-response-jq ^https?:\/\/p\.kuaidi100\.com\/apicenter\/xcx\.dox 'delpaths([["data","secondMenuList"]])'
 http-response-jq ^https?:\/\/p\.kuaidi100\.com\/mobile\/mobileapi\.do$ 'delpaths([["adIsConsumable"]])'
 http-response-jq ^https?:\/\/p\.kuaidi100\.com\/mobile\/mobileapi\.do$ 'delpaths([["adProductId"]])'

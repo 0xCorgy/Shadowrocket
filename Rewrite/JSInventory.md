@@ -87,7 +87,6 @@ https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/LegacyS
 https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/LegacyScripts/bilibili.protobuf.js<br>
 https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/AliAMDC.js<br>
 https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/Amap.js<br>
-https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/FAWVW.js<br>
 https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/ReplaceBody.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/xiaohongshu/xiaohongshu.js<br>
 

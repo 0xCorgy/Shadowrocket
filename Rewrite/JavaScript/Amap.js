@@ -6,12 +6,12 @@
 # 更新时间: 20250706
 # 规则链接: https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/Amap.js
 
-[rule]
+[Rule]
 DOMAIN, amap-aos-info-nogw.amap.com, REJECT
 DOMAIN, free-aos-cdn-image.amap.com, REJECT
 DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 
-[rewrite_local]
+[URL Rewrite]
 ^https?:\/\/.*\.amap\.com\/ws\/banner\/lists\/\? url reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/boss\/(order\/car\/king_toolbox_car_bubble|tips\/onscene_visual_optimization) url reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(car-end|route-plan) url reject-dict
@@ -23,6 +23,8 @@ DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 ^https?:\/\/.*\.amap\.com\/ws\/shield\/search_poi\/tips_adv\? url reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/ url reject
 ^https?:\/\/.*\.amap\.com\/ws\/(mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword) url reject-dict
+
+[Script]
 ^https?:\/\/.*\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/boss\/(car\/order\/content_info|order_web\/friendly_information) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/bus\/plan\/integrate\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
@@ -38,7 +40,7 @@ DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 ^https?:\/\/.*\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/shield\/search_poi\/(homepage|mps|search\/sp|sug|tips_operation_location) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 
-[mitm]
+[MITM]
 hostname = *.amap.com
 */
 

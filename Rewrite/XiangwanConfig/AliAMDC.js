@@ -6,10 +6,10 @@
 # 更新时间: 20250703
 # 规则链接: https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/AliAMDC.js
 
-[rewrite_local]
+[Script]
 ^https?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$ url script-response-header https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/AliAMDC.js 
 
-[mitm]
+[MITM]
 hostname = amdc.m.taobao.com
 */
 

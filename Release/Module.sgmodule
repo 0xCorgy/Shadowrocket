@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-09 15:48:08
+#!desc=2025-07-09 15:51:31
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -2298,7 +2298,7 @@ wechatApplet =type=http-response, pattern=^https?:\/\/coco-com\.e\.verystar\.net
 wechatApplet =type=http-response, pattern=^https?:\/\/ec\.ems\.com\.cn\/ecr-qry-web\/redis\/pageInfoByChannel, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
 wechatApplet =type=http-response, pattern=^https?:\/\/htwkop\.xiaojukeji\.com\/gateway\?api=hm\.fa\.homeConfig, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
 wechatApplet =type=http-response, pattern=^https?:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v\d, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
-wechatApplet =type=http-response, pattern=^https?:\/\/mapi\.xiaotucc\.com\/(mall\/main|\w+\/main_page\/index\/getActivity), script-path=hhttps://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
+wechatApplet =type=http-response, pattern=^https?:\/\/mapi\.xiaotucc\.com\/(mall\/main|\w+\/main_page\/index\/getActivity), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
 wechatApplet =type=http-response, pattern=^https?:\/\/miniapp\.sexytea2013\.com\/cms\/slot\/queryByCodes\?codes=INDEX_TOP_BANNER, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
 wechatApplet =type=http-response, pattern=^https?:\/\/minifm\.maxxipoint\.com\/banner\/list, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
 wechatApplet =type=http-response, pattern=^https?:\/\/saas-ad\.cloudpnr\.com\/huifuad-base-api\/api\/tactics\/ad, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0

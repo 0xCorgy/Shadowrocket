@@ -12,7 +12,6 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cmschina/cmsc
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cnftp.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fenbi.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/Flightradar24.js<br>
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fly.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ithome/ithome.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingxiAd.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lvtusuishenting/ltsst-ad.js<br>

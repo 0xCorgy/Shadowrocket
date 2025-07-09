@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-09 15:38:34
+#!desc=2025-07-09 15:48:08
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -2294,7 +2294,7 @@ tuhu =type=http-response, pattern=^https?:\/\/cl-gateway\.tuhu\.cn\/cl-homepage-
 tuhu =type=http-response, pattern=^https?:\/\/cl-gateway\.tuhu\.cn\/cl-shop-api\/shopTab\/getModuleForC, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/tuhu.js, requires-body=true, max-size=0
 umetrip_ads =type=http-response, pattern=^https?:\/\/(114\.115\.217\.129)|(home\.umetrip\.com)\/gateway\/api\/umetrip\/native$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/umetrip_ads.js, requires-body=true, max-size=0
 wechatApplet =type=http-response, pattern=^https?:\/\/api\.prod\.dj\.mstand\.cn\/scrm\/mini\/app\/index\/info, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
-wechatApplet =type=http-response, pattern=^https?:\/\/coco-com\.e\.verystar\.net\/v\d\/home\/info, script-path=https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/wechatApplet.js, requires-body=true, max-size=0
+wechatApplet =type=http-response, pattern=^https?:\/\/coco-com\.e\.verystar\.net\/v\d\/home\/info, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
 wechatApplet =type=http-response, pattern=^https?:\/\/ec\.ems\.com\.cn\/ecr-qry-web\/redis\/pageInfoByChannel, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
 wechatApplet =type=http-response, pattern=^https?:\/\/htwkop\.xiaojukeji\.com\/gateway\?api=hm\.fa\.homeConfig, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
 wechatApplet =type=http-response, pattern=^https?:\/\/lawsonapi\.yorentown\.com\/area\/sh-lawson\/app\/v\d, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0

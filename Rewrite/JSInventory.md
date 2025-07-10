@@ -12,6 +12,7 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cmschina/cmsc
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cnftp.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fenbi.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/Flightradar24.js<br>
+https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/hengdian.json<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ithome/ithome.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingxiAd.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lvtusuishenting/ltsst-ad.js<br>
@@ -26,6 +27,7 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/template/req_
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/rrtv_json.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soda.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js<br>
+https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.Dev.js<br>
 https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js<br>
 https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-proto.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/umetrip/umetrip_ads.js<br>

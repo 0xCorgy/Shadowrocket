@@ -79,6 +79,7 @@ def build_sgmodule(rule_text, project_name):
 """
     rewrite_pattern = r'^(?!.*[#])(.*?)\s*url\s+(reject(?:-200|-array|-dict|-img|-tinygif)?)'
     header_pattern = r'^(?!.*[#])(.*?)\s*url-and-header\s+(reject(?:-drop|-no-drop)?)'
+    redirect_pattern = r'^(?!.*[#])(.*?)\s*url\s+302\s+(.*)$'
     url_rewrite_lines = []
     for match in re.finditer(rewrite_pattern, rule_text, re.MULTILINE):
         pattern = match.group(1).strip()
@@ -88,6 +89,10 @@ def build_sgmodule(rule_text, project_name):
         pattern = match.group(1).strip()
         reject_type = match.group(2).strip()
         url_rewrite_lines.append(f"{pattern} url-and-header {reject_type}")
+    for match in re.finditer(redirect_pattern, rule_text, re.MULTILINE):
+        origin = match.group(1).strip()
+        target = match.group(2).strip()
+        url_rewrite_lines.append(f"{origin} {target} 302")
     url_rewrite_content = '\n'.join(sorted(set(url_rewrite_lines))) + '\n'
     sgmodule_content += url_rewrite_content
 

@@ -141,6 +141,7 @@ ca-p12 =
 ---
 
 ### [特别鸣谢](#特别鸣谢)
+[*@001ProMax*](https://github.com/001ProMax/Surge)
 [*@app2smile*](https://github.com/app2smile/rules)
 [*@blackmatrix7*](https://github.com/blackmatrix7)
 [*@ddgksf2013*](https://github.com/ddgksf2013/ddgksf2013)

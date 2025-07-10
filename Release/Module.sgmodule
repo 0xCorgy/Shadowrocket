@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-09 15:51:31
+#!desc=2025-07-10 09:13:19
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -952,9 +952,6 @@ URL-REGEX, ^https?:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 ^https?:\/\/gateway\.36kr\.com\/api\/adx\/ad\/show - reject
 ^https?:\/\/gateway\.benewtech\.cn\/resources-app\/app\/startup\/prepage - reject-dict
 ^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/adSortList - reject-dict
-^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/list\?code=.+-(window|float) - reject-dict
-^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/list\?code=cotti-launch-window - reject-dict
-^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/list\?code=v\d-cotti-order-detail-banner - reject-dict
 ^https?:\/\/gateway\.shouqiev\.com\/fsda\/app\/bootImage\.json - reject
 ^https?:\/\/geetest\.htsc\.com:8888\/pre_get_token - reject-200
 ^https?:\/\/gfp\.veta\.naver\.com\/adcall\? - reject
@@ -2212,6 +2209,7 @@ cnftp =type=http-response, pattern=^https?:\/\/mobile\.api\.mgtv\.com\/v10\/vide
 cnftp =type=http-response, pattern=^https?:\/\/mobileso\.bz\.mgtv\.com\/mobile\/recommend\/v2\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cnftp.js, requires-body=true, max-size=0
 cnftp =type=http-response, pattern=^https?:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cnftp.js, requires-body=true, max-size=0
 cnftp =type=http-response, pattern=^https?:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cnftp.js, requires-body=true, max-size=0
+cotti =type=http-response, pattern=^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/list$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cotti.js, requires-body=true, max-size=0
 dianping =type=http-response, pattern=^https?:\/\/ddplus\.meituan\.net\/v\d\/mss_\w+\/picassovc, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/dianping.js, requires-body=true, max-size=0
 dianping =type=http-response, pattern=^https?:\/\/img\.meituan\.net\/dpmobile\/, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/dianping.js, requires-body=true, max-size=0
 dubbingShow =type=http-response, pattern=^https?:\/\/iosapi\.peiyinxiu\.com\/Api\/Film\/GetConfigValue, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/dubbingShow.js, requires-body=true, max-size=0

@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-10 10:59:23
+#!desc=2025-07-10 11:31:59
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -2184,7 +2184,7 @@ BahamutAnimeAds =type=http-response, pattern=^https?:\/\/api\.gamer\.com\.tw\/mo
 Flightradar24 =type=http-response, pattern=^https?:\/\/mobile\.flightradar24\.com\/mobile\/(user-session|subscribe), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Flightradar24.js, requires-body=true, max-size=0
 PupuSplashAds =type=http-response, pattern=^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v7\?position_types=2(%[A-Z0-9]+)+&store_id, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/PupuSplashAds.js, requires-body=true, max-size=0
 QuDa =type=http-response, pattern=^https?:\/\/iqushangwang\.8quan\.com\/index\.php\/i\/index\/index, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/QuDa.js, requires-body=true, max-size=0
-Spotify.Crack.Dev =type=http-request, pattern=^https?:\/\/(?:gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Spotify.Crack.Dev.js, requires-body=true, max-size=0, binary-body-mode=true
+Spotify.Crack.Dev =type=http-request, pattern=^https?:\/\/(?:gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Spotify.Crack.Dev.js, requires-body=true, max-size=0, binary-body-mode=true, argument="[{tab},{useractivity}]"
 UnblockURLinWeChat =type=http-response, pattern=^https?:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/UnblockURLinWeChat.js, requires-body=true, max-size=0
 adrive =type=http-response, pattern=^https?:\/\/api\.alipan\.com\/apps\/v2\/users\/home\/(news|widgets), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/adrive.js, requires-body=true, max-size=0
 adrive =type=http-response, pattern=^https?:\/\/member\.alipan\.com\/v1\/users\/onboard_list, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/adrive.js, requires-body=true, max-size=0

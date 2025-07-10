@@ -90,9 +90,9 @@ def build_sgmodule(rule_text, project_name):
         reject_type = match.group(2).strip()
         url_rewrite_lines.append(f"{pattern} url-and-header {reject_type}")
     for match in re.finditer(redirect_pattern, rule_text, re.MULTILINE):
-        origin = match.group(1).strip()
-        target = match.group(2).strip()
-        url_rewrite_lines.append(f"{origin} {target} 302")
+        pattern = match.group(1).strip()
+        destination = match.group(2).strip()
+        url_rewrite_lines.append(f"{pattern} {destination} 302")
     url_rewrite_content = '\n'.join(sorted(set(url_rewrite_lines))) + '\n'
     sgmodule_content += url_rewrite_content
 

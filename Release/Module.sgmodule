@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-10 13:21:26
+#!desc=2025-07-11 08:22:27
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -457,6 +457,7 @@ URL-REGEX, ^https?:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 ^https?:\/\/api\.huachenjie\.com\/run-front\/home\/sports\/getPopup - reject-dict
 ^https?:\/\/api\.huomao\.com\/channels\/loginAd - reject
 ^https?:\/\/api\.indeedpower\.com\/v1\/m\/edu\/module\/homepage_banner\/\?randomStr - reject-dict
+^https?:\/\/api\.internetofcity\.cn\/api\/resource\/anon\/popups\/(?>getSplashList|getList) - reject
 ^https?:\/\/api\.internetofcity\.cn\/api\/resource\/anon\/popups\/(getSplashList|getList) - reject
 ^https?:\/\/api\.intsig\.net\/user\/cs\/operating\/app\/get_startpic\/ - reject-200
 ^https?:\/\/api\.izuiyou\.com\/ad\/ - reject

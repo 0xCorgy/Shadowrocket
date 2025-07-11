@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-11 08:22:27
+#!desc=2025-07-11 08:23:46
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -381,6 +381,7 @@ URL-REGEX, ^https?:\/\/[\d\.]+:8000\/v1\/resource\/\w{32}-1-SPLASH, REJECT-DICT
 ^https?:\/\/api.rr.tv/storage/business/rootName/app/homePage\?dataType=JSON - reject-dict
 ^https?:\/\/api.xiaoyi.com\/v5\/app\/config\?userid=.* - reject
 ^https?:\/\/api.xiaoyi.com\/v5\/app\/mobile\/ads - reject
+^https?:\/\/api1\.zongheng\.com\/iosapi\/system\/startup$ - reject
 ^https?:\/\/api2\.helper\.qq\.com\/game\/buttons - reject-img
 ^https?:\/\/api2\.yaduo\.com\/atourlife\/activity\/appLaunch - reject-dict
 ^https?:\/\/api2\.zongheng\.com\/api\/giftBag\/bindingBag$ - reject-dict

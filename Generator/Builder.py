@@ -45,7 +45,7 @@ def build_sgmodule(rule_text, project_name):
     desc_items = [desc.strip() for line in desc_matches for desc in line.split('；') if desc.strip()]
     if desc_items:
         header_lines.append(f"#!arguments-desc=\\n 参数说明：\\n {'；\\n '.join(desc_items)}；\\n ")
-    sgmodule_content = '\n'.join(header_lines) + '\n'
+    sgmodule_content = '\n'.join(header_lines) + '\n' if header_lines else ''
 
     sgmodule_content += "\n[Rule]\n"
     rule_pattern = r'^(?!#)(.*?)\s*(DOMAIN(?:-SUFFIX|-KEYWORD)?|IP-CIDR|AND|URL-REGEX),'
@@ -67,7 +67,7 @@ def build_sgmodule(rule_text, project_name):
         if x.startswith('IP-CIDR,') and ',' in x and '/' in x else [999] * 16,
         x.upper()
     ))
-    sgmodule_content += '\n'.join(rule_lines) + '\n'
+    sgmodule_content += '\n'.join(rule_lines) + '\n' if rule_lines else ''
 
     sgmodule_content += "\n[URL Rewrite]\n"
     rewrite_pattern = r'^(?!#)(.*?)\s*url\s+(reject(?:-200|-array|-dict|-img|-tinygif)?)'
@@ -86,8 +86,7 @@ def build_sgmodule(rule_text, project_name):
         pattern = match.group(1).strip()
         destination = match.group(2).strip()
         url_rewrite_lines.append(f"{pattern} {destination} 302")
-    url_rewrite_content = '\n'.join(sorted(set(url_rewrite_lines))) + '\n'
-    sgmodule_content += url_rewrite_content
+    sgmodule_content += '\n'.join(sorted(set(url_rewrite_lines))) + '\n' if url_rewrite_lines else ''
 
     sgmodule_content += "\n[Map Local]\n"
     maplocal_pattern = r'^(?!#)(.*?)\s*mock-response-body\s+(.*)$'
@@ -114,7 +113,7 @@ def build_sgmodule(rule_text, project_name):
         line += f' status-code={status_code}' if status_code else ''
         line += f' header="Content-Type:{content_type}"' if 'header' not in kv_pairs else ''
         map_local_lines.append(line)
-    sgmodule_content += '\n'.join(sorted(set(map_local_lines))) + '\n'
+    sgmodule_content += '\n'.join(sorted(set(map_local_lines))) + '\n' if map_local_lines else ''
 
     sgmodule_content += "\n[Body Rewrite]\n"
     body_pattern = r'^(?!#)(.*?)\s*response-body-json-jq\s+(.*)$'
@@ -128,7 +127,7 @@ def build_sgmodule(rule_text, project_name):
         elif body_expr.startswith('jq-path="') and body_expr.endswith('"'):
             line = f"http-response-jq {body_matcher} {body_expr}"
             body_jq_lines.append(line)
-    sgmodule_content += '\n'.join(sorted(set(body_jq_lines))) + '\n'
+    sgmodule_content += '\n'.join(sorted(set(body_jq_lines))) + '\n' if body_jq_lines else ''
 
     sgmodule_content += "\n[Script]\n"
     script_pattern = r'^(?!#)(.*?)\s*url\s+(script-(?:response|request)-(?:body|header)|script-echo-response|script-analyze-echo-response)\s+(\S+)'
@@ -153,8 +152,7 @@ def build_sgmodule(rule_text, project_name):
             params.append(f'argument={argument_match.group(1)}')
         script_line = ', '.join(params)
         script_lines.append(script_line)
-    script_content = '\n'.join(sorted(set(script_lines)))
-    sgmodule_content += script_content + "\n"
+    sgmodule_content += '\n'.join(sorted(set(script_lines))) + "\n" if script_lines else ''
     replace_pattern = r'^(?!#)(.*?)\s*url\s+(response-body)\s+(\S+)\s+(response-body)\s+(\S+)'
     replace_lines = []
     for match in re.finditer(replace_pattern, rule_text, re.MULTILINE):
@@ -172,7 +170,7 @@ def build_sgmodule(rule_text, project_name):
         hostnames = match.group(1).split(',')
         mitm_matches.update(host.strip().lower() for host in hostnames if host.strip())
     mitm_match_content = ','.join(sorted(mitm_matches, key=lambda host: (0 if host.startswith('-') else 1, host)))
-    sgmodule_content += f"hostname = %APPEND% {mitm_match_content}\n"
+    sgmodule_content += f"hostname = %APPEND% {mitm_match_content}\n" if mitm_match_content else ''
 
     return sgmodule_content
 

@@ -174,9 +174,9 @@ def build_sgmodule(rule_text, project_name):
         pattern = match.group(1).strip()
         re1 = match.group(3).strip()
         re2 = match.group(5).strip()
-        line = f"ReplaceBody =type=http-response, pattern={pattern}, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, argument={re1}->{re2},max-size=0"
+        line = f"ReplaceBody =type=http-response, pattern={pattern}, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, argument={re1}->{re2}, max-size=0"
         replace_lines.append(line)
-    sgmodule_content += '\n'.join(sorted(set(replace_lines))) + '\n'
+    sgmodule_content += '\n'.join(sorted(set(replace_lines))) + '\n' if replace_lines else ''
 
     sgmodule_content += f"""
 [MITM]

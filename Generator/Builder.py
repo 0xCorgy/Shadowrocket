@@ -53,7 +53,7 @@ def build_sgmodule(rule_text, project_name):
     sgmodule_content += f"""
 [Rule]
 """
-    rule_pattern = r'^(?!.*[#])(.*?)\s*(DOMAIN(?:-SUFFIX|-KEYWORD)?|IP-CIDR|AND|URL-REGEX),'
+    rule_pattern = r'^(?!#)(.*?)\s*(DOMAIN(?:-SUFFIX|-KEYWORD)?|IP-CIDR|AND|URL-REGEX),'
     priority_list = ['DOMAIN,', 'DOMAIN-SUFFIX,', 'DOMAIN-KEYWORD,', 'IP-CIDR,', 'AND,', 'URL-REGEX,']
     priority_index = {p: i for i, p in enumerate(priority_list)}
     rule_lines = []
@@ -77,9 +77,9 @@ def build_sgmodule(rule_text, project_name):
     sgmodule_content += f"""
 [URL Rewrite]
 """
-    rewrite_pattern = r'^(?!.*[#])(.*?)\s*url\s+(reject(?:-200|-array|-dict|-img|-tinygif)?)'
-    header_pattern = r'^(?!.*[#])(.*?)\s*url-and-header\s+(reject(?:-drop|-no-drop)?)'
-    redirect_pattern = r'^(?!.*[#])(.*?)\s*url\s+302\s+(.*)$'
+    rewrite_pattern = r'^(?!#)(.*?)\s*url\s+(reject(?:-200|-array|-dict|-img|-tinygif)?)'
+    header_pattern = r'^(?!#)(.*?)\s*url-and-header\s+(reject(?:-drop|-no-drop)?)'
+    redirect_pattern = r'^(?!#)(.*?)\s*url\s+302\s+(.*)$'
     url_rewrite_lines = []
     for match in re.finditer(rewrite_pattern, rule_text, re.MULTILINE):
         pattern = match.group(1).strip()
@@ -99,7 +99,7 @@ def build_sgmodule(rule_text, project_name):
     sgmodule_content += f"""
 [Map Local]
 """
-    maplocal_pattern = r'^(?!.*[#])(.*?)\s*mock-response-body\s+(.*)$'
+    maplocal_pattern = r'^(?!#)(.*?)\s*mock-response-body\s+(.*)$'
     map_local_lines = []
     for match in re.finditer(maplocal_pattern, rule_text, re.MULTILINE):
         regex, params_str = match.group(1).strip(), match.group(2).strip()
@@ -130,7 +130,7 @@ def build_sgmodule(rule_text, project_name):
     sgmodule_content += f"""
 [Body Rewrite]
 """
-    body_pattern = r'^(?!.*[#])(.*?)\s*response-body-json-jq\s+(.*)$'
+    body_pattern = r'^(?!#)(.*?)\s*response-body-json-jq\s+(.*)$'
     body_jq_lines = []
     for match in re.finditer(body_pattern, rule_text, re.MULTILINE):
         body_matcher = match.group(1).strip()
@@ -146,7 +146,7 @@ def build_sgmodule(rule_text, project_name):
     sgmodule_content += f"""
 [Script]
 """
-    script_pattern = r'^(?!.*[#])(.*?)\s*url\s+(script-(?:response|request)-(?:body|header)|script-echo-response|script-analyze-echo-response)\s+(\S+)'
+    script_pattern = r'^(?!#)(.*?)\s*url\s+(script-(?:response|request)-(?:body|header)|script-echo-response|script-analyze-echo-response)\s+(\S+)'
     script_lines = []
     for match in re.finditer(script_pattern, rule_text, re.MULTILINE):
         pattern = match.group(1).strip()
@@ -170,7 +170,7 @@ def build_sgmodule(rule_text, project_name):
         script_lines.append(script_line)
     script_content = '\n'.join(sorted(set(script_lines)))
     sgmodule_content += script_content + "\n"
-    replace_pattern = r'^(?!.*[#])(.*?)\s*url\s+(response-body)\s+(\S+)\s+(response-body)\s+(\S+)'
+    replace_pattern = r'^(?!#)(.*?)\s*url\s+(response-body)\s+(\S+)\s+(response-body)\s+(\S+)'
     replace_lines = []
     for match in re.finditer(replace_pattern, rule_text, re.MULTILINE):
         pattern = match.group(1).strip()

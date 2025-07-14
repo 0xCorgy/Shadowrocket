@@ -120,10 +120,8 @@ def build_sgmodule(rule_text, project_name):
         content_type = ('application/octet-stream' if is_base64 or data_type == 'base64'
                         else {'text': 'text/plain', 'json': 'application/json'}.get(data_type, 'application/octet-stream'))
         line = f'{regex} data-type={data_type} data="{data}"'
-        if status_code:
-            line += f' status-code={status_code}'
-        if 'header' not in kv_pairs:
-            line += f' header="Content-Type:{content_type}"'
+        line += f' status-code={status_code}' if status_code else ''
+        line += f' header="Content-Type:{content_type}"' if 'header' not in kv_pairs else ''
         map_local_lines.append(line)
     sgmodule_content += '\n'.join(sorted(set(map_local_lines))) + '\n'
 

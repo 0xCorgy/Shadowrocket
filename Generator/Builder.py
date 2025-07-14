@@ -115,8 +115,8 @@ def build_sgmodule(rule_text, project_name):
         data_type = kv_pairs.get('data-type', '').lower()
         status_code = kv_pairs.get('status-code', '')
         is_base64 = kv_pairs.get('mock-data-is-base64', '').lower() == 'true'
-        if data.startswith('"') and data.endswith('"'):
-            data = data[1:-1]
+        status_code = status_code or ('200' if data_type == 'json' else status_code)
+        data = data[1:-1] if data.startswith('"') and data.endswith('"') else data
         content_type = ('application/octet-stream' if is_base64 or data_type == 'base64'
                         else {'text': 'text/plain', 'json': 'application/json'}.get(data_type, 'application/octet-stream'))
         line = f'{regex} data-type={data_type} data="{data}"'

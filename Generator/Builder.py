@@ -36,10 +36,7 @@ def load_source(url):
 
 def build_sgmodule(rule_text, project_name):
     formatted_time = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
-    header_lines = [
-        f"#!name={project_name}",
-        f"#!desc={formatted_time}",
-    ]
+    header_lines = [f"#!name={project_name}", f"#!desc={formatted_time}"]
     arguments_list = re.findall(r'^\s*#!arguments\s*=\s*(.+)', rule_text, re.MULTILINE)
     arguments_list = [", ".join(part.strip() for part in line.split(',')) for line in arguments_list]
     if arguments_list:
@@ -50,9 +47,7 @@ def build_sgmodule(rule_text, project_name):
         header_lines.append(f"#!arguments-desc=\\n 参数说明：\\n {'；\\n '.join(desc_items)}；\\n ")
     sgmodule_content = '\n'.join(header_lines) + '\n'
 
-    sgmodule_content += f"""
-[Rule]
-"""
+    sgmodule_content += "\n[Rule]\n"
     rule_pattern = r'^(?!#)(.*?)\s*(DOMAIN(?:-SUFFIX|-KEYWORD)?|IP-CIDR|AND|URL-REGEX),'
     priority_list = ['DOMAIN,', 'DOMAIN-SUFFIX,', 'DOMAIN-KEYWORD,', 'IP-CIDR,', 'AND,', 'URL-REGEX,']
     priority_index = {p: i for i, p in enumerate(priority_list)}
@@ -74,9 +69,7 @@ def build_sgmodule(rule_text, project_name):
     ))
     sgmodule_content += '\n'.join(rule_lines) + '\n'
 
-    sgmodule_content += f"""
-[URL Rewrite]
-"""
+    sgmodule_content += "\n[URL Rewrite]\n"
     rewrite_pattern = r'^(?!#)(.*?)\s*url\s+(reject(?:-200|-array|-dict|-img|-tinygif)?)'
     header_pattern = r'^(?!#)(.*?)\s*url-and-header\s+(reject(?:-drop|-no-drop)?)'
     redirect_pattern = r'^(?!#)(.*?)\s*url\s+302\s+(.*)$'
@@ -96,9 +89,7 @@ def build_sgmodule(rule_text, project_name):
     url_rewrite_content = '\n'.join(sorted(set(url_rewrite_lines))) + '\n'
     sgmodule_content += url_rewrite_content
 
-    sgmodule_content += f"""
-[Map Local]
-"""
+    sgmodule_content += "\n[Map Local]\n"
     maplocal_pattern = r'^(?!#)(.*?)\s*mock-response-body\s+(.*)$'
     map_local_lines = []
     for match in re.finditer(maplocal_pattern, rule_text, re.MULTILINE):
@@ -125,9 +116,7 @@ def build_sgmodule(rule_text, project_name):
         map_local_lines.append(line)
     sgmodule_content += '\n'.join(sorted(set(map_local_lines))) + '\n'
 
-    sgmodule_content += f"""
-[Body Rewrite]
-"""
+    sgmodule_content += "\n[Body Rewrite]\n"
     body_pattern = r'^(?!#)(.*?)\s*response-body-json-jq\s+(.*)$'
     body_jq_lines = []
     for match in re.finditer(body_pattern, rule_text, re.MULTILINE):
@@ -141,9 +130,7 @@ def build_sgmodule(rule_text, project_name):
             body_jq_lines.append(line)
     sgmodule_content += '\n'.join(sorted(set(body_jq_lines))) + '\n'
 
-    sgmodule_content += f"""
-[Script]
-"""
+    sgmodule_content += "\n[Script]\n"
     script_pattern = r'^(?!#)(.*?)\s*url\s+(script-(?:response|request)-(?:body|header)|script-echo-response|script-analyze-echo-response)\s+(\S+)'
     script_lines = []
     for match in re.finditer(script_pattern, rule_text, re.MULTILINE):
@@ -178,9 +165,7 @@ def build_sgmodule(rule_text, project_name):
         replace_lines.append(line)
     sgmodule_content += '\n'.join(sorted(set(replace_lines))) + '\n' if replace_lines else ''
 
-    sgmodule_content += f"""
-[MITM]
-"""
+    sgmodule_content += "\n[MITM]\n"
     mitm_pattern = r'^\s*hostname\s*=\s*([^\n#]*)\s*(?=#|$)'
     mitm_matches = set()
     for match in re.finditer(mitm_pattern, rule_text, re.MULTILINE):

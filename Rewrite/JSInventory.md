@@ -51,8 +51,8 @@ https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/caini
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ccblife.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/cotti.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/dianping.js<br>
-https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/cloud139.js<br>
-https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/dubbingShow.js<br>
+<br>
+<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/dushu365.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/ecny.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/eleme.js<br>
@@ -62,7 +62,7 @@ https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/folid
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/freshippo.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/haier.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/jd.js<br>
-https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/kuaikanComic.js<br>
+<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/manner.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/mdb.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/meituan.js<br>

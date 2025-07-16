@@ -3,6 +3,13 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  workflow_run:
+    workflows: 
+      - "Sync-RuleFiles"
+      - "Sync-RewriteFiles"
+      - "Generate-ModuleFiles"
+    types:
+      - completed
 
 permissions:
   contents: read

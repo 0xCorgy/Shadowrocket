@@ -137,10 +137,10 @@ jobs:
               ext="${BASH_REMATCH[2]}"
               original_url=$(awk -v s="$naisi_script" '$2 == s {print $4}' NaisiScriptsMap.list)
               if [[ -z "$original_url" ]]; then
-                original_url=$(grep -F "$naisi_script" NaisiScripts.list | head -n 1)
+                original_url=$(grep -F "$naisi_script" NaisiScripts.list | head -n 1 || true)
               fi
             else
-              original_url=$(grep -F "$naisi_script" NaisiScripts.list | head -n 1)
+              original_url=$(grep -F "$naisi_script" NaisiScripts.list | head -n 1 || true)
             fi
             if [ -f "$naisi_src" ]; then
               cp "$naisi_src" "$naisi_dst"

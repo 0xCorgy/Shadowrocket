@@ -43,8 +43,8 @@ jobs:
         Rules/Global_Domain.list|$base_url/Global/Global_Domain.list
         Rules/Global.list|$base_url/Global/Global.list
         Rules/ChinaMedia.list|$base_url/ChinaMedia/ChinaMedia.list
-        Rules/China_Domain.list|$base_url/ChinaNoMedia/ChinaMaxNoMedia_Domain.list
-        Rules/China.list|$base_url/ChinaNoMedia/ChinaMaxNoMedia.list
+        Rules/China_Domain.list|$base_url/ChinaNoMedia/ChinaNoMedia_Domain.list
+        Rules/China.list|$base_url/ChinaNoMedia/ChinaNoMedia.list
         EOF
         while IFS='|' read -r filepath url; do
           echo "Downloading: $url -> $filepath"

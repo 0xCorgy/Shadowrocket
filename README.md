@@ -12,11 +12,11 @@
 ---
 
 ### [配置说明](#配置说明)
-使用加密的**DoH**进行DNS解析，并劫持未加密的查询请求；<br>
-Apple/Microsoft/Google：**系统服务商**已单独分流；<br>
-ChatGPT/Copilot/Gemini等：**AI工具**已单独分流；<br>
-WeChat/Telegram：**即时通讯工具**类已单独分流，降低因策略变化导致封号的风险；<br>
-**国内流量**与**国际流量**，**国内媒体**与**国际媒体**，分别进行分流处理；<br>
+默认采用加密的**DoH**，并对所有未加密DNS请求进行劫持，确保解析安全性与隐私性；<br>
+苹果、微软、谷歌等**系统服务**已单独建立专属分流策略，避免与通用规则冲突；<br>
+海外主流**AI平台**已独立分流，保障访问速度与稳定性；<br>
+**微信**与**电报**已单独分流，降低因策略调整导致封号或异常的风险；<br>
+针对**国内**与**国外**的**媒体**及**规则**，分别构建独立分流通道，实现更灵活的控制；<br>
 本项目所使用的**规则集**源于[blackmatrix7](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket)，由[GitHub Actions](https://github.com/XiangwanGuan/Shadowrocket/blob/main/.github/workflows/Sync-RuleFiles.yml)**每日自动同步**；<br>
 
 如何安装：<br>

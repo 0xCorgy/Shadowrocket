@@ -17,25 +17,27 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Prepare target directory
+      - name: Create necessary directories
         run: mkdir -p GeoLite2
 
       - name: Download GeoLite2-ASN.mmdb
         env:
           LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
         run: |
-          curl -L -o GeoLite2-ASN.tar.gz \
-            "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-ASN&license_key=${LICENSE_KEY}&suffix=tar.gz"
-          tar -xzf GeoLite2-ASN.tar.gz --strip-components=1 --wildcards --no-anchored '*.mmdb'
+          url="https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-ASN&license_key=${LICENSE_KEY}&suffix=tar.gz"
+          filepath="GeoLite2-ASN.tar.gz"
+          curl -fsSL -o "$filepath" "$url" || (echo "Retrying..." && sleep 3 && curl -fsSL -o "$filepath" "$url") || (echo "::error ::Download failed: $url" && exit 1)
+          tar -xzf "$filepath" --strip-components=1 --wildcards --no-anchored '*.mmdb'
           mv *.mmdb GeoLite2/ASN.mmdb
 
       - name: Download GeoLite2-Country.mmdb
         env:
           LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
         run: |
-          curl -L -o GeoLite2-Country.tar.gz \
-            "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=${LICENSE_KEY}&suffix=tar.gz"
-          tar -xzf GeoLite2-Country.tar.gz --strip-components=1 --wildcards --no-anchored '*.mmdb'
+          url="https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=${LICENSE_KEY}&suffix=tar.gz"
+          filepath="GeoLite2-Country.tar.gz"
+          curl -fsSL -o "$filepath" "$url" || (echo "Retrying..." && sleep 3 && curl -fsSL -o "$filepath" "$url") || (echo "::error ::Download failed: $url" && exit 1)
+          tar -xzf "$filepath" --strip-components=1 --wildcards --no-anchored '*.mmdb'
           mv *.mmdb GeoLite2/Country.mmdb
 
       - name: Stash and rebase

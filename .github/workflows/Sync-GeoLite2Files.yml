@@ -20,7 +20,7 @@ jobs:
       - name: Create necessary directories
         run: mkdir -p GeoLite2
 
-      - name: Download GeoLite2-ASN.mmdb
+      - name: Download GeoLite2/ASN.mmdb
         env:
           LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
         run: |
@@ -30,7 +30,7 @@ jobs:
           tar -xzf "$filepath" --strip-components=1 --wildcards --no-anchored '*.mmdb'
           mv *.mmdb GeoLite2/ASN.mmdb
 
-      - name: Download GeoLite2-Country.mmdb
+      - name: Download GeoLite2/Country.mmdb
         env:
           LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
         run: |
@@ -46,12 +46,12 @@ jobs:
           git pull --rebase origin main
           if git stash list | grep -q .; then git stash pop; fi
 
-      - name: Commit and push updates
+      - name: Commit and push GeoLite2Files
         uses: EndBug/add-and-commit@v9
         with:
-          author_name: GitHub Actions
-          author_email: actions@github.com
-          message: "Sync-GeoLite2Files"
-          add: "GeoLite2/*.mmdb"
+          author_name: 'GitHub Actions'
+          author_email: 'actions@github.com'
+          message: 'Sync-GeoLite2Files'
+          add: 'GeoLite2/**'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

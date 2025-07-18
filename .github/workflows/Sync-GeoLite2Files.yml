@@ -1,0 +1,53 @@
+name: Sync-GeoLite2Files
+on:
+  schedule:
+    - cron: '22 22 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  Sync-GeoLite2Files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Prepare target directory
+        run: mkdir -p GeoLite2
+
+      - name: Download GeoLite2-ASN.mmdb
+        env:
+          LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
+        run: |
+          curl -L -o GeoLite2-ASN.tar.gz "https://download.maxmind.com/geoip/databases/GeoLite2-ASN/download?suffix=tar.gz&license_key=${LICENSE_KEY}"
+          tar -xzf GeoLite2-ASN.tar.gz --strip-components=1 --wildcards --no-anchored '*.mmdb'
+          mv *.mmdb GeoLite2/ASN.mmdb
+
+      - name: Download GeoLite2-Country.mmdb
+        env:
+          LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
+        run: |
+          curl -L -o GeoLite2-Country.tar.gz "https://download.maxmind.com/geoip/databases/GeoLite2-Country/download?suffix=tar.gz&license_key=${LICENSE_KEY}"
+          tar -xzf GeoLite2-Country.tar.gz --strip-components=1 --wildcards --no-anchored '*.mmdb'
+          mv *.mmdb GeoLite2/Country.mmdb
+
+      - name: Stash and rebase
+        run: |
+          git diff --quiet || git stash
+          git pull --rebase origin main
+          if git stash list | grep -q .; then git stash pop; fi
+
+      - name: Commit and push updates
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: GitHub Actions
+          author_email: actions@github.com
+          message: "Update GeoLite2 Databases"
+          add: "GeoLite2/*.mmdb"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -24,7 +24,8 @@ jobs:
         env:
           LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
         run: |
-          curl -L -o GeoLite2-ASN.tar.gz "https://download.maxmind.com/geoip/databases/GeoLite2-ASN/download?suffix=tar.gz&license_key=${LICENSE_KEY}"
+          curl -L -o GeoLite2-ASN.tar.gz \
+            "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-ASN&license_key=${LICENSE_KEY}&suffix=tar.gz"
           tar -xzf GeoLite2-ASN.tar.gz --strip-components=1 --wildcards --no-anchored '*.mmdb'
           mv *.mmdb GeoLite2/ASN.mmdb
 
@@ -32,7 +33,8 @@ jobs:
         env:
           LICENSE_KEY: ${{ secrets.MAXMIND_LICENSE_KEY }}
         run: |
-          curl -L -o GeoLite2-Country.tar.gz "https://download.maxmind.com/geoip/databases/GeoLite2-Country/download?suffix=tar.gz&license_key=${LICENSE_KEY}"
+          curl -L -o GeoLite2-Country.tar.gz \
+            "https://download.maxmind.com/app/geoip_download?edition_id=GeoLite2-Country&license_key=${LICENSE_KEY}&suffix=tar.gz"
           tar -xzf GeoLite2-Country.tar.gz --strip-components=1 --wildcards --no-anchored '*.mmdb'
           mv *.mmdb GeoLite2/Country.mmdb
 
@@ -47,7 +49,7 @@ jobs:
         with:
           author_name: GitHub Actions
           author_email: actions@github.com
-          message: "Update GeoLite2 Databases"
+          message: "Sync-GeoLite2Files"
           add: "GeoLite2/*.mmdb"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

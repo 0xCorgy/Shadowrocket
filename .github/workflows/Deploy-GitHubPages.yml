@@ -7,6 +7,7 @@ on:
     workflows: 
       - "Sync-RuleFiles"
       - "Sync-RewriteFiles"
+      - "Sync-GeoLite2Files"
       - "Generate-ModuleFiles"
     types:
       - completed

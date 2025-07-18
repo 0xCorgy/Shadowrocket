@@ -150,7 +150,6 @@ ca-p12 =
 [*@Keywos*](https://github.com/Keywos/rule)
 [*@kokoryh*](https://github.com/kokoryh/Sparkle)
 [*@LOWERTOP*](https://github.com/LOWERTOP/Shadowrocket-First)
-[*@Loyalsoldier*](https://github.com/Loyalsoldier/geoip)
 [*@Maasea*](https://github.com/Maasea/sgmodule)
 [*@mieqq*](https://github.com/mieqq/mieqq)
 [*@NobyDa*](https://github.com/NobyDa/Script)

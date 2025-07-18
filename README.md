@@ -17,6 +17,7 @@
 海外主流**AI平台**已独立分流，保障访问速度与稳定性；<br>
 **微信**与**电报**已单独分流，降低因策略调整导致封号或异常的风险；<br>
 针对**国内**与**国外**的**媒体**及**规则**，分别构建独立分流通道，实现更灵活的控制；<br>
+
 本项目所使用的**规则集**源自[blackmatrix7](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket)的仓库，由[GitHub Actions](https://github.com/XiangwanGuan/Shadowrocket/blob/main/.github/workflows/Sync-RuleFiles.yml)**每日自动同步**；<br>
 本项目所使用的**GeoLite2数据库**源自[MaxMind](https://www.maxmind.com)提供的免费版本，由[GitHub Actions](https://github.com/XiangwanGuan/Shadowrocket/blob/main/.github/workflows/Sync-GeoLite2Files.yml)**每日自动同步**；<br>
 
@@ -143,22 +144,22 @@ ca-p12 =
 ---
 
 ### [特别鸣谢](#特别鸣谢)
-[*@001ProMax*](https://github.com/001ProMax/Surge)
-[*@app2smile*](https://github.com/app2smile/rules)
+[*@001ProMax*](https://github.com/001ProMax)
+[*@app2smile*](https://github.com/app2smile)
 [*@blackmatrix7*](https://github.com/blackmatrix7)
-[*@ddgksf2013*](https://github.com/ddgksf2013/ddgksf2013)
-[*@fmz200*](https://github.com/fmz200/wool_scripts)
-[*@godalming123*](https://github.com/godalming123/minimal)
-[*@iab0x00*](https://github.com/iab0x00/ProxyRules)
-[*@iKeLee*](https://github.com/luestr/ProxyResource)
-[*@Keywos*](https://github.com/Keywos/rule)
-[*@kokoryh*](https://github.com/kokoryh/Sparkle)
-[*@LOWERTOP*](https://github.com/LOWERTOP/Shadowrocket-First)
-[*@Loyalsoldier*](https://github.com/Loyalsoldier/geoip)
-[*@Maasea*](https://github.com/Maasea/sgmodule)
-[*@mieqq*](https://github.com/mieqq/mieqq)
-[*@NobyDa*](https://github.com/NobyDa/Script)
-[*@QingRex*](https://github.com/QingRex/LoonKissSurge)
-[*@Sliverkiss*](https://github.com/Sliverkiss/QuantumultX)
-[*@zirawell*](https://github.com/zirawell/R-Store)
-[*@zZPiglet*](https://github.com/zZPiglet/Task)<br>
+[*@ddgksf2013*](https://github.com/ddgksf2013)
+[*@fmz200*](https://github.com/fmz200)
+[*@godalming123*](https://github.com/godalming123)
+[*@iab0x00*](https://github.com/iab0x00)
+[*@iKeLee*](https://github.com/luestr)
+[*@Keywos*](https://github.com/Keywos)
+[*@kokoryh*](https://github.com/kokoryh)
+[*@LOWERTOP*](https://github.com/LOWERTOP)
+[*@Maasea*](https://github.com/Maasea)
+[*@MaxMind*](https://github.com/maxmind)
+[*@mieqq*](https://github.com/mieqq)
+[*@NobyDa*](https://github.com/NobyDa)
+[*@QingRex*](https://github.com/QingRex)
+[*@Sliverkiss*](https://github.com/Sliverkiss)
+[*@zirawell*](https://github.com/zirawell)
+[*@zZPiglet*](https://github.com/zZPiglet)<br>

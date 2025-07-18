@@ -45,7 +45,6 @@ jobs:
         Rules/ChinaMedia.list|$base_url/ChinaMedia/ChinaMedia.list
         Rules/China_Domain.list|$base_url/ChinaNoMedia/ChinaNoMedia_Domain.list
         Rules/China.list|$base_url/ChinaNoMedia/ChinaNoMedia.list
-        Rules/ChinaIPs.list|$base_url/ChinaIPs/ChinaIPs.list
         EOF
         while IFS='|' read -r filepath url; do
           echo "Downloading: $url -> $filepath"

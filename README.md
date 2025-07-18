@@ -134,7 +134,8 @@ ca-p12 =
 选择**开启**；<br>
 设置-排除路由0.0.0.0/31：
 选择**关闭**；<br>
-更多使用说明，可参阅：[Shadowrocket使用手册](https://github.com/LOWERTOP/Shadowrocket)
+
+更多使用说明，可参阅：[Shadowrocket使用手册](https://github.com/LOWERTOP/Shadowrocket)<br>
 
 ---
 

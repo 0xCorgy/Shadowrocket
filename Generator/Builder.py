@@ -116,7 +116,7 @@ def build_sgmodule(rule_text, project_name):
     sgmodule_content += '\n'.join(sorted(set(map_local_lines))) + '\n' if map_local_lines else ''
 
     sgmodule_content += "\n[Body Rewrite]\n"
-    body_pattern = r'^(?!#)(.*?)\s*response-body-json-jq\s+(.*)$'
+    body_pattern = r'^(?!#)(.*?)\s*url\s+jsonjq-response-body\s+(.*)$'
     body_jq_lines = []
     for match in re.finditer(body_pattern, rule_text, re.MULTILINE):
         body_matcher = match.group(1).strip()

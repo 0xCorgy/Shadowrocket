@@ -71,17 +71,12 @@ def build_sgmodule(rule_text, project_name):
 
     sgmodule_content += "\n[URL Rewrite]\n"
     rewrite_pattern = r'^(?!#)(.*?)\s*url\s+(reject(?:-200|-array|-dict|-img|-tinygif)?)'
-    header_pattern = r'^(?!#)(.*?)\s*url-and-header\s+(reject(?:-drop|-no-drop)?)'
     redirect_pattern = r'^(?!#)(.*?)\s*url\s+302\s+(.*)$'
     url_rewrite_lines = []
     for match in re.finditer(rewrite_pattern, rule_text, re.MULTILINE):
         pattern = match.group(1).strip()
         reject_type = match.group(2).strip()
         url_rewrite_lines.append(f"{pattern} - {reject_type}")
-    for match in re.finditer(header_pattern, rule_text, re.MULTILINE):
-        pattern = match.group(1).strip()
-        reject_type = match.group(2).strip()
-        url_rewrite_lines.append(f"{pattern} url-and-header {reject_type}")
     for match in re.finditer(redirect_pattern, rule_text, re.MULTILINE):
         pattern = match.group(1).strip()
         destination = match.group(2).strip()

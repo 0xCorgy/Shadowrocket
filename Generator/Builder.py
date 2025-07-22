@@ -71,7 +71,7 @@ def build_sgmodule(rule_text, project_name):
 
     sgmodule_content += "\n[URL Rewrite]\n"
     rewrite_pattern = r'^(?!#)(.*?)\s*url\s+(reject(?:-200|-array|-dict|-img|-tinygif)?)'
-    redirect_pattern = r'^(?!#)(.*?)\s*url\s+302\s+(.*)$'
+    redirect_pattern = r'^(?!#)(.*?)\s*url\s+(302|307|header)\s+(.*)$'
     url_rewrite_lines = []
     for match in re.finditer(rewrite_pattern, rule_text, re.MULTILINE):
         pattern = match.group(1).strip()
@@ -79,8 +79,9 @@ def build_sgmodule(rule_text, project_name):
         url_rewrite_lines.append(f"{pattern} - {reject_type}")
     for match in re.finditer(redirect_pattern, rule_text, re.MULTILINE):
         pattern = match.group(1).strip()
-        destination = match.group(2).strip()
-        url_rewrite_lines.append(f"{pattern} {destination} 302")
+        destination = match.group(3).strip()
+        redirect_type = match.group(2).strip()
+        url_rewrite_lines.append(f"{pattern} {destination} {redirect_type}")
     sgmodule_content += '\n'.join(sorted(set(url_rewrite_lines))) + '\n' if url_rewrite_lines else ''
 
     sgmodule_content += "\n[Map Local]\n"

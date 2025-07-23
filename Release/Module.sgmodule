@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-23 07:58:12
+#!desc=2025-07-23 10:30:56
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -100,6 +100,9 @@ IP-CIDR, 180.76.76.200/32, REJECT, no-resolve
 IP-CIDR, 2402:4e00:1200:ed00:0:9089:6dac:96b6/128, REJECT, no-resolve
 AND, ((PROTOCOL,TCP),(DST-PORT,25641),(IP-ASN,45090,no-resolve)), REJECT
 AND, ((PROTOCOL,TCP),(DST-PORT,25641),(IP-ASN,63646,no-resolve)), REJECT
+AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,gae2-spclient.spotify.com)), REJECT
+AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,guc3-spclient.spotify.com)), REJECT
+AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,spclient.wg.spotify.com)), REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,youtubei.googleapis.com)), REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,googlevideo.com)), REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,xiaohongshu.com)), REJECT

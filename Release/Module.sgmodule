@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-07-30 10:16:12
+#!desc=2025-07-31 10:32:32
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -1827,6 +1827,7 @@ http-response-jq ^https?:\/\/api-release\.wuta-cam\.com\/ad_tree$ 'delpaths([["r
 http-response-jq ^https?:\/\/api-release\.wuta-cam\.com\/ad_tree$ 'delpaths([["regular","splash"]])'
 http-response-jq ^https?:\/\/api-shoulei-ssl\.xunlei\.com\/flowhub\/v1\/slots:batchGet$ '.slots |= map(select(.id == "xl_ios_mytab_vipicon" or (.native.assets.title.text.value? and (.native.assets.title.text.value | . == "清理助手" or . == "云盘容量" or . == "远程设备"))))'
 http-response-jq ^https?:\/\/api\.17gwx\.com\/operate\/elements\? '.data |= with_entries(select(.key | test("home_mid_many|home_mid_banner_multi|user_center_slide_show_pic|newfeed_detail_oper_middle|main_rebate_banner|zhekou_coupon_detail_oper|zhekou_jdcoupon_detail_oper|zhekou_vipcoupon_detail_oper|zhekou_pddcoupon_detail_oper") | not))'
+http-response-jq ^https?:\/\/api\.bilibili\.com\/pgc\/page\/channel\? 'if .data.modules then .data.modules |= map(select(.type != "TIP")) end'
 http-response-jq ^https?:\/\/api\.bilibili\.com\/pgc\/view\/v2\/app\/season\? 'del(.data.payment)'
 http-response-jq ^https?:\/\/api\.bilibili\.com\/x\/pd-proxy\/tracker\? '.data[][]?="chat.bilibili.com:3478"'
 http-response-jq ^https?:\/\/api\.cc\.163\.com\/v\d\/entpage\/live_navbar_mobile\/ios\? '.data.top_nav |= map(select(.cn_name == "推荐" or .cn_name == "星秀" or .cn_name == "心动交友"))'

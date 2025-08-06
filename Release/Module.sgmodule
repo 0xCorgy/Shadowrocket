@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-08-05 19:23:28
+#!desc=2025-08-06 16:35:41
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -106,6 +106,10 @@ AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,spclient.wg.spotify.com)), REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,youtubei.googleapis.com)), REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,googlevideo.com)), REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,xiaohongshu.com)), REJECT
+AND, ((URL-REGEX,^http:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,%E6%B7%98%E5%AE%9D*)), REJECT
+AND, ((URL-REGEX,^http:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,%E9%97%B2%E9%B1%BC*)), REJECT
+AND, ((URL-REGEX,^http:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,AMapiPhone*)), REJECT
+AND, ((URL-REGEX,^http:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,Cainiao4iPhone*)), REJECT
 URL-REGEX, ^https?:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/, REJECT
 URL-REGEX, ^https?:\/\/apd-vlive\.apdcdn\.tc\.qq\.com\/vmind\.qqvideo\.tc\.qq\.com\/\w+, REJECT
 URL-REGEX, ^https?:\/\/apd-\w+\.v\.smtcdns\.com\/(defaultts|omts|vmind\.qqvideo)\.tc\.qq\.com\/\w+, REJECT
@@ -2194,7 +2198,6 @@ http-response-jq ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/home\
 51card =type=http-response, pattern=^https?:\/\/api\.u51\.com\/generic-config-gateway\/api\/v\d\/guanjia\/me-tab2\/config, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/51card.js, requires-body=true, max-size=0
 51card =type=http-response, pattern=^https?:\/\/api\.u51\.com\/liabilitygateway\/api\/v\d\/homepage\/liabilityline, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/51card.js, requires-body=true, max-size=0
 51cto =type=http-response, pattern=^https?:\/\/edu\.51cto\.com\/app\.php\?$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/51cto.js, requires-body=true, max-size=0
-AliAMDC =type=http-response, pattern=^https?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/AliAMDC.js, requires-body=true, max-size=0
 Amap =type=http-response, pattern=^https?:\/\/.*\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js, requires-body=true, max-size=0
 Amap =type=http-response, pattern=^https?:\/\/.*\.amap\.com\/ws\/boss\/(car\/order\/content_info|order_web\/friendly_information), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js, requires-body=true, max-size=0
 Amap =type=http-response, pattern=^https?:\/\/.*\.amap\.com\/ws\/bus\/plan\/integrate\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js, requires-body=true, max-size=0

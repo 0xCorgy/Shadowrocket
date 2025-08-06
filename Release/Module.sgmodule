@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-08-06 16:35:41
+#!desc=2025-08-06 17:18:48
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -106,10 +106,11 @@ AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,spclient.wg.spotify.com)), REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,youtubei.googleapis.com)), REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,googlevideo.com)), REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,xiaohongshu.com)), REJECT
-AND, ((URL-REGEX,^http:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,%E6%B7%98%E5%AE%9D*)), REJECT
-AND, ((URL-REGEX,^http:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,%E9%97%B2%E9%B1%BC*)), REJECT
-AND, ((URL-REGEX,^http:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,AMapiPhone*)), REJECT
-AND, ((URL-REGEX,^http:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,Cainiao4iPhone*)), REJECT
+AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,%E6%B7%98%E5%AE%9D*)), REJECT
+AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,%E9%97%B2%E9%B1%BC*)), REJECT
+AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,AMapiPhone*)), REJECT
+AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,Cainiao4iPhone*)), REJECT
+AND, ((URL-REGEX,^https?:\/\/gw\.xiaocantech\.com\/rpc),(USER-AGENT,GetBannerList*)), REJECT
 URL-REGEX, ^https?:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/, REJECT
 URL-REGEX, ^https?:\/\/apd-vlive\.apdcdn\.tc\.qq\.com\/vmind\.qqvideo\.tc\.qq\.com\/\w+, REJECT
 URL-REGEX, ^https?:\/\/apd-\w+\.v\.smtcdns\.com\/(defaultts|omts|vmind\.qqvideo)\.tc\.qq\.com\/\w+, REJECT
@@ -352,6 +353,7 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 ^https?:\/\/aiqicha\.baidu\.com\/m\/getLoginWordsAjax - reject-dict
 ^https?:\/\/als\.baidu\.com\/clog\/clog - reject
 ^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
+^https?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch\?appkey=23782110 - reject
 ^https?:\/\/ams-cdn\.cdtft\.cn\/prod\/tft-ams\/ - reject-dict
 ^https?:\/\/ap\.dongdianqiu\.com\/plat\/v4 - reject
 ^https?:\/\/apapia-sqk\.manmanbuy\.com\/index_json\.ashx$ - reject-dict

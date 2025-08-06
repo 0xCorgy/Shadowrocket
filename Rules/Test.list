@@ -1,2 +1,0 @@
-# NAME: Test
-AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,AMapiPhone*))

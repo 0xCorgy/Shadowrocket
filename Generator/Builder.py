@@ -59,12 +59,14 @@ def build_sgmodule(rule_text, project_name):
     rule_lines = list(set(rule_lines))
     rule_lines.sort(key=lambda x: (
         priority_index.get(next((p for p in priority_list if x.startswith(p)), ''), len(priority_list)),
-        0 if (x.startswith('IP-CIDR,') and ',' in x and '/' in x and
-            ipaddress.ip_address(x.split(',')[1].split('/')[0].strip()).version == 4) else
-        1 if (x.startswith('IP-CIDR,') and ',' in x and '/' in x and
-            ipaddress.ip_address(x.split(',')[1].split('/')[0].strip()).version == 6) else 2,
-        list(ipaddress.ip_address(x.split(',')[1].split('/')[0].strip()).packed)
-        if x.startswith('IP-CIDR,') and ',' in x and '/' in x else [999] * 16,
+        (lambda ip: 0 if ip and ip.version == 4 else 1 if ip and ip.version == 6 else 2)(
+            (lambda s: ipaddress.ip_address(s) if s and re.match(r'^\d', s) else None)(
+                x.split(',')[1].split('/')[0].strip() if x.startswith('IP-CIDR,') and ',' in x and '/' in x else ''
+            )
+        ),
+        (lambda s: list(ipaddress.ip_address(s).packed) if s and re.match(r'^\d', s) else [999] * 16)(
+            x.split(',')[1].split('/')[0].strip() if x.startswith('IP-CIDR,') and ',' in x and '/' in x else ''
+        ),
         x.upper()
     ))
     sgmodule_content += '\n'.join(rule_lines) + '\n' if rule_lines else ''
@@ -96,7 +98,7 @@ def build_sgmodule(rule_text, project_name):
         lexer.whitespace_split = True
         lexer.commenters = ''
         lexer.quotes = '"'
-        lexer.wordchars += ':/-._'
+        lexer.wordchars += ':/-._?&'
         kv_pairs = dict(token.split('=', 1) for token in lexer if '=' in token)
         data_type = kv_pairs.get('data-type', '').lower()
         status_code = kv_pairs.get('status-code', '')

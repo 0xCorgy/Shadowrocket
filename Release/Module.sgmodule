@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-08-12 10:12:08
+#!desc=2025-08-12 19:59:12
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -76,6 +76,7 @@ DOMAIN, ysad.yy.com, REJECT
 DOMAIN, zxid-m.mobileservice.cn, REJECT
 DOMAIN-SUFFIX, gdt.qq.com, REJECT
 DOMAIN-SUFFIX, v.smtcdns.com, REJECT
+DOMAIN-SUFFIX, wxs.qq.com, REJECT
 DOMAIN-KEYWORD, trace.qq.com, REJECT
 DOMAIN-KEYWORD, trace.video.qq.com, REJECT
 IP-CIDR, 47.110.187.87/32, REJECT, no-resolve
@@ -1296,7 +1297,8 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 ^https?:\/\/mobileso\.bz\.mgtv\.com\/spotlight\/search\/v1\? - reject-dict
 ^https?:\/\/monkey\.kakamobi\.cn\/api\/open\/live-room\/get-resource - reject-dict
 ^https?:\/\/monkey\.kakamobi\.cn\/api\/open\/live\/get-recommend-live-protocol - reject-dict
-^https?:\/\/mp\.weixin\.qq\.com\/mp\/(ad_|advertisement|getappmsgad|cps_product_info|masonryfeed|relatedarticle|relatedsearchword) - reject-dict
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? - reject-dict
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword - reject-dict
 ^https?:\/\/mp\.weixin\.qq\.com\/wapad\/getaddata\?action=getad - reject-200
 ^https?:\/\/mp\.weixin\.qq\.com\/wapad\/reportaddata\?action=exposure_report - reject-200
 ^https?:\/\/mpcs\.suning\.com\/mpcs\/dm\/getDmInfo - reject

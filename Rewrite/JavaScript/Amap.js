@@ -13,43 +13,40 @@ DOMAIN, free-aos-cdn-image.amap.com, REJECT
 DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 
 [rewrite_local]
-^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/new_hotword\? url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(car-end|route-plan) url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/shield\/search_poi\/tips_adv\? url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/banner\/lists\/\? url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/aos\/main\/page\/product\/list\? url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/(main-page-assets|main-page-location|ridewalk-end-fc) url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/(mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword) url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/shield\/scene\/recommend\? url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/valueadded\/weather\/v2\? url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull_mp\? url reject-dict
-^https?:\/\/.*\.amap\.com\/v1\/ai_rec\/home_qs\? url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/boss\/(order\/car\/(feedback\/get_card_questions|feedback\/viptips|king_toolbox_car_bubble|remark\/satisfactionConf|rights_information)|tips\/onscene_visual_optimization) url reject-dict
-^https?:\/\/.*\.amap\.com\/ws\/boss\/pay\/web\/paySuccess\/info\/request url reject-dict
+^https?:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword\? url reject-dict
+^https?:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(?:car-end|route-plan) url reject-dict
+^https?:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url jsonjq-response-body 'delpaths([["data","commonMaterial"], ["data","tipsOperationLocation"], ["data","resourcePlacement"]])'
+^https?:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/homepage\? url jsonjq-response-body 'delpaths([["history_tags"]])'
+^https?:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_adv\? url reject-dict
+^https?:\/\/oss\.amap\.com\/ws\/banner\/lists\/\? url reject-dict
+^https?:\/\/m5\.amap\.com\/ws\/aos\/main\/page\/product\/list\? url reject-dict
+^https?:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(?:main-page-assets|main-page-location|ridewalk-end-fc) url reject-dict
+^https?:\/\/m5\.amap\.com\/ws\/(?:mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword) url reject-dict
+^https?:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? url reject-dict
+^https?:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\? url reject-dict
+^https?:\/\/sns\.amap\.com\/ws\/msgbox\/pull_mp\? url reject-dict
+^https?:\/\/ai\.amap\.com\/v1\/ai_rec\/home_qs\? url reject-dict
+^https?:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:order\/car\/(?:feedback\/get_card_questions|feedback\/viptips|king_toolbox_car_bubble|remark\/satisfactionConf|rights_information)|tips\/onscene_visual_optimization) url reject-dict
+^https?:\/\/m5-zb\.amap\.com\/ws\/boss\/pay\/web\/paySuccess\/info\/request url reject-dict
+^https?:\/\/m5-zb\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\? url jsonjq-response-body 'delpaths([["data","carTips","data","popupInfo"]])'
 
-^https?:\/\/.*\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url jsonjq-response-body 'delpaths([["data","commonMaterial"]])'
-^https?:\/\/.*\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url jsonjq-response-body 'delpaths([["data","tipsOperationLocation"]])'
-^https?:\/\/.*\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url jsonjq-response-body 'delpaths([["data","resourcePlacement"]])'
-^https?:\/\/.*\.amap\.com\/ws\/shield\/search_poi\/homepage\? url jsonjq-response-body 'delpaths([["history_tags"]])'
-^https?:\/\/.*\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\? url jsonjq-response-body 'delpaths([["data","carTips","data","popupInfo"]])'
-
-^https?:\/\/.*\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/bus\/plan\/integrate\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/c3frontend\/(af-(hotel|launch)\/page\/main|af-nearby\/nearby) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/perception\/drive\/(routeInfo|routePlan) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/shield\/search_bff\/hotword\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/shield\/search_poi\/(mps|search\/sp|sug|tips_operation_location) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable\/1\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/boss\/(car\/order\/content_info|order_web\/friendly_information) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource(\/home)?\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/(common\/coupon\/info|poi\/detail) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5\.amap\.com\/ws\/bus\/plan\/integrate\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5\.amap\.com\/ws\/c3frontend\/(?:af-(?:hotel|launch)\/page\/main|af-nearby\/nearby) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5\.amap\.com\/ws\/perception\/drive\/(?:routeInfo|routePlan) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5\.amap\.com\/ws\/shield\/search_bff\/hotword\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/(?:mps|search\/sp|sug|tips_operation_location) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(?:card-service-plan-home|main-page) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable\/1\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv3\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5\.amap\.com\/ws\/shield\/search\/nearbyrec_smart\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5\.amap\.com\/ws\/valueadded\/alimama\/splash_screen\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:car\/order\/content_info|order_web\/friendly_information) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/m5-zb\.amap\.com\/ws\/promotion-web\/resource(\/home)?\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/(?:info|m5)\.amap\.com\/ws\/shield\/search\/(?:common\/coupon\/info|poi\/detail) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 
 [mitm]
-hostname = *.amap.com, amdc.m.taobao.com
+hostname = m5.amap.com, m5-zb.amap.com, oss.amap.com, sns.amap.com, ai.amap.com, amdc.m.taobao.com
 */
 
 const url = $request.url;

@@ -25,6 +25,12 @@ DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/ url reject
 ^https?:\/\/.*\.amap\.com\/ws\/(mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword) url reject-dict
 
+^https?:\/\/.*\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url jsonjq-response-body 'delpaths([["data","commonMaterial"]])'
+^https?:\/\/.*\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url jsonjq-response-body 'delpaths([["data","tipsOperationLocation"]])'
+^https?:\/\/.*\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url jsonjq-response-body 'delpaths([["data","resourcePlacement"]])'
+^https?:\/\/.*\.amap\.com\/ws\/shield\/search_poi\/homepage\? url jsonjq-response-body 'delpaths([["history_tags"]])'
+^https?:\/\/.*\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\? url jsonjq-response-body 'delpaths([["data","carTips","data","popupInfo"]])'
+
 ^https?:\/\/.*\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/boss\/(car\/order\/content_info|order_web\/friendly_information) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/bus\/plan\/integrate\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
@@ -32,13 +38,11 @@ DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/perception\/drive\/(routeInfo|routePlan) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource(\/home)?\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/shield\/dsp\/profile\/index\/nodefaasv\d\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/shield\/frogserver\/aocs\/updatable\/1\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/(common\/coupon\/info|poi\/detail) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/shield\/search\/nearbyrec_smart\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/shield\/search_poi\/(homepage|mps|search\/sp|sug|tips_operation_location) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/shield\/search_poi\/(mps|search\/sp|sug|tips_operation_location) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 
 [mitm]
 hostname = *.amap.com, amdc.m.taobao.com
@@ -227,11 +231,6 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     for (let i of items) {
       delete obj.data[i];
     }
-  }
-} else if (url.includes("/sharedtrip/taxi/order_detail_car_tips")) {
-  // 打车页
-  if (obj.data?.carTips?.data?.popupInfo) {
-    delete obj.data.carTips.data.popupInfo;
   }
 } else if (url.includes("/shield/dsp/profile/index/nodefaasv3")) {
   // 我的页面
@@ -532,19 +531,6 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
   // 搜索框 热榜logo
   if (obj?.data?.headerHotWord?.length > 0) {
     obj.data.headerHotWord = [];
-  }
-} else if (url.includes("/shield/search_business/process/marketingOperationStructured")) {
-  // 详情页 顶部优惠横幅
-  if (obj?.data?.tipsOperationLocation) {
-    delete obj.data.tipsOperationLocation;
-  }
-  if (obj?.data?.resourcePlacement) {
-    delete obj.data.resourcePlacement;
-  }
-} else if (url.includes("/shield/search_poi/homepage")) {
-  // 首页 搜索框历史记录 推广标签
-  if (obj?.history_tags) {
-    delete obj.history_tags;
   }
 } else if (url.includes("/shield/search_poi/search/sp") || url.includes("/shield/search_poi/mps")) {
   if (obj?.data?.list_data) {

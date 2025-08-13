@@ -53,6 +53,10 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     // 公交出行 底部卡路里数值
     obj.data.common_data.bus_plan_bottom_event.data = [];
   }
+  // 公交出行 底部营商推广
+  if (obj?.data?.common_data?.bus_plan_bottom_tips?.data?.length > 0) {
+    obj.data.common_data.bus_plan_bottom_tips.data = [];
+  }
   if (obj?.data?.common_data?.bus_plan_segment_event?.data?.length > 0) {
     // 公交出行 中转站 卡路里数值
     obj.data.common_data.bus_plan_segment_event.data = [];
@@ -63,9 +67,21 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
   }
 } else if (url.includes("/boss/car/order/content_info")) {
   // 打车页面
+  if (obj?.data?.lubanData?.popup?.dataList?.length > 0) {
+    // 优惠弹窗
+    obj.data.lubanData.popup.dataList = [];
+  }
   if (obj?.data?.lubanData?.skin?.dataList?.length > 0) {
     // oss营销皮肤
     obj.data.lubanData.skin.dataList = [];
+  }
+  if (obj?.data?.matrixData?.c3DiversionCard?.dataList?.length > 0) {
+    // 打车订单附近景点推荐列表
+    obj.data.matrixData.c3DiversionCard.dataList = [];
+  }
+  if (obj?.data?.matrixData?.DiversionCard?.dataList?.length > 0) {
+    // 打车订单附近景点推荐列表
+    obj.data.matrixData.DiversionCard.dataList = [];
   }
 } else if (url.includes("/boss/order_web/friendly_information")) {
   // 打车页面

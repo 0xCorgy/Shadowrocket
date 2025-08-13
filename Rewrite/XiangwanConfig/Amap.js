@@ -3,7 +3,7 @@
 # 高德地图应用净化；
 # 原作者：@zirawell，@RuCu6，由向晚重写维护；
 
-# 更新时间: 20250806
+# 更新时间: 20250813
 # 规则链接: https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/Amap.js
 
 [filter_local]
@@ -306,12 +306,14 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
   const items = [
     "CouponBanner", // 高德红包
     // "anchor",
+    "adStoreBigBannerModule", // 广告横幅
     "adv_compliance_info", // 服务提供方
     "adv_gift",
     // "base_info",
     "bigListBizRec", // 周边景点推荐 三张景点大图
     "bottomDescription", // 底部描述 高德酒店 全网比价
     // "brand_introduction",
+    "brand_service", // 品牌服务
     "brand_shop_bar",
     // "brand_story",
     "checkIn",
@@ -322,6 +324,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     "claim", // 立即认领 管理店铺
     "co_branded_card",
     "collector_guide", // 游玩的图文指南
+    "commonAiAgent", // ai门店助手
     "common_coupon_bar", // 领券条幅 新客专享 省钱卡
     "common_coupon_card", // 优惠券卡片
     // "companyInfo", // 简介
@@ -338,6 +341,8 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     // "detail_bottom_shop_service",
     "discount_commodity", // 优惠团购
     "divergentRecommendModule", // 你可能还喜欢
+    "enhanceCustomerServiceFixedBottom", // 品牌服务专区
+    "enhanceCustomerServicePoiModule", // 品牌服务专区
     // "evaluate", // 高德出行评分
     // "events",
     "everyOneToSee", // 大家还在看
@@ -350,6 +355,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     // "ggc_entry",
     // "hkfMiniPortal", // 订票页面 飞机 火车 汽车
     "horizontalGoodsShelf",
+    "hospital_strategy", // 就医攻略
     "hotPlay", // 热门玩法
     "hot_new_house_estate",
     "hot_shop",
@@ -358,11 +364,13 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     "hotelMustRead", // 订房必读
     // "hotelRooms", // 酒店所有房间
     // "hourHotelRooms", // 钟点房
+    // "houseEvaluationInfo", // 小区居住指数
     "houseList",
     "houseOfficeBrandIntroduction",
     "houseOfficeInfo",
     "houseOfficeNotice",
     "houseOfficeService",
+    "houseShelf", // 小区在售房源
     "house_apart_info",
     "house_buying_agent",
     "house_coupon",
@@ -370,6 +378,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     "house_cpt_coupon",
     "house_cpt_grab",
     "house_price",
+    "house_price_v2", // 小区房屋售价
     "house_rent_sale_agency",
     // "human_traffic", // 人流量情况 有统计图
     "image_banner",
@@ -403,6 +412,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     "officerenthouse",
     "officesellhouse",
     "official_account", // 其他平台官方账号
+    "official_account_hospital", // 官方渠道 支付宝小程序
     "oldsellhouse",
     // "opentime", // 营业时间
     "operation_banner", // 横版图片推广
@@ -412,6 +422,9 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     "parentPoiRecEntrance", // 所在商圈
     "platformCustomerCommonModule", // 众安保险赔付
     "platformCustomerComplianceInfo", // 保险公司信息
+    "poiDetailBottomBarOperation",
+    "poiDetailCommonConfig",
+    "poiDetailNewBeltV2", // 金秋出行 横幅
     "poiDetailWaterFeed", // 附近景点瀑布流 新
     "poiDetailWaterFeedTitle", // 更多人气好去处 新
     "poster_banner",
@@ -422,6 +435,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     "relatedRecommends", // 附近同类型酒店
     // "realtorRealStep",
     "renthouse",
+    "rentSaleHouse", // 小区买卖房屋
     "rentsaleagencyv2",
     "rentsaleagencyv3",
     "rentsalehouse",
@@ -452,9 +466,17 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     "searchPlaMap", // 周边推荐
     "second_surround_estate_tab", // 周边房产
     "service_shop", // 中介门店
+    "shopBaseCase", // 小区装修案例
+    "shopStructGift", // 礼品广告位
     // "shop_news",
+    "shoppingMallEvent", // 逛街必看
+    "similarShelfRecommend", // 看过这里的人也喜欢
+    "similarShopRecommend", // 附近相似店铺推荐
     "smallListBizRec", // 周边热门酒店
     "smallOrListBizRec",
+    "societyPublicExperience", // 地图共建
+    "subscription", // 商家号
+    // "surroundFacilityInfo", // 小区周边配套
     "surroundHouseTab", //周边房源
     "surroundOldSellHouse", // 同城二手房
     "surroundRentHouse", // 附近租房
@@ -474,7 +496,8 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     // "video",
     "waistRecEntrance", // 更多人气好去处
     "waterFallFeed", // 附近景点瀑布流
-    "waterFallFeedTitle" // 更多人气好去处
+    "waterFallFeedTitle", // 更多人气好去处
+    "yellowPageAdRecommendModule" //淘宝商品推荐
   ];
   if (obj?.data?.modules) {
     for (let i of items) {

@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-08-12 19:59:12
+#!desc=2025-08-13 11:35:09
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -2201,7 +2201,7 @@ http-response-jq ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/home\
 Amap =type=http-response, pattern=^https?:\/\/.*\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js, requires-body=true, max-size=0
 Amap =type=http-response, pattern=^https?:\/\/.*\.amap\.com\/ws\/boss\/(car\/order\/content_info|order_web\/friendly_information), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js, requires-body=true, max-size=0
 Amap =type=http-response, pattern=^https?:\/\/.*\.amap\.com\/ws\/bus\/plan\/integrate\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js, requires-body=true, max-size=0
-Amap =type=http-response, pattern=^https?:\/\/.*\.amap\.com\/ws\/c3frontend\/af-(hotel|launch)\/page\/main\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js, requires-body=true, max-size=0
+Amap =type=http-response, pattern=^https?:\/\/.*\.amap\.com\/ws\/c3frontend\/(af-(hotel|launch)\/page\/main|af-nearby\/nearby), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js, requires-body=true, max-size=0
 Amap =type=http-response, pattern=^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js, requires-body=true, max-size=0
 Amap =type=http-response, pattern=^https?:\/\/.*\.amap\.com\/ws\/perception\/drive\/(routeInfo|routePlan), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js, requires-body=true, max-size=0
 Amap =type=http-response, pattern=^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource(\/home)?\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js, requires-body=true, max-size=0

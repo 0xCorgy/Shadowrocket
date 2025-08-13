@@ -28,7 +28,7 @@ DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 ^https?:\/\/.*\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/boss\/(car\/order\/content_info|order_web\/friendly_information) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/bus\/plan\/integrate\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
-^https?:\/\/.*\.amap\.com\/ws\/c3frontend\/af-(hotel|launch)\/page\/main\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
+^https?:\/\/.*\.amap\.com\/ws\/c3frontend\/(af-(hotel|launch)\/page\/main|af-nearby\/nearby) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/(card-service-plan-home|main-page) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/perception\/drive\/(routeInfo|routePlan) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 ^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource(\/home)?\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
@@ -139,6 +139,14 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
   // 步行导航结束推广卡片
   if (obj?.data?.modules?.C1EndNaviEngine?.data) {
     obj.data.modules.C1EndNaviEngine.data = {};
+  }
+} else if (url.includes("/c3frontend/af-nearby/nearby")) {
+  // 附近页面
+  if (obj?.data?.modules?.banner) {
+    obj.data.modules.banner = {}; // 横版推广图片
+  }
+  if (obj?.data?.modules?.contentPoster) {
+    obj.data.modules.contentPoster = {}; // 写笔记
   }
 } else if (url.includes("/faas/amap-navigation/card-service-plan-home")) {
   // 路线规划页

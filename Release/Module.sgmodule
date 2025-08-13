@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-08-13 12:06:32
+#!desc=2025-08-13 16:02:45
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -207,6 +207,7 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 ^https?:\/\/(webapi|miniapp)\.qmai\.cn\/web\/cmk-center\/marketing\/canvas\/advert - reject
 ^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 307
 ^https?:\/\/(www|api)\.duitang\.com\/napi\/(ad|ads)\/ - reject-dict
+^https?:\/\/.*\.amap\.com\/v1\/ai_rec\/home_qs\? - reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/(mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword) - reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/aos\/main\/page\/product\/list\? - reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/banner\/lists\/\? - reject-dict

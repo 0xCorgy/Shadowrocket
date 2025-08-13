@@ -23,6 +23,7 @@ DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 ^https?:\/\/.*\.amap\.com\/ws\/shield\/scene\/recommend\? url reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/weather\/v2\? url reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull_mp\? url reject-dict
+^https?:\/\/.*\.amap\.com\/v1\/ai_rec\/home_qs\? url reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/boss\/(order\/car\/(feedback\/get_card_questions|feedback\/viptips|king_toolbox_car_bubble|remark\/satisfactionConf|rights_information)|tips\/onscene_visual_optimization) url reject-dict
 ^https?:\/\/.*\.amap\.com\/ws\/boss\/pay\/web\/paySuccess\/info\/request url reject-dict
 

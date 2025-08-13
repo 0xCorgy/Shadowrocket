@@ -113,32 +113,34 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
   }
 } else if (url.includes("/c3frontend/af-hotel/page/main")) {
   // 酒店/民宿 景区门票 火车/飞机
-  if (obj?.data?.modules?.CouponPortalCard) {
+  if (obj?.data?.modules) {
     // 横幅推广
-    delete obj.data.modules.CouponPortalCard;
-  }
-  if (obj?.data?.modules?.CouponWidget) {
+    if (obj?.data?.modules?.CouponPortalCard) {
+      delete obj.data.modules.CouponPortalCard;
+    }
     // 右下角活动悬浮窗
-    delete obj.data.modules.CouponWidget;
-  }
-  if (obj?.data?.modules?.recommended_list) {
+    if (obj?.data?.modules?.CouponWidget) {
+      delete obj.data.modules.CouponWidget;
+    }
     // 高德建议
-    delete obj.data.modules.recommended_list;
-  }
-  if (obj?.data?.modules?.user_filter_card) {
-    const items = [
-      "banner", // 大横幅
-      "bannerList", // 滚动横幅推广
-      "service_data", // 全网比价 退订便捷 入住保障 资质规则
-      "sug_items_data" // 高德建议
-    ];
-    if (obj?.data?.modules?.user_filter_card?.data) {
-      for (let i of items) {
-        delete obj.data.modules.user_filter_card.data[i];
-      }
-      if (obj?.data?.modules?.user_filter_card?.data?.search_button_data?.rightbgText) {
+    if (obj?.data?.modules?.recommended_list) {
+      delete obj.data.modules.recommended_list;
+    }
+    if (obj?.data?.modules?.user_filter_card) {
+      const items = [
+        "banner", // 大横幅
+        "bannerList", // 滚动横幅推广
+        "service_data", // 全网比价 退订便捷 入住保障 资质规则
+        "sug_items_data" // 高德建议
+      ];
+      if (obj?.data?.modules?.user_filter_card?.data) {
         // 查询按钮右上角角标
-        delete obj.data.modules.user_filter_card.data.search_button_data.rightbgText;
+        if (obj?.data?.modules?.user_filter_card?.data?.search_button_data?.rightbgText) {
+          delete obj.data.modules.user_filter_card.data.search_button_data.rightbgText;
+        }
+        for (let i of items) {
+          delete obj.data.modules.user_filter_card.data[i];
+        }
       }
     }
   }
@@ -165,15 +167,15 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
   // 首页底部卡片
   if (obj?.data?.cardList?.length > 0) {
     obj.data.cardList = obj.data.cardList.filter(
-        (i) =>
-            i?.dataKey === "ContinueNavigationCard" || // 继续导航
-            i?.dataKey === "FrequentLocation" || // 常去地点
-            i?.dataKey === "LoginCard" // 登陆卡片
+      (i) =>
+        i?.dataKey === "ContinueNavigationCard" || // 继续导航
+        i?.dataKey === "FrequentLocation" || // 常去地点
+        i?.dataKey === "LoginCard" // 登陆卡片
     );
   }
   if (obj?.data?.mapBizList?.length > 0) {
     obj.data.mapBizList = obj.data.mapBizList.filter(
-        (i) => i?.dataKey === "FindCarVirtualCard" // 显示关联车辆位置
+      (i) => i?.dataKey === "FindCarVirtualCard" // 显示关联车辆位置
     );
   }
 } else if (url.includes("/perception/drive/routeInfo")) {
@@ -182,13 +184,13 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     obj.data.tbt.event = obj.data.tbt.event.filter((i) => !/ads-\d+/.test(i?.dynamic_id_s));
   }
   if (obj?.data?.front_end) {
+    // 助手皮肤
+    if (obj?.data?.front_end?.assistant) {
+      delete obj.data.front_end.assistant;
+    }
     if (obj?.data?.front_end?.guide_tips?.length > 0) {
       // 音乐底栏
       obj.data.front_end.guide_tips = obj.data.front_end.guide_tips.filter((i) => i?.biz_type !== "music");
-    }
-    if (obj?.data?.front_end?.assistant) {
-      // 助手皮肤
-      delete obj.data.front_end.assistant;
     }
     if (obj?.data?.front_end?.download?.length > 0) {
       // 导航插播语音广告
@@ -313,7 +315,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
   if (obj?.data) {
     for (let i of items) {
       if (obj?.data?.[i]) {
-        obj.data[i] = {status: 1, version: "", value: ""};
+        obj.data[i] = { status: 1, version: "", value: "" };
       }
     }
   }
@@ -635,9 +637,9 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     if (obj?.tip_list?.length > 0) {
       for (let item of obj.tip_list) {
         if (
-            ["12"]?.includes(item?.tip?.datatype_spec) ||
-            ["ad", "poi_ad", "toplist"]?.includes(item?.tip?.result_type) ||
-            ["ad", "exct_query_sug_merge_theme", "query_sug_merge_theme", "sp"]?.includes(item?.tip?.task_tag)
+          ["12"]?.includes(item?.tip?.datatype_spec) ||
+          ["ad", "poi_ad", "toplist"]?.includes(item?.tip?.result_type) ||
+          ["ad", "exct_query_sug_merge_theme", "query_sug_merge_theme", "sp"]?.includes(item?.tip?.task_tag)
         ) {
           continue;
         } else {
@@ -702,4 +704,4 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
   }
 }
 
-$done({body: JSON.stringify(obj)});
+$done({ body: JSON.stringify(obj) });

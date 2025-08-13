@@ -237,19 +237,21 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
   }
 } else if (url.includes("/shield/dsp/profile/index/nodefaasv3")) {
   // 我的页面
-  if (obj?.data?.cardList?.length > 0) {
-    obj.data.cardList = obj.data.cardList.filter((i) => i?.dataKey === "MyOrderCard");
-  }
-  if (obj?.data?.tipData) {
-    delete obj.data.tipData;
-  }
-  // 成就勋章
-  // if (obj?.data?.memberInfo) {
-  //   delete obj.data.memberInfo;
-  // }
-  // 顶部足迹、贡献卡片
-  if (obj?.data?.topMixedCard) {
-    delete obj.data.topMixedCard;
+  if (obj?.data) {
+    if (obj?.data?.tipData) {
+      delete obj.data.tipData;
+    }
+    // 成就勋章
+    // if (obj?.data?.memberInfo) {
+    //   delete obj.data.memberInfo;
+    // }
+    // 顶部足迹、贡献卡片
+    if (obj?.data?.topMixedCard) {
+      delete obj.data.topMixedCard;
+    }
+    if (obj?.data?.cardList?.length > 0) {
+      obj.data.cardList = obj.data.cardList.filter((i) => i?.dataKey === "MyOrderCard");
+    }
   }
 } else if (url.includes("/shield/frogserver/aocs/updatable/")) {
   // 整体图层
@@ -270,7 +272,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     "hotel_tipsicon",
     "hotsaleConfig", // 酒店限时抢购
     "landing_page_info", // 发现吃喝玩乐好去处
-    // "map_weather_switch", // 天气
+    "map_weather_switch", // 天气
     "maplayers", // 赏花地图
     "navi_end", // 导航结束 领油滴
     "nearby_business_popup",

@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-08-13 17:49:42
+#!desc=2025-08-15 08:26:51
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -126,7 +126,7 @@ URL-REGEX, ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/user\/freeMode\/, REJECT-TI
 URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.video)\.qq\.com\/\w+, REJECT
 
 [URL Rewrite]
-^(^https?:\/\/api\.bilibili\.com\/pgc\/page\/channel\?.*)(&mobi_app=iphone)(&.*)$ $1$2_i$3 307
+^(^https?:\/\/api\.bilibili\.com\/pgc\/page\/channel\?.*)(&mobi_app=iphone)(&.*)$ $1$2_i$3 header
 ^(^https?:\/\/www\.vgtime\.com\/app\/topic\/\d+\.jhtml\?.*?&close_ad=)false(&page=\d&sign=\w+&timestamp=\d+&font_size=\d$) $1true$2 302
 ^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/music\/common\/upload\/t_splash_info\/ - reject
 ^https?:\/\/(?:gae2-spclient|guc3-spclient|spclient\.wg)\.spotify\.com\/(?:ad-|pendragon) - reject-dict
@@ -956,7 +956,8 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 ^https?:\/\/gateway\.36kr\.com\/api\/adx\/ad\/show - reject
 ^https?:\/\/gateway\.benewtech\.cn\/resources-app\/app\/startup\/prepage - reject-dict
 ^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/adSortList - reject-dict
-^https?:\/\/gateway\.shouqiev\.com\/fsda\/app\/bootImage\.json - reject
+^https?:\/\/gateway\.shouqiev\.com(:\d+)?\/app\/startUp - reject-dict
+^https?:\/\/gateway\.shouqiev\.com(:\d+)?\/fsda\/app\/(bootImage|loadPic|appBannerList) - reject-dict
 ^https?:\/\/geetest\.htsc\.com:8888\/pre_get_token - reject-200
 ^https?:\/\/gfp\.veta\.naver\.com\/adcall\? - reject
 ^https?:\/\/ggc\.miguvideo\.com\/v1\/iflyad\/deliverysystem\/direct\/ - reject-img

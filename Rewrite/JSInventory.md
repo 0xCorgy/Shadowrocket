@@ -10,7 +10,6 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/bohe/bohe_ads
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/caixin/caixinAd.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cmschina/cmschina.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cnftp.js<br>
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/fenbi.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/Flightradar24.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/hengdian.json<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/ithome/ithome.js<br>

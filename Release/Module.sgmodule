@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-08-22 09:08:32
+#!desc=2025-08-22 09:12:35
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -78,6 +78,7 @@ DOMAIN, zxid-m.mobileservice.cn, REJECT
 DOMAIN-SUFFIX, gdt.qq.com, REJECT
 DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 DOMAIN-SUFFIX, wxs.qq.com, REJECT
+DOMAIN-KEYWORD, iyes.youku.com, REJECT
 DOMAIN-KEYWORD, trace.qq.com, REJECT
 DOMAIN-KEYWORD, trace.video.qq.com, REJECT
 IP-CIDR, 47.110.187.87/32, REJECT, no-resolve

@@ -13,6 +13,7 @@ DOMAIN, free-aos-cdn-image.amap.com, REJECT
 DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 
 [rewrite_local]
+^https?:\/\/ai\.amap\.com\/v1\/ai_rec\/home_qs\? url reject-dict
 ^https?:\/\/m5\.amap\.com\/ws\/shield\/search\/new_hotword\? url reject-dict
 ^https?:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/card-service-(?:car-end|route-plan) url reject-dict
 ^https?:\/\/m5\.amap\.com\/ws\/shield\/search_business\/process\/marketingOperationStructured\? url jsonjq-response-body 'delpaths([["data","commonMaterial"], ["data","tipsOperationLocation"], ["data","resourcePlacement"]])'
@@ -45,7 +46,7 @@ DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 ^https?:\/\/(?:info|m5)\.amap\.com\/ws\/shield\/search\/(?:common\/coupon\/info|poi\/detail) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 
 [mitm]
-hostname = m5.amap.com, oss.amap.com, sns.amap.com, m5-zb.amap.com, info.amap.com, amdc.m.taobao.com
+hostname = ai.amap.com, m5.amap.com, oss.amap.com, sns.amap.com, m5-zb.amap.com, info.amap.com, amdc.m.taobao.com
 */
 
 const url = $request.url;

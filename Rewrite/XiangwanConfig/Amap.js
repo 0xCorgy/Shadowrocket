@@ -3,7 +3,7 @@
 # 高德地图应用净化；
 # 原作者：@iKeLee，@RuCu6，由向晚重写维护；
 
-# 更新时间: 20250813
+# 更新时间: 20250825
 # 规则链接: https://raw.githubusercontent.com/XiangwanGuan/Shadowrocket/main/Rewrite/XiangwanConfig/Amap.js
 
 [filter_local]
@@ -20,14 +20,13 @@ DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 ^https?:\/\/m5\.amap\.com\/ws\/shield\/search_poi\/tips_adv\? url reject-dict
 ^https?:\/\/oss\.amap\.com\/ws\/banner\/lists\/\? url reject-dict
 ^https?:\/\/m5\.amap\.com\/ws\/aos\/main\/page\/product\/list\? url reject-dict
-^https?:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(?:main-page-assets|main-page-location|ridewalk-end-fc) url reject-dict
+^https?:\/\/m5\.amap\.com\/ws\/faas\/amap-navigation\/(?:main-page-assets|main-page-location|ridewalk-end-fc|usr-profile-fc\/homeV2) url reject-dict
 ^https?:\/\/m5\.amap\.com\/ws\/(?:mapapi\/hint_text\/offline_data|message\/notice\/list|shield\/search\/new_hotword) url reject-dict
 ^https?:\/\/m5\.amap\.com\/ws\/shield\/scene\/recommend\? url reject-dict
 ^https?:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\? url reject-dict
 ^https?:\/\/sns\.amap\.com\/ws\/msgbox\/pull_mp\? url reject-dict
-^https?:\/\/ai\.amap\.com\/v1\/ai_rec\/home_qs\? url reject-dict
 ^https?:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:order\/car\/(?:feedback\/get_card_questions|feedback\/viptips|king_toolbox_car_bubble|remark\/satisfactionConf|rights_information)|tips\/onscene_visual_optimization) url reject-dict
-^https?:\/\/m5-zb\.amap\.com\/ws\/boss\/pay\/web\/paySuccess\/info\/request url reject-dict
+^https?:\/\/m5-zb\.amap\.com\/ws\/boss\/(?:pay\/web\/paySuccess\/info\/request|transportation\/diversion\/resource\/driving) url reject-dict
 ^https?:\/\/m5-zb\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\? url jsonjq-response-body 'delpaths([["data","carTips","data","popupInfo"]])'
 
 ^https?:\/\/m5\.amap\.com\/ws\/aos\/perception\/publicTravel\/beforeNavi\? url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
@@ -46,7 +45,7 @@ DOMAIN-SUFFIX, v.smtcdns.com, REJECT
 ^https?:\/\/(?:info|m5)\.amap\.com\/ws\/shield\/search\/(?:common\/coupon\/info|poi\/detail) url script-response-body https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Amap.js
 
 [mitm]
-hostname = m5.amap.com, m5-zb.amap.com, oss.amap.com, sns.amap.com, ai.amap.com, amdc.m.taobao.com
+hostname = m5.amap.com, oss.amap.com, sns.amap.com, m5-zb.amap.com, info.amap.com, amdc.m.taobao.com
 */
 
 const url = $request.url;
@@ -241,7 +240,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     if (obj?.data?.tipData) {
       delete obj.data.tipData;
     }
-    // 成就勋章
+     // 成就勋章
     // if (obj?.data?.memberInfo) {
     //   delete obj.data.memberInfo;
     // }
@@ -334,7 +333,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
   const items = [
     "CouponBanner", // 高德红包
     // "anchor",
-    "adStoreBigBannerModule", // 广告横幅
+    "adStoreBigBannerModule", // 广告横幅 打车券之类的
     "adv_compliance_info", // 服务提供方
     "adv_gift",
     // "base_info",
@@ -344,6 +343,7 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     "brand_service", // 品牌服务
     "brand_shop_bar",
     // "brand_story",
+    "carServiceCard", // 车主中心
     "checkIn",
     "check_in", // 足迹打卡
     "cityCardFeed", // 景点卡片
@@ -528,6 +528,10 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     "yellowPageAdRecommendModule" //淘宝商品推荐
   ];
   if (obj?.data?.modules) {
+    // 写评论赢奖励
+    if (obj?.data?.modules?.combineReviews?.data?.write_comment) {
+      delete obj.data.modules.combineReviews.data.write_comment;
+    }
     for (let i of items) {
       delete obj.data.modules[i];
     }
@@ -556,10 +560,6 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
     }
     if (list?.poi?.item_info?.tips_bottombar_button?.hotel) {
       delete list.poi.item_info.tips_bottombar_button.hotel;
-    }
-    // 地图优惠推广
-    if (list?.map?.main_point) {
-      delete list.map.main_point;
     }
     if (list?.tips_operation_info) {
       delete list.tips_operation_info;
@@ -607,10 +607,6 @@ if (url.includes("/aos/perception/publicTravel/beforeNavi")) {
       }
       if (list?.poi?.item_info?.tips_bottombar_button?.hotel) {
         delete list.poi.item_info.tips_bottombar_button.hotel;
-      }
-      // 地图优惠推广
-      if (list?.map?.main_point) {
-        delete list.map.main_point;
       }
       // 左上角动图推广
       if (list?.tips_operation_info) {

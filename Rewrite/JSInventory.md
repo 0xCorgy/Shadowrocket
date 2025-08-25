@@ -24,7 +24,6 @@ https://raw.githubusercontent.com/app2smile/rules/master/js/qq-news.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/QuDa.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/template/req_replace_body.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/rrtv_json.js<br>
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soda.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/soul/soul_ads.js<br>
 https://raw.githubusercontent.com/001ProMax/Surge/refs/heads/main/Script/Spotify.Crack.Dev.js<br>
 https://raw.githubusercontent.com/app2smile/rules/master/js/tieba-json.js<br>

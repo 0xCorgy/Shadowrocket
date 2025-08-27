@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-08-26 15:37:04
+#!desc=2025-08-27 13:12:10
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -320,6 +320,7 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 ^https?:\/\/a\.sinopecsales\.com\/app\/cms - reject-dict
 ^https?:\/\/aag\.enmonster\.com\/apa\/index\/advert\/skin - reject
 ^https?:\/\/access.mypikpak.com/access_controller/v1/area_accessible - reject
+^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.alibaba\.emas\.publish\.update\.get - reject-dict
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.crm\.platform\.ma\.recommend - reject-dict
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.fc\.recommend\.feedscommondservice - reject-dict
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.hippotown\.tabbar\.info - reject

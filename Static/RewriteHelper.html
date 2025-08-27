@@ -13,7 +13,7 @@
       --muted: #666;
       --card: #f7f7f8;
       --border: #e5e7eb;
-      --accent: #2563eb
+      --accent: #2563eb;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -23,30 +23,30 @@
         --muted: #a1a1aa;
         --card: #111317;
         --border: #25262b;
-        --accent: #60a5fa
+        --accent: #60a5fa;
       }
     }
 
     * {
-      box-sizing: border-box
+      box-sizing: border-box;
     }
 
     html,
     body {
-      height: 100%
+      height: 100%;
     }
 
     body {
       margin: 0;
       background: var(--bg);
       color: var(--fg);
-      font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, Apple Color Emoji, Segoe UI Emoji
+      font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, Apple Color Emoji, Segoe UI Emoji;
     }
 
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 24px
+      padding: 24px;
     }
 
     .header {
@@ -54,29 +54,29 @@
       gap: 12px;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap
+      flex-wrap: wrap;
     }
 
     .brand {
       display: flex;
       gap: 10px;
-      align-items: center
+      align-items: center;
     }
 
     .brand h1 {
       font-size: 18px;
-      margin: 0
+      margin: 0;
     }
 
     small {
-      color: var(--muted)
+      color: var(--muted);
     }
 
     .controls {
       display: flex;
       gap: 10px;
       align-items: center;
-      flex-wrap: wrap
+      flex-wrap: wrap;
     }
 
     input[type="text"] {
@@ -87,12 +87,13 @@
       border-radius: 12px;
       background: var(--card);
       color: var(--fg);
-      outline: none
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     input[type="text"]:focus {
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 30%, transparent)
+      box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 30%, transparent);
     }
 
     button,
@@ -102,13 +103,26 @@
       background: var(--card);
       color: var(--fg);
       border-radius: 12px;
-      cursor: pointer
+      cursor: pointer;
+      transition: all 0.2s;
     }
 
     button.primary {
       background: var(--accent);
       border-color: transparent;
-      color: #fff
+      color: #fff;
+    }
+
+    button:hover,
+    .btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    button:active,
+    .btn:active {
+      transform: scale(0.97);
     }
 
     .badge {
@@ -118,14 +132,14 @@
       border: 1px solid var(--border);
       background: var(--card);
       font-size: 12px;
-      color: var(--muted)
+      color: var(--muted);
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 14px;
-      margin-top: 18px
+      margin-top: 18px;
     }
 
     .card {
@@ -133,18 +147,18 @@
       border: 1px solid var(--border);
       background: var(--card);
       border-radius: 16px;
-      padding: 14px
+      padding: 14px;
     }
 
     @media(min-width:720px) {
       .card {
-        grid-column: span 6
+        grid-column: span 6;
       }
     }
 
     .card h3 {
       margin: 0 0 8px;
-      font-size: 16px
+      font-size: 16px;
     }
 
     .card pre {
@@ -155,34 +169,34 @@
       overflow: auto;
       max-height: 400px;
       background: transparent;
-      white-space: pre-wrap
+      white-space: pre-wrap;
     }
 
     .meta {
       display: flex;
       gap: 8px;
       align-items: center;
-      flex-wrap: wrap
+      flex-wrap: wrap;
     }
 
     .row {
       display: flex;
       gap: 8px;
       align-items: center;
-      flex-wrap: wrap
+      flex-wrap: wrap;
     }
 
     .footer {
       margin-top: 26px;
-      color: var(--muted)
+      color: var(--muted);
     }
 
     .progress {
-      height: 6px;
+      height: 8px;
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 999px;
-      overflow: hidden
+      overflow: hidden;
     }
 
     .progress>i {
@@ -190,11 +204,11 @@
       height: 100%;
       width: 0;
       background: var(--accent);
-      transition: width .25s ease
+      transition: width .25s ease;
     }
 
     .code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
 
     .modal {
@@ -204,10 +218,17 @@
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.6);
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
-      z-index: 1000
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal.show {
+      display: flex;
+      opacity: 1;
     }
 
     .modal-content {
@@ -215,21 +236,33 @@
       color: var(--fg);
       border-radius: 16px;
       max-width: 90%;
-      max-height: 80%;
-      padding: 16px;
-      overflow: auto;
-      border: 1px solid var(--border)
+      max-height: 90%;
+      padding: 20px;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
     }
 
     .modal-content h3 {
-      margin-top: 0
+      margin-top: 0;
     }
 
     .modal-close {
       float: right;
       cursor: pointer;
       font-size: 18px;
-      color: var(--muted)
+      color: var(--muted);
+    }
+
+    @media(max-width: 500px) {
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .controls button {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -258,7 +291,7 @@
     <div id="results" class="grid"></div>
   </div>
 
-  <div id="modal" class="modal" style="display:none">
+  <div id="modal" class="modal">
     <div class="modal-content">
       <span class="modal-close" id="modalClose">✕</span>
       <h3>原始规则（需转换后使用，Shadowrocket无法直接运行）</h3>
@@ -312,7 +345,7 @@
 
     function antiKill(domains) {
       const ds = [...domains].map(d => d.replace(/^-/, '').trim()).filter(Boolean);
-      return `hostname = %APPEND% ${ds.map(d => `-${d}`).join(', ')}`
+      return `hostname = %APPEND% ${ds.map(d => `-${d}`).join(', ')}`;
     }
 
     function fuzzyMatch(text, query) {
@@ -352,18 +385,28 @@
     function attachEvents() {
       $('#results').addEventListener('click', e => {
         if (e.target.matches('[data-copy]')) {
+          const btn = e.target;
           const rule = e.target.closest('.card').querySelector('[data-rule-copy]').getAttribute('data-rule-copy');
-          navigator.clipboard.writeText(rule);
+          navigator.clipboard.writeText(rule).then(() => {
+            btn.textContent = '已复制';
+            setTimeout(() => btn.textContent = '复制反误杀规则', 1200);
+          });
         }
         if (e.target.matches('[data-raw]')) {
           const app = e.target.closest('.card').querySelector('h3').innerText;
           const raw = state.apps.get(app)?.raw || '';
           $('#modalBody').textContent = raw;
-          $('#modal').style.display = 'flex';
+          const modal = $('#modal');
+          modal.style.display = 'flex';
+          setTimeout(() => modal.classList.add('show'), 10);
         }
       });
-      $('#modalClose').onclick = () => $('#modal').style.display = 'none';
-      $('#modal').onclick = e => { if (e.target.id === 'modal') $('#modal').style.display = 'none' }
+      $('#modalClose').onclick = () => {
+        const modal = $('#modal');
+        modal.classList.remove('show');
+        setTimeout(() => modal.style.display = 'none', 200);
+      };
+      $('#modal').onclick = e => { if (e.target.id === 'modal') $('#modalClose').click() }
     }
 
     async function fetchJSON(url) {

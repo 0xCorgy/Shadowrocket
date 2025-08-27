@@ -105,7 +105,7 @@ async function fetchText(url){const r=await fetch(url);if(!r.ok) throw new Error
 async function load(){state.apps.clear();state.rawFiles=[];setStatus('列目录…',5);
 const list=await fetchJSON(`https://api.github.com/repos/${state.owner}/${state.repo}/contents/${state.path}`);
 const files=list.filter(x=>x.type==='file');let done=0;for(const f of files){setStatus(`读取 ${f.name}`,10+Math.round(done/files.length*80));const txt=await fetchText(f.download_url);state.rawFiles.push({name:f.name,txt});parseFile(txt);done++}
-state.loaded=true;setStatus(`完成：${state.apps.size} 个 APP`,100)}
+state.loaded=true;setStatus(`成功加载：${state.apps.size} 个 APP`,100)}
 function debounce(fn,ms){let t;return (...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),ms)}}
 (function main(){$('#reload').onclick=()=>load().catch(e=>{setStatus('失败',100);alert(e.message)});$('#q').addEventListener('input',debounce(e=>renderResults(e.target.value.trim()),120));attachEvents();load().catch(e=>{setStatus('失败',100);alert(e.message)})})();
 </script>

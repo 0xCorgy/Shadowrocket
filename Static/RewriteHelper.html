@@ -351,7 +351,7 @@
           card.className = 'card';
           card.innerHTML = `<h3>${app}</h3>
             <div class="meta">
-              <span class="badge">域名 ${domains.size}</span>
+              <span class="badge">解密域名：${domains.size}</span>
               <button class="btn" data-copy>复制反误杀规则</button>
               <button class="btn" data-raw>查看原始规则</button>
             </div>
@@ -372,7 +372,6 @@
             const rule = card.querySelector('[data-rule-copy]').getAttribute('data-rule-copy');
             navigator.clipboard.writeText(rule).then(() => {
               btn.textContent = '规则复制成功';
-              setTimeout(() => { btn.textContent = '复制反误杀规则'; }, 1200);
             });
           }
 

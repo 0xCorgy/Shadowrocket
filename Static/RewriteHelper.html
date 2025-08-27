@@ -82,7 +82,7 @@ function antiKill(domains){const ds=[...domains].map(d=>d.replace(/^-/,'').trim(
 function fuzzyMatch(text,query){text=text.toLowerCase();query=query.toLowerCase();if(text.includes(query))return true;let i=0;for(const c of text){if(c===query[i]) i++; if(i===query.length) return true}return false}
 function renderResults(q){const root=$('#results');root.innerHTML='';const entries=[...state.apps.entries()].sort((a,b)=>a[0].localeCompare(b[0]));const matched=q?entries.filter(([k])=>fuzzyMatch(k,q)):[];if(!matched.length)return;
 for(const [app,data] of matched){const domains=data.domains;const rule=antiKill(domains);const card=document.createElement('div');card.className='card';card.innerHTML=`<h3>${app}</h3>
-<div class="meta"><span class="badge">域名 ${domains.size}</span><button class="btn" data-copy>复制反误杀域名</button><button class="btn" data-raw>查看原始规则</button></div>
+<div class="meta"><span class="badge">域名 ${domains.size}</span><button class="btn" data-copy>复制反误杀规则</button><button class="btn" data-raw>查看原始规则</button></div>
 <pre class="code" data-rule>${rule}</pre>`;
 root.appendChild(card)}}
 function attachEvents(){
@@ -102,9 +102,9 @@ function attachEvents(){
 }
 async function fetchJSON(url){const r=await fetch(url,{headers:{'Accept':'application/vnd.github+json'}});if(!r.ok) throw new Error(r.status+': '+(await r.text()));return r.json()}
 async function fetchText(url){const r=await fetch(url);if(!r.ok) throw new Error(r.status+': '+(await r.text()));return r.text()}
-async function load(){state.apps.clear();state.rawFiles=[];setStatus('列目录…',5);
+async function load(){state.apps.clear();state.rawFiles=[];setStatus('正在读取目录',5);
 const list=await fetchJSON(`https://api.github.com/repos/${state.owner}/${state.repo}/contents/${state.path}`);
-const files=list.filter(x=>x.type==='file');let done=0;for(const f of files){setStatus(`读取 ${f.name}`,10+Math.round(done/files.length*80));const txt=await fetchText(f.download_url);state.rawFiles.push({name:f.name,txt});parseFile(txt);done++}
+const files=list.filter(x=>x.type==='file');let done=0;for(const f of files){setStatus(`正在读取 ${f.name}`,10+Math.round(done/files.length*80));const txt=await fetchText(f.download_url);state.rawFiles.push({name:f.name,txt});parseFile(txt);done++}
 state.loaded=true;setStatus(`成功加载：${state.apps.size} 个 APP`,100)}
 function debounce(fn,ms){let t;return (...a)=>{clearTimeout(t);t=setTimeout(()=>fn(...a),ms)}}
 (function main(){$('#reload').onclick=()=>load().catch(e=>{setStatus('失败',100);alert(e.message)});$('#q').addEventListener('input',debounce(e=>renderResults(e.target.value.trim()),120));attachEvents();load().catch(e=>{setStatus('失败',100);alert(e.message)})})();

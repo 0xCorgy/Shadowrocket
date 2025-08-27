@@ -46,8 +46,11 @@
 
     .header {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .brand {
@@ -64,7 +67,7 @@
     .controls {
       display: flex;
       gap: 10px;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     input[type="text"] {
@@ -77,6 +80,7 @@
       color: var(--fg);
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
+      max-width: 360px;
     }
 
     input[type="text"]:focus {
@@ -112,6 +116,12 @@
     button:active,
     .btn:active {
       transform: scale(0.97);
+    }
+
+    .btn.copied:hover {
+      background: var(--card);
+      color: var(--fg);
+      border: 1px solid var(--border);
     }
 
     .badge {
@@ -157,7 +167,7 @@
       padding: 10px;
       border-radius: 12px;
       max-height: 300px;
-      overflow-y: auto;
+      overflow: auto;
       background: transparent;
       white-space: pre-wrap;
       word-break: break-all;
@@ -221,8 +231,8 @@
       max-width: 800px;
       width: 90%;
       max-height: 90%;
-      padding: 20px;
-      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
       border: 1px solid var(--border);
     }
 
@@ -232,13 +242,37 @@
         height: 100%;
         border-radius: 0;
       }
+
+      #modalBody {
+        font-size: 12px;
+        line-height: 1.4;
+      }
+    }
+
+    .modal-header {
+      flex: 0 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      background: var(--card);
+      z-index: 10;
+    }
+
+    #modalBody {
+      padding: 12px 16px;
+      overflow: auto;
+      flex: 1 1 auto;
     }
 
     .modal-close {
-      float: right;
       cursor: pointer;
       font-size: 18px;
       color: var(--muted);
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: var(--card);
     }
   </style>
 </head>
@@ -269,45 +303,29 @@
 
   <div id="modal" class="modal">
     <div class="modal-content">
-      <span class="modal-close" id="modalClose">✕</span>
-      <h3>原始规则（需转换后使用）</h3>
+      <div class="modal-header">
+        <h3>原始规则（需转换后使用）</h3>
+        <span class="modal-close" id="modalClose">✕</span>
+      </div>
       <pre id="modalBody"></pre>
     </div>
   </div>
 
   <script>
     (() => {
-      const state = {
-        owner: 'XiangwanGuan',
-        repo: 'Shadowrocket',
-        path: 'Rewrite/XiangwanConfig',
-        apps: new Map(),
-        rawFiles: []
-      };
-
+      const state = { owner: 'XiangwanGuan', repo: 'Shadowrocket', path: 'Rewrite/XiangwanConfig', apps: new Map(), rawFiles: [] };
       const $ = s => document.querySelector(s);
-
-      const setStatus = (t, p) => {
-        $('#status').textContent = t;
-        $('#bar').style.width = (p || 0) + '%';
-      };
-
+      const setStatus = (t, p) => { $('#status').textContent = t; $('#bar').style.width = (p || 0) + '%'; };
       const normalizeAppName = s => s.trim().replace(/^#\s*>\s*/, '');
-      const tokenizeDomains = line => {
-        let r = (line.split('=')[1] || '').replace(/#.*/, '').replace(/；/g, ',').replace(/，/g, ',');
-        return r.split(/[,\s]+/).map(x => x.trim()).filter(Boolean);
-      };
-
+      const tokenizeDomains = line => ((line.split('=')[1] || '').replace(/#.*/, '').replace(/；/g, ',').replace(/，/g, ',')).split(/[,\s]+/).map(x => x.trim()).filter(Boolean);
       const parseFile = txt => {
-        const lines = txt.split(/\r?\n/);
-        let cur = null, buffer = [];
+        const lines = txt.split(/\r?\n/); let cur = null, buffer = [];
         for (const line of lines) {
           if (/^#\s*>/.test(line.trim())) {
             if (cur && buffer.length) state.apps.get(cur).raw = buffer.join('\n');
             cur = normalizeAppName(line);
             if (!state.apps.has(cur)) state.apps.set(cur, { domains: new Set(), raw: '' });
-            buffer = [];
-            continue;
+            buffer = []; continue;
           }
           if (!cur) continue;
           if (/#\s*-{2,}\s*.+-{2,}\s*#/.test(line)) continue;
@@ -325,14 +343,9 @@
 
       const fuzzyMatch = (text, query) => {
         if (!query) return true;
-        text = text.toLowerCase();
-        query = query.toLowerCase();
+        text = text.toLowerCase(); query = query.toLowerCase();
         if (text.includes(query)) return true;
-        let i = 0;
-        for (const c of text) {
-          if (c === query[i]) i++;
-          if (i === query.length) return true;
-        }
+        let i = 0; for (const c of text) { if (c === query[i]) i++; if (i === query.length) return true; }
         return false;
       };
 
@@ -358,9 +371,11 @@
       };
 
       const attachEvents = () => {
+        const modal = $('#modal');
+        const closeBtn = $('#modalClose');
+
         $('#results').addEventListener('click', e => {
-          const card = e.target.closest('.card');
-          if (!card) return;
+          const card = e.target.closest('.card'); if (!card) return;
 
           if (e.target.matches('[data-copy]')) {
             const btn = e.target;
@@ -368,10 +383,7 @@
             navigator.clipboard.writeText(rule).then(() => {
               btn.classList.add('copied');
               btn.textContent = '规则复制成功';
-              setTimeout(() => {
-                btn.classList.remove('copied');
-                btn.textContent = '复制反误杀规则';
-              }, 1200);
+              setTimeout(() => { btn.classList.remove('copied'); btn.textContent = '复制反误杀规则'; }, 1200);
             });
           }
 
@@ -379,32 +391,21 @@
             const app = card.querySelector('h3').innerText;
             const raw = state.apps.get(app)?.raw || '';
             $('#modalBody').textContent = raw;
-            const modal = $('#modal');
             modal.style.display = 'flex';
             setTimeout(() => modal.classList.add('show'), 10);
           }
         });
 
-        $('#modalClose').onclick = () => {
-          const modal = $('#modal');
+        closeBtn.onclick = () => {
           modal.classList.remove('show');
           setTimeout(() => modal.style.display = 'none', 200);
         };
 
-        $('#modal').onclick = e => { if (e.target.id === 'modal') $('#modalClose').click(); };
+        modal.onclick = e => { if (e.target.id === 'modal') closeBtn.click(); };
       };
 
-      const fetchJSON = async url => {
-        const r = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } });
-        if (!r.ok) throw new Error(r.status + ': ' + (await r.text()));
-        return r.json();
-      };
-
-      const fetchText = async url => {
-        const r = await fetch(url);
-        if (!r.ok) throw new Error(r.status + ': ' + (await r.text()));
-        return r.text();
-      };
+      const fetchJSON = async url => { const r = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } }); if (!r.ok) throw new Error(r.status + ': ' + (await r.text())); return r.json(); };
+      const fetchText = async url => { const r = await fetch(url); if (!r.ok) throw new Error(r.status + ': ' + (await r.text())); return r.text(); };
 
       const load = async () => {
         state.apps.clear(); state.rawFiles = [];
@@ -422,9 +423,7 @@
         renderResults($('#q').value.trim());
       };
 
-      const debounce = (fn, ms) => {
-        let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
-      };
+      const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
 
       const main = () => {
         $('#reload').onclick = () => load().catch(e => { setStatus('失败', 100); alert(e.message); });

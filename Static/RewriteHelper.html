@@ -80,8 +80,8 @@
     }
 
     input[type="text"] {
-      width: 360px;
-      max-width: 100%;
+      flex: 1;
+      min-width: 0;
       padding: 10px 12px;
       border: 1px solid var(--border);
       border-radius: 12px;
@@ -279,7 +279,7 @@
         <h1>规则助手</h1>
       </div>
       <div class="controls">
-        <input id="q" type="text" placeholder="输入应用名称" />
+        <input id="q" type="text" placeholder="输入应用名称" autofocus />
         <button id="reload" class="btn">重新拉取</button>
       </div>
       <div class="row" style="width:100%;margin-top:6px">
@@ -300,151 +300,161 @@
   </div>
 
   <script>
-    const $ = s => document.querySelector(s);
-    const state = { owner: 'XiangwanGuan', repo: 'Shadowrocket', path: 'Rewrite/XiangwanConfig', apps: new Map(), rawFiles: [], loaded: false };
-
-    function setStatus(t, p) {
-      $('#status').textContent = t;
-      $('#bar').style.width = (p || 0) + '%'
-    }
-
-    function normalizeAppName(s) {
-      return s.trim().replace(/^#\s*>\s*/, '')
-    }
-
-    function tokenizeDomains(line) {
-      let r = line.split('=')[1] || '';
-      r = r.replace(/#.*/, '').replace(/；/g, ',').replace(/，/g, ',');
-      return r.split(/[,\s]+/).map(x => x.trim()).filter(Boolean)
-    }
-
-    function parseFile(txt) {
-      const lines = txt.split(/\r?\n/);
-      let cur = null;
-      let buffer = [];
-      for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        if (/^#\s*>/.test(line.trim())) {
-          if (cur && buffer.length) {
-            state.apps.get(cur).raw = buffer.join("\n");
-            buffer = []
-          }
-          cur = normalizeAppName(line);
-          if (!state.apps.has(cur)) state.apps.set(cur, { domains: new Set(), raw: '' });
-          continue
-        }
-        if (!cur) continue;
-        if (/#\s*-{2,}\s*.+-{2,}\s*#/.test(line)) continue;
-        buffer.push(line);
-        if (/^hostname\s*=/.test(line.trim())) {
-          tokenizeDomains(line).forEach(d => state.apps.get(cur).domains.add(d))
-        }
-      }
-      if (cur && buffer.length) { state.apps.get(cur).raw = buffer.join("\n") }
-    }
-
-    function antiKill(domains) {
-      const ds = [...domains].map(d => d.replace(/^-/, '').trim()).filter(Boolean);
-      return `hostname = %APPEND% ${ds.map(d => `-${d}`).join(', ')}`;
-    }
-
-    function fuzzyMatch(text, query) {
-      if (!query) return true;
-      text = text.toLowerCase();
-      query = query.toLowerCase();
-      if (text.includes(query)) return true;
-      let i = 0;
-      for (const c of text) {
-        if (c === query[i]) i++;
-        if (i === query.length) return true
-      }
-      return false
-    }
-
-    function renderResults(q) {
-      const root = $('#results'); root.innerHTML = '';
-      const entries = [...state.apps.entries()].sort((a, b) => a[0].localeCompare(b[0]));
-      const matched = q ? entries.filter(([k]) => fuzzyMatch(k, q)) : [];
-      if (!matched.length) return;
-      for (const [app, data] of matched) {
-        const domains = data.domains;
-        const rule = antiKill(domains);
-        const domainList = [...domains].join('\n');
-        const card = document.createElement('div'); card.className = 'card';
-        card.innerHTML = `<h3>${app}</h3>
-<div class="meta">
-  <span class="badge">域名 ${domains.size}</span>
-  <button class="btn" data-copy>复制反误杀规则</button>
-  <button class="btn" data-raw>查看原始规则</button>
-</div>
-<pre class="code" data-rule-copy="${rule}">${domainList}</pre>`;
-        root.appendChild(card);
-      }
-    }
-
-    function attachEvents() {
-      $('#results').addEventListener('click', e => {
-        if (e.target.matches('[data-copy]')) {
-          const btn = e.target;
-          const rule = e.target.closest('.card').querySelector('[data-rule-copy]').getAttribute('data-rule-copy');
-          navigator.clipboard.writeText(rule).then(() => {
-            btn.textContent = '已复制';
-            setTimeout(() => btn.textContent = '复制反误杀规则', 1200);
-          });
-        }
-        if (e.target.matches('[data-raw]')) {
-          const app = e.target.closest('.card').querySelector('h3').innerText;
-          const raw = state.apps.get(app)?.raw || '';
-          $('#modalBody').textContent = raw;
-          const modal = $('#modal');
-          modal.style.display = 'flex';
-          setTimeout(() => modal.classList.add('show'), 10);
-        }
-      });
-      $('#modalClose').onclick = () => {
-        const modal = $('#modal');
-        modal.classList.remove('show');
-        setTimeout(() => modal.style.display = 'none', 200);
+    (() => {
+      const state = {
+        owner: 'XiangwanGuan',
+        repo: 'Shadowrocket',
+        path: 'Rewrite/XiangwanConfig',
+        apps: new Map(),
+        rawFiles: [],
+        loaded: false
       };
-      $('#modal').onclick = e => { if (e.target.id === 'modal') $('#modalClose').click() }
-    }
 
-    async function fetchJSON(url) {
-      const r = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } });
-      if (!r.ok) throw new Error(r.status + ': ' + (await r.text()));
-      return r.json()
-    }
+      const $ = s => document.querySelector(s);
+      const setStatus = (t, p) => {
+        $('#status').textContent = t;
+        $('#bar').style.width = (p || 0) + '%';
+      };
 
-    async function fetchText(url) {
-      const r = await fetch(url);
-      if (!r.ok) throw new Error(r.status + ': ' + (await r.text()));
-      return r.text()
-    }
+      const normalizeAppName = s => s.trim().replace(/^#\s*>\s*/, '');
+      const tokenizeDomains = line => {
+        let r = (line.split('=')[1] || '').replace(/#.*/, '').replace(/；/g, ',').replace(/，/g, ',');
+        return r.split(/[,\s]+/).map(x => x.trim()).filter(Boolean);
+      };
 
-    async function load() {
-      state.apps.clear(); state.rawFiles = []; setStatus('正在加载目录', 5);
-      const list = await fetchJSON(`https://api.github.com/repos/${state.owner}/${state.repo}/contents/${state.path}`);
-      const files = list.filter(x => x.type === 'file'); let done = 0;
-      for (const f of files) {
-        setStatus(`正在加载：${f.name}`, 10 + Math.round(done / files.length * 80));
-        const txt = await fetchText(f.download_url);
-        state.rawFiles.push({ name: f.name, txt });
-        parseFile(txt);
-        done++
-      }
-      state.loaded = true; setStatus(`成功加载：${state.apps.size}个应用`, 100)
-    }
+      const parseFile = txt => {
+        const lines = txt.split(/\r?\n/);
+        let cur = null, buffer = [];
+        for (const line of lines) {
+          if (/^#\s*>/.test(line.trim())) {
+            if (cur && buffer.length) state.apps.get(cur).raw = buffer.join('\n');
+            cur = normalizeAppName(line);
+            if (!state.apps.has(cur)) state.apps.set(cur, { domains: new Set(), raw: '' });
+            buffer = [];
+            continue;
+          }
+          if (!cur) continue;
+          if (/#\s*-{2,}\s*.+-{2,}\s*#/.test(line)) continue;
+          buffer.push(line);
+          if (/^hostname\s*=/.test(line.trim())) tokenizeDomains(line).forEach(d => state.apps.get(cur).domains.add(d));
+        }
+        if (cur && buffer.length) state.apps.get(cur).raw = buffer.join('\n');
+      };
 
-    function debounce(fn, ms) {
-      let t;
-      return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms) }
-    }
+      const antiKill = domains => {
+        const ds = [...domains].map(d => d.replace(/^-/, '').trim()).filter(Boolean);
+        return `hostname = %APPEND% ${ds.map(d => `-${d}`).join(', ')}`;
+      };
 
-    (function main() {
-      $('#reload').onclick = () => load().catch(e => { setStatus('失败', 100); alert(e.message) });
-      $('#q').addEventListener('input', debounce(e => renderResults(e.target.value.trim()), 120));
-      attachEvents();
-      load().catch(e => { setStatus('失败', 100); alert(e.message) })
+      const fuzzyMatch = (text, query) => {
+        if (!query) return true;
+        text = text.toLowerCase();
+        query = query.toLowerCase();
+        if (text.includes(query)) return true;
+        let i = 0;
+        for (const c of text) {
+          if (c === query[i]) i++;
+          if (i === query.length) return true;
+        }
+        return false;
+      };
+
+      const renderResults = q => {
+        const root = $('#results'); root.innerHTML = '';
+        const entries = [...state.apps.entries()].sort((a, b) => a[0].localeCompare(b[0]));
+        const matched = q ? entries.filter(([k]) => fuzzyMatch(k, q)) : [];
+        for (const [app, data] of matched) {
+          const domains = data.domains;
+          const rule = antiKill(domains);
+          const domainList = [...domains].join('\n');
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `<h3>${app}</h3>
+            <div class="meta">
+              <span class="badge">域名 ${domains.size}</span>
+              <button class="btn" data-copy>复制反误杀规则</button>
+              <button class="btn" data-raw>查看原始规则</button>
+            </div>
+            <pre class="code" data-rule-copy="${rule}">${domainList}</pre>`;
+          root.appendChild(card);
+        }
+      };
+
+      const attachEvents = () => {
+        $('#results').addEventListener('click', e => {
+          const card = e.target.closest('.card');
+          if (!card) return;
+
+          if (e.target.matches('[data-copy]')) {
+            const btn = e.target;
+            const rule = card.querySelector('[data-rule-copy]').getAttribute('data-rule-copy');
+            navigator.clipboard.writeText(rule).then(() => {
+              btn.textContent = '复制成功';
+              setTimeout(() => btn.textContent = '复制反误杀规则', 1200);
+            });
+          }
+
+          if (e.target.matches('[data-raw]')) {
+            const app = card.querySelector('h3').innerText;
+            const raw = state.apps.get(app)?.raw || '';
+            $('#modalBody').textContent = raw;
+            const modal = $('#modal');
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('show'), 10);
+          }
+        });
+
+        $('#modalClose').onclick = () => {
+          const modal = $('#modal');
+          modal.classList.remove('show');
+          setTimeout(() => modal.style.display = 'none', 200);
+        };
+
+        $('#modal').onclick = e => { if (e.target.id === 'modal') $('#modalClose').click(); };
+      };
+
+      const fetchJSON = async url => {
+        const r = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } });
+        if (!r.ok) throw new Error(r.status + ': ' + (await r.text()));
+        return r.json();
+      };
+
+      const fetchText = async url => {
+        const r = await fetch(url);
+        if (!r.ok) throw new Error(r.status + ': ' + (await r.text()));
+        return r.text();
+      };
+
+      const load = async () => {
+        state.apps.clear(); state.rawFiles = [];
+        setStatus('正在加载目录', 5);
+        const list = await fetchJSON(`https://api.github.com/repos/${state.owner}/${state.repo}/contents/${state.path}`);
+        const files = list.filter(x => x.type === 'file'); let done = 0;
+        for (const f of files) {
+          setStatus(`正在加载：${f.name}`, 10 + Math.round(done / files.length * 80));
+          const txt = await fetchText(f.download_url);
+          state.rawFiles.push({ name: f.name, txt });
+          parseFile(txt);
+          done++;
+        }
+        state.loaded = true; setStatus(`成功加载：${state.apps.size}个应用`, 100);
+        renderResults($('#q').value.trim());
+      };
+
+      const debounce = (fn, ms) => {
+        let t;
+        return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); };
+      };
+
+      const main = () => {
+        $('#reload').onclick = () => load().catch(e => { setStatus('失败', 100); alert(e.message); });
+        $('#q').addEventListener('input', debounce(e => renderResults(e.target.value.trim()), 120));
+        attachEvents();
+        $('#q').focus({ preventScroll: true });
+        load().catch(e => { setStatus('失败', 100); alert(e.message); });
+      };
+
+      main();
     })();
   </script>
 </body>

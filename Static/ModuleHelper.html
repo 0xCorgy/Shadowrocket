@@ -532,7 +532,7 @@
             if (!data.rule) { showToast('无可复制内容'); return; }
             const header = `#!name=反解密模块-${app}\n#!desc=请放置于模块列表下方\n`;
             navigator.clipboard.writeText(header + data.rule);
-            showToast('已复制到剪贴板，请自行新建模块！');
+            showToast('已复制内容，请自行新建模块！');
           }
 
           if (e.target.matches('[data-raw]')) {
@@ -599,7 +599,7 @@
       };
 
       const load = async () => {
-        setStatus('正在加载数据', 5);
+        setStatus('正在准备数据', 5);
 
         const list = await fetchJSON(`https://api.github.com/repos/${state.owner}/${state.repo}/contents/${state.path}`);
         const files = list.filter(x => x.type === 'file');
@@ -619,7 +619,7 @@
             parseFile(f.name, txt);
           }));
           done += batch.length;
-          setStatus(`加载进度 ${done}/${files.length}`, Math.round(done / files.length * 100));
+          setStatus(`正在加载 ${done}/${files.length}`, Math.round(done / files.length * 100));
         }
 
         setStatus(`成功加载：${state.apps.size}个应用`, 100);

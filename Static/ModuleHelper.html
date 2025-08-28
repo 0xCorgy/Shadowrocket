@@ -270,13 +270,10 @@
   <div class="container">
     <div class="header">
       <div class="brand">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <path d="M4 12a8 8 0 1 1 16 0v6.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 4 18.5V12Z" stroke="currentColor"
-            stroke-width="1.5" />
-          <path d="M9 19v-5a3 3 0 1 1 6 0v5" stroke="currentColor" stroke-width="1.5" />
-        </svg>
+        <img src="https://github.githubassets.com/favicons/favicon.svg" width="24" height="24" alt="logo" />
         <h1>模块助手</h1>
       </div>
+
       <div class="controls-row">
         <div class="controls">
           <input id="q" type="text" placeholder="输入应用名称" autofocus />
@@ -339,11 +336,9 @@
         }
 
         if (!domains.size) return '';
-
         const line = `hostname = %APPEND% ${[...domains].map(d => `-${d}`).join(',')}`;
         return `[MITM]\n${line}`;
       };
-
 
       const parseFile = (name, txt) => {
         const appName = name.replace(/\.sgmodule$/i, '');
@@ -351,7 +346,8 @@
         state.apps.set(appName, {
           domains,
           raw: txt,
-          rule: antiKill(txt)
+          rule: antiKill(txt),
+          fileName: name
         });
       };
 
@@ -374,12 +370,13 @@
           const card = document.createElement('div');
           card.className = 'card';
           card.innerHTML = `<h3>${app}</h3>
-        <div class="meta">
-          <span class="badge">解密域名：${domains.size}</span>
-          <button class="btn" data-copy>复制反误杀规则</button>
-          <button class="btn" data-raw>查看原始规则</button>
-        </div>
-        <pre class="code">${[...domains].join('\n')}</pre>`;
+            <div class="meta">
+              <span class="badge">解密域名：${domains.size}</span>
+              <button class="btn" data-copy>复制反误杀规则</button>
+              <button class="btn" data-raw>查看原始模块</button>
+              <button class="btn" data-install>安装到Shadowrocket</button>
+            </div>
+            <pre class="code">${[...domains].join('\n')}</pre>`;
           root.appendChild(card);
         }
       };
@@ -401,6 +398,12 @@
             $('#modalBody').textContent = data.raw;
             modal.style.display = 'flex';
             setTimeout(() => modal.classList.add('show'), 10);
+          }
+
+          if (e.target.matches('[data-install]')) {
+            const moduleName = encodeURIComponent(data.fileName);
+            const url = `https://xiangwanguan.github.io/Shadowrocket/Static/Redirect.html?url=shadowrocket://install?module=https://xiangwanguan.github.io/Shadowrocket/Release/Modules/${moduleName}`;
+            window.open(url, '_blank');
           }
         });
 

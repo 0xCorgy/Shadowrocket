@@ -339,7 +339,7 @@
       };
 
       const parseFile = (name, txt) => {
-        const appName = name.replace(/\.sgmodule$/i, '');
+        const appName = name === 'Module.sgmodule' ? '融合模块' : name.replace(/\.sgmodule$/i, '');
         state.apps.set(appName, {
           domains: extractDomains(txt),
           raw: txt,
@@ -366,13 +366,13 @@
           const card = document.createElement('div');
           card.className = 'card';
           card.innerHTML = `<h3>${app}</h3>
-            <div class="meta">
-              <span class="badge">解密域名：${data.domains.size}</span>
-              <button class="btn" data-copy>复制反误杀规则</button>
-              <button class="btn" data-raw>查看原始模块</button>
-              <button class="btn" data-install>安装到Shadowrocket</button>
-            </div>
-            <pre class="code">${[...data.domains].join('\n')}</pre>`;
+        <div class="meta">
+          <span class="badge">解密域名：${data.domains.size}</span>
+          <button class="btn" data-copy>复制反误杀规则</button>
+          <button class="btn" data-raw>查看原始模块</button>
+          <button class="btn" data-install>安装到Shadowrocket</button>
+        </div>
+        <pre class="code">${[...data.domains].join('\n')}</pre>`;
           root.appendChild(card);
         });
       };
@@ -419,7 +419,12 @@
 
         const list = await fetchJSON(`https://api.github.com/repos/${state.owner}/${state.repo}/contents/${state.path}`);
         const files = list.filter(x => x.type === 'file');
-        files.push({ name: state.extraModule, download_url: `https://raw.githubusercontent.com/${state.owner}/${state.repo}/main/Release/${state.extraModule}` });
+
+        files.push({
+          name: state.extraModule,
+          download_url: `https://raw.githubusercontent.com/${state.owner}/${state.repo}/main/Release/${state.extraModule}`
+        });
+
         let done = 0;
         const batchSize = 20;
 

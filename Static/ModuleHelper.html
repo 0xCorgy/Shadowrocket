@@ -304,59 +304,82 @@
 
   <script>
     (() => {
-      const state = { owner: 'XiangwanGuan', repo: 'Shadowrocket', path: 'Release/Modules', apps: new Map(), rawFiles: [] };
+      const state = { owner: 'XiangwanGuan', repo: 'Shadowrocket', path: 'Release/Modules', apps: new Map() };
       const $ = s => document.querySelector(s);
-      const setStatus = (t, p) => { $('#status').textContent = t; $('#bar').style.width = (p || 0) + '%'; };
-      const normalizeAppName = s => s.trim().replace(/^#\s*>\s*/, '');
-      const tokenizeDomains = line => ((line.split('=')[1] || '').replace(/#.*/, '').replace(/；/g, ',').replace(/，/g, ',')).split(/[,\s]+/).map(x => x.trim()).filter(Boolean);
-      const parseFile = txt => {
-        const lines = txt.split(/\r?\n/); let cur = null, buffer = [];
-        for (const line of lines) {
-          if (/^#\s*>/.test(line.trim())) {
-            if (cur && buffer.length) state.apps.get(cur).raw = buffer.join('\n');
-            cur = normalizeAppName(line);
-            if (!state.apps.has(cur)) state.apps.set(cur, { domains: new Set(), raw: '' });
-            buffer = []; continue;
-          }
-          if (!cur) continue;
-          if (/#\s*-{2,}\s*.+-{2,}\s*#/.test(line)) continue;
-          buffer.push(line);
-          if (/^hostname\s*=/.test(line.trim()))
-            tokenizeDomains(line).forEach(d => state.apps.get(cur).domains.add(d));
-        }
-        if (cur && buffer.length) state.apps.get(cur).raw = buffer.join('\n');
+
+      const setStatus = (t, p) => {
+        $('#status').textContent = t;
+        $('#bar').style.width = (p || 0) + '%';
       };
 
-      const antiKill = domains => {
-        const ds = [...domains].map(d => d.replace(/^-/, '').trim()).filter(Boolean);
-        return `hostname = %APPEND% ${ds.map(d => `-${d}`).join(', ')}`;
+      const extractDomains = txt => {
+        const domains = new Set();
+        const lines = txt.split(/\r?\n/);
+        for (const line of lines) {
+          if (/^hostname\s*=/.test(line.trim())) {
+            let rhs = line.split('=')[1] || '';
+            rhs = rhs.replace(/#.*/, '').trim();
+            rhs = rhs.replace(/%APPEND%/g, '').trim();
+            rhs.split(/[,\s]+/).map(x => x.trim()).filter(Boolean).forEach(d => domains.add(d));
+          }
+        }
+        return domains;
+      };
+
+      const antiKill = txt => {
+        const domains = new Set();
+        const lines = txt.split(/\r?\n/);
+        for (const line of lines) {
+          if (/^hostname\s*=/.test(line.trim())) {
+            let rhs = line.split('=')[1] || '';
+            rhs = rhs.replace(/#.*/, '').trim();
+            rhs = rhs.replace(/%APPEND%/g, '').trim();
+            rhs.split(/[,\s]+/).map(x => x.trim()).filter(Boolean).forEach(d => domains.add(d.replace(/^-/, '')));
+          }
+        }
+
+        if (!domains.size) return '';
+
+        const line = `hostname = %APPEND% ${[...domains].map(d => `-${d}`).join(',')}`;
+        return `[MITM]\n${line}`;
+      };
+
+
+      const parseFile = (name, txt) => {
+        const appName = name.replace(/\.sgmodule$/i, '');
+        const domains = extractDomains(txt);
+        state.apps.set(appName, {
+          domains,
+          raw: txt,
+          rule: antiKill(txt)
+        });
       };
 
       const fuzzyMatch = (text, query) => {
         if (!query) return true;
         text = text.toLowerCase(); query = query.toLowerCase();
         if (text.includes(query)) return true;
-        let i = 0; for (const c of text) { if (c === query[i]) i++; if (i === query.length) return true; }
+        let i = 0;
+        for (const c of text) { if (c === query[i]) i++; if (i === query.length) return true; }
         return false;
       };
 
       const renderResults = q => {
         const root = $('#results'); root.innerHTML = '';
         const entries = [...state.apps.entries()].sort((a, b) => a[0].localeCompare(b[0]));
-        const matched = q ? entries.filter(([k]) => fuzzyMatch(k, q)) : [];
+        const matched = q ? entries.filter(([k]) => fuzzyMatch(k, q)) : entries;
+
         for (const [app, data] of matched) {
           const domains = data.domains;
-          const rule = antiKill(domains);
-          const domainList = [...domains].join('\n');
           const card = document.createElement('div');
           card.className = 'card';
           card.innerHTML = `<h3>${app}</h3>
-            <div class="meta">
-              <span class="badge">解密域名：${domains.size}</span>
-              <button class="btn" data-copy>复制反误杀规则</button>
-              <button class="btn" data-raw>查看原始规则</button>
-            </div>
-            <pre class="code" data-rule-copy="${rule}">${domainList}</pre>`;
+        <div class="meta">
+          <span class="badge">解密域名：${domains.size}</span>
+          <button class="btn" data-copy>复制反误杀规则</button>
+          <button class="btn" data-raw>查看原始规则</button>
+        </div>
+        <pre class="code">${[...domains].join('\n')}</pre>`;
           root.appendChild(card);
         }
       };
@@ -367,19 +390,15 @@
 
         $('#results').addEventListener('click', e => {
           const card = e.target.closest('.card'); if (!card) return;
+          const app = card.querySelector('h3').innerText;
+          const data = state.apps.get(app);
 
           if (e.target.matches('[data-copy]')) {
-            const btn = e.target;
-            const rule = card.querySelector('[data-rule-copy]').getAttribute('data-rule-copy');
-            navigator.clipboard.writeText(rule).then(() => {
-              btn.textContent = '规则复制成功';
-            });
+            navigator.clipboard.writeText(data.rule).then(() => { e.target.textContent = '规则复制成功'; });
           }
 
           if (e.target.matches('[data-raw]')) {
-            const app = card.querySelector('h3').innerText;
-            const raw = state.apps.get(app)?.raw || '';
-            $('#modalBody').textContent = raw;
+            $('#modalBody').textContent = data.raw;
             modal.style.display = 'flex';
             setTimeout(() => modal.classList.add('show'), 10);
           }
@@ -389,21 +408,31 @@
         modal.onclick = e => { if (e.target.id === 'modal') closeBtn.click(); };
       };
 
-      const fetchJSON = async url => { const r = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } }); if (!r.ok) throw new Error(r.status + ': ' + (await r.text())); return r.json(); };
-      const fetchText = async url => { const r = await fetch(url); if (!r.ok) throw new Error(r.status + ': ' + (await r.text())); return r.text(); };
+      const fetchJSON = async url => {
+        const r = await fetch(url, { headers: { 'Accept': 'application/vnd.github+json' } });
+        if (!r.ok) throw new Error(r.status + ': ' + (await r.text()));
+        return r.json();
+      };
 
       const load = async () => {
-        state.apps.clear(); state.rawFiles = [];
+        state.apps.clear();
         setStatus('正在加载目录', 5);
+
         const list = await fetchJSON(`https://api.github.com/repos/${state.owner}/${state.repo}/contents/${state.path}`);
-        const files = list.filter(x => x.type === 'file'); let done = 0;
-        for (const f of files) {
-          setStatus(`正在加载：${f.name}`, 10 + Math.round(done / files.length * 80));
-          const txt = await fetchText(f.download_url);
-          state.rawFiles.push({ name: f.name, txt });
-          parseFile(txt);
-          done++;
+        const files = list.filter(x => x.type === 'file');
+        let done = 0;
+
+        const batchSize = 20;
+        for (let i = 0; i < files.length; i += batchSize) {
+          const batch = files.slice(i, i + batchSize);
+          await Promise.all(batch.map(async f => {
+            const txt = await fetch(f.download_url).then(r => r.text());
+            parseFile(f.name, txt);
+          }));
+          done += batch.length;
+          setStatus(`加载进度 ${done}/${files.length}`, Math.round(done / files.length * 100));
         }
+
         setStatus(`成功加载：${state.apps.size}个应用`, 100);
         renderResults($('#q').value.trim());
       };
@@ -415,10 +444,7 @@
         $('#q').addEventListener('input', debounce(e => renderResults(e.target.value.trim()), 120));
         attachEvents();
         $('#q').focus({ preventScroll: true });
-
-        $('#q').addEventListener('keydown', e => {
-          if (e.key === 'Enter') e.target.blur();
-        });
+        $('#q').addEventListener('keydown', e => { if (e.key === 'Enter') e.target.blur(); });
 
         load().catch(e => { setStatus('失败', 100); alert(e.message); });
       };

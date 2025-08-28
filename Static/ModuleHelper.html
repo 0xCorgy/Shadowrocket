@@ -18,6 +18,9 @@
 
       --back-btn-bg: rgba(220, 220, 220, 0.3);
       --back-btn-color: #111;
+
+      --radius: 12px;
+      --shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -31,6 +34,8 @@
 
         --back-btn-bg: rgba(120, 120, 120, 0.3);
         --back-btn-color: #e5e5e5;
+
+        --shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
       }
     }
 
@@ -93,12 +98,18 @@
       min-width: 0;
       padding: 8px 12px;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--radius);
       background: var(--card);
       color: var(--fg);
       outline: none;
       max-width: 360px;
       line-height: normal;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
     }
 
     button,
@@ -107,28 +118,41 @@
       border: 1px solid var(--border);
       background: var(--card);
       color: var(--fg);
-      border-radius: 12px;
+      border-radius: var(--radius);
       cursor: pointer;
-      transition: none;
+      transition: all 0.2s ease;
+    }
+
+    button:hover,
+    .btn:hover {
+      background-color: var(--accent);
+      color: #fff;
+      transform: scale(1.03);
+    }
+
+    button:active,
+    .btn:active {
+      transform: scale(0.97);
     }
 
     .toast {
       position: fixed;
       bottom: 20px;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) translateY(10px);
       background: var(--fg);
       color: var(--bg);
       padding: 8px 14px;
-      border-radius: 8px;
+      border-radius: var(--radius);
       font-size: 13px;
       opacity: 0;
-      transition: opacity .3s ease;
+      transition: opacity 0.3s ease, transform 0.3s ease;
       z-index: 2000;
     }
 
     .toast.show {
       opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
 
     .badge {
@@ -154,9 +178,15 @@
       grid-column: span 12;
       border: 1px solid var(--border);
       background: var(--card);
-      border-radius: 16px;
+      border-radius: var(--radius);
       padding: 14px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     @media(min-width:720px) {
@@ -193,7 +223,7 @@
     .card pre {
       margin: 10px 0;
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--radius);
       background: var(--card);
       padding: 10px;
       max-height: 300px;
@@ -258,7 +288,7 @@
     .modal-content {
       background: var(--card);
       color: var(--fg);
-      border-radius: 16px;
+      border-radius: var(--radius);
       max-width: 800px;
       width: 90%;
       max-height: 90%;
@@ -266,14 +296,18 @@
       flex-direction: column;
       border: 1px solid var(--border);
       overflow: hidden;
+      transform: scale(0.95);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .modal.show .modal-content {
+      transform: scale(1);
     }
 
     .modal-content.small {
       max-width: 320px;
       width: 90%;
       max-height: 50%;
-      border-radius: 12px;
-      overflow: auto;
     }
 
     .modal-header {
@@ -294,7 +328,7 @@
       white-space: pre-wrap;
       word-break: break-all;
       background: var(--card);
-      border-radius: 0 0 16px 16px;
+      border-radius: 0 0 var(--radius) var(--radius);
       font-size: 13px;
     }
 
@@ -305,6 +339,13 @@
       padding: 2px 6px;
       border-radius: 6px;
       background: var(--card);
+      transition: color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+    }
+
+    .modal-close:hover {
+      color: var(--accent);
+      transform: scale(1.2);
+      background: rgba(0, 0, 0, 0.05);
     }
 
     .confirm-actions {
@@ -325,8 +366,7 @@
       .modal-content.small {
         width: 90%;
         max-height: 40%;
-        border-radius: 12px;
-        overflow: auto;
+        border-radius: var(--radius);
       }
 
       .modal-content.small #confirmBody {
@@ -353,7 +393,7 @@
       z-index: 1500;
       text-align: center;
       line-height: 1;
-      transition: opacity .25s ease;
+      transition: opacity .25s ease, transform 0.2s ease;
       opacity: 0;
       pointer-events: none;
     }
@@ -361,6 +401,13 @@
     #backToTop.visible {
       opacity: 1;
       pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    #backToTop:hover {
+      transform: scale(1.1);
+      background-color: var(--accent);
+      color: #fff;
     }
   </style>
 </head>

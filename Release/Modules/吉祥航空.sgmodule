@@ -1,0 +1,18 @@
+#!name=吉祥航空
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/hoapp\.juneyaoair\.com\/data\/index\/(queryPopUpWinPic|getLoadPic|getRecommendProduct) - reject
+^https?:\/\/hoapp\.juneyaoair\.com\/data\/index\/getPictureList - reject-img
+^https?:\/\/hoapp\.juneyaoair\.com\/version - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% hoapp.juneyaoair.com

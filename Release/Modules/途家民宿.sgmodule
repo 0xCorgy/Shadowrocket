@@ -1,0 +1,16 @@
+#!name=途家民宿
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/client\.tujia\.com\/bnbapp-node - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% client.tujia.com

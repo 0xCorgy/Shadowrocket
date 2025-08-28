@@ -1,0 +1,17 @@
+#!name=全家便利店
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/fmapp\.chinafamilymart\.com\.cn\/api\/app\/biz\/base\/appversion\/latest - reject
+^https?:\/\/fmapp\.chinafamilymart\.com\.cn\/api\/app\/market\/start\/ad - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% fmapp.chinafamilymart.com.cn

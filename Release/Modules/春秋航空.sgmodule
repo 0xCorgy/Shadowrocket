@@ -1,0 +1,19 @@
+#!name=春秋航空
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/appmedia\.springairlines\.com\/cmsstatic\/.*\.gif - reject-img
+^https?:\/\/gaia\.ch\.com\/ECProduct\/homePageRevision\/queryRecommendInfo - reject
+^https?:\/\/gaia\.ch\.com\/ECProduct\/popupWindow - reject
+^https?:\/\/gaia\.ch\.com\/ECPromotion\/appFlash - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% appmedia.springairlines.com,gaia.ch.com

@@ -1,0 +1,16 @@
+#!name=全家微会员 小程序
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+wechatApplet =type=http-response, pattern=^https?:\/\/minifm\.maxxipoint\.com\/banner\/list, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
+
+[MITM]
+hostname = %APPEND% minifm.maxxipoint.com

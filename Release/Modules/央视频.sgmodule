@@ -1,0 +1,17 @@
+#!name=央视频
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/cdn\.cmgadx\.com\/sdk\/pool\/\w+\.json - reject
+^https?:\/\/cdn\.cmgadx\.com\/sdk\/pool\/m8uTS50pt3DC0Xd6\.json - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% cdn.cmgadx.com

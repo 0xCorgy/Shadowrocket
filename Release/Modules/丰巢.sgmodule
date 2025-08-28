@@ -1,0 +1,17 @@
+#!name=丰巢
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/dsp\.fcbox\.com\/adSearch\/get\? - reject
+^https?:\/\/external\.fcbox\.com\/wxgw\/post\/suggestion\/query - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% dsp.fcbox.com,external.fcbox.com

@@ -1,0 +1,16 @@
+#!name=考公雷达
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api\.gongkaoleida\.com\/api\/v2\/ad\/info - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api.gongkaoleida.com

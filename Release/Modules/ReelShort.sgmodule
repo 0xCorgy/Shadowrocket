@@ -1,0 +1,20 @@
+#!name=ReelShort
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/app\/getSplashScreenConfig$ - reject-dict
+^https?:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/book\/getPayModeV2$ - reject-dict
+^https?:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/hall\/landingPage$ - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+http-response-jq ^https?:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/book\/getBookDetailV2$ 'del(.data.ad_vip)'
+http-response-jq ^https?:\/\/(v-api\.crazymaplestudios\.com|d1k8g7qaebqd28\.cloudfront\.net)\/api\/video\/hall\/infoV3$ 'del(.data.search_keyword_list)'
+
+[Script]
+
+[MITM]
+hostname = %APPEND% d1k8g7qaebqd28.cloudfront.net,v-api.crazymaplestudios.com

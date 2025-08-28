@@ -1,0 +1,16 @@
+#!name=小鹏汽车
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/ext-svc\.xiaopeng\.com\/api\/log\/open\/get\/image - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% ext-svc.xiaopeng.com

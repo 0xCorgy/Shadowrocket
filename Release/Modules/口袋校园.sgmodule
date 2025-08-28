@@ -1,0 +1,16 @@
+#!name=口袋校园
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/pocketuni\.net\/\?app=api&mod=Message&act=ad - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% pocketuni.net

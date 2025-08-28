@@ -1,0 +1,17 @@
+#!name=国泰君安
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/dl[0-9]{1}\.app\.gtja\.com\/dzswem\/kvController - reject-200
+^https?:\/\/dl\.app\.gtja\.com\/dzswem\/kvController - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% dl*.app.gtja.com,dl.app.gtja.com

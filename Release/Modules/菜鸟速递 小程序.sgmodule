@@ -1,0 +1,16 @@
+#!name=菜鸟速递 小程序
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/cn-acs\.m\.cainiao\.com\/h5\/mtop\.cainiao\.guoguo\.tdwxgateway\.ads - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% cn-acs.m.cainiao.com

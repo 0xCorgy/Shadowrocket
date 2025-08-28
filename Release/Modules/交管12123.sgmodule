@@ -1,0 +1,16 @@
+#!name=交管12123
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/gab\.122\.gov\.cn\/eapp\/m\/sysquery\/adver - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% gab.122.gov.cn

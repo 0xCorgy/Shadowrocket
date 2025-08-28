@@ -1,0 +1,17 @@
+#!name=交通银行
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/download1\.bankcomm\.com\/chngweb\/CHNRCSP\/media - reject-200
+^https?:\/\/download1\.bankcomm\.com\/mobs6-inner\/offline\/static\/releaseConf - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% *.bankcomm.com

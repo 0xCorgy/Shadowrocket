@@ -1,0 +1,16 @@
+#!name=三联中读
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/apis.lifeweek.com.cn/api/baseConfig/getIosNewConfig - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% apis.lifeweek.com.cn

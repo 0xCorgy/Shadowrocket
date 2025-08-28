@@ -1,0 +1,17 @@
+#!name=QQ钱包
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/m\.qianbao\.qq\.com\/pages\/walletHome\?invisible - reject
+^https?:\/\/m\.qianbao\.qq\.com\/services\/walletHome\/get(QQshop|Game|Foot)Data - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% m.qianbao.qq.com

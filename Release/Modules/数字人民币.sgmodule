@@ -1,0 +1,16 @@
+#!name=数字人民币
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+ecny =type=http-response, pattern=^https?:\/\/mgs\.wallet\.pbcdci\.cn:\d+\/mgw\.htm$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ecny.js, requires-body=true, max-size=0
+
+[MITM]
+hostname = %APPEND% mgs.wallet.pbcdci.cn

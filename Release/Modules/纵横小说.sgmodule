@@ -1,0 +1,17 @@
+#!name=纵横小说
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api1\.zongheng\.com\/iosapi\/system\/startup$ - reject
+^https?:\/\/api2\.zongheng\.com\/api\/giftBag\/bindingBag$ - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api?.zongheng.com

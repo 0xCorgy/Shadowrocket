@@ -1,0 +1,17 @@
+#!name=AcFun
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/aes\.acfun\.cn\/s\?adzones - reject
+^https?:\/\/api-new\.app\.acfun\.cn\/rest\/app\/flash\/screen\/ - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% aes.acfun.cn,api-new.app.acfun.cn

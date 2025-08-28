@@ -1,0 +1,20 @@
+#!name=京东快递 小程序
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/lop-proxy\.jd\.com\/BeaconFireApi\/queryMarketingRecommendRuleConfigInfo - reject-dict
+^https?:\/\/lop-proxy\.jd\.com\/csat\/getNPSQuestionnaire - reject-dict
+^https?:\/\/lop-proxy\.jd\.com\/home\/banner - reject-dict
+^https?:\/\/lop-proxy\.jd\.com\/order\/getCarbonIntegral - reject-dict
+^https?:\/\/lop-proxy\.jd\.com\/search\/getQuestionnaireByOrderInfo - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% lop-proxy.jd.com

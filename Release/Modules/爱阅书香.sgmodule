@@ -1,0 +1,16 @@
+#!name=爱阅书香
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/icc\.one\/iFreeTime\/xid32uxaoecnfv2\/ - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% icc.one

@@ -1,0 +1,17 @@
+#!name=看天下
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/open3\.vistastory\.com\/v\d\/api.*get_popup - reject
+^https?:\/\/open3\.vistastory\.com\/v\d\/api\/index\/loading_ad - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% open3.vistastory.com

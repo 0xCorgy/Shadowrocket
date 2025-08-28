@@ -1,0 +1,16 @@
+#!name=中国国航
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+airchina =type=http-response, pattern=^https?:\/\/m\.airchina\.com\.cn\/airchina\/gateway\/v\d(\.\d)*\/api\/services, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/airchina.js, requires-body=true, max-size=0
+
+[MITM]
+hostname = %APPEND% m.airchina.com.cn

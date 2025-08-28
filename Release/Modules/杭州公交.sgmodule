@@ -1,0 +1,16 @@
+#!name=杭州公交
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/m\.ibuscloud\.com\/v\d\/app\/getStartPage - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% m.ibuscloud.com

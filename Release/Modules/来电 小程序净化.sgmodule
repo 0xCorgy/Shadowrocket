@@ -1,0 +1,16 @@
+#!name=来电 小程序净化
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/mobile-api\.imlaidian\.com\/api\/args - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% mobile-api.imlaidian.com

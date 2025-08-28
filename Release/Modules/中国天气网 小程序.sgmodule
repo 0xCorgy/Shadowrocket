@@ -1,0 +1,16 @@
+#!name=中国天气网 小程序
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/e\.weather\.com\.cn\/weChat\/typhoonNull\.json - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% e.weather.com.cn

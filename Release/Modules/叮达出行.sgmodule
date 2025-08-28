@@ -1,0 +1,17 @@
+#!name=叮达出行
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/img\.admobile\.top\/admobile-adRequest\/.*.(jpg|png) - reject-200
+^https?:\/\/webcdn\.m\.qq\.com\/qiantu\/upload\/202[0-9]{5}\/.*.(jpg|png) - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% img.admobile.top,webcdn.m.qq.com

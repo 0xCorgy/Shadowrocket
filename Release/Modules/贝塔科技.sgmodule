@@ -1,0 +1,16 @@
+#!name=贝塔科技
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/cdn\.api\.fotoable\.com\/Advertise\/ - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% cdn.api.fotoable.com

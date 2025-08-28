@@ -1,0 +1,17 @@
+#!name=海马爸比
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/39\.98\.135\.211\/admin\/filter\/advert\/getAdvertLists - reject-dict
+^https?:\/\/39\.98\.135\.211\/admin\/filter\/crowdFunding\/getNewProductData - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% 39.98.135.211

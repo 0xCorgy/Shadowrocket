@@ -1,0 +1,16 @@
+#!name=友邻优课
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/new-app-api\.ylyk\.com\/v\d\/user\/myinfo\/adviser - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% new-app-api.ylyk.com

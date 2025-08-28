@@ -174,6 +174,21 @@ def build_sgmodule(rule_text, project_name):
 
     return sgmodule_content
 
+def generate_app_modules(merged_rule_text, parent_dir):
+    modules_dir = os.path.join(parent_dir, "Release", "Modules")
+    os.makedirs(modules_dir, exist_ok=True)
+    app_sections, current_app, buffer = {}, None, []
+    for line in merged_rule_text.splitlines():
+        if line.startswith("# >"):
+            if current_app and buffer: app_sections[current_app] = "\n".join(buffer); buffer = []
+            current_app = line[3:].strip()
+        elif current_app: buffer.append(line)
+    if current_app and buffer: app_sections[current_app] = "\n".join(buffer)
+    for app_name, rule_text in app_sections.items():
+        sgmodule_content = build_sgmodule(rule_text, app_name)
+        output_file = os.path.join(modules_dir, f"{app_name}.sgmodule")
+        save_sgmodule(sgmodule_content, output_file)
+
 def generate_sgmodule(rule_sources, project_name, parent_dir):
     merged_rule_text = ""
     for url in rule_sources:
@@ -190,6 +205,7 @@ def generate_sgmodule(rule_sources, project_name, parent_dir):
         print(f"Module successfully generated and saved to: {output_file}")
     else:
         print("No valid content found — module generation skipped.")
+    generate_app_modules(merged_rule_text, parent_dir)
 
 def save_sgmodule(content, file_path):
     try:

@@ -1,0 +1,17 @@
+#!name=中国电信
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/cloud\.189\.cn\/include\/splash\/ - reject
+^https?:\/\/zt-app\.go189\.cn\/zt-app\/welcome\/.*?Animation - reject-img
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% cloud.189.cn,zt-app.go189.cn

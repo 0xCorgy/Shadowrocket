@@ -1,0 +1,19 @@
+#!name=美柚
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+DOMAIN, ad.seeyouyima.com, REJECT
+DOMAIN, axxd.xmseeyouyima.com, REJECT
+
+[URL Rewrite]
+^https?:\/\/circle\.(xm)?seeyouyima\.com\/v\d\/article_recommend\? - reject
+
+[Map Local]
+
+[Body Rewrite]
+http-response-jq ^https?:\/\/common\.seeyouyima\.com\/v2\/conf_list$ 'delpaths([["data","confList","Minor_mode_card"]])'
+
+[Script]
+
+[MITM]
+hostname = %APPEND% circle.seeyouyima.com,circle.xmseeyouyima.com,common.seeyouyima.com

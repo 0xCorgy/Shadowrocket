@@ -1,0 +1,16 @@
+#!name=友邦
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/e-static\.aia\.com\.cn\/kyh\/resourcefolder\/ads - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% e-static.aia.com.cn

@@ -1,0 +1,16 @@
+#!name=小特- 首选特斯拉中文社区
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+ReplaceBody =type=http-response, pattern=^https?:\/\/lcen\.xiaote\.net\/api\/graphql, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=screenSplashAd->random-response
+
+[MITM]
+hostname = %APPEND% lcen.xiaote.net

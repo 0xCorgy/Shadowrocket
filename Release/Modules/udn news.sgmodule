@@ -1,0 +1,17 @@
+#!name=udn news
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/pagead2.googleadservices.com/pagead/adview - reject
+^https?:\/\/pubads.g.doubleclick.net/gampad/ads - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% pagead2.googleadservices.com,pubads.g.doubleclick.net

@@ -1,0 +1,22 @@
+#!name=优酷
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.(pisp\.scripts\.get|xspace\.play\.position\.preload\.query|xspace\.poplayer\.position\.query) - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+cnftp =type=http-response, pattern=^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.columbus\.(gateway\.new\.execute|home\.feed|home\.query|uc\.query|ycp\.query), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cnftp.js, requires-body=true, max-size=0
+cnftp =type=http-response, pattern=^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.haidai\.lantern\.appconfig\.get, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cnftp.js, requires-body=true, max-size=0
+cnftp =type=http-response, pattern=^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.huluwa\.dispatcher\.youthmode\.config2, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cnftp.js, requires-body=true, max-size=0
+cnftp =type=http-response, pattern=^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.soku\.yksearch, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cnftp.js, requires-body=true, max-size=0
+cnftp =type=http-response, pattern=^https?:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cnftp.js, requires-body=true, max-size=0
+cnftp =type=http-response, pattern=^https?:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cnftp.js, requires-body=true, max-size=0
+
+[MITM]
+hostname = %APPEND% acs.youku.com,push.m.youku.com,un-acs.youku.com

@@ -1,0 +1,16 @@
+#!name=多多买菜
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+ReplaceBody =type=http-response, pattern=^https?:\/\/mobile\.yangkeduo\.com\/proxy\/api\/api\/express\/post\/waybill\/red_packet\/goods_list$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument="list":\[.+\]->"list":[]
+
+[MITM]
+hostname = %APPEND% mobile.yangkeduo.com

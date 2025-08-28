@@ -1,0 +1,17 @@
+#!name=每日优鲜
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/j-image\.missfresh\.cn\/img_(.+)\.(jpg|jpeg|gif|png)\?iopcmd=convert&dst=webp&q=85$ - reject
+^https?:\/\/j-image\.missfresh\.cn\/img_(.+)\.gif$ - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% j-image.missfresh.cn

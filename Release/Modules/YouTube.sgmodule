@@ -1,0 +1,21 @@
+#!name=YouTube
+#!desc=2025-08-28 08:10:00
+#!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
+#!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
+
+[Rule]
+AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,youtubei.googleapis.com)), REJECT
+AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,googlevideo.com)), REJECT
+
+[URL Rewrite]
+^https?:\/\/[\w-]+\.googlevideo\.com\/initplayback.+&oad - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+youtube.response =type=http-response, pattern=^https?:\/\/youtubei\.googleapis\.com\/(youtubei\/v1\/(browse|next|player|search|reel\/reel_watch_sequence|guide|account\/get_setting|get_watch))(\?(.*))?$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/youtube.response.js, requires-body=true, max-size=0, binary-body-mode=true, argument="{"lyricLang":"{{{YouTube ·歌词翻译语言}}}","captionLang":"{{{YouTube ·字幕翻译语言}}}","blockUpload":{{{YouTube ·屏蔽上传按钮}}},"blockImmersive":{{{YouTube ·屏蔽选段按钮}}},"blockShorts":{{{YouTube ·屏蔽短片按钮}}},"debug":false}"
+
+[MITM]
+hostname = %APPEND% *.googlevideo.com,youtubei.googleapis.com

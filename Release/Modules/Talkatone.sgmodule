@@ -1,0 +1,17 @@
+#!name=Talkatone
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
+^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% alt-r.my.com,imgx.jampp.com

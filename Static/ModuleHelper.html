@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>规则助手</title>
+  <title>模块助手</title>
   <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg" type="image/svg+xml" />
   <style>
     :root {
@@ -275,7 +275,7 @@
             stroke-width="1.5" />
           <path d="M9 19v-5a3 3 0 1 1 6 0v5" stroke="currentColor" stroke-width="1.5" />
         </svg>
-        <h1>规则助手</h1>
+        <h1>模块助手</h1>
       </div>
       <div class="controls-row">
         <div class="controls">
@@ -304,7 +304,7 @@
 
   <script>
     (() => {
-      const state = { owner: 'XiangwanGuan', repo: 'Shadowrocket', path: 'Rewrite/XiangwanConfig', apps: new Map(), rawFiles: [] };
+      const state = { owner: 'XiangwanGuan', repo: 'Shadowrocket', path: 'Release/Modules', apps: new Map(), rawFiles: [] };
       const $ = s => document.querySelector(s);
       const setStatus = (t, p) => { $('#status').textContent = t; $('#bar').style.width = (p || 0) + '%'; };
       const normalizeAppName = s => s.trim().replace(/^#\s*>\s*/, '');

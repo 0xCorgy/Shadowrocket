@@ -1,0 +1,16 @@
+#!name=一起考教师
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api\.17kjs\.com\/meta\/ads_targets - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api.17kjs.com

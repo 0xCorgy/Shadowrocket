@@ -1,0 +1,18 @@
+#!name=游民星空
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/.+\.gamersky.com/v1/statisticAd - reject-dict
+^https?:\/\/.+\.gamersky\.com\/.+\/adSystem\/ad\/.+ - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+http-response-jq ^https?:\/\/.+\.gamersky.com/.+/lists/getListElements '.listElements |= map(select(has("adCategory") | not))'
+
+[Script]
+
+[MITM]
+hostname = %APPEND% *.gamersky.com

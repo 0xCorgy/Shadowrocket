@@ -1,0 +1,16 @@
+#!name=比亚迪
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/cache\.bydauto\.com\.cn\/dilink_user_upload\/20 - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% cache.bydauto.com.cn

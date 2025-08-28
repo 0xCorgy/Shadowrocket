@@ -1,0 +1,16 @@
+#!name=爱范儿
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/sso\.ifanr\.com\/jiong\/IOS\/appso\/splash\/ - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% sso.ifanr.com

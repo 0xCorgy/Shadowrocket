@@ -1,0 +1,16 @@
+#!name=Swiftgram
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+ReplaceBody =type=http-response, pattern=^https?:\/\/api\.swiftgram\.app\/v0\/settings, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=announcements_data->random_body
+
+[MITM]
+hostname = %APPEND% api.swiftgram.app

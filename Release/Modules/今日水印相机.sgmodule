@@ -1,0 +1,16 @@
+#!name=今日水印相机
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api\.sogaha\.cn\/ssp\/ad\/get\?ip - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api.sogaha.cn

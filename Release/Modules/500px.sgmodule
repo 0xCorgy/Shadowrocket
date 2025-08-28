@@ -1,0 +1,16 @@
+#!name=500px
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/500px\.com\.cn\/community\/apk\/downloadApk - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% 500px.com.cn

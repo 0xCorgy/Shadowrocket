@@ -1,0 +1,31 @@
+#!name=堆糖
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/(www|api)\.duitang\.com\/napi\/(ad|ads)\/ - reject-dict
+^https?:\/\/api\.duitang\.com\/napi\/infra\/settings\/ - reject-dict
+^https?:\/\/api\.duitang\.com\/napi\/vienna\/daren\/daren\/recommend\/ - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","AD_HOME_ENTER_POP_COUNT"]])'
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","AD_MENU_SELECTIONS"]])'
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","AD_PRICE_SHOW"]])'
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","AD_SCREEN_WAKEUP_TIME"]])'
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","ME_TAB","ANNOUNCEMENT"]])'
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","ME_TAB","MEMBERSHIP"]])'
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","ME_TAB","MEMBERSHIP2"]])'
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","REWARD_AD_CUTOUT_NUM"]])'
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","REWARD_AD_PAG_EDITOR"]])'
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","REWARD_AD_PHOTO_EDITOR"]])'
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","REWARD_AD_PLACES"]])'
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","SHARE_BANNER"]])'
+http-response-jq ^https?:\/\/(www|api)\.duitang\.com\/napi\/settings\/ 'delpaths([["data","SPLASH_SWING_OPEN"]])'
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api.duitang.com,www.duitang.com

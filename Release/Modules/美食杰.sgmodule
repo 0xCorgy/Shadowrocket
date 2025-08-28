@@ -1,0 +1,16 @@
+#!name=美食杰
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+
+[Map Local]
+
+[Body Rewrite]
+http-response-jq ^https?:\/\/newapi\.meishi\.cc\/indexnew\/home_feeds 'if .data.items then .data.items |= map(select(.type | . != "101" and . != "12")) else . end'
+
+[Script]
+
+[MITM]
+hostname = %APPEND% newapi.meishi.cc

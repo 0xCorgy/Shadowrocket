@@ -1,0 +1,17 @@
+#!name=曹操出行
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/cap\.caocaokeji\.cn\/advert-bss\/ - reject
+^https?:\/\/ptmpcap\.caocaokeji\.cn\/advert-bss\/ - reject-img
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% cap.caocaokeji.cn,ptmpcap.caocaokeji.cn

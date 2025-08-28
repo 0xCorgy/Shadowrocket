@@ -1,0 +1,16 @@
+#!name=易捷加油
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/a\.sinopecsales\.com\/app\/cms - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% a.sinopecsales.com

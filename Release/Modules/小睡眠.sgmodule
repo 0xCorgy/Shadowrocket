@@ -1,0 +1,16 @@
+#!name=小睡眠
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api\.psy-1\.com\/cosleep\/startup - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api.psy-1.com

@@ -1,0 +1,17 @@
+#!name=饿了么 小程序
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.alsc\.eleme\.\w+\.trigger\.respond - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+eleme =type=http-response, pattern=^https?:\/\/waimai-guide\.ele\.me\/gw\/mtop\.alsc\.eleme\.miniapp\.homepage, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/eleme.js, requires-body=true, max-size=0
+
+[MITM]
+hostname = %APPEND% waimai-guide.ele.me

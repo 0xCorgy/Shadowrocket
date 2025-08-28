@@ -1,0 +1,16 @@
+#!name=浙里办
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+ReplaceBody =type=http-response, pattern=^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument="data":\{.+\}->"data":{}
+
+[MITM]
+hostname = %APPEND% portal.zjzwfw.gov.cn

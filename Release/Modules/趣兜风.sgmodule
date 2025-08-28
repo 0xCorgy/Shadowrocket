@@ -1,0 +1,17 @@
+#!name=趣兜风
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/online\.aicarmap\.com\/club\/api\/user\/updateloc - reject-dict
+^https?:\/\/st7niu\.aicarmap\.com\/st_?!(a2|a3|e9)\w+\.webp$ - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% online.aicarmap.com,st7niu.aicarmap.com

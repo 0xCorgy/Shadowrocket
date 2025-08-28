@@ -1,0 +1,17 @@
+#!name=国家地理
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/dili\.bdatu\.com\/jiekou\/ad\/ - reject
+^https?:\/\/wap\.ngchina\.cn\/news\/adverts\/ - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% dili.bdatu.com,wap.ngchina.cn

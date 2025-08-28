@@ -1,0 +1,17 @@
+#!name=Oray
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/slapi\.oray\.net\/adver - reject
+^https?:\/\/slapi\.oray\.net\/client\/ad - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% slapi.oray.net

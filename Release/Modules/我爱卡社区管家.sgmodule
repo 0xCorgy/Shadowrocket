@@ -1,0 +1,19 @@
+#!name=我爱卡社区管家
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api\.51credit\.com\/app\/popup\/appPopup - reject-dict
+^https?:\/\/api\.51credit\.com\/bbs\/app\/api\/v\d\/task\/operationalCredit - reject-dict
+^https?:\/\/api\.51credit\.com\/bbs\/app\/api\/v\d\/topic\/chat - reject-dict
+^https?:\/\/api\.51credit\.com\/ks\/a\/list\? - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api.51credit.com

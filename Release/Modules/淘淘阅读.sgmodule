@@ -1,0 +1,16 @@
+#!name=淘淘阅读
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/bid\.adview\.cn\/agent\/getAd - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% bid.adview.cn

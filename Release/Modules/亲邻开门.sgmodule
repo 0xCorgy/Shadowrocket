@@ -1,0 +1,16 @@
+#!name=亲邻开门
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/qadx\.qinlinad\.com\/ad\/ - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% qadx.qinlinad.com

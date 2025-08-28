@@ -1,0 +1,16 @@
+#!name=Manner 小程序
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+manner =type=http-response, pattern=^https?:\/\/triangle\.wearemanner\.com\/mp-api\/v\d\/ads, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/manner.js, requires-body=true, max-size=0
+
+[MITM]
+hostname = %APPEND% triangle.wearemanner.com

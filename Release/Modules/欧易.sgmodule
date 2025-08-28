@@ -1,0 +1,16 @@
+#!name=欧易
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/www\.okx\.com\/v\d\/support\/home\/app\/updateInfo - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% www.okx.com

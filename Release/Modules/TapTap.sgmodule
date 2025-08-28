@@ -1,0 +1,16 @@
+#!name=TapTap
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api\.taptapdada\.com\/startup-logo\/v\d\/combo\? - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api.taptapdada.com

@@ -1,0 +1,16 @@
+#!name=住这儿
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/z\.onewo\.com\/passer\/api\/ads\/v1\/8\/list - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% z.onewo.com

@@ -1,0 +1,16 @@
+#!name=哈富证券
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/emisdatacenteraws\.hafoo\.com\/ad\/api\/v2\/appMarket - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% emisdatacenteraws.hafoo.com

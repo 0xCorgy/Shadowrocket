@@ -1,0 +1,16 @@
+#!name=爱桐乡
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/mapi\.txcmapp\.com\/api\/open\/atx2\/ad\.php - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% mapi.txcmapp.com

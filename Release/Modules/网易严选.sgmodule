@@ -1,0 +1,19 @@
+#!name=网易严选
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/m\.you\.163\.com\/activity\/popWindow - reject
+^https?:\/\/support.you.163.com/appversync/check.do - reject
+^https?:\/\/support\.you\.163\.com\/xhr\/boot\/getBootMedia\.json - reject-200
+^https?:\/\/yanxuan\.nosdn\.127\.net\/.*\.mp4 - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% m.you.163.com,support.you.163.com,yanxuan.nosdn.127.net

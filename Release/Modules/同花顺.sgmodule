@@ -1,0 +1,18 @@
+#!name=同花顺
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/adm\.10jqka\.com\.cn\/interface\/ad\/recommend - reject-200
+^https?:\/\/iphone\.ac\.qq\.com\/.*\/Support\/(getSystemConf|bootScreen) - reject
+^https?:\/\/stat\.10jqka\.com\.cn\/q\?ld=mobile&id=ad - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% adm.10jqka.com.cn,iphone.ac.qq.com,stat.10jqka.com.cn

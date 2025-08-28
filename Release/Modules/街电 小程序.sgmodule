@@ -1,0 +1,16 @@
+#!name=街电 小程序
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/s\.jiediankeji\.com\/adv - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% s.jiediankeji.com

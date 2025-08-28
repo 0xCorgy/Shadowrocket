@@ -1,0 +1,16 @@
+#!name=闪送 小程序
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/miniprogram\.ishansong\.com\/cms\/faq\/query - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% miniprogram.ishansong.com

@@ -1,0 +1,16 @@
+#!name=复游会 小程序
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+foliday =type=http-response, pattern=^https?:\/\/apis\.folidaymall\.com\/online\/capi\/component\/getPageComponents, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/foliday.js, requires-body=true, max-size=0
+
+[MITM]
+hostname = %APPEND% apis.folidaymall.com

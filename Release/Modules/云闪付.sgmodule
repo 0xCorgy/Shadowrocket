@@ -1,0 +1,17 @@
+#!name=云闪付
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/(tysdk|ads)\.95516\.com - reject-dict
+^https?:\/\/wallet\.95516\.com\/s\/wl\/icon\/long - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% ads.95516.com,tysdk.95516.com,wallet.95516.com

@@ -1,0 +1,16 @@
+#!name=金十数据
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/jad-api\.jin10\.com\/ad - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% jad-api.jin10.com

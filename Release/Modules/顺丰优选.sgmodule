@@ -1,0 +1,16 @@
+#!name=顺丰优选
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/mapi\.sfbest\.com\/brokerservice-server\/cms\/getPositionById.* - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% mapi.sfbest.com

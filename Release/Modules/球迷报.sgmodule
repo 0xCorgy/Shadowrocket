@@ -1,0 +1,17 @@
+#!name=球迷报
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/a\.qiumibao\.com\/activities\/config\.php - reject
+^https?:\/\/a\.qiumibao\.com\/ios\/config\/\?version_code= - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% a.qiumibao.com

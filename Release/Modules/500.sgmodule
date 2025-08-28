@@ -1,0 +1,16 @@
+#!name=500
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/evs\.500\.com\/esinfo\/loading\/loading - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% evs.500.com

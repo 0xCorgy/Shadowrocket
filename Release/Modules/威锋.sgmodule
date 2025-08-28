@@ -1,0 +1,17 @@
+#!name=威锋
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api\.wfdata\.club\/v2\/yesfeng\/yesList\? - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+http-response-jq ^https?:\/\/api\.wfdata\.club\/v2\/yesfeng\/slideshow\? '.data |= map(select(.protocolId == 1))'
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api.wfdata.club

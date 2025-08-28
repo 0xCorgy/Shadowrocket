@@ -1,0 +1,19 @@
+#!name=太平洋科技
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/agent-count\.(pcauto|pconline)\.com\.cn\/counter\/adAnalyse\/ - reject
+^https?:\/\/mrobot\.(pcauto|pconline)\.com\.cn\/[a-z0-9-]+\/onlineinfo\/(ad|cms\/launch) - reject-200
+^https?:\/\/mrobot\.(pcauto|pconline)\.com\.cn\/v\d\/ad - reject
+^https?:\/\/mrobot\.(pcauto|pconline)\.com\.cn\/xsp\/s\/auto\/info\/(ad|preload) - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% agent-count.pcauto.com.cn,agent-count.pconline.com.cn,mrobot.pcauto.com.cn,mrobot.pconline.com.cn

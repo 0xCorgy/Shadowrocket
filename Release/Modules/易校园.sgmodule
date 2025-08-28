@@ -1,0 +1,16 @@
+#!name=易校园
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/compus\.xiaofubao\.com\/compus\/advertising\/getStartupAdvertising - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% compus.xiaofubao.com

@@ -1,0 +1,16 @@
+#!name=正气助手
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/apio\.zhengqi100\.com\/forum\/thread\/listsHome - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% apio.zhengqi100.com

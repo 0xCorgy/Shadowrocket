@@ -1,0 +1,16 @@
+#!name=天府通
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/ams-cdn\.cdtft\.cn\/prod\/tft-ams\/ - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% ams-cdn.cdtft.cn

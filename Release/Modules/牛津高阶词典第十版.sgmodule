@@ -1,0 +1,17 @@
+#!name=牛津高阶词典第十版
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/oxadmin\.cp\.com\.cn\/api\/advertise\/banner - reject-dict
+^https?:\/\/oxadmin\.cp\.com\.cn\/api\/hot\/index - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% oxadmin.cp.com.cn

@@ -1,0 +1,17 @@
+#!name=京东读书
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/jdread-api\.jd\.com\/jdread\/api\/channel\/module\/opens - reject-200
+^https?:\/\/jdread-api\.jd\.com\/jdread\/api\/popup - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% jdread-api.jd.com

@@ -1,0 +1,17 @@
+#!name=汇付天下 小程序
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/mcsp\.cloudpnr\.com\/api\/miniapp\/popular\/T_MINIAPP$ - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+wechatApplet =type=http-response, pattern=^https?:\/\/saas-ad\.cloudpnr\.com\/huifuad-base-api\/api\/tactics\/ad, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0
+
+[MITM]
+hostname = %APPEND% mcsp.cloudpnr.com,saas-ad.cloudpnr.com

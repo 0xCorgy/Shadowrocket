@@ -1,0 +1,16 @@
+#!name=财经杂志
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api\.caijingmobile\.com\/(ad|advert)\/ - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api.caijingmobile.com

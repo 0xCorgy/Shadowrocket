@@ -1,0 +1,19 @@
+#!name=微信
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+DOMAIN-SUFFIX, wxs.qq.com, REJECT
+
+[URL Rewrite]
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/(cps_product_info|getappmsgad|jsmonitor|masonryfeed|relatedarticle)\? - reject-dict
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/relatedsearchword - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+UnblockURLinWeChat =type=http-response, pattern=^https?:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/UnblockURLinWeChat.js, requires-body=true, max-size=0
+
+[MITM]
+hostname = %APPEND% mp.weixin.qq.com,security.wechat.com,weixin110.qq.com

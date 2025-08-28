@@ -1,0 +1,16 @@
+#!name=吉林银行
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/cdn\.jlbank\.com\.cn\/jlstaticresource\/APPSTART - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% cdn.jlbank.com.cn

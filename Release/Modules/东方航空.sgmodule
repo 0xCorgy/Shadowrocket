@@ -1,0 +1,17 @@
+#!name=东方航空
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/app\.ceair\.com\/customize\/main\/adScreen - reject-dict
+^https?:\/\/app\.ceair\.com\/customize\/security\/update - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% app.ceair.com

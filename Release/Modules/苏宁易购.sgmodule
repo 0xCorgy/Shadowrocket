@@ -1,0 +1,18 @@
+#!name=苏宁易购
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/image\.suning\.cn\/uimg\/ma\/ad\/ - reject-200
+^https?:\/\/luckman\.suning\.com\/luck-web\/policy\/v\d\/msf\/index\.do - reject-200
+^https?:\/\/mpcs\.suning\.com\/mpcs\/dm\/getDmInfo - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% image.suning.com,luckman.suning.com,mpcs.suning.com

@@ -1,0 +1,16 @@
+#!name=看理想
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api\.vistopia\.com\.cn\/api\/v\d\/home\/advertisement - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api.vistopia.com.cn

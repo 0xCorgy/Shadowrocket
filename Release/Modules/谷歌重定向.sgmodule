@@ -1,0 +1,17 @@
+#!name=谷歌重定向
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/(ditu|maps).google\.cn https://maps.google.com 307
+^https?:\/\/(www.)?(g|google)\.cn https://www.google.com 307
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% www.google.cn

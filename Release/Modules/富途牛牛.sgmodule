@@ -1,0 +1,20 @@
+#!name=富途牛牛
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api\.futunn\.com\/treasure-chest\/box-data - reject
+^https?:\/\/api\.futunn\.com\/v2\/config\/promote-config - reject-dict
+^https?:\/\/api\.futunn\.com\/v2\/optimus\/my-homepage-config - reject-dict
+^https?:\/\/api\.futunn\.com\/v\d\/ad\/ - reject
+^https?:\/\/api\d\.futunn\.com\/ad\/ - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api*.futunn.com

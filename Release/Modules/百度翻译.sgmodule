@@ -1,0 +1,17 @@
+#!name=百度翻译
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/mime\.baidu\.com\/v\d\/IosStart\/getStartInfo - reject
+^https?:\/\/mime\.baidu\.com\/v\d\/activity\/advertisement - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% mime.baidu.com

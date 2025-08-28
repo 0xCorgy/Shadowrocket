@@ -1,0 +1,16 @@
+#!name=嘉会医疗
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api\.jiahui\.com\/app-rest\/app\/notice\/getAppNotice - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api.jiahui.com

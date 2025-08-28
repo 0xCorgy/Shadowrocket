@@ -1,0 +1,16 @@
+#!name=蓝卡科技
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/cloud\.bluecardsoft\.com\/yuntingad\/ - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% cloud.bluecardsoft.com

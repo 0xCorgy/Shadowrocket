@@ -1,0 +1,20 @@
+#!name=Spotify
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,spclient.wg.spotify.com)), REJECT
+AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,-spclient.spotify.com)), REJECT
+
+[URL Rewrite]
+^https?:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:ad-|pendragon) - reject-200
+^https?:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad header
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+Spotify.Crack.Dev =type=http-request, pattern=^https?:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Spotify.Crack.Dev.js, requires-body=true, max-size=0, binary-body-mode=true
+
+[MITM]
+hostname = %APPEND% *-spclient.spotify.com,spclient.wg.spotify.com

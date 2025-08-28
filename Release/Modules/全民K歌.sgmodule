@@ -1,0 +1,16 @@
+#!name=全民K歌
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/kg_ad\/.+?\d{3,4}x\d{4} - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% y.gtimg.cn

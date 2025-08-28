@@ -1,0 +1,17 @@
+#!name=Jump
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+
+[Map Local]
+
+[Body Rewrite]
+http-response-jq ^https?:\/\/switch.jumpvg.com\/jump\/getlaunchad\/v2$ 'del(.data.adList)|.data.launchAd.showType=0'
+http-response-jq ^https?:\/\/switch.jumpvg.com\/jump\/recommend\/ad_conf$ '.data=[]'
+
+[Script]
+
+[MITM]
+hostname = %APPEND% switch.jumpvg.com

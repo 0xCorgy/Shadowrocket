@@ -1,0 +1,17 @@
+#!name=天猫精灵
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/ossgw.alicdn.com\/creatives-assets\/image\/ - reject-200
+^https?:\/\/zconfig\.alibabausercontent\.com\/zconfig - reject
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% ossgw.alicdn.com,zconfig.alibabausercontent.com

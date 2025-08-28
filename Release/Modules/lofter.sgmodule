@@ -1,0 +1,17 @@
+#!name=lofter
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/ad\.lofter.com\/v1\.1\/yitou\/madr - reject-200
+^https?:\/\/lofter\.lf127\.net\/ad\-material - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% ad.lofter.com,lofter.lf127.net

@@ -1,0 +1,16 @@
+#!name=京东云无线宝
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/router-app-api\.jdcloud\.com\/v\d\/board\/routerAppSplash - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% router-app-api.jdcloud.com

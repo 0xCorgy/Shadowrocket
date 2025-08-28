@@ -1,0 +1,18 @@
+#!name=掌上英雄联盟
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/mlol\.qt\.qq\.com\/go\/recommend\/(?!v2\/platactivity.*) - reject
+^https?:\/\/ossweb-img\.qq\.com\/upload\/adw\/image\/[0-9]{3}\/202[0-9]{5}\/[a-z0-9]{32}\.(jpg|jpeg) - reject-200
+^https?:\/\/us\.l\.qq\.com\/exapp - reject-200
+
+[Map Local]
+
+[Body Rewrite]
+
+[Script]
+
+[MITM]
+hostname = %APPEND% mlol.qt.qq.com,ossweb-img.qq.com,us.l.qq.com

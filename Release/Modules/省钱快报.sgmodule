@@ -1,0 +1,20 @@
+#!name=省钱快报
+#!desc=2025-08-28 08:10:00
+
+[Rule]
+
+[URL Rewrite]
+^https?:\/\/api\.17gwx\.com\/v2\/base\/app\/ad\? - reject-dict
+^https?:\/\/api\.17gwx\.com\/v2\/growth\/popup\/remind$ - reject-dict
+^https?:\/\/api\.17gwx\.com\/v2\/homepage\/feed\/similarList\? - reject-dict
+^https?:\/\/api\.17gwx\.com\/v2\/recommend\/feed\/list\? - reject-dict
+
+[Map Local]
+
+[Body Rewrite]
+http-response-jq ^https?:\/\/api\.17gwx\.com\/operate\/elements\? '.data |= with_entries(select(.key | test("home_mid_many|home_mid_banner_multi|user_center_slide_show_pic|newfeed_detail_oper_middle|main_rebate_banner|zhekou_coupon_detail_oper|zhekou_jdcoupon_detail_oper|zhekou_vipcoupon_detail_oper|zhekou_pddcoupon_detail_oper") | not))'
+
+[Script]
+
+[MITM]
+hostname = %APPEND% api.17gwx.com

@@ -385,6 +385,8 @@
         extraModule: 'Module.sgmodule',
         pendingInstall: null
       };
+      const CACHE_KEY = 'module_cache';
+      const CACHE_EXPIRE = 60 * 60 * 1000;
       const $ = s => document.querySelector(s);
 
       const showToast = (msg) => {
@@ -454,17 +456,17 @@
           const card = document.createElement('div');
           card.className = 'card';
           card.innerHTML = `
-          <div class="header-row">
-            <h3>${app}</h3>
-            <span class="badge">解密域名：${data.domains.size}</span>
-          </div>
-          <div class="meta">
-            <button class="btn" data-copy>反解密模块</button>
-            <button class="btn" data-raw>查看原始模块</button>
-            <button class="btn" data-install>安装此模块</button>
-          </div>
-          <pre class="code">${[...data.domains].join('\n')}</pre>
-        `;
+      <div class="header-row">
+        <h3>${app}</h3>
+        <span class="badge">解密域名：${data.domains.size}</span>
+      </div>
+      <div class="meta">
+        <button class="btn" data-copy>反解密模块</button>
+        <button class="btn" data-raw>查看原始模块</button>
+        <button class="btn" data-install>安装此模块</button>
+      </div>
+      <pre class="code">${[...data.domains].join('\n')}</pre>
+    `;
           root.appendChild(card);
         });
       };
@@ -532,9 +534,28 @@
         return r.json();
       };
 
+      const saveToCache = () => {
+        const appsArray = [...state.apps.entries()];
+        localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), apps: appsArray }));
+      };
+
+      const loadFromCache = () => {
+        try {
+          const raw = localStorage.getItem(CACHE_KEY);
+          if (!raw) return false;
+          const data = JSON.parse(raw);
+          if (Date.now() - data.ts > CACHE_EXPIRE) return false;
+          state.apps = new Map(data.apps);
+          renderResults($('#q').value.trim());
+          setStatus(`已从缓存加载：${state.apps.size}个应用`, 100);
+          return true;
+        } catch {
+          return false;
+        }
+      };
+
       const load = async () => {
-        state.apps.clear();
-        setStatus('正在加载目录', 5);
+        setStatus('正在加载数据', 5);
 
         const list = await fetchJSON(`https://api.github.com/repos/${state.owner}/${state.repo}/contents/${state.path}`);
         const files = list.filter(x => x.type === 'file');
@@ -559,18 +580,25 @@
 
         setStatus(`成功加载：${state.apps.size}个应用`, 100);
         renderResults($('#q').value.trim());
+        saveToCache();
       };
 
       const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
 
       const main = () => {
-        $('#reload').onclick = () => load().catch(e => { setStatus('失败', 100); alert(e.message); });
+        $('#reload').onclick = () => {
+          state.apps.clear();
+          load().catch(e => { setStatus('失败', 100); alert(e.message); });
+        };
+
         $('#q').addEventListener('input', debounce(e => renderResults(e.target.value.trim()), 120));
         attachEvents();
         $('#q').focus({ preventScroll: true });
         $('#q').addEventListener('keydown', e => { if (e.key === 'Enter') e.target.blur(); });
 
-        load().catch(e => { setStatus('失败', 100); alert(e.message); });
+        if (!loadFromCache()) {
+          load().catch(e => { setStatus('失败', 100); alert(e.message); });
+        }
       };
 
       main();

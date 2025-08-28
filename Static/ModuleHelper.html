@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>模块助手</title>
   <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#2563eb" />
   <style>
     :root {
       --bg: #fff;
@@ -105,24 +106,23 @@
       transition: none;
     }
 
-    .card .meta {
-      display: flex;
-      gap: 6px;
+    .toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--fg);
+      color: var(--bg);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      opacity: 0;
+      transition: opacity .3s ease;
+      z-index: 2000;
     }
 
-    .card .meta button {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-width: 0;
-      padding: 8px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--fg);
-      cursor: pointer;
+    .toast.show {
+      opacity: 1;
     }
 
     .badge {
@@ -324,6 +324,8 @@
     </div>
   </div>
 
+  <div id="toast" class="toast"></div>
+
   <script>
     (() => {
       const state = {
@@ -334,6 +336,13 @@
         extraModule: 'Module.sgmodule'
       };
       const $ = s => document.querySelector(s);
+
+      const showToast = (msg) => {
+        const el = $('#toast');
+        el.textContent = msg;
+        el.classList.add('show');
+        setTimeout(() => el.classList.remove('show'), 2000);
+      };
 
       const setStatus = (t, p) => {
         $('#status').textContent = t;
@@ -420,8 +429,10 @@
           const data = state.apps.get(app);
 
           if (e.target.matches('[data-copy]')) {
+            if (!data.rule) { showToast('无可复制内容'); return; }
             const header = `#!name=反解密模块-${app}\n#!desc=请放置于模块列表下方\n`;
             navigator.clipboard.writeText(header + data.rule);
+            showToast('已复制到剪贴板');
           }
 
           if (e.target.matches('[data-raw]')) {

@@ -15,6 +15,9 @@
       --card: #f7f7f8;
       --border: #e5e7eb;
       --accent: #2563eb;
+
+      --back-btn-bg: rgba(220, 220, 220, 0.3);
+      --back-btn-color: #111;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -25,6 +28,9 @@
         --card: #111317;
         --border: #25262b;
         --accent: #60a5fa;
+
+        --back-btn-bg: rgba(120, 120, 120, 0.3);
+        --back-btn-color: #e5e5e5;
       }
     }
 
@@ -36,7 +42,7 @@
       margin: 0;
       background: var(--bg);
       color: var(--fg);
-      font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      font: 14px/1.5 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
     }
 
     .container {
@@ -69,17 +75,17 @@
       gap: 6px;
       align-items: flex-start;
       justify-content: space-between;
-      width: 100%;
       transition: all 0.3s ease;
+      width: 100%;
     }
 
     .controls {
       display: flex;
       gap: 10px;
-      flex-wrap: wrap;
       flex: 1;
       justify-content: flex-end;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     input[type="text"] {
@@ -309,7 +315,7 @@
       padding: 12px 16px;
     }
 
-    @media(max-width: 600px) {
+    @media(max-width:600px) {
       .modal-content:not(.small) {
         width: 100%;
         height: 100%;
@@ -327,6 +333,34 @@
         padding: 12px;
         font-size: 13px;
       }
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--back-btn-bg);
+      color: var(--back-btn-color);
+      border: none;
+      cursor: pointer;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1500;
+      text-align: center;
+      line-height: 1;
+      transition: opacity .25s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #backToTop.visible {
+      opacity: 1;
+      pointer-events: auto;
     }
   </style>
 </head>
@@ -378,10 +412,12 @@
     </div>
   </div>
 
-  <div id="toast" class="toast"></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <button id="backToTop" title="返回顶部">TOP</button>
 
   <script>
-    (() => {
+    (function () {
       const state = {
         owner: 'XiangwanGuan',
         repo: 'Shadowrocket',
@@ -402,8 +438,10 @@
       };
 
       const setStatus = (t, p) => {
-        $('#status').textContent = t;
-        $('#bar').style.width = (p || 0) + '%';
+        const s = $('#status');
+        if (s) s.textContent = t;
+        const bar = $('#bar');
+        if (bar) bar.style.width = (p || 0) + '%';
       };
 
       const extractDomains = txt => {
@@ -453,7 +491,8 @@
       };
 
       const renderResults = q => {
-        const root = $('#results'); root.innerHTML = '';
+        const root = $('#results');
+        root.innerHTML = '';
         const entries = [...state.apps.entries()].sort((a, b) => a[0].localeCompare(b[0]));
         const matched = q ? entries.filter(([k]) => fuzzyMatch(k, q)) : entries;
 
@@ -461,17 +500,17 @@
           const card = document.createElement('div');
           card.className = 'card';
           card.innerHTML = `
-      <div class="header-row">
-        <h3>${app}</h3>
-        <span class="badge">解密域名：${data.domains.size}</span>
-      </div>
-      <div class="meta">
-        <button class="btn" data-copy>反解密模块</button>
-        <button class="btn" data-raw>查看原始模块</button>
-        <button class="btn" data-install>安装此模块</button>
-      </div>
-      <pre class="code">${[...data.domains].join('\n')}</pre>
-    `;
+            <div class="header-row">
+              <h3>${app}</h3>
+              <span class="badge">解密域名：${data.domains.size}</span>
+            </div>
+            <div class="meta">
+              <button class="btn" data-copy>反解密模块</button>
+              <button class="btn" data-raw>查看原始模块</button>
+              <button class="btn" data-install>安装此模块</button>
+            </div>
+            <pre class="code">${[...data.domains].join('\n')}</pre>
+          `;
           root.appendChild(card);
         });
       };
@@ -604,6 +643,13 @@
         if (!loadFromCache()) {
           load().catch(e => { setStatus('失败', 100); alert(e.message); });
         }
+
+        const backBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 200) backBtn.classList.add('visible');
+          else backBtn.classList.remove('visible');
+        });
+        backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
       };
 
       main();

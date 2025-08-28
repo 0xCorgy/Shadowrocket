@@ -1,4 +1,4 @@
-#!name=牛津高阶词典第十版
+#!name=牛津高阶词典
 
 [URL Rewrite]
 ^https?:\/\/oxadmin\.cp\.com\.cn\/api\/advertise\/banner - reject-dict

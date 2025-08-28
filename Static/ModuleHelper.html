@@ -380,7 +380,7 @@
             <span class="badge">解密域名：${data.domains.size}</span>
           </div>
           <div class="meta">
-            <button class="btn" data-copy>复制反误杀规则</button>
+            <button class="btn" data-copy>复制反解密模块</button>
             <button class="btn" data-raw>查看原始模块</button>
             <button class="btn" data-install>安装到Shadowrocket</button>
           </div>
@@ -400,7 +400,8 @@
           const data = state.apps.get(app);
 
           if (e.target.matches('[data-copy]')) {
-            navigator.clipboard.writeText(data.rule);
+            const header = `#!name=反解密模块-${app}\n#!desc=请放置于模块列表下方\n`;
+            navigator.clipboard.writeText(header + data.rule);
           }
 
           if (e.target.matches('[data-raw]')) {

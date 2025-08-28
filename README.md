@@ -1,5 +1,5 @@
 ## [项目简介](#项目简介)
-本[项目](https://github.com/XiangwanGuan/Shadowrocket)由[向晚](https://t.me/xiangwanguan)维护，提供[Shadowrocket](https://apps.apple.com/app/shadowrocket/id932747118)的多款[配置文件](#配置说明)、一款[融合模块](#融合模块)，及多款[独立模块](#独立模块)；<br>
+本[项目](https://github.com/XiangwanGuan/Shadowrocket)由[向晚](https://t.me/xiangwanguan)维护，提供[Shadowrocket](https://apps.apple.com/app/shadowrocket/id932747118)的多款[配置文件](#配置文件)、一款[融合模块](#融合模块)，及多款[独立模块](#独立模块)；<br>
 如果此项目对您有帮助，欢迎给予Star；若有其他需求或问题，请提交Issues！<br>
 
 ---
@@ -11,7 +11,7 @@
 
 ---
 
-### [配置说明](#配置说明)
+### [配置文件](#配置文件)
 默认采用加密的**DoH**，并对所有未加密DNS请求进行劫持，确保解析安全性与隐私性；<br>
 苹果、微软、谷歌等**系统服务**已单独建立专属分流策略，避免与通用规则冲突；<br>
 海外主流**AI平台**已独立分流，保障访问速度与稳定性；<br>
@@ -31,7 +31,7 @@
 
 ---
 
-### [基础配置](#基础配置)
+#### [基础配置](#基础配置)
 [基础配置](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Release/Rules.conf)的默认策略既是完善的策略，如无特殊需求，无需自行调整；<br>
 代理分组内的策略**自动分流**，自动测试节点的可用性，优先选择**延迟较低**的节点，无需手动切换节点；<br>
 你所使用的节点，尽量包含**港美新**这三项；<br>
@@ -46,7 +46,7 @@ Telegram使用**新加坡节点**，Google、AI工具使用**美国节点**；<b
 
 ---
 
-### [完整配置](#完整配置)
+#### [完整配置](#完整配置)
 [完整配置](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Release/RulesFull.conf)基于[基础配置](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Release/Rules.conf)构建，包含更多代理分组：**港台日新美**，默认使用**首页节点**进行代理，可更自由的配置代理分组，其余配置完全相同；<br>
 如需要**更自由的代理分组**，建议使用此配置！<br>
 
@@ -54,7 +54,7 @@ Telegram使用**新加坡节点**，Google、AI工具使用**美国节点**；<b
 
 ---
 
-### [精简配置](#精简配置)
+#### [精简配置](#精简配置)
 [精简配置](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Release/RulesLite.conf)基于[基础配置](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Release/Rules.conf)构建，除不包含代理分组以外，其余配置完全相同；<br>
 如**不需要节点分流**，建议使用此配置！<br>
 
@@ -62,7 +62,7 @@ Telegram使用**新加坡节点**，Google、AI工具使用**美国节点**；<b
 
 ---
 
-### [回国配置](#回国配置)
+#### [回国配置](#回国配置)
 [回国配置](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Release/RulesBackCN.conf)基于[精简配置](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Release/RulesLite.conf)构建，适用于外国华侨使用，国内域名代理，其余域名直连；<br>
 此配置需搭配**回国机场**使用，**不适合国内用户使用！**<br>
 
@@ -70,7 +70,7 @@ Telegram使用**新加坡节点**，Google、AI工具使用**美国节点**；<b
 
 ---
 
-### [全球配置](#全球配置)
+#### [全球配置](#全球配置)
 [全球配置](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Release/RulesGlobal.conf)基于[精简配置](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Release/RulesLite.conf)构建，适用于非大陆地区，全局直连，可单独指定部分服务使用代理；<br>
 此配置需搭配**国外机场**使用，**不适合国内用户使用！**<br>
 

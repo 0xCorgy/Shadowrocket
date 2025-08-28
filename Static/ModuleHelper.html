@@ -113,6 +113,8 @@
       background: var(--card);
       font-size: 12px;
       color: var(--muted);
+      min-width: 50px;
+      text-align: right;
     }
 
     .grid {
@@ -137,9 +139,23 @@
       }
     }
 
-    .card h3 {
-      margin: 0 0 8px;
+    .card .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .card .header-row h3 {
+      margin: 0;
       font-size: 16px;
+    }
+
+    .card .meta {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     .card pre {
@@ -153,13 +169,6 @@
       white-space: pre-wrap;
       word-break: break-all;
       font-size: 13px;
-    }
-
-    .meta {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
     }
 
     .progress-row {
@@ -365,14 +374,18 @@
         matched.forEach(([app, data]) => {
           const card = document.createElement('div');
           card.className = 'card';
-          card.innerHTML = `<h3>${app}</h3>
-        <div class="meta">
-          <span class="badge">解密域名：${data.domains.size}</span>
-          <button class="btn" data-copy>复制反误杀规则</button>
-          <button class="btn" data-raw>查看原始模块</button>
-          <button class="btn" data-install>安装到Shadowrocket</button>
-        </div>
-        <pre class="code">${[...data.domains].join('\n')}</pre>`;
+          card.innerHTML = `
+          <div class="header-row">
+            <h3>${app}</h3>
+            <span class="badge">解密域名：${data.domains.size}</span>
+          </div>
+          <div class="meta">
+            <button class="btn" data-copy>复制反误杀规则</button>
+            <button class="btn" data-raw>查看原始模块</button>
+            <button class="btn" data-install>安装到Shadowrocket</button>
+          </div>
+          <pre class="code">${[...data.domains].join('\n')}</pre>
+        `;
           root.appendChild(card);
         });
       };

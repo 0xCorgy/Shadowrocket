@@ -139,20 +139,32 @@
       position: fixed;
       bottom: 20px;
       left: 50%;
-      transform: translateX(-50%) translateY(10px);
-      background: var(--fg);
-      color: var(--bg);
-      padding: 8px 14px;
+      transform: translateX(-50%) translateY(10px) scale(0.95);
+      background: rgba(255, 255, 255, 0.9);
+      color: #111;
+      padding: 8px 16px;
       border-radius: var(--radius);
       font-size: 12px;
       opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 90vw;
+      text-align: center;
+      transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease, color 0.2s ease;
       z-index: 2000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .toast {
+        background: rgba(50, 50, 50, 0.9);
+        color: #e5e7eb;
+      }
     }
 
     .toast.show {
       opacity: 1;
-      transform: translateX(-50%) translateY(0);
+      transform: translateX(-50%) translateY(0) scale(1);
     }
 
     .badge {
@@ -248,7 +260,7 @@
       border-radius: 999px;
       overflow: hidden;
       flex: 1;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
     }
 
     .progress>i {
@@ -256,7 +268,7 @@
       height: 100%;
       width: 0;
       background: var(--accent);
-      transition: width .25s ease;
+      transition: width 0.2s ease;
     }
 
     html,
@@ -393,7 +405,7 @@
       z-index: 1500;
       text-align: center;
       line-height: 1;
-      transition: opacity .25s ease, transform 0.2s ease;
+      transition: opacity 0.2s ease, transform 0.2s ease;
       opacity: 0;
       pointer-events: none;
     }

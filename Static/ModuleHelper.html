@@ -275,7 +275,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 16px;
+      padding: 8px 12px;
       border-bottom: 1px solid var(--border);
       background: var(--card);
       z-index: 10;
@@ -493,7 +493,7 @@
             if (!data.rule) { showToast('无可复制内容'); return; }
             const header = `#!name=反解密模块-${app}\n#!desc=请放置于模块列表下方\n`;
             navigator.clipboard.writeText(header + data.rule);
-            showToast('已复制到剪贴板');
+            showToast('已复制到剪贴板，请自行新建模块！');
           }
 
           if (e.target.matches('[data-raw]')) {

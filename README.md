@@ -1,5 +1,5 @@
 ## [项目简介](#项目简介)
-本[项目](https://github.com/XiangwanGuan/Shadowrocket)由[向晚](https://t.me/xiangwanguan)维护，提供[Shadowrocket](https://apps.apple.com/app/shadowrocket/id932747118)的多款[配置文件](#配置说明)、一款[融合模块](#融合模块)，部分资源由生成器自动构建；<br>
+本[项目](https://github.com/XiangwanGuan/Shadowrocket)由[向晚](https://t.me/xiangwanguan)维护，提供[Shadowrocket](https://apps.apple.com/app/shadowrocket/id932747118)的多款[配置文件](#配置说明)、一款[融合模块](#融合模块)，及多款[独立模块](#独立模块)；<br>
 如果此项目对您有帮助，欢迎给予Star；若有其他需求或问题，请提交Issues！<br>
 
 ---
@@ -89,7 +89,8 @@ Telegram使用**新加坡节点**，Google、AI工具使用**美国节点**；<b
 
 [![一键安装 融合模块](https://img.shields.io/static/v1?label=一键安装&message=融合模块&color=grey&logo=googledocs&logoColor=white&labelColor=blue&messageColor=white)](https://xiangwanguan.github.io/Shadowrocket/Static/Redirect.html?url=shadowrocket://install?module=https://xiangwanguan.github.io/Shadowrocket/Release/Module.sgmodule)<br>
 
-同步提供由[生成器](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Generator/Builder.py)拆分的[独立模块](https://github.com/XiangwanGuan/Shadowrocket/tree/main/Release/Modules)，请前往[模块助手](https://xiangwanguan.github.io/Shadowrocket/Static/ModuleHelper.html)进行安装；模块助手同时提供：**反解密模块制作**、**原始模块查询**等工具；<br>
+### [独立模块](#独立模块)
+[独立模块](https://github.com/XiangwanGuan/Shadowrocket/tree/main/Release/Modules)由[生成器](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Generator/Builder.py)同步构建，请前往[模块助手](https://xiangwanguan.github.io/Shadowrocket/Static/ModuleHelper.html)进行安装，模块助手同时提供：**反解密模块制作**、**原始模块查询**等工具；<br>
 
 ---
 

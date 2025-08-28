@@ -288,7 +288,7 @@
   <div id="modal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h3>原始规则（需转换后使用）</h3>
+        <h3>原始模块</h3>
         <span class="modal-close" id="modalClose">✕</span>
       </div>
       <pre id="modalBody"></pre>
@@ -297,7 +297,13 @@
 
   <script>
     (() => {
-      const state = { owner: 'XiangwanGuan', repo: 'Shadowrocket', path: 'Release/Modules', apps: new Map() };
+      const state = {
+        owner: 'XiangwanGuan',
+        repo: 'Shadowrocket',
+        path: 'Release/Modules',
+        apps: new Map(),
+        extraModule: 'Module.sgmodule'
+      };
       const $ = s => document.querySelector(s);
 
       const setStatus = (t, p) => {
@@ -307,40 +313,35 @@
 
       const extractDomains = txt => {
         const domains = new Set();
-        const lines = txt.split(/\r?\n/);
-        for (const line of lines) {
+        txt.split(/\r?\n/).forEach(line => {
           if (/^hostname\s*=/.test(line.trim())) {
             let rhs = line.split('=')[1] || '';
             rhs = rhs.replace(/#.*/, '').trim();
             rhs = rhs.replace(/%APPEND%/g, '').trim();
-            rhs.split(/[,\s]+/).map(x => x.trim()).filter(Boolean).forEach(d => domains.add(d));
+            rhs.split(/[,\s]+/).filter(Boolean).forEach(d => domains.add(d));
           }
-        }
+        });
         return domains;
       };
 
       const antiKill = txt => {
         const domains = new Set();
-        const lines = txt.split(/\r?\n/);
-        for (const line of lines) {
+        txt.split(/\r?\n/).forEach(line => {
           if (/^hostname\s*=/.test(line.trim())) {
             let rhs = line.split('=')[1] || '';
             rhs = rhs.replace(/#.*/, '').trim();
             rhs = rhs.replace(/%APPEND%/g, '').trim();
-            rhs.split(/[,\s]+/).map(x => x.trim()).filter(Boolean).forEach(d => domains.add(d.replace(/^-/, '')));
+            rhs.split(/[,\s]+/).filter(Boolean).forEach(d => domains.add(d.replace(/^-/, '')));
           }
-        }
-
+        });
         if (!domains.size) return '';
-        const line = `hostname = %APPEND% ${[...domains].map(d => `-${d}`).join(',')}`;
-        return `[MITM]\n${line}`;
+        return `[MITM]\nhostname = %APPEND% ${[...domains].map(d => `-${d}`).join(',')}`;
       };
 
       const parseFile = (name, txt) => {
         const appName = name.replace(/\.sgmodule$/i, '');
-        const domains = extractDomains(txt);
         state.apps.set(appName, {
-          domains,
+          domains: extractDomains(txt),
           raw: txt,
           rule: antiKill(txt),
           fileName: name
@@ -361,20 +362,19 @@
         const entries = [...state.apps.entries()].sort((a, b) => a[0].localeCompare(b[0]));
         const matched = q ? entries.filter(([k]) => fuzzyMatch(k, q)) : entries;
 
-        for (const [app, data] of matched) {
-          const domains = data.domains;
+        matched.forEach(([app, data]) => {
           const card = document.createElement('div');
           card.className = 'card';
           card.innerHTML = `<h3>${app}</h3>
             <div class="meta">
-              <span class="badge">解密域名：${domains.size}</span>
+              <span class="badge">解密域名：${data.domains.size}</span>
               <button class="btn" data-copy>复制反误杀规则</button>
               <button class="btn" data-raw>查看原始模块</button>
               <button class="btn" data-install>安装到Shadowrocket</button>
             </div>
-            <pre class="code">${[...domains].join('\n')}</pre>`;
+            <pre class="code">${[...data.domains].join('\n')}</pre>`;
           root.appendChild(card);
-        }
+        });
       };
 
       const attachEvents = () => {
@@ -387,7 +387,7 @@
           const data = state.apps.get(app);
 
           if (e.target.matches('[data-copy]')) {
-            navigator.clipboard.writeText(data.rule).then(() => { e.target.textContent = '规则复制成功'; });
+            navigator.clipboard.writeText(data.rule);
           }
 
           if (e.target.matches('[data-raw]')) {
@@ -419,9 +419,10 @@
 
         const list = await fetchJSON(`https://api.github.com/repos/${state.owner}/${state.repo}/contents/${state.path}`);
         const files = list.filter(x => x.type === 'file');
+        files.push({ name: state.extraModule, download_url: `https://raw.githubusercontent.com/${state.owner}/${state.repo}/main/Release/${state.extraModule}` });
         let done = 0;
-
         const batchSize = 20;
+
         for (let i = 0; i < files.length; i += batchSize) {
           const batch = files.slice(i, i + batchSize);
           await Promise.all(batch.map(async f => {

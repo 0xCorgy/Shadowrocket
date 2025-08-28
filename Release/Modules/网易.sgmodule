@@ -1,7 +1,5 @@
 #!name=网易
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/c\.m\.163\.com\/nc\/gl\/ - reject
@@ -16,12 +14,6 @@
 ^https?:\/\/p\d\.music\.126\.net\/\w+==\/\d+\.jpg$ - reject
 ^https?:\/\/www.icourse163.org\/.*?(Advertisement) - reject-img
 ^https?:\/\/www\.icourse163\.org\/mob\/j\/v1\/mobRecommendRPCBean\.getMaxWeightAdvertisement\.rpc - reject-200
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% *.music.126.net,c.m.163.com,client.mail.163.com,g1.163.com,img1.126.net,interface*.music.163.com,www.icourse163.org

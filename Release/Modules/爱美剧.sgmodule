@@ -1,18 +1,10 @@
 #!name=爱美剧
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.bjxkhc\.com\/index\.php\/app\/ios\/ads\/ - reject
 ^https?:\/\/api\.bjxkhc\.com\/index\.php\/app\/ios\/pay/ok$ - reject-dict
 ^https?:\/\/api\.bjxkhc\.com\/index\.php\/app\/ios\/ver/index_ios$ - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.bjxkhc.com

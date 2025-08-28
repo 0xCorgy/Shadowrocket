@@ -1,17 +1,9 @@
 #!name=日日煮
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.daydaycook\.com\.cn\/daydaycook\/server\/ad\/ - reject
 ^https?:\/\/cms\.daydaycook\.com\.cn\/api\/cms\/advertisement\/ - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.daydaycook.com.cn,cms.daydaycook.com.cn

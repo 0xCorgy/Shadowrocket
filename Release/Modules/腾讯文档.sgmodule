@@ -1,17 +1,9 @@
 #!name=腾讯文档
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/h5\.qzone\.qq\.com\/p\/adboss\/api\/json\/ts_access\/GetAds$ - reject-dict
 ^https?:\/\/tianshu\.qq\.com\/open\/ts_access\/GetAds\? - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% h5.qzone.qq.com,tianshu.qq.com

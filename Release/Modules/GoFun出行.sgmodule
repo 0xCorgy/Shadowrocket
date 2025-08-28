@@ -1,17 +1,9 @@
 #!name=GoFun出行
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/gateway\.shouqiev\.com(:\d+)?\/app\/startUp - reject-dict
 ^https?:\/\/gateway\.shouqiev\.com(:\d+)?\/fsda\/app\/(bootImage|loadPic|appBannerList) - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% gateway.shouqiev.com

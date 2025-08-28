@@ -1,7 +1,5 @@
 #!name=驾考宝典
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/\w+\.kakamobi\.cn\/api\/open\/v\d\/advert-sdk\/ - reject
@@ -15,12 +13,6 @@
 ^https?:\/\/smart\.789\.image\.mucang\.cn\/advert - reject-img
 ^https?:\/\/squirrel\.kakamobi\.cn\/api\/open\/recommend-goods\/get-my-page-banner - reject-dict
 ^https?:\/\/swallow\.kakamobi\.cn\/api\/open\/config\/get-config - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% *.kakamobi.cn,cheyouquan.kakamobi.com,mcbd.maiche.com,smart.789.image.mucang.cn

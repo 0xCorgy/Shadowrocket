@@ -1,19 +1,11 @@
 #!name=马达出行
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ebk\.17u\.cn\/tctrafficappversionadmin\/api\/getLatestVersionApp - reject-dict
 ^https?:\/\/mada-travel\.17u\.cn\/mdapi\/config\/ads - reject-dict
 ^https?:\/\/mada-travel\.17u\.cn\/mdapi\/config\/mine - reject-dict
 ^https?:\/\/mada-travel\.17u\.cn\/mdapi\/config\/tabAct - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% *.17u.cn

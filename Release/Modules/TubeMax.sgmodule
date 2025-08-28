@@ -1,5 +1,5 @@
 #!name=TubeMax
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN-SUFFIX, adcanvas.com ,REJECT
@@ -13,12 +13,6 @@ DOMAIN-SUFFIX, pangle.io ,REJECT
 
 [URL Rewrite]
 ^https?:\/\/.*\.i18n-pglstatp\.com\/obj\/ad-pattern-sg - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% *.i18n-pglstatp.com

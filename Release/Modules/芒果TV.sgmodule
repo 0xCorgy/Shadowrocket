@@ -1,5 +1,5 @@
 #!name=芒果TV
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, credits.bz.mgtv.com, REJECT
@@ -23,10 +23,6 @@ DOMAIN-SUFFIX, da.mgtv.com, REJECT
 ^https?:\/\/hb-boom\.api\.mgtv\.com\/release\/pullReleaseInfo - reject-dict
 ^https?:\/\/mobile\.api\.mgtv\.com\/v2\/mobile\/checkUpdate\? - reject-dict
 ^https?:\/\/mobileso\.bz\.mgtv\.com\/spotlight\/search\/v1\? - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 cnftp =type=http-response, pattern=^https?:\/\/dc2?\.bz\.mgtv\.com\/dynamic\/v1\/channel\/(index|vrsList)\/\w, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cnftp.js, requires-body=true, max-size=0

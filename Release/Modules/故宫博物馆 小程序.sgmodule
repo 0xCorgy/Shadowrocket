@@ -1,16 +1,8 @@
 #!name=故宫博物馆 小程序
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/gugongmini\.dpm\.org\.cn\/gugong_applet\/open-screen - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% gugongmini.dpm.org.cn

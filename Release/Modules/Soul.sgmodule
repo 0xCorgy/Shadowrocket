@@ -1,5 +1,5 @@
 #!name=Soul
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, ad-h5-cdn.soulapp.cn, REJECT
@@ -20,10 +20,6 @@ IP-CIDR, 121.196.197.147/32, REJECT
 ^https?:\/\/chat-live\.soulapp\.cn\/live\/planet\/recListV2 - reject-200
 ^https?:\/\/ssp\.soulapp\.cn\/api\/ad\/config - reject-dict
 ^https?:\/\/ssp\.soulapp\.cn\/api\/q - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 req_replace_body =type=http-request, pattern=^https?:\/\/data-collector\.soulapp\.cn\/api\/data\/report\/v\d, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/req_replace_body.js, requires-body=true, max-size=0

@@ -1,7 +1,5 @@
 #!name=车来了
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(api|atrace)\.chelaile\.net\.cn\/adpub\/ - reject
@@ -11,12 +9,6 @@
 ^https?:\/\/cdn\.\w{3}\.chelaileapp\.cn\/(api\/)?adpub - reject
 ^https?:\/\/pic1\.chelaile\.net\.cn\/adv\/ - reject
 ^https?:\/\/web\.chelaile\.net\.cn\/api\/adpub\/ad - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% *.chelaile.net.cn,cdn.*.chelaileapp.cn

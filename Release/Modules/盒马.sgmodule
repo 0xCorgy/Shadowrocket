@@ -1,7 +1,5 @@
 #!name=盒马
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.alibaba\.emas\.publish\.update\.get - reject-dict
@@ -11,10 +9,6 @@
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.mimir\.recommend\.after\.purchase\.activity - reject-dict
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.querysinglepage - reject-200
 ^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.sg\.querysinglescene - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 freshippo =type=http-response, pattern=^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.query(indexpage|mypage|tabfeedstream), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/freshippo.js, requires-body=true, max-size=0

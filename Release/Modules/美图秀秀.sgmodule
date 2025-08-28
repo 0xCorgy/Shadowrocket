@@ -1,14 +1,10 @@
 #!name=美图秀秀
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(api|tool)\.xiuxiu\.meitu\.com\/\/v\d\/vip\/popup_show\.json - reject-dict
 ^https?:\/\/(api|tool)\.xiuxiu\.meitu\.com\/v\d\/vip\/sub_popup\.json - reject-dict
 ^https?:\/\/api\.posters\.meitu\.com\/homepage\/leaflets\.json\? - reject-dict
-
-[Map Local]
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/(api|tool)\.xiuxiu\.meitu\.com\/v\d\/tool\/common\/home\.json 'delpaths([["data",0,"items",10]])'
@@ -20,8 +16,6 @@ http-response-jq ^https?:\/\/(api|tool)\.xiuxiu\.meitu\.com\/v\d\/tool\/common\/
 http-response-jq ^https?:\/\/api\.posters\.meitu\.com\/common\/init\.json 'delpaths([["data","vip"]])'
 http-response-jq ^https?:\/\/api\.xiuxiu\.meitu\.com\/v\d\/common\/config\.json 'delpaths([["data","home_top_live"]])'
 http-response-jq ^https?:\/\/api\.xiuxiu\.meitu\.com\/v\d\/common\/config\.json 'delpaths([["data","splashControl"]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.posters.meitu.com,api.xiuxiu.meitu.com,tool.xiuxiu.meitu.com

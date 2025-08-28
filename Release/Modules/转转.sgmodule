@@ -1,7 +1,5 @@
 #!name=转转
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzinfoshow\/getwindvanecardv2$ - reject-dict
@@ -28,8 +26,6 @@ http-response-jq ^https?:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzlogic\/mycontinenth
 http-response-jq ^https?:\/\/app\.zhuanzhuan\.com\/zz\/v2\/zzlogic\/mycontinenthomepage\? 'delpaths([["respData","topOpera","rightOpera2"]])'
 http-response-jq ^https?:\/\/app\.zhuanzhuan\.com\/zzx\/transfer\/getConfigInfo\? 'delpaths([["respData","freeMarketTabLeadPop"]])'
 http-response-jq ^https?:\/\/app\.zhuanzhuan\.com\/zzx\/transfer\/getConfigInfo\? 'delpaths([["respData","topOperations"]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% app.zhuanzhuan.com

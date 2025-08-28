@@ -1,7 +1,5 @@
 #!name=美团
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/.+\.(gif|jpg|mp4) - reject-img
@@ -20,10 +18,6 @@
 ^https?:\/\/s3plus\.meituan\.net\/v\d\/mss_\w+\/waimai-alita\/\w+\.zip$ - reject
 ^https?:\/\/sqt\.meituan\.com\/s\/gateway\/mweb\/api\/marketingResource\/show - reject
 ^https?:\/\/www\.meituan\.com\/api\/v\d\/appstatus\? - reject
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 meituan =type=http-response, pattern=^https?:\/\/p\d\.meituan\.net\/linglong\/, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/meituan.js, requires-body=true, max-size=0

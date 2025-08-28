@@ -1,7 +1,5 @@
 #!name=网上国网
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(csc|osg)-service\.sgcc\.com\.cn:\d+\/.*\/app_api\/selectInfoByCondition - reject-dict
@@ -10,12 +8,6 @@
 ^https?:\/\/(csc|osg)-service\.sgcc\.com\.cn:\d+\/emss-pfa-appset-front\/appSync\/getAppForceUpgrade - reject
 ^https?:\/\/(csc|osg)-service\.sgcc\.com\.cn:\d+\/emss-pfa-appset-front\/bootpageoutter\/ - reject-dict
 ^https?:\/\/(csc|osg)-service\.sgcc\.com\.cn:\d+\/emss-pfa-homepage-front\/member - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% csc-service.sgcc.com.cn,osg-service.sgcc.com.cn

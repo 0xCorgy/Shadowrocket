@@ -1,16 +1,8 @@
 #!name=爱回收
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/gw\.aihuishou\.com\/app-portal\/home\/getadvertisement - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% gw.aihuishou.com

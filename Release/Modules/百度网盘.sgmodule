@@ -1,7 +1,5 @@
 #!name=百度网盘
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/fc-video\.cdn\.bcebos\.com - reject
@@ -17,10 +15,6 @@
 ^https?:\/\/rp\.hpplay\.cn\/logouts - reject
 ^https?:\/\/staticsns\.cdn\.bcebos\.com\/amis\/.+/banner.png - reject
 ^https?:\/\/update\.pan\.baidu\.com\/statistics - reject
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 baiduPan =type=http-response, pattern=^https?:\/\/pan\.baidu\.com\/api\/getsyscfg\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/baiduPan.js, requires-body=true, max-size=0

@@ -1,14 +1,8 @@
 #!name=旅途随身听
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/www\.1314zhilv\.com\/ltsstnew\/(guideScenic\/getRecentlyUpdatedScenic|city\/getWeatherByCityName) - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 ltsst-ad =type=http-response, pattern=^https?:\/\/www\.1314zhilv\.com\/ltsstnew\/(common\/getJGQIconNew|city\/getAllBannelByCity), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ltsst-ad.js, requires-body=true, max-size=0

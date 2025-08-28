@@ -1,7 +1,5 @@
 #!name=同程旅行
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/mobileapi\.ly\.com\/wlfrontend\/app\/scenicMain - reject-dict
@@ -12,12 +10,6 @@
 ^https?:\/\/wx\.17u\.cn\/crapi\/query\/ad - reject-dict
 ^https?:\/\/wx\.17u\.cn\/crapi\/query\/getAdImgUrlByCode - reject-dict
 ^https?:\/\/wx\.17u\.cn\/xcxhomeapi\/((aggregator\/index)|(home\/(screen|banner|converge)))$ - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% *.17u.cn,*.17usoft.com,*.ly.com,mobilehotelapi.elong.com,quic-tcmapi.elong.com

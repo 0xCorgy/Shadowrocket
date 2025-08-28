@@ -1,5 +1,5 @@
 #!name=小红书
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,xiaohongshu.com)), REJECT
@@ -11,8 +11,6 @@ AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,xiaohongshu.com)), REJECT
 ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/note\/guide\? - reject-dict
 ^https?:\/\/www\.xiaohongshu\.com\/api\/marketing\/box\/trigger\? - reject-dict
 ^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/(v\d\/ads\/resource|v\d\/hey\/\w+\/hey_gallery) - reject-dict
-
-[Map Local]
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d\/search\/banner_list$ 'if (getpath([]) | has("data")) then (setpath(["data"]; {})) else . end'

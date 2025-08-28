@@ -1,5 +1,5 @@
 #!name=高德地图
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, amap-aos-info-nogw.amap.com, REJECT
@@ -21,8 +21,6 @@ AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,AMapiPhone*))
 ^https?:\/\/m5\.amap\.com\/ws\/valueadded\/weather\/v2\? - reject-dict
 ^https?:\/\/oss\.amap\.com\/ws\/banner\/lists\/\? - reject-dict
 ^https?:\/\/sns\.amap\.com\/ws\/msgbox\/pull_mp\? - reject-dict
-
-[Map Local]
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/m5-zb\.amap\.com\/ws\/sharedtrip\/taxi\/order_detail_car_tips\? 'delpaths([["data","carTips","data","popupInfo"]])'

@@ -1,5 +1,5 @@
 #!name=爱奇艺
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, access.if.iqiyi.com, REJECT
@@ -14,8 +14,6 @@ IP-CIDR, 116.211.198.237/32, REJECT, no-resolve
 ^https?:\/\/iface2\.iqiyi\.com\/ivos\/interact\/video\/data\? - reject-dict
 ^https?:\/\/iface2\.iqiyi\.com\/video\/3\.0\/v_interface_proxy\? - reject-dict
 ^https?:\/\/iface2\.iqiyi\.com\/views_pop\/3\.0\/pop_control\? - reject-dict
-
-[Map Local]
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/(kjp|t7z)\.cupid\.iqiyi\.com\/mixer\? 'delpaths([["adSlots"]])'
@@ -39,8 +37,6 @@ http-response-jq ^https?:\/\/iface2\.iqiyi\.com\/views_menus\/3\.0\/bottom_theme
 http-response-jq ^https?:\/\/iface2\.iqiyi\.com\/views_menus\/3\.0\/bottom_theme\? 'delpaths([["theme_list"]])'
 http-response-jq ^https?:\/\/iface2\.iqiyi\.com\/views_menus\/3\.0\/home_top_menu\? '.nav_group_data[].nav_list |= map(select(. == "0" or . == "2" or . == "1007" or . == "1" or . == "6" or . == "3"))'
 http-response-jq ^https?:\/\/search\.video\.iqiyi\.com\/q\? 'delpaths([["data"]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% -i.vip.iqiyi.com,*.iqiyi.com

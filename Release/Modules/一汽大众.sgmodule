@@ -1,11 +1,5 @@
 #!name=一汽大众
-#!desc=2025-08-28 08:10:00
-
-[Rule]
-
-[URL Rewrite]
-
-[Map Local]
+#!desc=2025-08-28 09:07:21
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/benefits\/benefitsCard\/getInfo\/v1\?.* '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
@@ -15,8 +9,6 @@ http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothLi
 http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v1\?.*showPositionCode=VWAPP_(ICE|MEB)_HOME_(OWNER_BANNER|PROSPECTS_BANNER|CUSTOM_BANNER|KONGO|CUSTOM_KONGO) '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
 http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/content\/booth\/getBoothList\/v1\?.*showPositionCode=VWAPP_HOME_BUOY '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
 http-response-jq ^https?:\/\/oneapp-api\.faw-vw\.com\/search\/firstPage\/getPromptList\/v1\?.* '. = { returnStatus: "SUCCEED", hasMore: false, data: [] }'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% oneapp-api.faw-vw.com

@@ -1,7 +1,5 @@
 #!name=雪球
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.xueqiu\.com\/lightsnow\/launch\/plan\/bee\/query\.json\?channel=1&ip_label=&label_json=.+new_customer=1 - reject-dict
@@ -16,12 +14,6 @@
 ^https?:\/\/open\.xueqiu\.com\/mpaas\/config\/content\?.+cube_detail_bottom_operation_trade_button - reject-dict
 ^https?:\/\/open\.xueqiu\.com\/mpaas\/config\/content\?.+home_visitor_relation_config - reject-dict
 ^https?:\/\/stock\.xueqiu\.com\/v5\/stock\/group\/recommend\/default\/list\.json - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% 101.201.175.228,101.201.62.20,101.201.62.26,124.250.48.3,182.92.145.50,182.92.251.113,39.103.79.14,39.106.97.84,47.95.49.75,api.xueqiu.com,open.xueqiu.com,stock.xueqiu.com

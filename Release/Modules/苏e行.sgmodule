@@ -1,7 +1,5 @@
 #!name=苏e行
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ad\.shunchangzhixing\.com\/getAd - reject-dict
@@ -9,12 +7,6 @@
 ^https?:\/\/api\.bwton\.com\/bff\/app\/h5\/v1\/station\/goods - reject-dict
 ^https?:\/\/api\.bwton\.com\/bff\/app\/index\/goods - reject-dict
 ^https?:\/\/api\.bwton\.com\/bff\/app\/index\/recommend - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% ad.shunchangzhixing.com,api.bwton.com

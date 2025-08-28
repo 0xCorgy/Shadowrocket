@@ -1,14 +1,8 @@
 #!name=优酷
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.(pisp\.scripts\.get|xspace\.play\.position\.preload\.query|xspace\.poplayer\.position\.query) - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 cnftp =type=http-response, pattern=^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.columbus\.(gateway\.new\.execute|home\.feed|home\.query|uc\.query|ycp\.query), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cnftp.js, requires-body=true, max-size=0

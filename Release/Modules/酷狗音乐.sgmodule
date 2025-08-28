@@ -1,5 +1,5 @@
 #!name=酷狗音乐
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, ad.tencentmusic.com, REJECT
@@ -29,12 +29,8 @@ URL-REGEX, ^https?:\/\/log\.stat\.kugou\.com\/mobile\/ad\.html, REJECT
 ^https?:\/\/hwstore\.kugou\.com\/v\d\/get_store_data - reject-dict
 ^https?:\/\/m1fxgroup\.kugou\.com\/fxsing\/yqc\/alongInfo\/getUserAlongInfo - reject-dict
 
-[Map Local]
-
 [Body Rewrite]
 http-response-jq ^https?:\/\/gateway(retry)?\.kugou\.com\/ocean\/v\d\/tab\/list_v\d 'def namesToRemove:["AI帮唱","长相思2","K歌","小说","游戏"];def removeParentIfNameMatches:if type=="object"then with_entries(select(.value|(type=="object"and .name as $name|$name|IN(namesToRemove[])|not)))|map_values(removeParentIfNameMatches)else .end;removeParentIfNameMatches'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% ep.kugou.com,fx.service.kugou.com,gateway.kugou.com,gatewayretry.kugou.com,gzacshow.kugou.com,hwstore.kugou.com,m1fxgroup.kugou.com

@@ -1,16 +1,8 @@
 #!name=潮玩宇宙
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ios-api\.lucklyworld\.com\/v6\/api\/config\/startup - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% ios-api.lucklyworld.com

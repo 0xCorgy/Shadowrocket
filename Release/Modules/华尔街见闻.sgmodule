@@ -1,18 +1,10 @@
 #!name=华尔街见闻
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api-one-wscn\.awtmt\.com\/apiv\d\/advertising\/ - reject
 ^https?:\/\/api\.wallstcn\.com\/apiv\d\/advertising\/ - reject
 ^https?:\/\/api\.wallstreetcn\.com\/apiv\d\/advertising\/ - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api-one-wscn.awtmt.com,api.wallstcn.com,api.wallstreetcn.com

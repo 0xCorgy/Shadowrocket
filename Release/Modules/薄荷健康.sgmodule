@@ -1,7 +1,5 @@
 #!name=薄荷健康
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.boohee\.com\/app-interface\/v1\/search\/search\? - reject-dict
@@ -10,10 +8,6 @@
 ^https?:\/\/api\.boohee\.com\/meta-interface\/v1\/index\/tool_buttons\? - reject-dict
 ^https?:\/\/bohe\.sfo-tx-shanghai-01\.saas\.sensorsdata\.cn\/api\/v2\/sfo\/user_popup_configs\? - reject-dict
 ^https?:\/\/status\.boohee\.com\/api\/v1\/merged_messages$ - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 bohe_ads =type=http-response, pattern=^https?:\/\/api\.boohee\.com\/meta-interface\/v1\/index\/plaza\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/bohe_ads.js, requires-body=true, max-size=0

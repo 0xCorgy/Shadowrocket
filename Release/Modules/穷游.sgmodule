@@ -1,18 +1,10 @@
 #!name=穷游
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/media\.qyer\.com\/ad\/ - reject
 ^https?:\/\/open\.qyer\.com\/qyer\/config\/get - reject
 ^https?:\/\/open\.qyer\.com\/qyer\/startpage\/ - reject-200
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% media.qyer.com,open.qyer.com

@@ -1,17 +1,9 @@
 #!name=超级课程表
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/182\.92\.244\.70\/d\/json - reject-dict
 ^https?:\/\/ad\.myfriday\.cn\/d\/json\/1\.1 - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% 182.92.244.70,ad.myfriday.cn

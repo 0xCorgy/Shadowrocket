@@ -1,5 +1,5 @@
 #!name=京东
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 URL-REGEX, ^https?:\/\/w{32}\.jddebug\.com\/diagnose\?, REJECT
@@ -11,8 +11,6 @@ URL-REGEX, ^https?:\/\/w{32}\.jddebug\.com\/diagnose\?, REJECT
 ^https?:\/\/img\d+\.360buyimg\.com\/jddjadvertise\/ - reject
 ^https?:\/\/storage\.360buyimg\.com\/app\.m\.jd\.com\/lottie - reject
 ^https?:\/\/storage\.360buyimg\.com\/dynamicConfig\/binary - reject
-
-[Map Local]
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=basicConfig 'if (getpath(["data","JDHttpToolKit","httpdns"]) | has("httpdns")) then (setpath(["data","JDHttpToolKit","httpdns","httpdns"]; 0)) else . end'

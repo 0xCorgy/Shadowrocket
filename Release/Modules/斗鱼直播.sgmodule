@@ -1,5 +1,5 @@
 #!name=斗鱼直播
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, stun1.douyucdn.cn, REJECT
@@ -15,8 +15,6 @@ DOMAIN, stun1.qvb.qcloud.com, REJECT
 ^https?:\/\/staticlive\.douyucdn\.cn\/.+?\/getStartSend - reject-img
 ^https?:\/\/staticlive\.douyucdn\.cn\/upload\/signs\/ - reject
 
-[Map Local]
-
 [Body Rewrite]
 http-response-jq ^https?:\/\/apiv2\.douyucdn\.cn\/japi\/entrance\/roomRes\/nc\/m\/list 'delpaths([["data","entrance_d"]])'
 http-response-jq ^https?:\/\/apiv2\.douyucdn\.cn\/japi\/entrance\/roomRes\/nc\/m\/list 'delpaths([["data","pendant_a"]])'
@@ -26,8 +24,6 @@ http-response-jq ^https?:\/\/venus\.douyucdn\.cn\/venus\/config\/static\/update.
 http-response-jq ^https?:\/\/venus\.douyucdn\.cn\/venus\/config\/static\/update.+keyCodeSet=flow_config 'if (getpath([]) | has("homeActFloatSwitch")) then (setpath(["homeActFloatSwitch"]; 0)) else . end'
 http-response-jq ^https?:\/\/venus\.douyucdn\.cn\/venus\/config\/static\/update.+keyCodeSet=flow_config 'if (getpath([]) | has("qqGameSwitch")) then (setpath(["qqGameSwitch"]; 0)) else . end'
 http-response-jq ^https?:\/\/venus\.douyucdn\.cn\/venus\/config\/static\/update.+keyCodeSet=flow_config 'if (getpath([]) | has("sdklivebanner")) then (setpath(["sdklivebanner"]; 0)) else . end'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% apiv2.douyucdn.cn,capi.douyucdn.cn,daoyu.sdo.com,rtbapi.douyucdn.cn,staticlive.douyucdn.cn,venus.douyucdn.cn

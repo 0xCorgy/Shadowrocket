@@ -1,7 +1,5 @@
 #!name=虎扑
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/business\.msstatic\.com\/advertiser - reject-200
@@ -9,12 +7,6 @@
 ^https?:\/\/games\.mobileapi\.hupu\.com(\/.+)?\/(interfaceAd|status\/init) - reject-200
 ^https?:\/\/goblin\.hupu\.com\/.+\/interfaceAd\/ - reject
 ^https?:\/\/i\d\.hoopchina\.com\.cn\/blogfile\/.+_\d{3}x\d{4} - reject-img
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% business.msstatic.com,du.hupucdn.com,games.mobileapi.hupu.com,goblin.hupu.com,i*.hoopchina.com.cn

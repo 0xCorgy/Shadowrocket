@@ -1,7 +1,5 @@
 #!name=腾讯广告
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/\w+\.beacon\.qq\.com - reject
@@ -19,12 +17,6 @@
 ^https?:\/\/splashqqlive\.gtimg\.com\/website\/\d{6} - reject-img
 ^https?:\/\/vv\.video\.qq\.com\/getvmind\? - reject-200
 ^https?:\/\/y\.gtimg\.cn\/music\/.*?_Ad/\d+\.png - reject-img
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% *.beacon.qq.com,api2.helper.qq.com,bk.bingo.qq.com,bla.gtimg.com,btrace.qq.com,discuz.gtimg.cn,imgcache.qq.com,lives.l.qq.com,mmgr.gtimg.com,qt.qq.com,qzonestyle.gtimg.cn,splashqqlive.gtimg.com,vv.video.qq.com,y.gtimg.cn

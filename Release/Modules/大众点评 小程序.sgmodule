@@ -1,19 +1,11 @@
 #!name=大众点评 小程序
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/m\.dianping\.com\/an\/gear\/dpmapp\/api\/readLionConfig\/config - reject-dict
 ^https?:\/\/m\.dianping\.com\/mapi\/mgw\/growth\/queryhaima - reject-dict
 ^https?:\/\/m\.dianping\.com\/wxmapi\/shop\/friendslike - reject-dict
 ^https?:\/\/mapi\.dianping\.com\/mapi\/mgw\/growth\/clipboardquery - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% *.dianping.com

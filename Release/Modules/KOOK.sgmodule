@@ -1,19 +1,13 @@
 #!name=KOOK
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/www\.kookapp\.cn\/api\/v3\/ad\/config$ - reject-dict
-
-[Map Local]
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/(m|www)\.kookapp\.cn\/api\/v\d\/user\/settings$ 'delpaths([["ad_banner"]])'
 http-response-jq ^https?:\/\/(m|www)\.kookapp\.cn\/api\/v\d\/user\/settings$ 'delpaths([["advertise_on_off"]])'
 http-response-jq ^https?:\/\/(m|www)\.kookapp\.cn\/api\/v\d\/user\/settings$ 'if (getpath([]) | has("ios_mall_switch")) then (setpath(["ios_mall_switch"]; false)) else . end'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% m.kookapp.cn,www.kookapp.cn

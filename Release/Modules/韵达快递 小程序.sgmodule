@@ -1,14 +1,8 @@
 #!name=韵达快递 小程序
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ydmbpic\.yundasys\.com\/opserver\/statics\/uniAppImage\/selfCenter\/rightsPop - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 yunda =type=http-request, pattern=^https?:\/\/mbpxapi\.yundasys\.com(:\d+)?\/gateway\/interface, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/yunda.js, requires-body=true, max-size=0

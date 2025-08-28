@@ -1,15 +1,9 @@
 #!name=飞猪旅行
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.(popresource|screen) - reject
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.trip\.guide\.guess\.what\.you\.like - reject
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 fliggy =type=http-response, pattern=^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/fliggy.js, requires-body=true, max-size=0

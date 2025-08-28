@@ -1,14 +1,8 @@
 #!name=茶颜悦色 小程序
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/miniapp\.sexytea2013\.com\/cms\/slot\/byCode\?code=MALL_INDEX_SLOT - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 wechatApplet =type=http-response, pattern=^https?:\/\/miniapp\.sexytea2013\.com\/cms\/slot\/queryByCodes\?codes=INDEX_TOP_BANNER, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0

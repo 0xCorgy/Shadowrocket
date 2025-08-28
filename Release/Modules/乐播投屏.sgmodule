@@ -1,7 +1,5 @@
 #!name=乐播投屏
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/saas\.hpplay\.cn\/api\/lebo-desk\/endpoint\/app-resource\/app-user-banner - reject-dict
@@ -9,12 +7,6 @@
 ^https?:\/\/saas\.hpplay\.cn\/api\/lebo-desk\/endpoint\/app-resource\/app_home_tips - reject-dict
 ^https?:\/\/saas\.hpplay\.cn\/api\/lebo-desk\/endpoint\/app-resource\/app_index_operate2 - reject-dict
 ^https?:\/\/saas\.hpplay\.cn\/api\/lebo-rabbit\/app-card\/list - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% saas.hpplay.cn

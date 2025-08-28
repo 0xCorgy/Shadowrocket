@@ -1,5 +1,5 @@
 #!name=哔哩哔哩
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, api.biliapi.com, REJECT

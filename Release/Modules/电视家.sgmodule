@@ -1,17 +1,9 @@
 #!name=电视家
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.gaoqingdianshi\.com\/api\/v\d\/ad\/ - reject
 ^https?:\/\/cdn\.dianshihome\.com\/static\/ad\/ - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.gaoqingdianshi.com,cdn.dianshihome.com

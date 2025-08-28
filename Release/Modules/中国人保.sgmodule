@@ -1,16 +1,10 @@
 #!name=中国人保
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/a\/config\/guessYouLike\/v - reject-dict
 ^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/a\/update\/startupPage\/v - reject-dict
 ^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/h\/headlines\/queryHeadlines - reject
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 picc_ads =type=http-response, pattern=^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/a\/config\/homeInit\/v, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/picc_ads.js, requires-body=true, max-size=0

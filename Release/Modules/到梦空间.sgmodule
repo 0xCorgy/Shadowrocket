@@ -1,18 +1,10 @@
 #!name=到梦空间
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/appdmkj\.5idream\.net\/appPic\/homepage - reject-dict
 ^https?:\/\/appdmkj\.5idream\.net\/v2\/login\/message\/tip - reject-dict
 ^https?:\/\/appdmkj\.5idream\.net\/v3\/user\/advertising\/list - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% appdmkj.5idream.net

@@ -1,5 +1,5 @@
 #!name=七猫小说
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, cdn-ad.wtzw.com, REJECT
@@ -20,13 +20,9 @@ DOMAIN, cdn-new-ad.wtzw.com, REJECT
 ^https?:\/\/sf3-fe-tos\.pglstatp-toutiao\.com\/obj\/ad-pattern\/ - reject
 ^https?:\/\/xiaoshuo\.wtzw\.com\/api\/v\d\/withdraw\/init - reject-dict
 
-[Map Local]
-
 [Body Rewrite]
 http-response-jq ^https?:\/\/xiaoshuo\.wtzw\.com\/api\/v\d\/user\/my-center\? 'delpaths([["data","func_area",1]])'
 http-response-jq ^https?:\/\/xiaoshuo\.wtzw\.com\/api\/v\d\/user\/my-center\? 'delpaths([["data","func_area",2]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% *.pglstatp-toutiao.com,api-bc.wtzw.com,api-cfg.wtzw.com,api-gw.wtzw.com,cdn.wtzw.com

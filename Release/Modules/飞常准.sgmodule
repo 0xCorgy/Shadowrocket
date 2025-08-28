@@ -1,17 +1,9 @@
 #!name=飞常准
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/app\.variflight\.com\/ad\/ - reject
 ^https?:\/\/app\.variflight\.com\/v\d\/advert\/ - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% app.variflight.com

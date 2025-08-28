@@ -1,7 +1,5 @@
 #!name=大众点评
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/103\.37\.155\.60\/fetch - reject
@@ -21,10 +19,6 @@
 ^https?:\/\/www\.dpfile\.com\/app\/fecommonservice-lottie\/ugc-write-done\/media - reject
 ^https?:\/\/www\.dpfile\.com\/picasso\/picasso-qa\/src\/AnswerList\/AnswerList-bundle - reject
 ^https?:\/\/www\.dpfile\.com\/sc\/indexpromotion - reject
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 dianping =type=http-response, pattern=^https?:\/\/ddplus\.meituan\.net\/v\d\/mss_\w+\/picassovc, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/dianping.js, requires-body=true, max-size=0

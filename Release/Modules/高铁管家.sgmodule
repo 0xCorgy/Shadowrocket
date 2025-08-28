@@ -1,17 +1,9 @@
 #!name=高铁管家
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/[a-z]*\.rsscc\.com\/[a-z]*\/adver - reject
 ^https?:\/\/cdn\.133\.cn\/md\/gtgj\/.+\/.+720x1280 - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% cdn.133.cn,jp.rsscc.com,jt.rsscc.com

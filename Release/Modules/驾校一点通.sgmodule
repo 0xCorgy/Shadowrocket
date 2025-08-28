@@ -1,7 +1,5 @@
 #!name=驾校一点通
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/gouche\.ksedt\.com\/config\/popup\/info$ - reject-dict
@@ -9,8 +7,6 @@
 ^https?:\/\/richmanrules\.ksedt\.com\/intellectWaterfallBidding\/find$ - reject-dict
 ^https?:\/\/richmanrules\.ksedt\.com\/intellectWaterfall\/find$ - reject-dict
 ^https?:\/\/richmanrules\.ksedt\.com\/serverConfig\/3\/adConfig\.json - reject-dict
-
-[Map Local]
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/api\.ksedt\.com\/api\/config\/ 'delpaths([["result","abtest_h5url"]])'
@@ -25,8 +21,6 @@ http-response-jq ^https?:\/\/api\.ksedt\.com\/api\/config\/ 'delpaths([["result"
 http-response-jq ^https?:\/\/api\.ksedt\.com\/api\/config\/ 'delpaths([["result","homead"]])'
 http-response-jq ^https?:\/\/api\.ksedt\.com\/api\/config\/ 'delpaths([["result","launchApp"]])'
 http-response-jq ^https?:\/\/api\.ksedt\.com\/api\/config\/ 'delpaths([["result","mainLiveConfig"]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.ksedt.com,gouche.ksedt.com,muses.ksedt.com,op.ksedt.com,richmanrules.ksedt.com

@@ -1,7 +1,5 @@
 #!name=嘀嗒出行
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/adx-cn\.anythinktech\.com\/bid - reject-dict
@@ -9,12 +7,6 @@
 ^https?:\/\/capis(-\d)?\.didapinche\.com\/ad\/ - reject
 ^https?:\/\/capis(-\d)?\.didapinche\.com\/adbase - reject
 ^https?:\/\/www\.didapinche\.com\/app\/adstat\/ - reject-200
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% adx-cn.anythinktech.com,capis*.didapinche.com,www.didapinche.com

@@ -1,17 +1,9 @@
 #!name=Pikpak
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/access.mypikpak.com/access_controller/v1/area_accessible - reject
 ^https?:\/\/d\.socdm\.com\/adsv\/ - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% access.mypikpak.com,d.socdm.com

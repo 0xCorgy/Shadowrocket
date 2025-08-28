@@ -1,5 +1,5 @@
 #!name=知乎
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, appcloud.zhihu.com, REJECT
@@ -38,11 +38,8 @@ IP-CIDR, 2402:4e00:1200:ed00:0:9089:6dac:96b6/128, REJECT, no-resolve
 ^https?:\/\/www\.zhihu\.com\/commercial_api\/banners_v\d\/mobile_banner - reject
 ^https?:\/\/zhuanlan\.zhihu\.com\/api\/articles\/\d+\/recommendation - reject
 
-[Map Local]
-
-[Body Rewrite]
-
 [Script]
+ReplaceBody =type=http-response, pattern=^https?:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument="recommend_queries":\{.+\}->"recommend_queries":{}
 zhihu =type=http-response, pattern=^https?:\/\/api\.zhihu\.com\/(moments_v\d|topstory\/recommend(_v\d)?), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/zhihu.js, requires-body=true, max-size=0
 zhihu =type=http-response, pattern=^https?:\/\/api\.zhihu\.com\/(v\d\/)?questions\/\d+\/(feeds|answers)\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/zhihu.js, requires-body=true, max-size=0
 zhihu =type=http-response, pattern=^https?:\/\/api\.zhihu\.com\/commercial_api\/app_float_layer, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/zhihu.js, requires-body=true, max-size=0
@@ -51,7 +48,6 @@ zhihu =type=http-response, pattern=^https?:\/\/api\.zhihu\.com\/v2\/topstory\/ho
 zhihu =type=http-response, pattern=^https?:\/\/appcloud2\.zhihu\.com\/v\d\/config, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/zhihu.js, requires-body=true, max-size=0
 zhihu =type=http-response, pattern=^https?:\/\/m-cloud\.zhihu\.com\/api\/cloud\/config\/all\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/zhihu.js, requires-body=true, max-size=0
 zhihu =type=http-response, pattern=^https?:\/\/www\.zhihu\.com\/api\/v\d\/(answers|articles)\/\d+\/recommendations?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/zhihu.js, requires-body=true, max-size=0
-ReplaceBody =type=http-response, pattern=^https?:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument="recommend_queries":\{.+\}->"recommend_queries":{}
 
 [MITM]
 hostname = %APPEND% api.zhihu.com,appcloud2.zhihu.com,link.zhihu.com,m-cloud.zhihu.com,www.zhihu.com,zhuanlan.zhihu.com

@@ -1,5 +1,5 @@
 #!name=叮咚买菜
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, ddfs-public.ddimg.mobi, REJECT
@@ -19,8 +19,6 @@ DOMAIN, trackercollect.ddxq.mobi, REJECT
 ^https?:\/\/maicai\.api\.ddxq\.mobi\/advert\/ - reject
 ^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/getHomeAdPop - reject
 
-[Map Local]
-
 [Body Rewrite]
 http-response-jq ^https?:\/\/imaicai\.api\.ddxq\.mobi\/guide-service\/productApi\/productDetail\/info\? 'delpaths([["data","detail","chatEntry"]])'
 http-response-jq ^https?:\/\/imaicai\.api\.ddxq\.mobi\/homeApi\/categoriesNewDetail\? 'delpaths([["data","ad_info"]])'
@@ -30,8 +28,6 @@ http-response-jq ^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/homeFlowDetail 'w
 http-response-jq ^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/newDetails\? '.data.list |= map(select(has("capsule_freedom_zone") | not))'
 http-response-jq ^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/newDetails\? 'delpaths([["data","suspension"]])'
 http-response-jq ^https?:\/\/maicai\.api\.ddxq\.mobi\/homeApi\/newDetails\? 'delpaths([["data","top_advert_data"]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% maicai.api.ddxq.mobi,user.api.ddxq.mobi

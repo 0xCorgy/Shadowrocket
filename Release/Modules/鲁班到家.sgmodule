@@ -1,16 +1,8 @@
 #!name=鲁班到家
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/order-app-api\.lbdj\.com\/lbdj\/apporder\/ad\/ - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% order-app-api.lbdj.com

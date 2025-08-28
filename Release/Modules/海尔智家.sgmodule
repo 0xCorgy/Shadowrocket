@@ -1,7 +1,5 @@
 #!name=海尔智家
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/dualstack-(arestapi|restios)\.amap\.com\/v\d\/iasdkauth\?key= - reject-200
@@ -15,10 +13,6 @@
 ^https?:\/\/zj\.haier\.net\/omsappapi\/ad\/ - reject-200
 ^https?:\/\/zj\.haier\.net\/omsappapi\/resource\/v\d\/resBagList$ - reject-200
 ^https?:\/\/zj\.haier\.net\/omssceneapi\/house\/v\d\/recommend\/listByRoom$ - reject-200
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 haier =type=http-response, pattern=^https?:\/\/oss-zjrs\.haier\.net\/resource\/confFile\/\d{22}\.json$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/haier.js, requires-body=true, max-size=0

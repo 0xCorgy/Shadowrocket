@@ -1,7 +1,5 @@
 #!name=百度地图
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/afd\.baidu\.com\/afd\/entry\?action=(update|query) - reject-dict
@@ -12,8 +10,6 @@
 ^https?:\/\/yongche\.baidu\.com\/goorder\/passenger\/cobuild\/pull\? - reject-dict
 ^https?:\/\/yongche\.baidu\.com\/goorder\/passenger\/operationgirdle$ - reject-dict
 
-[Map Local]
-
 [Body Rewrite]
 http-response-jq ^https?:\/\/newclient\.map\.baidu\.com\/(client\/)?usersystem\/mine\/page\? 'if (getpath([]) | has("data")) then (setpath(["data"]; {})) else . end'
 http-response-jq ^https?:\/\/newclient\.map\.baidu\.com\/client\/noticebar\/get\? 'delpaths([["content","multi_data"]])'
@@ -23,8 +19,6 @@ http-response-jq ^https?:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? '
 http-response-jq ^https?:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? 'delpaths([["Result","cards",4]])'
 http-response-jq ^https?:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? 'delpaths([["Result","cards",5]])'
 http-response-jq ^https?:\/\/newclient\.map\.baidu\.com\/living\/nearby\/api\? 'delpaths([["Result","cards",9]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% afd.baidu.com,ecom.map.baidu.com,newclient.map.baidu.com,yongche.baidu.com

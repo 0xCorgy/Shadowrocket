@@ -1,7 +1,5 @@
 #!name=买单吧
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/creditcard.*\.bankcomm\.(com|cn)\/.*Ads\.do - reject
@@ -13,10 +11,6 @@
 ^https?:\/\/creditcardapp\.bankcomm\.(com|cn)\/mappweb_interaction\/appInfo\/appNewestVersion - reject-200
 ^https?:\/\/creditcardapp\.bankcomm\.(com|cn)\/mappweb_interaction\/common\/globalNotify - reject
 ^https?:\/\/creditcardapp\.bankcomm\.(com|cn)\/mappweb_interaction\/qryHighRiskUser - reject
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 mdb =type=http-response, pattern=^https?:\/\/creditcardapp\.bankcomm\.(com|cn)\/rcg\/index\.html\?callbackurl=rcg\/index\.html&orclogin=1&, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/mdb.js, requires-body=true, max-size=0

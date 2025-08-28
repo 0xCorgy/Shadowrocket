@@ -1,19 +1,11 @@
 #!name=懒人听书
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/.*\/yyting\/advertclient\/ClientAdvertList.action - reject
 ^https?:\/\/118\.178\.214\.118\/yyting\/advertclient\/ClientAdvertList\.action - reject-img
 ^https?:\/\/dapis\.mting\.info\/yyting\/advertclient\/ClientAdvertList\.action - reject-img
 ^https?:\/\/display\.wting\.info\/.*.jpeg - reject-200
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% 118.178.214.118,dapis.mting.info,display.wting.info

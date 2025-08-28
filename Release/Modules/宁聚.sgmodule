@@ -1,17 +1,9 @@
 #!name=宁聚
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.nj\.nbtv\.cn\/v2\/advertise\/advertise-r1\/get-list\?data=u8obKDIrIWt2NR9wBuMwQ5O61eEsP - reject-200
 ^https?:\/\/api\.nj\.nbtv\.cn\/v\d\/common\/system-boot-inform\/detail - reject-200
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.nj.nbtv.cn

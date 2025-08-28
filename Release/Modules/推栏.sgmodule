@@ -1,17 +1,9 @@
 #!name=推栏
-#!desc=2025-08-28 08:10:00
-
-[Rule]
-
-[URL Rewrite]
-
-[Map Local]
+#!desc=2025-08-28 09:07:21
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/m\.pvp\.xoyo\.com\/conf\/server-mapping$ 'delpaths([["data","splashConf"]])'
 http-response-jq ^https?:\/\/m\.pvp\.xoyo\.com\/conf\/server-mapping$ 'delpaths([["data","splashConfNew"]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% m.pvp.xoyo.com

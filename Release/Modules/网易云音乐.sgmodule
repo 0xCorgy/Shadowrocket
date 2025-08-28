@@ -1,5 +1,5 @@
 #!name=网易云音乐
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, httpdns.music.163.com, REJECT
@@ -15,10 +15,6 @@ DOMAIN, iadmusicmat.music.126.net, REJECT
 ^https?:\/\/interface\d?\.music\.163.com\/w?e?api\/(search\/(chart|default|rcmd\/keyword|specialkeyword)|resource-exposure\/|activity\/bonus\/playpage\/time\/query) - reject-dict
 ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/(resource\/comments?\/musiciansaid|community\/friends\/fans-group\/artist\/group\/get|user\/sub\/artist|music\/songshare\/text\/recommend\/get|mine\/applet\/redpoint|resniche\/position\/play\/new\/get) - reject-dict
 ^https?:\/\/interface\d?\.music\.163\.com\/w?e?api\/(side-bar\/mini-program\/music-service\/account|delivery\/(batch-deliver|deliver)|moment\/tab\/info\/get|yunbei\/account\/entrance\/get) - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 wyres =type=http-response, pattern=^https?:\/\/(ipv4|interface\d?)\.music\.163\.com\/w?e?api\/(batch|v\d\/resource\/comment\/floor\/get), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wyres.js, requires-body=true, max-size=0, binary-body-mode=true

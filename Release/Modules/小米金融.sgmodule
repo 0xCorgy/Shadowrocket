@@ -1,17 +1,9 @@
 #!name=小米金融
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.jr\.mi\.com\/jr\/api\/playScreen - reject-200
 ^https?:\/\/api\.jr\.mi\.com\/v\d\/adv\/ - reject-200
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.jr.mi.com

@@ -1,5 +1,5 @@
 #!name=智联招聘
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 URL-REGEX, ^https?:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/, REJECT
@@ -8,12 +8,8 @@ URL-REGEX, ^https?:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/, REJECT
 ^https?:\/\/cgate\.zhaopin\.com\/bdp\/commercial\/queryLinkData$ - reject
 ^https?:\/\/cgate\.zhaopin\.com\/resumeapi\/resumeCheck\/positionDetailBottomTipCheck$ - reject-dict
 
-[Map Local]
-
 [Body Rewrite]
 http-response-jq ^https?:\/\/ask\.zhaopin\.com\/plat-zqa-server\/home\/\d\.\d\.\d\/getHomeContents\? 'delpaths([["data","templates",0,"data","banner"]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% ask.zhaopin.com,cgate.zhaopin.com

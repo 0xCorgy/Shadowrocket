@@ -1,16 +1,8 @@
 #!name=和风天气
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/hfapp-service\.qweather\.net\/v\d\.\d\/app\/ad\/list\? - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% hfapp-service.qweather.net

@@ -1,11 +1,5 @@
 #!name=无他相机
-#!desc=2025-08-28 08:10:00
-
-[Rule]
-
-[URL Rewrite]
-
-[Map Local]
+#!desc=2025-08-28 09:07:21
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/api-release\.wuta-cam\.com\/ad_tree$ '.regular.homepage_25_bottom_nav_bar|=map(.button_list|=map(select(.name|IN("home","me"))))'
@@ -15,8 +9,6 @@ http-response-jq ^https?:\/\/api-release\.wuta-cam\.com\/ad_tree$ 'delpaths([["r
 http-response-jq ^https?:\/\/api-release\.wuta-cam\.com\/ad_tree$ 'delpaths([["regular","pic_upload_alert"]])'
 http-response-jq ^https?:\/\/api-release\.wuta-cam\.com\/ad_tree$ 'delpaths([["regular","retouching_before_icon"]])'
 http-response-jq ^https?:\/\/api-release\.wuta-cam\.com\/ad_tree$ 'delpaths([["regular","splash"]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api-release.wuta-cam.com

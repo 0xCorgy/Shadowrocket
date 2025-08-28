@@ -1,16 +1,8 @@
 #!name=腾讯游戏社区
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/static\.gameplus\.qq\.com\/img\/\d{10}-\d{4}$ - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% static.gameplus.qq.com

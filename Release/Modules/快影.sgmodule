@@ -1,7 +1,5 @@
 #!name=快影
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.kmovie\.gifshow\.com\/rest\/n\/kmovie\/app\/banner\/common\/getBannerByType\? - reject-dict
@@ -9,13 +7,9 @@
 ^https?:\/\/api\.kmovie\.gifshow\.com\/rest\/n\/kmovie\/app\/resource\/activity\/pendant\? - reject-dict
 ^https?:\/\/api\.kmovie\.gifshow\.com\/rest\/n\/kmovie\/app\/resource\/get\? - reject-dict
 
-[Map Local]
-
 [Body Rewrite]
 http-response-jq ^https?:\/\/api\.kmovie\.gifshow\.com\/rest\/n\/kmovie\/app\/banner\/common\/getAllBannerPage\? 'del(.data[] | select(.bannerChannelName == "活动"))'
 http-response-jq ^https?:\/\/api\.kmovie\.gifshow\.com\/rest\/n\/kmovie\/app\/banner\/common\/getBannerByTypeV2\? 'del(.list[] | select(.bannerChannelName == "活动"))'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.kmovie.gifshow.com

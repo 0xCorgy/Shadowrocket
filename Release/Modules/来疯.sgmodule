@@ -1,17 +1,9 @@
 #!name=来疯
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.jxedt\.com\/ad\/ - reject-200
 ^https?:\/\/api\.laifeng\.com\/v\d\/start\/ads - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.jxedt.com,api.laifeng.com

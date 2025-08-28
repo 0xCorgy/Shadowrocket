@@ -1,17 +1,11 @@
 #!name=美团外卖 小程序
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/npay\.meituan\.com\/conch\/flow\/mypage-wallet-info - reject-dict
 ^https?:\/\/npay\.meituan\.com\/conch\/walletv\d\/wechat-pop-window - reject-dict
 ^https?:\/\/web\.meituan\.com\/api\/miniprogram\/my\/(novelZone|resources) - reject-dict
 ^https?:\/\/web\.meituan\.com\/newUser\/returnMoney\/popWindow - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 meituanwm =type=http-response, pattern=^https?:\/\/web\.meituan\.com\/api\/miniprogram\/index\/aggregate, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/meituanwm.js, requires-body=true, max-size=0

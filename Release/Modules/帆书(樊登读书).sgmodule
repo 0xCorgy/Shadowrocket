@@ -1,7 +1,5 @@
 #!name=帆书(樊登读书)
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/g(.*)\.dushu365\.com\/chief-orch\/config\/config\/v\d+\/(shortCut|appUpdateUnite|loadingAd|appConfig) - reject
@@ -11,10 +9,6 @@
 ^https?:\/\/g(.*)\.dushu365\.com\/fs-retain\/trialVip\/v\d+\/requestTrialVipPopDoNotSendReward - reject
 ^https?:\/\/g(.*)\.dushu365\.com\/order-orchestration\/orderWeb\/exchange\/v\d+\/showExchangeButton - reject
 ^https?:\/\/g(.*)\.dushu365\.com\/resource-orchestration-system\/vipLandingPage\/v\d+\/getVipLandingPageApp - reject
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 dushu365 =type=http-response, pattern=^https?:\/\/g(.*)\.dushu365\.com\/abtest-front\/banner-modular\/get, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/dushu365.js, requires-body=true, max-size=0

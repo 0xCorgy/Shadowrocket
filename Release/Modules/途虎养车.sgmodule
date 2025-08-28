@@ -1,7 +1,5 @@
 #!name=途虎养车
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/cl-gateway\.tuhu\.cn\/cl-common-api\/api\/personalCenter\/getAutoSuperConfig - reject
@@ -9,10 +7,6 @@
 ^https?:\/\/mkt-gateway\.tuhu\.cn\/mkt-push-message-box\/banner\/cms\/getIndexBanner - reject
 ^https?:\/\/mkt-gateway\.tuhu\.cn\/mkt-scene-marketing-service\/api\/scene\/queryScheme - reject
 ^https?:\/\/mkt-gateway\.tuhu\.cn\/mlp-product-search-api\/search\/helper\/defaultAndHotWord - reject
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 tuhu =type=http-response, pattern=^https?:\/\/cl-gateway\.tuhu\.cn\/cl-common-api\/api\/personalCenter\/getCmsModuleList, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/tuhu.js, requires-body=true, max-size=0

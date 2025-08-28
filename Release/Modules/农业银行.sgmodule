@@ -1,5 +1,5 @@
 #!name=农业银行
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, msmp.abchina.com.cn, REJECT
@@ -8,12 +8,6 @@ DOMAIN, msmp.abchina.com.cn, REJECT
 ^https?:\/\/enjoy\.cdn-static\.abchina\.com\/yx-engine-web\/file\/download\/(?!7dc2|fe96|cea3|06a8|1b11|d57b|6918|61db|2d58|aa23|) - reject-200
 ^https?:\/\/firefly\.abchina\.com\.cn\/firefly-collection\/Collect - reject-200
 ^https?:\/\/midc\.cdn-static\.abchina\.com\.cn\/distributecenterimg\/file\/download\/(ed64|74b5) - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% enjoy.cdn-static.abchina.com,firefly.abchina.com.cn,midc.cdn-static.abchina.com.cn

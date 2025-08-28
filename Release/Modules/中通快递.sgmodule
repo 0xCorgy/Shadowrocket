@@ -1,19 +1,11 @@
 #!name=中通快递
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/hdgateway\.zto\.com\/getAdInfo - reject-dict
 ^https?:\/\/hdgateway\.zto\.com\/getApolloConfig - reject-dict
 ^https?:\/\/hdgateway\.zto\.com\/listJumperShow - reject-dict
 ^https?:\/\/hdgateway\.zto\.com\/track - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% hdgateway.zto.com

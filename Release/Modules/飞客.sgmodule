@@ -1,19 +1,13 @@
 #!name=飞客
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/www\.flyert\.com(\.cn)?\/.*\.php\?module=advis - reject-dict
 ^https?:\/\/www\.flyert\.com(\.cn)?\/.*\.php\?module=basicdata&type=appinfo - reject-dict
 
-[Map Local]
-
-[Body Rewrite]
-
 [Script]
-flyert =type=http-response, pattern=^https?:\/\/www\.flyert\.com(\.cn)?\/.*plugin, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/flyert.js, requires-body=true, max-size=0
 ReplaceBody =type=http-response, pattern=^https?:\/\/www\.flyert\.com(\.cn)?\/.*\.php\?.*module=basicdata&type=forumlist, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=adv->adv0
+flyert =type=http-response, pattern=^https?:\/\/www\.flyert\.com(\.cn)?\/.*plugin, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/flyert.js, requires-body=true, max-size=0
 
 [MITM]
 hostname = %APPEND% www.flyert.com,www.flyert.com.cn

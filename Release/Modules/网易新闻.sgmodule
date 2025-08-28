@@ -1,13 +1,5 @@
 #!name=网易新闻
-#!desc=2025-08-28 08:10:00
-
-[Rule]
-
-[URL Rewrite]
-
-[Map Local]
-
-[Body Rewrite]
+#!desc=2025-08-28 09:07:21
 
 [Script]
 163news =type=http-response, pattern=^https?:\/\/gw\.m\.163\.com\/nc\/api\/v\d\/feed\/dynamic\/headline-list\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/163news.js, requires-body=true, max-size=0

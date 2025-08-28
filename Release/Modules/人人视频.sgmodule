@@ -1,15 +1,9 @@
 #!name=人人视频
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api.rr.tv/storage/business/rootName/app/homePage\?dataType=JSON - reject-dict
 ^https?:\/\/api\.rr\.tv\/.*?Version - reject
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 rrtv_json =type=http-response, pattern=^https?:\/\/api.rr.tv/user/profile, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/rrtv_json.js, requires-body=true, max-size=0

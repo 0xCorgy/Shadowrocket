@@ -1,17 +1,9 @@
 #!name=云宝宝大数据
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/nnapp\.cloudbae\.cn:\d+\/mc\/api\/advert/ - reject
 ^https?:\/\/nnapp\.cloudbae\.cn\/mc\/api\/advert/ - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% nnapp.cloudbae.cn

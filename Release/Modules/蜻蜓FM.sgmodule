@@ -1,7 +1,5 @@
 #!name=蜻蜓FM
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/app\.qtfm\.cn\/m-bff\/v\d\/i_listen\/guess_you_like\? - reject-dict
@@ -10,8 +8,6 @@
 ^https?:\/\/search\.qtfm\.cn\/v\d\/keyword\/default$ - reject
 ^https?:\/\/user\.qtfm\.cn\/u\d\/api\/v\d\/user\/following_podcaster\? - reject-dict
 
-[Map Local]
-
 [Body Rewrite]
 http-response-jq ^https?:\/\/app\.qtfm\.cn\/m-bff\/v\d\/channel\/\d{6}\/playpage\/\d{8} 'delpaths([["data","related_recommend"]])'
 http-response-jq ^https?:\/\/app\.qtfm\.cn\/m-bff\/v\d\/mylistenpage 'delpaths([["data","banner"]])'
@@ -19,8 +15,6 @@ http-response-jq ^https?:\/\/app\.qtfm\.cn\/m-bff\/v\d\/signin\/show_homepage_ic
 http-response-jq ^https?:\/\/app\.qtfm\.cn\/m-bff\/v\d\/subscribed_channels\? 'delpaths([["data","recommends"]])'
 http-response-jq ^https?:\/\/app\.qtfm\.cn\/recommendapi\/v\d\/hotpage\? 'del(.data.head[].data[] | select(.title == "超级会员")) | del(.data.head[].data[] | select(.link.type == "RadioStation")) | del(.data.head[] | select(.title == "听头条")) | del(.data.feeds[] | select(.type == "ListenListRadio"))'
 http-response-jq ^https?:\/\/entry\.qtfm\.cn\/api\/v\d\/personal\/\?carrier 'delpaths([["data", "membership"], ["data", "level_info"]]) | .data.discovery.entries |= map(select(.title != "借钱"))'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% app.qtfm.cn,entry.qtfm.cn,recpage-c.qtfm.cn,search.qtfm.cn,user.qtfm.cn

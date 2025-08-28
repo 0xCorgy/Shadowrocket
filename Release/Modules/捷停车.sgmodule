@@ -1,19 +1,11 @@
 #!name=捷停车
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/e\.jparking\.cn\/abTest-gateway\/abTest-api - reject
 ^https?:\/\/e\.jparking\.cn\/ad-api - reject-dict
 ^https?:\/\/sytgate\.jslife\.com\.cn\/base-gateway\/config\/queryAppNewVersion - reject
 ^https?:\/\/sytgate\.jslife\.com\.cn\/data-report-gateway\/syt-data-report\/receive - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% e.jparking.cn,sytgate.jslife.com.cn

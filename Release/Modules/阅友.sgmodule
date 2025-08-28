@@ -1,12 +1,8 @@
 #!name=阅友
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, ads.reader.yueyouxs.com, REJECT
-
-[URL Rewrite]
-
-[Map Local]
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/goway\.reader\.yueyouxs\.com\/assemble\/app\/basic\/getAppInfo\? 'delpaths([["data","aaReportListCfg"]])'
@@ -32,8 +28,6 @@ http-response-jq ^https?:\/\/goway\.reader\.yueyouxs\.com\/assemble\/app\/basic\
 http-response-jq ^https?:\/\/goway\.reader\.yueyouxs\.com\/assemble\/app\/basic\/getAppInfo\? 'delpaths([["data","secondOrderList"]])'
 http-response-jq ^https?:\/\/goway\.reader\.yueyouxs\.com\/assemble\/app\/basic\/getAppInfo\? 'delpaths([["data","touTiaoShowDlPopup"]])'
 http-response-jq ^https?:\/\/goway\.reader\.yueyouxs\.com\/assemble\/app\/basic\/getAppInfo\? 'if (getpath(["data"]) | has("isAdClosed")) then (setpath(["data","isAdClosed"]; true)) else . end'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% goway.reader.yueyouxs.com

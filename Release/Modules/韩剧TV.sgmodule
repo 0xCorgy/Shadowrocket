@@ -1,5 +1,5 @@
 #!name=韩剧TV
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, adsmind.ugdtimg.com, REJECT
@@ -11,12 +11,6 @@ DOMAIN, pgdt.ugdtimg.com, REJECT
 [URL Rewrite]
 ^https?:\/\/api\.hanju\.koudaibaobao\.com\/api\/carp\/kp\? - reject
 ^https?:\/\/gfp\.veta\.naver\.com\/adcall\? - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.hanju.koudaibaobao.com,gfp.veta.naver.com

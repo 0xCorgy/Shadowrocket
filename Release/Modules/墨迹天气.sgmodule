@@ -1,7 +1,5 @@
 #!name=墨迹天气
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/fcard\.api\.moji\.com\/flycard\/flyCard\? - reject
@@ -11,12 +9,8 @@
 ^https?:\/\/vdo\.api\.moji\.com\/shortvideo\/video_user\/hotGuyRcm\? - reject-dict
 ^https?:\/\/vdo\.api\.moji\.com\/shortvideo\/zone\/follow_src_zone\? - reject-dict
 
-[Map Local]
-
 [Body Rewrite]
 http-response-jq ^https?:\/\/mme\.api\.moji\.com\/json\/entrance\/list$ 'del(.entrance_region_res_list[] | select(.region_name == "皇冠区域" or .region_name == "banner区")) | .entrance_region_res_list[].entrance_res_list |= if . then map(select(.entrance_name | . != "墨迹钱包" and . != "墨圈")) else . end'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% fcard.api.moji.com,mme.api.moji.com,psnlz.api.moji.com,sns.api.moji.com,vdo.api.moji.com

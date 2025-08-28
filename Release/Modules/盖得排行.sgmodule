@@ -1,7 +1,5 @@
 #!name=盖得排行
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/common\/getWeworkCategoryPromotionInfo - reject-dict
@@ -12,8 +10,6 @@
 ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/specialSale\/listSpecialSalePageBanner - reject-dict
 ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/specialSale\/pageRecommendedItems - reject-dict
 ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/stockTaking\/pageStockTakingForHomePage - reject-dict
-
-[Map Local]
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/common\/getInitData\.do 'delpaths([["data","SpecialSalePageMidTabConfig"]])'
@@ -27,8 +23,6 @@ http-response-jq ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/home\
 http-response-jq ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/home\/getHomePageV 'delpaths([["data","multiPlatformBanner"]])'
 http-response-jq ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/home\/getHomePageV 'delpaths([["data","newEvaluations"]])'
 http-response-jq ^https?:\/\/zone\.guiderank-app\.com\/guiderank-web\/app\/home\/getHomePageV 'delpaths([["data","specialSaleBannerPhotoUrl"]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% zone.guiderank-app.com

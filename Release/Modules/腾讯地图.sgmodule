@@ -1,18 +1,10 @@
 #!name=腾讯地图
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/3gimg\.qq\.com\/tencentMapTouch\/app\/activity\/ - reject-200
 ^https?:\/\/3gimg\.qq\.com\/tencentMapTouch\/splash\/ - reject-200
 ^https?:\/\/4gimg\.map\.qq\.com\/mwaSplash\/ - reject-200
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% 3gimg.qq.com,4gimg.map.qq.com

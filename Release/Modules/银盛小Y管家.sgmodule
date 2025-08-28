@@ -1,18 +1,10 @@
 #!name=银盛小Y管家
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ya-sdn\.ysepay\.com\/ma_gate\/advertisement - reject
 ^https?:\/\/ya-sdn\.ysepay\.com\/ma_gate\/popupAds - reject
 ^https?:\/\/ya-sdn\.ysepay\.com\/ma_gate\/version\/updateAppVersion - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% ya-sdn.ysepay.com

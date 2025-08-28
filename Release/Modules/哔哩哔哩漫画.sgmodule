@@ -1,7 +1,5 @@
 #!name=哔哩哔哩漫画
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/i\d\.hdslb\.com\/bfs\/fawkes - reject-dict
@@ -12,10 +10,6 @@
 ^https?:\/\/manga\.bilibili\.com\/twirp\/novel\.v\d\.Novel\/MoreRecommend - reject-dict
 ^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.Read\/ActInfo - reject-200
 ^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.SeasonV\d\/GetSeasonInfo - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 bilibiliManga =type=http-response, pattern=^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Home\/HomeFeed, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/bilibiliManga.js, requires-body=true, max-size=0

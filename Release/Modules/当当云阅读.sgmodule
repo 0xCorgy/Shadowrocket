@@ -1,19 +1,11 @@
 #!name=当当云阅读
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.dangdang\.com\/mapi\d\/mobile\/init - reject
 ^https?:\/\/e\.dangdang\.com\/.+?getDeviceStartPage - reject
 ^https?:\/\/e\.dangdang\.com\/media\/api.+\?action=getDeviceStartPage - reject
 ^https?:\/\/mapi\.dangdang\.com\/index\.php\?action=init - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.dangdang.com,e.dangdang.com,mapi.dangdang.com

@@ -1,16 +1,8 @@
 #!name=百词斩
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/7n\.bczcdn\.com\/launchad\/ - reject-200
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% 7n.bczcdn.com

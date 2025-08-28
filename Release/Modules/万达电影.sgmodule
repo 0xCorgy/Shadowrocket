@@ -1,11 +1,5 @@
 #!name=万达电影
-#!desc=2025-08-28 08:10:00
-
-[Rule]
-
-[URL Rewrite]
-
-[Map Local]
+#!desc=2025-08-28 09:07:21
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api '.data.objects["OpenAPP-&-FlashAD"] = [] | .data.objects["InTheaters-&-BoxAD"] = []'

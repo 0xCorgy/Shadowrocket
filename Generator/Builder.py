@@ -47,7 +47,6 @@ def build_sgmodule(rule_text, project_name):
         header_lines.append(f"#!arguments-desc=\\n 参数说明：\\n {'；\\n '.join(desc_items)}；\\n ")
     sgmodule_content = '\n'.join(header_lines) + '\n' if header_lines else ''
 
-    sgmodule_content += "\n[Rule]\n"
     rule_pattern = r'^(?!#)(.*?)\s*(DOMAIN(?:-SUFFIX|-KEYWORD)?|IP-CIDR|AND|URL-REGEX),'
     priority_list = ['DOMAIN,', 'DOMAIN-SUFFIX,', 'DOMAIN-KEYWORD,', 'IP-CIDR,', 'AND,', 'URL-REGEX,']
     priority_index = {p: i for i, p in enumerate(priority_list)}
@@ -69,9 +68,8 @@ def build_sgmodule(rule_text, project_name):
         ),
         x.upper()
     ))
-    sgmodule_content += '\n'.join(rule_lines) + '\n' if rule_lines else ''
+    sgmodule_content += "\n[Rule]\n" + '\n'.join(rule_lines) + '\n' if rule_lines else ''
 
-    sgmodule_content += "\n[URL Rewrite]\n"
     rewrite_pattern = r'^(?!#)(.*?)\s*url\s+(reject(?:-200|-array|-dict|-img|-tinygif)?)'
     redirect_pattern = r'^(?!#)(.*?)\s*url\s+(302|307|header)\s+(.*)$'
     url_rewrite_lines = []
@@ -84,9 +82,8 @@ def build_sgmodule(rule_text, project_name):
         destination = match.group(3).strip()
         redirect_type = match.group(2).strip()
         url_rewrite_lines.append(f"{pattern} {destination} {redirect_type}")
-    sgmodule_content += '\n'.join(sorted(set(url_rewrite_lines))) + '\n' if url_rewrite_lines else ''
+    sgmodule_content += "\n[URL Rewrite]\n" + '\n'.join(sorted(set(url_rewrite_lines))) + '\n' if url_rewrite_lines else ''
 
-    sgmodule_content += "\n[Map Local]\n"
     maplocal_pattern = r'^(?!#)(.*?)\s*mock-response-body\s+(.*)$'
     map_local_lines = []
     for match in re.finditer(maplocal_pattern, rule_text, re.MULTILINE):
@@ -113,9 +110,8 @@ def build_sgmodule(rule_text, project_name):
         line += f' status-code={status_code}' if status_code else ''
         line += f' header="content-type: {content_type}"' if 'header' not in kv_pairs else ''
         map_local_lines.append(line)
-    sgmodule_content += '\n'.join(sorted(set(map_local_lines))) + '\n' if map_local_lines else ''
+    sgmodule_content += "\n[Map Local]\n" + '\n'.join(sorted(set(map_local_lines))) + '\n' if map_local_lines else ''
 
-    sgmodule_content += "\n[Body Rewrite]\n"
     body_pattern = r'^(?!#)(.*?)\s*url\s+jsonjq-response-body\s+(.*)$'
     body_jq_lines = []
     for match in re.finditer(body_pattern, rule_text, re.MULTILINE):
@@ -127,9 +123,8 @@ def build_sgmodule(rule_text, project_name):
         elif body_expr.startswith('jq-path="') and body_expr.endswith('"'):
             line = f"http-response-jq {body_matcher} {body_expr}"
             body_jq_lines.append(line)
-    sgmodule_content += '\n'.join(sorted(set(body_jq_lines))) + '\n' if body_jq_lines else ''
+    sgmodule_content += "\n[Body Rewrite]\n" + '\n'.join(sorted(set(body_jq_lines))) + '\n' if body_jq_lines else ''
 
-    sgmodule_content += "\n[Script]\n"
     script_pattern = r'^(?!#)(.*?)\s*url\s+(script-(?:response|request)-(?:body|header)|script-echo-response|script-analyze-echo-response)\s+(\S+)'
     script_lines = []
     for match in re.finditer(script_pattern, rule_text, re.MULTILINE):
@@ -152,7 +147,6 @@ def build_sgmodule(rule_text, project_name):
             params.append(f'argument={argument_match.group(1)}')
         script_line = ', '.join(params)
         script_lines.append(script_line)
-    sgmodule_content += '\n'.join(sorted(set(script_lines))) + "\n" if script_lines else ''
     replace_pattern = r'^(?!#)(.*?)\s*url\s+(response-body)\s+(\S+)\s+(response-body)\s+(\S+)'
     replace_lines = []
     for match in re.finditer(replace_pattern, rule_text, re.MULTILINE):
@@ -161,16 +155,16 @@ def build_sgmodule(rule_text, project_name):
         re2 = match.group(5).strip()
         line = f"ReplaceBody =type=http-response, pattern={pattern}, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument={re1}->{re2}"
         replace_lines.append(line)
-    sgmodule_content += '\n'.join(sorted(set(replace_lines))) + '\n' if replace_lines else ''
+    combined_script_lines = script_lines + replace_lines
+    sgmodule_content += "\n[Script]\n" + '\n'.join(sorted(set(combined_script_lines))) + '\n' if combined_script_lines else ''
 
-    sgmodule_content += "\n[MITM]\n"
     mitm_pattern = r'^\s*hostname\s*=\s*([^\n#]*)\s*(?=#|$)'
     mitm_matches = set()
     for match in re.finditer(mitm_pattern, rule_text, re.MULTILINE):
         hostnames = match.group(1).split(',')
         mitm_matches.update(host.strip().lower() for host in hostnames if host.strip())
     mitm_match_content = ','.join(sorted(mitm_matches, key=lambda host: (0 if host.startswith('-') else 1, host)))
-    sgmodule_content += f"hostname = %APPEND% {mitm_match_content}\n" if mitm_match_content else ''
+    sgmodule_content += "\n[MITM]\n" + f"hostname = %APPEND% {mitm_match_content}\n" if mitm_match_content else ''
 
     return sgmodule_content
 

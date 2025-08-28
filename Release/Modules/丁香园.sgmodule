@@ -1,16 +1,8 @@
 #!name=丁香园
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/dq\.dxy\.cn\/api\.php\?action=getpostbanners - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% dq.dxy.cn

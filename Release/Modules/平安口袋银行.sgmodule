@@ -1,7 +1,5 @@
 #!name=平安口袋银行
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/cdn\.sdb\.com\.cn\/app_com\/adversdk - reject-200
@@ -14,10 +12,6 @@
 ^https?:\/\/cdn\.sdb\.com\.cn\/widget\/pb\/pb-plugins-recomend-content - reject-dict
 ^https?:\/\/rsb\.pingan\.com\.cn\/brcp\/bds\/cust\/ygfz\/up - reject-dict
 ^https?:\/\/rsb\.pingan\.com\.cn\/brcp\/stp\/cust\/mobile\/source\/upgrade - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 sdb =type=http-response, pattern=^https?:\/\/cdn\.sdb\.com\.cn\/bron-coms\/bron-coms\/material-image, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/sdb.js, requires-body=true, max-size=0

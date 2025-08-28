@@ -1,5 +1,5 @@
 #!name=菜鸟裹裹
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,Cainiao4iPhone*)), REJECT
@@ -17,10 +17,6 @@ AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,Cainiao4iPhon
 ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.adx\.flyad\.getad - reject-dict
 ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads - reject-dict
 ^https?:\/\/netflow-mtop\.cainiao\.com\/gw\/mtop\.cainiao\.guoguo\.nbnetflow\.ads - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 cainiao =type=http-response, pattern=^https?:\/\/cn-acs\.m\.cainiao\.com\/gw\/mtop\.cainiao\.nbpresentation\.(pickup\.empty\.page|protocol\.homepage)\.get, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cainiao.js, requires-body=true, max-size=0

@@ -1,18 +1,10 @@
 #!name=美团外卖
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/p\d\.meituan\.net\/cell - reject
 ^https?:\/\/s3plus\.meituan\.net\/v\d\/mss_\w+\/goku\/(lottie|lucency) - reject-img
 ^https?:\/\/wmapi\.meituan\.com\/api\/v\d+\/(loadInfo|openscreen|startpicture) - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% p*.meituan.net,s3plus.meituan.net,wmapi.meituan.com

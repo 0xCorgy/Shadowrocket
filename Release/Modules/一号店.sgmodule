@@ -1,16 +1,8 @@
 #!name=一号店
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/venus\.yhd\.com\/memhome\/launchConfig - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% venus.yhd.com

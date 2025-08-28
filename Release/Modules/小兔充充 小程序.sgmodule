@@ -1,14 +1,8 @@
 #!name=小兔充充 小程序
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ad\.xiaotucc\.com\/advert - reject
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 wechatApplet =type=http-response, pattern=^https?:\/\/mapi\.xiaotucc\.com\/(mall\/main|\w+\/main_page\/index\/getActivity), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0

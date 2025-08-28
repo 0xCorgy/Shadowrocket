@@ -1,18 +1,10 @@
 #!name=医考帮
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.yikaobang\.com\.cn\/client\/main\/homePageSmallAd - reject
 ^https?:\/\/api\.yikaobang\.com\.cn\/index\.php\/Client\/main\/startPage - reject
 ^https?:\/\/api\.yikaobang\.com\.cn\/index\.php\/version\/version\/check - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.yikaobang.com.cn

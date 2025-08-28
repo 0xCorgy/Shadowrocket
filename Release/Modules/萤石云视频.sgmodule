@@ -1,7 +1,5 @@
 #!name=萤石云视频
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.ys7\.com\/api\/ads - reject
@@ -10,12 +8,6 @@
 ^https?:\/\/api\.ys7\.com\/v3\/intelligent-app\/apps\/linkage - reject-dict
 ^https?:\/\/api\.ys7\.com\/v3\/videoclips\/square\/video\/query - reject-dict
 ^https?:\/\/i\.ys7\.com\/api\/user\/tabList - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.ys7.com,i.ys7.com

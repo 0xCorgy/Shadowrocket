@@ -1,7 +1,5 @@
 #!name=汽车之家
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/carcard\/extendedcards - reject-dict
@@ -23,12 +21,6 @@
 ^https?:\/\/maam\.pingan\.com\.cn\/maam\/buoy\/getBuoyList\.do - reject-dict
 ^https?:\/\/news\.app\.autohome\.com\.cn\/cont_v\d+(?:\.\d+){2}\/api\/article\/extenddata - reject-dict
 ^https?:\/\/pcmx\.autohome\.com\.cn\/queryCreativeList - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% a.athm.cn,adproxy.autohome.com.cn,autoapi.autohome.com.cn,club.app.autohome.com.cn,dealer.m.autohome.com.cn,maam.pingan.com.cn,mobile.app.autohome.com.cn,news.app.autohome.com.cn,pcmx.autohome.com.cn

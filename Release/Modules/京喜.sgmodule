@@ -1,18 +1,10 @@
 #!name=京喜
-#!desc=2025-08-28 08:10:00
-
-[Rule]
-
-[URL Rewrite]
-
-[Map Local]
-
-[Body Rewrite]
+#!desc=2025-08-28 09:07:21
 
 [Script]
-jingxiAd =type=http-response, pattern=^https?:\/\/api\.m\.jd\.com\/api\?functionId=delivery_show, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/jingxiAd.js, requires-body=true, max-size=0
 ReplaceBody =type=http-response, pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_SmartPush, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=pushData->SUCCEED
 ReplaceBody =type=http-response, pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_advertising, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=jdLiteAdvertisingVO->SUCCEED
+jingxiAd =type=http-response, pattern=^https?:\/\/api\.m\.jd\.com\/api\?functionId=delivery_show, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/jingxiAd.js, requires-body=true, max-size=0
 
 [MITM]
 hostname = %APPEND% api.m.jd.com

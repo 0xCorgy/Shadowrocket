@@ -1,7 +1,5 @@
 #!name=华住会
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/appapi\.huazhu\.com:\d+\/client\/app\/getAppStartPage\/ - reject
@@ -10,12 +8,6 @@
 ^https?:\/\/hweb-manager\.huazhu\.com\/bundle\/upgrade\/check - reject-dict
 ^https?:\/\/hweb-manager\.huazhu\.com\/hotels\/ad\/ - reject-dict
 ^https?:\/\/hweb-manager\.huazhu\.com\/notice\/getAppPopupNotifyAlert - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% appapi.huazhu.com,hweb-hotel.huazhu.com,hweb-manager.huazhu.com

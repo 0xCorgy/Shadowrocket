@@ -1,17 +1,9 @@
 #!name=西施眼
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/vapp\.tmuyun\.com\/api\/app_start_page\/list\/new - reject-dict
 ^https?:\/\/vapp\.tmuyun\.com\/api\/buoy\/list - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% vapp.tmuyun.com

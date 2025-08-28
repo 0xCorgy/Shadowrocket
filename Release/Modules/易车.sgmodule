@@ -1,18 +1,10 @@
 #!name=易车
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.ycapp\.yiche\.com\/appnews\/getadlist - reject-img
 ^https?:\/\/api\.ycapp\.yiche\.com\/yicheapp\/getadlist - reject-img
 ^https?:\/\/cheyouapi\.ycapp\.yiche\.com\/appforum\/getusermessagecount - reject-img
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.ycapp.yiche.com,cheyouapi.ycapp.yiche.com

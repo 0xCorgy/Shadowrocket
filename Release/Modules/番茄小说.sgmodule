@@ -1,7 +1,5 @@
 #!name=番茄小说
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/.+\.(pglstatp-toutiao|pstatp)\.com\/(obj|img)\/(ad-app-package|ad)\/.+ - reject
@@ -17,12 +15,6 @@
 ^https?:\/\/.+\.snssdk.com\/api\/ad\/.+ - reject
 ^https?:\/\/.+\.snssdk\.com\/video\/play\/1\/toutiao\/.+\/mp4 - reject
 ^https?:\/\/gurd\.snssdk\.com\/src\/server\/v3\/package - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% *.pangolin-sdk-toutiao.com,*.pglstatp-toutiao.com,*.pstatp.com,*default.ixigua.com,gurd.snssdk.com,i-lq.snssdk.com

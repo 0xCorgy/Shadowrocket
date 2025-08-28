@@ -1,18 +1,10 @@
 #!name=挖财记账
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/jz\.wacaijizhang\.com\/api\/banners\/list\? - reject-dict
 ^https?:\/\/jz\.wacaijizhang\.com\/api\/banners\/ribbon\? - reject-dict
 ^https?:\/\/jz\.wacaijizhang\.com\/api\/resource\/universal\/fetch$ - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% jz.wacaijizhang.com

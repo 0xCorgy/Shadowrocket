@@ -1,16 +1,8 @@
 #!name=少数派
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ios\.sspai\.com\/api\/v\d\/recommend\/page\/get\?ad\.*ios_home_modal - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% ios.sspai.com

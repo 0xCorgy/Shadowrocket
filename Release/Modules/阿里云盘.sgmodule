@@ -1,15 +1,9 @@
 #!name=阿里云盘
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders - reject-dict
 ^https?:\/\/member\.alipan\.com\/v2\/activity\/sign_in_luckyBottle - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 adrive =type=http-response, pattern=^https?:\/\/api\.alipan\.com\/apps\/v2\/users\/home\/(news|widgets), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/adrive.js, requires-body=true, max-size=0

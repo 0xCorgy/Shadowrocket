@@ -1,7 +1,5 @@
 #!name=猫眼电影 小程序
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.maoyan\.com\/sns\/common\/feed\/channel\/v\d\/list\.json - reject-dict
@@ -13,12 +11,6 @@
 ^https?:\/\/wx\.maoyan\.com\/maoyansh\/myshow\/ajax\/performances\/calendar\/0 - reject-dict
 ^https?:\/\/wx\.maoyan\.com\/maoyansh\/myshow\/ajax\/performances\/rob\/main - reject-dict
 ^https?:\/\/wx\.maoyan\.com\/maoyansh\/myshow\/ajax\/recommend\/performances - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.maoyan.com,vod-movie.maoyan.com,wx.maoyan.com

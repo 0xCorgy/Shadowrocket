@@ -1,7 +1,5 @@
 #!name=小宇宙
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/ai - reject-dict
@@ -9,12 +7,8 @@
 ^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/flash - reject-dict
 ^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/search\/get - reject-dict
 
-[Map Local]
-
 [Body Rewrite]
 http-response-jq ^https?:\/\/api\.xiaoyuzhoufm\.com\/v1\/discovery-feed\/list '.data |= map(select(.type != "DISCOVERY_HEADER" and .type != "DISCOVERY_BANNER"))'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api.xiaoyuzhoufm.com

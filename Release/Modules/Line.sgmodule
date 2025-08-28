@@ -1,7 +1,5 @@
 #!name=Line
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/a\.line\.me\/cs\/v\d\/oa$ - reject
@@ -37,12 +35,6 @@
 ^https?:\/\/uts-front\.line-apps\.com\/settings$ - reject
 ^https?:\/\/w\.line\.me\/adp\/api\/ad\/v\d\/ - reject
 ^https?:\/\/web-mmap-pay\.line-apps\.com\/tw\/liff\/campaign\/v1\/aggregate\/ad\/banner\/ - reject-img
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% a.line.me,ad.line-scdn.net,buy.line.me,cix.line-apps.com,crs-event.line.me,d.line-scdn.net,ec-bot-obs.line-scdn.net,gw.line.naver.jp,lan.line.me,legy.line-apps.com,nelo2-col.linecorp.com,obs.line-scdn.net,scdn.line-apps.com,sch.line.me,static.line-scdn.net,uts-front.line-apps.com,w.line.me

@@ -1,7 +1,5 @@
 #!name=书旗小说
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/.+\.pglstatp-toutiao\.com - reject
@@ -17,12 +15,6 @@
 ^https?:\/\/sf3-be-pack\.pglstatp-toutiao\.com\/img\/ad\.union\.api - reject
 ^https?:\/\/sq\.sljkj\.com\/api\/sdk\/ads2 - reject
 ^https?:\/\/ut2\.shuqistat\.com\/.+\.gif - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% *.pangolin-sdk-toutiao.com,*.pglstatp-toutiao.com,*.shuqireader.com,101.91.69.26,feedback.uc.cn,img-tailor.11222.cn,sq.sljkj.com,ut2.shuqistat.com

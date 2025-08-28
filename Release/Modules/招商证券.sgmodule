@@ -1,13 +1,5 @@
 #!name=招商证券
-#!desc=2025-08-28 08:10:00
-
-[Rule]
-
-[URL Rewrite]
-
-[Map Local]
-
-[Body Rewrite]
+#!desc=2025-08-28 09:07:21
 
 [Script]
 cmschina =type=http-response, pattern=^https?:\/\/marketing\.cmschina\.com\/mkt\/api\/v1\?.*, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/cmschina.js, requires-body=true, max-size=0

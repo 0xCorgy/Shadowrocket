@@ -1,19 +1,11 @@
 #!name=粉笔
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/keapi\.fenbi\.com\/app\/iphone\/\w+\/popup - reject-dict
 ^https?:\/\/market-api\.fenbi\.com\/iphone\/v1\/assistant\/entrance\/show - reject-dict
 ^https?:\/\/market-api\.fenbi\.com\/iphone\/v1\/assistant\/info - reject-dict
 ^https?:\/\/tiku\.fenbi\.com\/activity\/app\/launcher - reject-dict
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% keapi.fenbi.com,market-api.fenbi.com,tiku.fenbi.com

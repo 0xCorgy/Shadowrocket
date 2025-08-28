@@ -1,5 +1,5 @@
 #!name=酷我音乐
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 IP-CIDR, 111.206.98.63/32, REJECT, no-resolve
@@ -18,12 +18,8 @@ URL-REGEX, ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/user\/freeMode\/, REJECT-TI
 ^https?:\/\/tingshu\.kuwo\.cn\/v2\/api\/pay\/user\/info - reject-dict
 ^https?:\/\/vip\d\.kuwo\.cn\/commercia\/vipconf\/projectPage\/getPageContent - reject-dict
 
-[Map Local]
-
 [Body Rewrite]
 http-response-jq ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/tingshu\/index\/radio 'walk(if type == "object" and .type == "stripAdvert" then del(.child) else . end)'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% appi.kuwo.cn,mc.tencentmusic.com,tingshu.kuwo.cn,vip*.kuwo.cn

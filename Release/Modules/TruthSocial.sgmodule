@@ -1,16 +1,8 @@
 #!name=TruthSocial
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/truthsocial\.com\/api\/v5\/truth\/ads - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% truthsocial.com

@@ -1,5 +1,5 @@
 #!name=喜马拉雅
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, adbehavior.wsa.ximalaya.com, REJECT
@@ -37,8 +37,6 @@ http-response-jq ^https?:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/mobile-u
 http-response-jq ^https?:\/\/(mobile|mobilehera|mobwsa)\.ximalaya\.com\/nexus-web\/v\d\/tabs\/customTabs\? '.data.feedTabs |= map(select(.name != "大赛"))'
 http-response-jq ^https?:\/\/mobwsa\.ximalaya\.com\/mobile-playpage\/playpage\/tabs\/v2\/ 'delpaths([["data","playpage","resourceMap","defaultResource"]])'
 http-response-jq ^https?:\/\/mobwsa\.ximalaya\.com\/mobile-playpage\/playpage\/tabs\/v2\/ 'delpaths([["data","playpage","resourceMap","playPageTip"]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% gslbali.ximalaya.com,m.ximalaya.com,mobile.ximalaya.com,mobilehera.ximalaya.com,mobwsa.ximalaya.com,mwsa.ximalaya.com,search.ximalaya.com,searchwsa.ximalaya.com

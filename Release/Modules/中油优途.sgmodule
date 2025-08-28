@@ -1,16 +1,8 @@
 #!name=中油优途
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/sichuan\.95504\.net\/v\d\/gd\/index\/get - reject-200
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% sichuan.95504.net

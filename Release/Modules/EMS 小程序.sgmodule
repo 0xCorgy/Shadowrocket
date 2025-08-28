@@ -1,16 +1,10 @@
 #!name=EMS 小程序
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ec\.ems\.com\.cn\/ecr-exp-web\/advert - reject
 ^https?:\/\/ec\.ems\.com\.cn\/mailAd$ - reject
 ^https?:\/\/ump\.ems\.com\.cn\/mailAd$ - reject
-
-[Map Local]
-
-[Body Rewrite]
 
 [Script]
 wechatApplet =type=http-response, pattern=^https?:\/\/ec\.ems\.com\.cn\/ecr-qry-web\/redis\/pageInfoByChannel, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wechatApplet.js, requires-body=true, max-size=0

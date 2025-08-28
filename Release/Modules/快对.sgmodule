@@ -1,5 +1,5 @@
 #!name=快对
-#!desc=2025-08-28 08:10:00
+#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, adx.zuoyebang.com, REJECT
@@ -11,12 +11,8 @@ DOMAIN, adx.zuoyebang.com, REJECT
 ^https?:\/\/www\.kuaiduizuoye\.com\/kdapi\/conf\/appbannersv3$ - reject-dict
 ^https?:\/\/www\.kuaiduizuoye\.com\/kdapi\/conf\/initbanner$ - reject-dict
 
-[Map Local]
-
 [Body Rewrite]
 http-response-jq ^https?:\/\/www\.kuaiduizuoye\.com\/codesearch\/aid\/home$ 'delpaths([["data","homeBannerList"]])'
-
-[Script]
 
 [MITM]
 hostname = %APPEND% apivip.kuaiduizuoye.com,www.kuaiduizuoye.com

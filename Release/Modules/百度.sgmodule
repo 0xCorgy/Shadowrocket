@@ -1,7 +1,5 @@
 #!name=百度
-#!desc=2025-08-28 08:10:00
-
-[Rule]
+#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/[\s\S]*\.baidu\.com/.*?ad[xs]\.php - reject-img
@@ -17,12 +15,6 @@
 ^https?:\/\/sa\d\.tuisong\.baidu\.com - reject-img
 ^https?:\/\/t\d{2}\.baidu\.com - reject-img
 ^https?:\/\/www.baidu.com\/?action=static&ms=1&version=css_page_2@0.*? - reject
-
-[Map Local]
-
-[Body Rewrite]
-
-[Script]
 
 [MITM]
 hostname = %APPEND% api*.tuisong.baidu.com,baichuan.baidu.com,cover.baidu.com,fcvbjbcebos.baidu.com,issuecdn.baidupcs.com,m.baidu.com,mobads.baidu.com,sa*.tuisong.baidu.com,sofire.baidu.com,www.baidu.com

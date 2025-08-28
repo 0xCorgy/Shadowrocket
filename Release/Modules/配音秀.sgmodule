@@ -1,11 +1,5 @@
 #!name=配音秀
-#!desc=2025-08-28 08:10:00
-
-[Rule]
-
-[URL Rewrite]
-
-[Map Local]
+#!desc=2025-08-28 09:07:21
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/iosapi\.peiyinxiu\.com\/Api\/Friend\/GetRecommendUsers 'delpaths([["obj","data"]])'

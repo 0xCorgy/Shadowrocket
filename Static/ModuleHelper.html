@@ -173,9 +173,15 @@
 
     .card .meta {
       display: flex;
-      gap: 8px;
-      align-items: center;
-      flex-wrap: wrap;
+      gap: 6px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+
+    .card .meta button {
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
     }
 
     .card pre {
@@ -250,6 +256,12 @@
       overflow: hidden;
     }
 
+    .modal-content.small {
+      max-width: 320px;
+      width: 90%;
+      border-radius: 12px;
+    }
+
     @media(max-width: 600px) {
       .modal-content {
         width: 100%;
@@ -288,6 +300,14 @@
       border-radius: 6px;
       background: var(--card);
     }
+
+    .confirm-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: nowrap;
+      padding: 12px 16px;
+    }
   </style>
 </head>
 
@@ -324,6 +344,20 @@
     </div>
   </div>
 
+  <div id="confirmModal" class="modal">
+    <div class="modal-content small">
+      <div class="modal-header">
+        <h3>确认安装</h3>
+        <span class="modal-close" id="confirmClose">✕</span>
+      </div>
+      <div id="confirmBody" style="padding:16px;font-size:14px;">是否安装此模块？</div>
+      <div class="confirm-actions">
+        <button id="confirmCancel" class="btn">取消</button>
+        <button id="confirmOk" class="btn">确认</button>
+      </div>
+    </div>
+  </div>
+
   <div id="toast" class="toast"></div>
 
   <script>
@@ -333,7 +367,8 @@
         repo: 'Shadowrocket',
         path: 'Release/Modules',
         apps: new Map(),
-        extraModule: 'Module.sgmodule'
+        extraModule: 'Module.sgmodule',
+        pendingInstall: null
       };
       const $ = s => document.querySelector(s);
 
@@ -409,9 +444,9 @@
             <span class="badge">解密域名：${data.domains.size}</span>
           </div>
           <div class="meta">
-            <button class="btn" data-copy>复制反解密模块</button>
+            <button class="btn" data-copy>反解密模块</button>
             <button class="btn" data-raw>查看原始模块</button>
-            <button class="btn" data-install>安装到Shadowrocket</button>
+            <button class="btn" data-install>安装此模块</button>
           </div>
           <pre class="code">${[...data.domains].join('\n')}</pre>
         `;
@@ -422,6 +457,10 @@
       const attachEvents = () => {
         const modal = $('#modal');
         const closeBtn = $('#modalClose');
+        const confirmModal = $('#confirmModal');
+        const confirmClose = $('#confirmClose');
+        const confirmCancel = $('#confirmCancel');
+        const confirmOk = $('#confirmOk');
 
         $('#results').addEventListener('click', e => {
           const card = e.target.closest('.card'); if (!card) return;
@@ -442,14 +481,34 @@
           }
 
           if (e.target.matches('[data-install]')) {
-            const moduleName = encodeURIComponent(data.fileName);
-            const url = `https://xiangwanguan.github.io/Shadowrocket/Static/Redirect.html?url=shadowrocket://install?module=https://xiangwanguan.github.io/Shadowrocket/Release/Modules/${moduleName}`;
-            window.open(url, '_blank');
+            state.pendingInstall = data.fileName;
+            confirmModal.style.display = 'flex';
+            setTimeout(() => confirmModal.classList.add('show'), 10);
           }
         });
 
         closeBtn.onclick = () => { modal.classList.remove('show'); setTimeout(() => modal.style.display = 'none', 200); };
         modal.onclick = e => { if (e.target.id === 'modal') closeBtn.click(); };
+
+        confirmClose.onclick = () => { confirmModal.classList.remove('show'); setTimeout(() => confirmModal.style.display = 'none', 200); };
+        confirmCancel.onclick = confirmClose.onclick;
+        confirmModal.onclick = e => { if (e.target.id === 'confirmModal') confirmClose.click(); };
+
+        confirmOk.onclick = () => {
+          if (state.pendingInstall) {
+            const moduleName = encodeURIComponent(state.pendingInstall);
+            const url = `https://xiangwanguan.github.io/Shadowrocket/Static/Redirect.html?url=shadowrocket://install?module=https://xiangwanguan.github.io/Shadowrocket/Release/Modules/${moduleName}`;
+            window.open(url, '_blank');
+          }
+          confirmClose.click();
+        };
+
+        document.addEventListener('keydown', e => {
+          if (e.key === 'Escape') {
+            if (modal.classList.contains('show')) closeBtn.click();
+            if (confirmModal.classList.contains('show')) confirmClose.click();
+          }
+        });
       };
 
       const fetchJSON = async url => {

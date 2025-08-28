@@ -1,5 +1,4 @@
 #!name=猎聘
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api-ac\.liepin\.com\/api\/com\.liepin\.cyclops\.live\.get-ad-cards - reject-dict

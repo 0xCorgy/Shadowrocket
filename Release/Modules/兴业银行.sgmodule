@@ -1,5 +1,4 @@
 #!name=兴业银行
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/images\.cib\.com\.cn\/commons\/uploads\/commons\/[a-zA-Z0-9]{32}\.jpg\?ver=20221[1-2]{1} - reject-200

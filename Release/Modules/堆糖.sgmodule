@@ -1,5 +1,4 @@
 #!name=堆糖
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(www|api)\.duitang\.com\/napi\/(ad|ads)\/ - reject-dict

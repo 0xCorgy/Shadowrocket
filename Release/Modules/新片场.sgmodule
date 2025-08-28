@@ -1,5 +1,4 @@
 #!name=新片场
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/app\.xinpianchang\.com\/open_screen\? - reject

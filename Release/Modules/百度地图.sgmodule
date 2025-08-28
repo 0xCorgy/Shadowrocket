@@ -1,5 +1,4 @@
 #!name=百度地图
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/afd\.baidu\.com\/afd\/entry\?action=(update|query) - reject-dict

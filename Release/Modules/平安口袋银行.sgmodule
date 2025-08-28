@@ -1,5 +1,4 @@
 #!name=平安口袋银行
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/cdn\.sdb\.com\.cn\/app_com\/adversdk - reject-200

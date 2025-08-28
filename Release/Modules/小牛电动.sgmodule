@@ -1,5 +1,4 @@
 #!name=小牛电动
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/app-api\.niu\.com\/v\d\/advertisement\/ - reject

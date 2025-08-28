@@ -1,5 +1,4 @@
 #!name=网易大神
-#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, httpdns-sdk.n.netease.com, REJECT

@@ -1,5 +1,4 @@
 #!name=京东读书
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/jdread-api\.jd\.com\/jdread\/api\/channel\/module\/opens - reject-200

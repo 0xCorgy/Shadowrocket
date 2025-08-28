@@ -1,5 +1,4 @@
 #!name=嘀嗒出行
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/adx-cn\.anythinktech\.com\/bid - reject-dict

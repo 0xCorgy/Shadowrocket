@@ -1,5 +1,4 @@
 #!name=好奇心日报
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/app3\.qdaily\.com\/app3\/boot_advertisements\.json - reject

@@ -1,5 +1,4 @@
 #!name=亚朵开屏
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api2\.yaduo\.com\/atourlife\/activity\/appLaunch - reject-dict

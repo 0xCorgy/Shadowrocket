@@ -1,5 +1,4 @@
 #!name=CC直播
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.cc\.163\.com\/v1\/mpopuprecommend\/exit_room_conf$ - reject-dict

@@ -1,5 +1,4 @@
 #!name=omofun
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/103\.91\.210\.141\:2515\/xgapp\.php\/v2\/top_notice - reject

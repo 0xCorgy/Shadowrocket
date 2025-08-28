@@ -1,5 +1,4 @@
 #!name=腾讯广告
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/\w+\.beacon\.qq\.com - reject

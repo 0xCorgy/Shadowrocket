@@ -1,5 +1,4 @@
 #!name=喜马拉雅
-#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, adbehavior.wsa.ximalaya.com, REJECT

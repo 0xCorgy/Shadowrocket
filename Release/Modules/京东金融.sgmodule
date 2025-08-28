@@ -1,5 +1,4 @@
 #!name=京东金融
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/m.360buyimg\.com\/mobilecms\/s1125x2436_jfs\/ - reject-200

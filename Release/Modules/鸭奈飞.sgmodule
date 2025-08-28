@@ -1,5 +1,4 @@
 #!name=鸭奈飞
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/pipi\.4kya\.com\/\/xgapp\.php\/v3\/advert\.position=[^2]+ - reject

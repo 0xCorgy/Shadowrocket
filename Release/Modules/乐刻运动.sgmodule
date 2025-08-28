@@ -1,5 +1,4 @@
 #!name=乐刻运动
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/lens\.leoao\.com\/lens\/conduct\/app\/rpc\/v2\/com\.lefit\.dubbo\.cms\.api\.bff\.ClientFrontFacade\/queryHomeMiddleInfo - reject-dict

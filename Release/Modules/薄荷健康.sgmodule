@@ -1,5 +1,4 @@
 #!name=薄荷健康
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.boohee\.com\/app-interface\/v1\/search\/search\? - reject-dict

@@ -1,5 +1,4 @@
 #!name=顺丰优选
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/mapi\.sfbest\.com\/brokerservice-server\/cms\/getPositionById.* - reject

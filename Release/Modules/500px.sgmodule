@@ -1,5 +1,4 @@
 #!name=500px
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/500px\.com\.cn\/community\/apk\/downloadApk - reject-dict

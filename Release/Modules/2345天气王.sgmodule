@@ -1,5 +1,4 @@
 #!name=2345天气王
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/tianqi\.2345\.com\/api\/content\/getContentFeeds\.php - reject-dict

@@ -1,5 +1,4 @@
 #!name=小鹏汽车
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ext-svc\.xiaopeng\.com\/api\/log\/open\/get\/image - reject-dict

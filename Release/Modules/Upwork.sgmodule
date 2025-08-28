@@ -1,5 +1,4 @@
 #!name=Upwork
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/www\.upwork\.com\/api\/v\d\/client-app-config\/platform\/ios\/app\/freelancer\/version - reject-dict

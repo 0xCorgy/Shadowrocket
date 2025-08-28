@@ -1,5 +1,4 @@
 #!name=稀饭动漫
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/pzoap\.moedot\.net\/xgapp\.php\/v2\/top_notice - reject

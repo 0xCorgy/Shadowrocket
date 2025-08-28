@@ -1,5 +1,4 @@
 #!name=猿辅导
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/xyst\.yuanfudao\.com\/iphone\/splashesV\d - reject-200

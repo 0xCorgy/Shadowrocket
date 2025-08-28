@@ -1,5 +1,4 @@
 #!name=穷游
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/media\.qyer\.com\/ad\/ - reject

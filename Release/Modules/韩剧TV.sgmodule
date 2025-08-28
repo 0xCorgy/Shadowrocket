@@ -1,5 +1,4 @@
 #!name=韩剧TV
-#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, adsmind.ugdtimg.com, REJECT

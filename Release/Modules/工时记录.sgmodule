@@ -1,5 +1,4 @@
 #!name=工时记录
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/open\.e\.kuaishou\.com\/rest\/e\/v3\/open\/univ - reject

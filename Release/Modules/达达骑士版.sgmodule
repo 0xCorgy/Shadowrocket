@@ -1,5 +1,4 @@
 #!name=达达骑士版
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/delivery-api\.imdada\.cn\/v1_0\/transporter\/ad - reject-dict

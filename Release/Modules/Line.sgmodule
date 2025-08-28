@@ -1,5 +1,4 @@
 #!name=Line
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/a\.line\.me\/cs\/v\d\/oa$ - reject

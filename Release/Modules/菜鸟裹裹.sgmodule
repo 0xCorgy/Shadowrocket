@@ -1,5 +1,4 @@
 #!name=菜鸟裹裹
-#!desc=2025-08-28 09:07:21
 
 [Rule]
 AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,Cainiao4iPhone*)), REJECT

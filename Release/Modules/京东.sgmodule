@@ -1,5 +1,4 @@
 #!name=京东
-#!desc=2025-08-28 09:07:21
 
 [Rule]
 URL-REGEX, ^https?:\/\/w{32}\.jddebug\.com\/diagnose\?, REJECT

@@ -1,5 +1,4 @@
 #!name=去哪儿
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/client\.qunar\.com\/pitcher-proxy\?qrt=p_splashAd - reject

@@ -1,5 +1,4 @@
 #!name=金山词霸
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/\w+?\.kingsoft-office-service\.com\/ad - reject-200

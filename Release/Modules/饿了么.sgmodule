@@ -1,5 +1,4 @@
 #!name=饿了么
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(nr-op|cube)\.elemecdn\.com\/.+\.jpeg\?x-oss-process=image\/resize,m_fill,w_\d{4,},h_\d{4,}\/($|format,webp\/$) - reject

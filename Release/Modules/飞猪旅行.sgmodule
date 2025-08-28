@@ -1,5 +1,4 @@
 #!name=飞猪旅行
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.crm\.(popresource|screen) - reject

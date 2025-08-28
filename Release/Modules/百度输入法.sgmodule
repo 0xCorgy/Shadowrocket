@@ -1,5 +1,4 @@
 #!name=百度输入法
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/mbd\.baidu\.com\/ccs\/v1\/start\/confsync\?appname=baidu_input - reject-dict

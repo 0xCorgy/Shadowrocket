@@ -1,5 +1,4 @@
 #!name=宁聚
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.nj\.nbtv\.cn\/v2\/advertise\/advertise-r1\/get-list\?data=u8obKDIrIWt2NR9wBuMwQ5O61eEsP - reject-200

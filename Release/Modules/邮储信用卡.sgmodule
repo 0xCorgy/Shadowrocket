@@ -1,5 +1,4 @@
 #!name=邮储信用卡
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/d\.psbc\.com:\d+\/mcc\/resources\/.+\.(jpg|jpeg|png) - reject-200

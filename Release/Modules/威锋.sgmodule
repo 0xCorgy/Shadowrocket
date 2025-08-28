@@ -1,5 +1,4 @@
 #!name=威锋
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.wfdata\.club\/v2\/yesfeng\/yesList\? - reject-dict

@@ -1,5 +1,4 @@
 #!name=雅虎
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/m\.yap\.yahoo\.com\/v\d{2}\/getAds\.do - reject

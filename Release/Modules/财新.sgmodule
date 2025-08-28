@@ -1,5 +1,4 @@
 #!name=财新
-#!desc=2025-08-28 09:07:21
 
 [Script]
 caixinAd =type=http-response, pattern=^https?:\/\/gg\.caixin\.com\/s\?z=caixin&op=1&c=3362, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/caixinAd.js, requires-body=true, max-size=0

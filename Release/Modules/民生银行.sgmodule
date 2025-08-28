@@ -1,5 +1,4 @@
 #!name=民生银行
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/rs.creditcard.cmbc.com.cn/mmc/img/126f35586ece469aa2daf2e451ba7b4d.jpg - reject-200

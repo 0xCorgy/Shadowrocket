@@ -1,5 +1,4 @@
 #!name=全家便利店
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/fmapp\.chinafamilymart\.com\.cn\/api\/app\/biz\/base\/appversion\/latest - reject

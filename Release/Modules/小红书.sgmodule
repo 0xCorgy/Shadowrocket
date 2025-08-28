@@ -1,5 +1,4 @@
 #!name=小红书
-#!desc=2025-08-28 09:07:21
 
 [Rule]
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,xiaohongshu.com)), REJECT

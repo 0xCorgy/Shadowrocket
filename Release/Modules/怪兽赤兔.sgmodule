@@ -1,5 +1,4 @@
 #!name=怪兽赤兔
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert\/skin) - reject-dict

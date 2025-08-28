@@ -1,5 +1,4 @@
 #!name=趣兜风
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/online\.aicarmap\.com\/club\/api\/user\/updateloc - reject-dict

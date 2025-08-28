@@ -1,5 +1,4 @@
 #!name=国家医保服务平台
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/fuwu\.nhsa\.gov\.cn\/ebus\/fuwu\/api\/base\/cms\/iep\/web\/cms\/hmpgcfg\/queryAppHmpgCfgByApp - reject

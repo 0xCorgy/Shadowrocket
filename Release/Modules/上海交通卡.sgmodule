@@ -1,5 +1,4 @@
 #!name=上海交通卡
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/jiguang\.sptcc\.com\/smartop\/\d/getEvent - reject

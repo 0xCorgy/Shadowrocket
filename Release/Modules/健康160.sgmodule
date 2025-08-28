@@ -1,5 +1,4 @@
 #!name=健康160
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/msglb\.91160\.com\/msg\/outer\/broker\/get$ - reject-dict

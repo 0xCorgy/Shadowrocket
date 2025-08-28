@@ -1,5 +1,4 @@
 #!name=凤凰秀
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.fengshows\.com\/api\/launchAD - reject-img

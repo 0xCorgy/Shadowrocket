@@ -1,5 +1,4 @@
 #!name=国泰君安
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/dl[0-9]{1}\.app\.gtja\.com\/dzswem\/kvController - reject-200

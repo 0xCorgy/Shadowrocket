@@ -1,5 +1,4 @@
 #!name=口袋校园
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/pocketuni\.net\/\?app=api&mod=Message&act=ad - reject-200

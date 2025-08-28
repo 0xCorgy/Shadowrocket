@@ -1,5 +1,4 @@
 #!name=闪送 小程序
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/miniprogram\.ishansong\.com\/cms\/faq\/query - reject-dict

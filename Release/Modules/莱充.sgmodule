@@ -1,5 +1,4 @@
 #!name=莱充
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(mobile|shop)\.laichon\.com\/api\/(v1\/goods\/goodsList|exposureAdvStatistics|getWebAdvList) - reject

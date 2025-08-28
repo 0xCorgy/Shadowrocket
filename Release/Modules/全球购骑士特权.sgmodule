@@ -1,5 +1,4 @@
 #!name=全球购骑士特权
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/facade-api\.black-unique\.com\/advertise\/v1\/get\?.* - reject-dict

@@ -1,5 +1,4 @@
 #!name=网上国网
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(csc|osg)-service\.sgcc\.com\.cn:\d+\/.*\/app_api\/selectInfoByCondition - reject-dict

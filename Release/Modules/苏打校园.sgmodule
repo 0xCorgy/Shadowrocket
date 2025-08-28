@@ -1,5 +1,4 @@
 #!name=苏打校园
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.sodalife\.xyz\/hydr\/v\d\/poster\/posters - reject-dict

@@ -1,5 +1,4 @@
 #!name=肯德基 小程序
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/dynamicad\.kfc\.com\.cn\/api - reject-dict

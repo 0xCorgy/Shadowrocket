@@ -1,5 +1,4 @@
 #!name=易捷加油 小程序
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ocrifs\.ejoy\.sinopec\.com\/advertitfs\/advert\/findAdvertInfo - reject-dict

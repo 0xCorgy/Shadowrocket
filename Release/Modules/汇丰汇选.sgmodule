@@ -1,5 +1,4 @@
 #!name=汇丰汇选
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/m\.prod\.app\.hsbcfts\.com\.cn\/api\/sapp\/biz\/config\/open\/queryappversion\?channelCode= - reject-dict

@@ -1,5 +1,4 @@
 #!name=讯飞
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/imeclient\.openspeech\.cn\/adservice\/ - reject-200

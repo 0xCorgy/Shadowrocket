@@ -1,5 +1,4 @@
 #!name=冠寓
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/guanyu\.longfor\.com\/app-server\/api\/v1\/main\/start - reject

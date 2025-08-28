@@ -1,5 +1,4 @@
 #!name=福享太平
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ecloud\.tppension\.cntaiping\.com\/fxtpplatform\/common\/anonymous\/common\/page\/queryStartPageNew\?language=zh-CN - reject-dict

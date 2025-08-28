@@ -1,5 +1,4 @@
 #!name=网易有道词典
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/gorgon\.youdao\.com\/gorgon\/brand\/prefetch\.s\? - reject-dict

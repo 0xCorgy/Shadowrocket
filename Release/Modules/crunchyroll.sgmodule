@@ -1,5 +1,4 @@
 #!name=crunchyroll
-#!desc=2025-08-28 09:07:21
 
 [Script]
 ReplaceBody =type=http-response, pattern=^https?:\/\/beta-api\.crunchyroll\.com\/cms, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=offset_ms":\d+->offset_ms":99999999999999

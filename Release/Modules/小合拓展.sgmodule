@@ -1,5 +1,4 @@
 #!name=小合拓展
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/xhtz.oss-cn-guangzhou\.aliyuncs\.com\/home\/member\/.+\.png$ - reject-200

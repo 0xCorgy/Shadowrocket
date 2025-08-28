@@ -1,5 +1,4 @@
 #!name=乐橙
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/dl-cu-hz\.lechange\.cn\/oms-online\/advertisementPush - reject

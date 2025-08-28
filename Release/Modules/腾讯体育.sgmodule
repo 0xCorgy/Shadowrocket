@@ -1,5 +1,4 @@
 #!name=腾讯体育
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/sports3\.gtimg\.com\/community\/20cf93884470434eaf38b2e77ab7796a\.png - reject

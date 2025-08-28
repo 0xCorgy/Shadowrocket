@@ -1,5 +1,4 @@
 #!name=懒投资
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ios\.lantouzi\.com\/api\/startpage - reject

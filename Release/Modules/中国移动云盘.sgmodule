@@ -1,5 +1,4 @@
 #!name=中国移动云盘
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ad\.mcloud\.139\.com\/advertapi\/adv-filter\/adv-filter\/AdInfoFilter\/getAdInfos - reject-dict

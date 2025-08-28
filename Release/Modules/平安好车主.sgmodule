@@ -1,5 +1,4 @@
 #!name=平安好车主
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/hcz-member\.pingan\.com\.cn\/micro-api\/homepage\/do\/app\/popbox\/getTopPopBox - reject

@@ -1,5 +1,4 @@
 #!name=优书
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/gongdu\.youshu\.cc\/m\/open_screen\/list_by_udid - reject

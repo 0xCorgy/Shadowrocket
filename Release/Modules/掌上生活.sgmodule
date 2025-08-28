@@ -1,5 +1,4 @@
 #!name=掌上生活
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/intellicc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec - reject

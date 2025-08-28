@@ -1,5 +1,4 @@
 #!name=韭菜公社
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/jiucaigongshe\.oss-cn-beijing\.aliyuncs\.com\/[A-Z0-9]{8}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{12}\.png - reject-200

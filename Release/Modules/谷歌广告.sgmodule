@@ -1,5 +1,4 @@
 #!name=谷歌广告
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/www\.google\.com\/ads - reject-dict

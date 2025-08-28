@@ -1,5 +1,4 @@
 #!name=皮皮搞笑
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/adapi\.izuiyou\.com\/ad\/fetch_api_ads\? - reject-dict

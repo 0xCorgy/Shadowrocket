@@ -1,5 +1,4 @@
 #!name=豆瓣
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.douban\.com\/b.*\/common_ads\?.* - reject-dict

@@ -1,5 +1,4 @@
 #!name=Trip
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/download\.trip\.com\/html5 - reject

@@ -1,5 +1,4 @@
 #!name=海豚优惠
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/.*\.townmalls\.cn:1890\/mossapi\/mossp\.BannerManager\/activityList.* - reject

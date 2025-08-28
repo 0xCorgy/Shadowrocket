@@ -1,5 +1,4 @@
 #!name=永辉
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.yonghuivip\.com\/web\/shensuan\/ad\/getAd - reject-200

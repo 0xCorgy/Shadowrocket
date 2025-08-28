@@ -1,5 +1,4 @@
 #!name=南方航空
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/3g\.csair\.com\/CSMBP\/bookProcess\/homepopup\/queryAdvertisement - reject-200

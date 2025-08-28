@@ -180,6 +180,7 @@ def generate_app_modules(merged_rule_text, parent_dir):
     if current_app and buffer: app_sections[current_app] = "\n".join(buffer)
     for app_name, rule_text in app_sections.items():
         sgmodule_content = build_sgmodule(rule_text, app_name)
+        sgmodule_content = '\n'.join(line for line in sgmodule_content.splitlines() if not line.startswith('#!desc=')) + '\n'
         output_file = os.path.join(modules_dir, f"{app_name}.sgmodule")
         save_sgmodule(sgmodule_content, output_file)
 

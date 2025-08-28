@@ -1,5 +1,4 @@
 #!name=熊猫直播
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/static\.api\.m\.panda\.tv\/index\.php\?method=clientconf\.firstscreen&__version=(play_cnmb|(\d+\.){0,3}\d+)&__plat=ios&__channel=appstore - reject-img

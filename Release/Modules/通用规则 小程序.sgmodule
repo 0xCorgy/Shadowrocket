@@ -1,5 +1,4 @@
 #!name=通用规则 小程序
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(webapi|miniapp)\.qmai\.cn\/web\/cmk-center\/marketing\/canvas\/advert - reject

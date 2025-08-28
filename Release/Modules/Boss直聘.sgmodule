@@ -1,5 +1,4 @@
 #!name=Boss直聘
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api-ios\.zhipin\.com\/api\/zpCommon\/upgrade\/check - reject-dict

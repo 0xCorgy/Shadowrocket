@@ -1,5 +1,4 @@
 #!name=每日优鲜
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/j-image\.missfresh\.cn\/img_(.+)\.(jpg|jpeg|gif|png)\?iopcmd=convert&dst=webp&q=85$ - reject

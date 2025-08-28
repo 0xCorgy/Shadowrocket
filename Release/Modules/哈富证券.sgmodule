@@ -1,5 +1,4 @@
 #!name=哈富证券
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/emisdatacenteraws\.hafoo\.com\/ad\/api\/v2\/appMarket - reject-dict

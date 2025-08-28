@@ -1,5 +1,4 @@
 #!name=中国知网
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/xyz\.cnki\.net\/resourcev7\/api\/manualpush\/SlidsList$ - reject-200

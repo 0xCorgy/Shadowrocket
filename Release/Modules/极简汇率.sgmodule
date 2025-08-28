@@ -1,5 +1,4 @@
 #!name=极简汇率
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/explorer\.tratao\.com\/api\/client\/v4\/xtransfer\/ad\/ - reject

@@ -1,5 +1,4 @@
 #!name=分期乐
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/fm\.fenqile\.com\/routev2\/other\/getfloatAd\.json - reject-img

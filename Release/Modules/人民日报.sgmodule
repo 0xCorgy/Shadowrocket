@@ -1,5 +1,4 @@
 #!name=人民日报
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/adstatic\.peopleapp\.com\/upload\/AppLoad\/.*.(jpg|png) - reject-200

@@ -1,5 +1,4 @@
 #!name=网易邮箱
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/appconf\.mail\.163\.com\/mailmaster\/api\/http\/urlConfig\.do$ - reject-dict

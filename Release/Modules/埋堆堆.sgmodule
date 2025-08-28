@@ -1,5 +1,4 @@
 #!name=埋堆堆
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/conf-darwin\.xycdn\.com - reject-dict

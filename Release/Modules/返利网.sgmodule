@@ -1,5 +1,4 @@
 #!name=返利网
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/l[0-9]{1}\.51fanli\.net\/app\/images\/splash\/2022\/0[4-9]{1}\/.*.jpg - reject-200

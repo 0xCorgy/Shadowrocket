@@ -1,5 +1,4 @@
 #!name=天府银行 小程序
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/chl\.tf\.cn\/channelmg\/sys\/socso\/socsonew\/queryIsRealNameAdertInfo - reject-dict

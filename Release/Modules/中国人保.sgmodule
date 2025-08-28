@@ -1,5 +1,4 @@
 #!name=中国人保
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/a\/config\/guessYouLike\/v - reject-dict

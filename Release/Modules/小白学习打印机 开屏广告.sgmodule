@@ -1,5 +1,4 @@
 #!name=小白学习打印机 开屏广告
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.xbxxhz\.com\/big_data\/v1\/home_pages - reject

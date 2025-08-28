@@ -1,5 +1,4 @@
 #!name=广汽传祺
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/gsp\.gacmotor\.com\/gateway\/app-api\/app\/version\/latestupdate\?flatform=2&innerVersion= - reject-dict

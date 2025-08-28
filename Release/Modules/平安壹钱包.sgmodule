@@ -1,5 +1,4 @@
 #!name=平安壹钱包
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/mobile\.1qianbao\.com\/mtp-web\/ui\/op_common_query_business_yqb\.json - reject-200

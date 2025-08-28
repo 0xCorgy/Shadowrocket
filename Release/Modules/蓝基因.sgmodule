@@ -1,5 +1,4 @@
 #!name=蓝基因
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/tk\.lanjiyin\.com\.cn\/ad\/getAdList - reject

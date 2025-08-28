@@ -1,5 +1,4 @@
 #!name=收银通商户端
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/m\.fqfin\.cn\/cls\/leshuapay\/preCredit\.json$ - reject-dict

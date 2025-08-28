@@ -1,5 +1,4 @@
 #!name=车来了
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(api|atrace)\.chelaile\.net\.cn\/adpub\/ - reject

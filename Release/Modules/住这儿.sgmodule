@@ -1,5 +1,4 @@
 #!name=住这儿
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/z\.onewo\.com\/passer\/api\/ads\/v1\/8\/list - reject-200

@@ -1,5 +1,4 @@
 #!name=航旅纵横
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(discardrp|startup)\.umetrip\.com\/gateway\/api\/umetrip\/native - reject

@@ -1,5 +1,4 @@
 #!name=波点音乐
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/bd-api\.kuwo\.cn\/api\/pay\/vip\/lowPriceText\? - reject-dict

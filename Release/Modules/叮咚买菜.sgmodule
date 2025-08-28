@@ -1,5 +1,4 @@
 #!name=叮咚买菜
-#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, ddfs-public.ddimg.mobi, REJECT

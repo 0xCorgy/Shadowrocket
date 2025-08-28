@@ -1,5 +1,4 @@
 #!name=自如
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ztoread\.ziroom\.com\/foka-card-api\/popup\/v2\/get - reject-dict

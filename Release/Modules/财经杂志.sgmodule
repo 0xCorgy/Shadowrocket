@@ -1,5 +1,4 @@
 #!name=财经杂志
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.caijingmobile\.com\/(ad|advert)\/ - reject

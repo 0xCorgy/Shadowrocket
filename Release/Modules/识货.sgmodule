@@ -1,5 +1,4 @@
 #!name=识货
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/sh-gateway\.shihuo\.cn\/v\d\/services\/sh-adapi\/home\/(screen|ad) - reject

@@ -1,5 +1,4 @@
 #!name=快手
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/az2-api\.ksapisrv\.com\/rest\/n\/ad\/ - reject-dict

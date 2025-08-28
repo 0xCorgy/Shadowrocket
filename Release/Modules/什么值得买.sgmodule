@@ -1,5 +1,4 @@
 #!name=什么值得买
-#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, adx-api.zdmimg.com, REJECT

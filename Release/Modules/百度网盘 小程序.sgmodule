@@ -1,5 +1,4 @@
 #!name=百度网盘 小程序
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/pan\.baidu\.com\/buy\/ad\/ - reject-200

@@ -1,5 +1,4 @@
 #!name=网易严选
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/m\.you\.163\.com\/activity\/popWindow - reject

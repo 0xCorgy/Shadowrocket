@@ -1,5 +1,4 @@
 #!name=牛津高阶词典第十版
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/oxadmin\.cp\.com\.cn\/api\/advertise\/banner - reject-dict

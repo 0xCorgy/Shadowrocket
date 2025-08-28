@@ -1,5 +1,4 @@
 #!name=温尼伯站
-#!desc=2025-08-28 09:07:21
 
 [Script]
 wnbz =type=http-response, pattern=^https?:\/\/vue3-api\.zhixiny\.cn\/v1\/initui\?key=index, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/wnbz.js, requires-body=true, max-size=0

@@ -1,5 +1,4 @@
 #!name=途牛
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/m\.tuniu\.com\/api\/operation\/splash\/ - reject-200

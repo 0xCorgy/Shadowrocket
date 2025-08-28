@@ -1,5 +1,4 @@
 #!name=彩云天气
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/biz\.cyapi\.cn\/(p\/v1\/entries|p\/v1\/trial_card\/info|v2\/product) - reject-200

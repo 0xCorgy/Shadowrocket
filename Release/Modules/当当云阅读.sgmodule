@@ -1,5 +1,4 @@
 #!name=当当云阅读
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/api\.dangdang\.com\/mapi\d\/mobile\/init - reject

@@ -1,5 +1,4 @@
 #!name=低端影视
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/ddrk\.me\/image\/logo_footer\.png - reject-img

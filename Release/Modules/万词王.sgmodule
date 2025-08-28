@@ -1,5 +1,4 @@
 #!name=万词王
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/recite\.perfectlingo\.com\/api\/recite\/app-act\/act-list.+ - reject-dict

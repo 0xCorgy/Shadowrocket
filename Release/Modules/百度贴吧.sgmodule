@@ -1,5 +1,4 @@
 #!name=百度贴吧
-#!desc=2025-08-28 09:07:21
 
 [Rule]
 IP-CIDR, 180.76.76.200/32, REJECT, no-resolve

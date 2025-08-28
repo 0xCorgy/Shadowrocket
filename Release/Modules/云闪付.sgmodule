@@ -1,5 +1,4 @@
 #!name=云闪付
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(tysdk|ads)\.95516\.com - reject-dict

@@ -1,5 +1,4 @@
 #!name=海尔智家
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/dualstack-(arestapi|restios)\.amap\.com\/v\d\/iasdkauth\?key= - reject-200

@@ -1,5 +1,4 @@
 #!name=超级课程表
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/182\.92\.244\.70\/d\/json - reject-dict

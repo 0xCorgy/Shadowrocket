@@ -1,5 +1,4 @@
 #!name=星巴克 小程序
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/3pp\.starbucks\.com\.cn\/wxmem\/index\/(banner|global) - reject-dict

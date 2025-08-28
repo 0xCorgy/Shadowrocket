@@ -1,5 +1,4 @@
 #!name=游戏时光
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^(^https?:\/\/www\.vgtime\.com\/app\/topic\/\d+\.jhtml\?.*?&close_ad=)false(&page=\d&sign=\w+&timestamp=\d+&font_size=\d$) $1true$2 302

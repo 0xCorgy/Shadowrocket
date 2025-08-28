@@ -1,5 +1,4 @@
 #!name=搜狐
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(api|api-bk\d+)\.tv\.sohu\.com\/agg\/api\/app\/config\/bootstrap - reject

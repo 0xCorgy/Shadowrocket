@@ -1,5 +1,4 @@
 #!name=滴滴青桔
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/omgup[0-9]{1}\.xiaojukeji\.com\/api - reject-200

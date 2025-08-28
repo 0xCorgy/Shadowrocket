@@ -1,5 +1,4 @@
 #!name=巴士管家
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/mobileapi\.chebada\.com\/publicv\d\/api\/v\d+\/infodeliver\/getmerchantad - reject

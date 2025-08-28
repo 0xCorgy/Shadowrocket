@@ -1,5 +1,4 @@
 #!name=票星球
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/appapi\.caiyicloud\.com\/cyy_gatewayapi\/home\/pub\/v3\/banners\/app_start_page - reject-dict

@@ -1,5 +1,4 @@
 #!name=发现精彩
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/static\.95508\.com\/mmg\/ciop\/202402\/button\/.*\.gif$ - reject-img

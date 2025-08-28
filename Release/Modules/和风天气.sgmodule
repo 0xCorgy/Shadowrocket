@@ -1,5 +1,4 @@
 #!name=和风天气
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/hfapp-service\.qweather\.net\/v\d\.\d\/app\/ad\/list\? - reject-dict

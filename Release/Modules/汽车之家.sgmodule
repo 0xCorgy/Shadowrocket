@@ -1,5 +1,4 @@
 #!name=汽车之家
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/(a\.athm\.cn\/)?mobile\.app\.autohome\.com\.cn\/platform\/carserver\/carcard\/extendedcards - reject-dict

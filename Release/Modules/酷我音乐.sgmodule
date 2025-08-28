@@ -1,5 +1,4 @@
 #!name=酷我音乐
-#!desc=2025-08-28 09:07:21
 
 [Rule]
 IP-CIDR, 111.206.98.63/32, REJECT, no-resolve

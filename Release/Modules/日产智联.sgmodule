@@ -1,5 +1,4 @@
 #!name=日产智联
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/oneapph5\.dongfeng-nissan\.com\.cn\/mb-gw\/vmsp-discover\/rest\/business-service\/v1\/advert\/advertinfo - reject-dict

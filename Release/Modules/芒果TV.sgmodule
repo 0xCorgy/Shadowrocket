@@ -1,5 +1,4 @@
 #!name=芒果TV
-#!desc=2025-08-28 09:07:21
 
 [Rule]
 DOMAIN, credits.bz.mgtv.com, REJECT

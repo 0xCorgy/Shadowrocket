@@ -1,5 +1,4 @@
 #!name=机核
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/www\.gcores\.com\/gapi\/v1\/app-start-pages\?page - reject-dict

@@ -1,5 +1,4 @@
 #!name=澎湃新闻
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/adpai\.thepaper\.cn\/.+&ad= - reject

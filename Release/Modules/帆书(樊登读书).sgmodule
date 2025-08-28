@@ -1,5 +1,4 @@
 #!name=帆书(樊登读书)
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/g(.*)\.dushu365\.com\/chief-orch\/config\/config\/v\d+\/(shortCut|appUpdateUnite|loadingAd|appConfig) - reject

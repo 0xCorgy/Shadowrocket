@@ -1,5 +1,4 @@
 #!name=向日葵
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/client-api-v2\.oray\.com\/materials\/SLCC_IOS_DEVICE - reject-dict

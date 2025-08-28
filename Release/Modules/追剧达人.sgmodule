@@ -1,5 +1,4 @@
 #!name=追剧达人
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/zjdr666\.com\/zjdr\.php\/v\d\/(version|top_notice\?|advert\?position=[^2]+) - reject

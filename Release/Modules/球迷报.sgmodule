@@ -1,5 +1,4 @@
 #!name=球迷报
-#!desc=2025-08-28 09:07:21
 
 [URL Rewrite]
 ^https?:\/\/a\.qiumibao\.com\/activities\/config\.php - reject

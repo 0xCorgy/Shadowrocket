@@ -1,7 +1,7 @@
 #!name=融合模块
-#!desc=2025-08-29 16:17:05
+#!desc=2025-08-29 16:22:19
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
-#!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；
+#!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
 [Rule]
 DOMAIN, access.if.iqiyi.com, REJECT

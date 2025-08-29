@@ -66,7 +66,7 @@ def build_sgmodule(rule_text, project_name):
         url_rewrite_lines.append(f"{pattern} {destination} {redirect_type}")
     sgmodule_content += "\n[URL Rewrite]\n" + '\n'.join(sorted(set(url_rewrite_lines))) + '\n' if url_rewrite_lines else ''
 
-    header_pattern = r'^(?!#)(.*?)\s*url\s+(request-header|response-header)\s+(.*?)\s*(?:\s+(.*))?$'
+    header_pattern = r'^(?!#)(.*?)\s*url\s+(request-header|response-header|header-add|header-del|header-replace|header-replace-regex)\s+(.*?)\s*(?:\s+(.*))?$'
     header_rewrite_lines = []
     for match in re.finditer(header_pattern, rule_text, re.MULTILINE):
         url_pattern = match.group(1).strip()

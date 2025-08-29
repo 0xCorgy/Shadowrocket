@@ -1,7 +1,7 @@
 #!name=浙里办
 
-[Script]
-ReplaceBody =type=http-response, pattern=^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument="data":\{.+\}->"data":{}
+[Body Rewrite]
+http-response ^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic "data":\{.+\} "data":{}
 
 [MITM]
 hostname = %APPEND% portal.zjzwfw.gov.cn

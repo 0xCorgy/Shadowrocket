@@ -1,10 +1,8 @@
 #!name=万达电影
 
 [Body Rewrite]
+http-response ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api\?bannerInfos=%5B%7B%22cinemaI WX_index_mp-&-boxAD WX_index_mp-&-boxAD0
 http-response-jq ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api '.data.objects["OpenAPP-&-FlashAD"] = [] | .data.objects["InTheaters-&-BoxAD"] = []'
-
-[Script]
-ReplaceBody =type=http-response, pattern=^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api\?bannerInfos=%5B%7B%22cinemaI, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=WX_index_mp-&-boxAD->WX_index_mp-&-boxAD0
 
 [MITM]
 hostname = %APPEND% misc-api-prd-mx.wandafilm.com

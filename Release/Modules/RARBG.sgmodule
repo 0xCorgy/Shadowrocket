@@ -3,8 +3,8 @@
 [URL Rewrite]
 ^https?:\/\/dyncdn\.me\/static\/\d{0,2}\/js\/expla\d{0,4}\.js$ - reject-200
 
-[Script]
-ReplaceBody =type=http-response, pattern=^https?:\/\/dyncdn\.me\/static\/\d{0,2}\/js\/showads\.js$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=true->false
+[Body Rewrite]
+http-response ^https?:\/\/dyncdn\.me\/static\/\d{0,2}\/js\/showads\.js$ true false
 
 [MITM]
 hostname = %APPEND% dyncdn.me

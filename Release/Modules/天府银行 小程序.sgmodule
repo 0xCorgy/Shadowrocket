@@ -4,8 +4,8 @@
 ^https?:\/\/chl\.tf\.cn\/channelmg\/sys\/socso\/socsonew\/queryIsRealNameAdertInfo - reject-dict
 ^https?:\/\/wechat\.tf\.cn\/mini-financial\/model\/queryPopup - reject-dict
 
-[Script]
-ReplaceBody =type=http-response, pattern=^https?:\/\/chl\.tf\.cn\/channelmg\/sys\/socso\/order\/queryOrderInfo, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=imgUrl->imgUrl0
+[Body Rewrite]
+http-response ^https?:\/\/chl\.tf\.cn\/channelmg\/sys\/socso\/order\/queryOrderInfo imgUrl imgUrl0
 
 [MITM]
 hostname = %APPEND% chl.tf.cn,wechat.tf.cn

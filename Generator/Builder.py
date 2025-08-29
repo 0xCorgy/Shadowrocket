@@ -94,15 +94,21 @@ def build_sgmodule(rule_text, project_name):
     seen = set(); header_rewrite_lines = [x for x in del_lines + add_lines + replace_lines + regex_lines if not (x in seen or seen.add(x))]
     sgmodule_content += "\n[Header Rewrite]\n" + '\n'.join(header_rewrite_lines) + '\n' if header_rewrite_lines else ''
 
-    body_pattern = r'^(?!#)(.*?)\s*url\s+(jsonjq-response-body|json-response-body|json-request-body)\s+(.*)$'
-    body_jq_lines = []
-    for m in re.finditer(body_pattern, rule_text, re.MULTILINE):
-        matcher, body_type, body_expr = m.group(1).strip(), m.group(2).strip(), m.group(3).strip()
+    jq_pattern = r'^(?!#)(.*?)\s*url\s+jsonjq-response-body\s+(.*)$'
+    body_pattern = r'^(?!#)(.*?)\s*url\s+(response-body|request-body)\s+(\S+)\s+\2\s+(\S+)'
+    body_rewrite_lines = []
+    for m in re.finditer(jq_pattern, rule_text, re.MULTILINE):
+        matcher, body_expr = m.group(1).strip(), m.group(2).strip()
         if body_expr.startswith("'") and body_expr.endswith("'"):
-            prefix = {'jsonjq-response-body':'http-response-jq','json-request-body':'http-request'}.get(body_type,'http-response')
-            body_jq_lines.append(f"{prefix} {matcher} {body_expr}")
-    if body_jq_lines:
-        sgmodule_content += "\n[Body Rewrite]\n" + '\n'.join(sorted(set(body_jq_lines))) + '\n' if body_jq_lines else ''
+            body_rewrite_lines.append(f"http-response-jq {matcher} {body_expr}")
+    for m in re.finditer(body_pattern, rule_text, re.MULTILINE):
+        matcher, body_type, old, new = m.group(1).strip(), m.group(2).strip(), m.group(3).strip(), m.group(4).strip()
+        if body_type == 'response-body':
+            body_rewrite_lines.append(f"http-response {matcher} {old} {new}")
+        else:
+            body_rewrite_lines.append(f"http-request {matcher} {old} {new}")
+    if body_rewrite_lines:
+        sgmodule_content += "\n[Body Rewrite]\n" + '\n'.join(sorted(set(body_rewrite_lines))) + '\n' if body_rewrite_lines else ''
 
     maplocal_pattern = r'^(?!#)(.*?)\s*mock-response-body\s+(.*)$'
     map_local_lines = []
@@ -133,7 +139,7 @@ def build_sgmodule(rule_text, project_name):
     sgmodule_content += "\n[Map Local]\n" + '\n'.join(sorted(set(map_local_lines))) + '\n' if map_local_lines else ''
 
     script_pattern = r'^(?!#)(.*?)\s*url\s+(script-(?:response|request)-(?:body|header)|script-echo-response|script-analyze-echo-response)\s+(\S+)'
-    script_lines = []
+    script_rewrite_lines = []
     for match in re.finditer(script_pattern, rule_text, re.MULTILINE):
         pattern = match.group(1).strip()
         script_type_raw = match.group(2)
@@ -153,17 +159,9 @@ def build_sgmodule(rule_text, project_name):
         if argument_match:
             params.append(f'argument={argument_match.group(1)}')
         script_line = ', '.join(params)
-        script_lines.append(script_line)
-    replace_pattern = r'^(?!#)(.*?)\s*url\s+(response-body)\s+(\S+)\s+(response-body)\s+(\S+)'
-    replace_lines = []
-    for match in re.finditer(replace_pattern, rule_text, re.MULTILINE):
-        pattern = match.group(1).strip()
-        re1 = match.group(3).strip()
-        re2 = match.group(5).strip()
-        line = f"ReplaceBody =type=http-response, pattern={pattern}, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument={re1}->{re2}"
-        replace_lines.append(line)
-    combined_script_lines = script_lines + replace_lines
-    sgmodule_content += "\n[Script]\n" + '\n'.join(sorted(set(combined_script_lines))) + '\n' if combined_script_lines else ''
+        script_rewrite_lines.append(script_line)
+    if script_rewrite_lines:
+        sgmodule_content += "\n[Script]\n" + '\n'.join(sorted(set(script_rewrite_lines))) + '\n' if script_rewrite_lines else ''
 
     mitm_pattern = r'^\s*hostname\s*=\s*([^\n#]*)\s*(?=#|$)'
     mitm_matches = set()

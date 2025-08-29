@@ -1,7 +1,7 @@
 #!name=台铃智能
 
-[Script]
-ReplaceBody =type=http-response, pattern=^https?:\/\/www\.tailgdd\.com\/v\d\/smart\/app\/config\/get$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=footResource->footResource0
+[Body Rewrite]
+http-response ^https?:\/\/www\.tailgdd\.com\/v\d\/smart\/app\/config\/get$ footResource footResource0
 
 [MITM]
 hostname = %APPEND% www.tailgdd.com

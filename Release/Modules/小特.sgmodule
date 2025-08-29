@@ -1,7 +1,7 @@
 #!name=小特
 
-[Script]
-ReplaceBody =type=http-response, pattern=^https?:\/\/lcen\.xiaote\.net\/api\/graphql, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=screenSplashAd->random-response
+[Body Rewrite]
+http-response ^https?:\/\/lcen\.xiaote\.net\/api\/graphql screenSplashAd random-response
 
 [MITM]
 hostname = %APPEND% lcen.xiaote.net

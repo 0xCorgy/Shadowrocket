@@ -6,8 +6,8 @@
 ^https?:\/\/sdk\.alibaba\.com\.ailbaba\.me\/xgapp\.php\/v\d\/top_notice\? - reject-200
 ^https?:\/\/sdk\.alibaba\.com\.ailbaba\.me\/xgapp\.php\/v\d\/version - reject-200
 
-[Script]
-ReplaceBody =type=http-response, pattern=^https?:\/\/adservice\.sigmob\.cn\/extconfig, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=false->true
+[Body Rewrite]
+http-response ^https?:\/\/adservice\.sigmob\.cn\/extconfig false true
 
 [MITM]
 hostname = %APPEND% adservice.sigmob.cn,sdk.alibaba.com.ailbaba.me

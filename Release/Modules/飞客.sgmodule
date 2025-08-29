@@ -4,8 +4,10 @@
 ^https?:\/\/www\.flyert\.com(\.cn)?\/.*\.php\?module=advis - reject-dict
 ^https?:\/\/www\.flyert\.com(\.cn)?\/.*\.php\?module=basicdata&type=appinfo - reject-dict
 
+[Body Rewrite]
+http-response ^https?:\/\/www\.flyert\.com(\.cn)?\/.*\.php\?.*module=basicdata&type=forumlist adv adv0
+
 [Script]
-ReplaceBody =type=http-response, pattern=^https?:\/\/www\.flyert\.com(\.cn)?\/.*\.php\?.*module=basicdata&type=forumlist, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=adv->adv0
 flyert =type=http-response, pattern=^https?:\/\/www\.flyert\.com(\.cn)?\/.*plugin, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/flyert.js, requires-body=true, max-size=0
 
 [MITM]

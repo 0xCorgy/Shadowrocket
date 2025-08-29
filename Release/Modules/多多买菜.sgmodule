@@ -1,7 +1,7 @@
 #!name=多多买菜
 
-[Script]
-ReplaceBody =type=http-response, pattern=^https?:\/\/mobile\.yangkeduo\.com\/proxy\/api\/api\/express\/post\/waybill\/red_packet\/goods_list$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument="list":\[.+\]->"list":[]
+[Body Rewrite]
+http-response ^https?:\/\/mobile\.yangkeduo\.com\/proxy\/api\/api\/express\/post\/waybill\/red_packet\/goods_list$ "list":\[.+\] "list":[]
 
 [MITM]
 hostname = %APPEND% mobile.yangkeduo.com

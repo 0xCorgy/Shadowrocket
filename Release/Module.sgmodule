@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-08-29 21:31:15
+#!desc=2025-08-29 23:07:03
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -1815,6 +1815,27 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ (\r\n)Accept-Langu
 http-request ^https?:\/\/github\.com\/ (\r\n)Accept-Language:.+(\r\n) header-replace $1Accept-Language: en-us$2
 
 [Body Rewrite]
+http-request ^https?:\/\/vv\.video\.qq\.com\/getvinfo &sppreviewtype=\d(.*)&spsrt=\d &sppreviewtype=0$1&spsrt=0
+http-response ^https?:\/\/adservice\.sigmob\.cn\/extconfig false true
+http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_SmartPush pushData SUCCEED
+http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_advertising jdLiteAdvertisingVO SUCCEED
+http-response ^https?:\/\/api\.swiftgram\.app\/v0\/settings announcements_data random_body
+http-response ^https?:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\? "recommend_queries":\{.+\} "recommend_queries":{}
+http-response ^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do "imgUrl19_5x9":".+?" "imgUrl19_5x9":""
+http-response ^https?:\/\/beta-api\.crunchyroll\.com\/cms offset_ms":\d+ offset_ms":99999999999999
+http-response ^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew \{.+\} {"status":"SUCCESS"}
+http-response ^https?:\/\/chl\.tf\.cn\/channelmg\/sys\/socso\/order\/queryOrderInfo imgUrl imgUrl0
+http-response ^https?:\/\/dyncdn\.me\/static\/\d{0,2}\/js\/showads\.js$ true false
+http-response ^https?:\/\/lcen\.xiaote\.net\/api\/graphql screenSplashAd random-response
+http-response ^https?:\/\/m\.lkcoffee\.com\/capi\/resource\/m\/growUp\/main "popTitle":".+?" "popTitle":""
+http-response ^https?:\/\/m\.lkcoffee\.com\/ecapi\/resource\/m\/member\/exchange\/page \{.+\} {"status":"SUCCESS"}
+http-response ^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api\?bannerInfos=%5B%7B%22cinemaI WX_index_mp-&-boxAD WX_index_mp-&-boxAD0
+http-response ^https?:\/\/mobile\.yangkeduo\.com\/proxy\/api\/api\/express\/post\/waybill\/red_packet\/goods_list$ "list":\[.+\] "list":[]
+http-response ^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic "data":\{.+\} "data":{}
+http-response ^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.venus\.shopresourceservice\.getshopresource posterList random_body
+http-response ^https?:\/\/www\.flyert\.com(\.cn)?\/.*\.php\?.*module=basicdata&type=forumlist adv adv0
+http-response ^https?:\/\/www\.tailgdd\.com\/v\d\/smart\/app\/config\/get$ footResource footResource0
+http-response ^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\? TAG_AD_INFO SUCCEED
 http-response-jq ^https?:\/\/(apissl|az2-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? '.sidebarExSquareStyle.commonlyUsedList |= map(select(.title == "设置" or .title == "历史记录" or .title == "草稿箱" or .title == "我的钱包" or .title == "小程序" or .title == "未成年人模式" or .title == "官方客服" or .title == "内容偏好" or .title == "离线模式" or .title == "稍后再看" or .title == "举报中心" or .title == "挂件"))'
 http-response-jq ^https?:\/\/(apissl|az2-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? 'delpaths([["reskinConfig"]])'
 http-response-jq ^https?:\/\/(apissl|az2-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? 'delpaths([["sidebarExSquareStyle","moreList"]])'
@@ -2296,27 +2317,6 @@ BahamutAnimeAds =type=http-response, pattern=^https?:\/\/api\.gamer\.com\.tw\/mo
 Flightradar24 =type=http-response, pattern=^https?:\/\/mobile\.flightradar24\.com\/mobile\/(user-session|subscribe), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Flightradar24.js, requires-body=true, max-size=0
 PupuSplashAds =type=http-response, pattern=^https?:\/\/j1\.pupuapi\.com\/client\/marketing\/banner\/v7\?position_types=2(%[A-Z0-9]+)+&store_id, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/PupuSplashAds.js, requires-body=true, max-size=0
 QuDa =type=http-response, pattern=^https?:\/\/iqushangwang\.8quan\.com\/index\.php\/i\/index\/index, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/QuDa.js, requires-body=true, max-size=0
-ReplaceBody =type=http-response, pattern=^https?:\/\/adservice\.sigmob\.cn\/extconfig, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=false->true
-ReplaceBody =type=http-response, pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_SmartPush, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=pushData->SUCCEED
-ReplaceBody =type=http-response, pattern=^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_advertising, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=jdLiteAdvertisingVO->SUCCEED
-ReplaceBody =type=http-response, pattern=^https?:\/\/api\.swiftgram\.app\/v0\/settings, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=announcements_data->random_body
-ReplaceBody =type=http-response, pattern=^https?:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument="recommend_queries":\{.+\}->"recommend_queries":{}
-ReplaceBody =type=http-response, pattern=^https?:\/\/app-izz\.zhengzhou\.gov\.cn:10019\/bizgw\/gateway\.do, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument="imgUrl19_5x9":".+?"->"imgUrl19_5x9":""
-ReplaceBody =type=http-response, pattern=^https?:\/\/beta-api\.crunchyroll\.com\/cms, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=offset_ms":\d+->offset_ms":99999999999999
-ReplaceBody =type=http-response, pattern=^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/sys\/app\/adposNew, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=\{.+\}->{"status":"SUCCESS"}
-ReplaceBody =type=http-response, pattern=^https?:\/\/chl\.tf\.cn\/channelmg\/sys\/socso\/order\/queryOrderInfo, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=imgUrl->imgUrl0
-ReplaceBody =type=http-response, pattern=^https?:\/\/dyncdn\.me\/static\/\d{0,2}\/js\/showads\.js$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=true->false
-ReplaceBody =type=http-response, pattern=^https?:\/\/lcen\.xiaote\.net\/api\/graphql, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=screenSplashAd->random-response
-ReplaceBody =type=http-response, pattern=^https?:\/\/m\.lkcoffee\.com\/capi\/resource\/m\/growUp\/main, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument="popTitle":".+?"->"popTitle":""
-ReplaceBody =type=http-response, pattern=^https?:\/\/m\.lkcoffee\.com\/ecapi\/resource\/m\/member\/exchange\/page, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=\{.+\}->{"status":"SUCCESS"}
-ReplaceBody =type=http-response, pattern=^https?:\/\/misc-api-prd-mx\.wandafilm\.com\/commend\/common_banner_batch\.api\?bannerInfos=%5B%7B%22cinemaI, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=WX_index_mp-&-boxAD->WX_index_mp-&-boxAD0
-ReplaceBody =type=http-response, pattern=^https?:\/\/mobile\.yangkeduo\.com\/proxy\/api\/api\/express\/post\/waybill\/red_packet\/goods_list$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument="list":\[.+\]->"list":[]
-ReplaceBody =type=http-response, pattern=^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument="data":\{.+\}->"data":{}
-ReplaceBody =type=http-response, pattern=^https?:\/\/vv\.video\.qq\.com\/getvinfo, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=&sppreviewtype=\d(.*)&spsrt=\d->&sppreviewtype=0$1&spsrt=0
-ReplaceBody =type=http-response, pattern=^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.venus\.shopresourceservice\.getshopresource, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=posterList->random_body
-ReplaceBody =type=http-response, pattern=^https?:\/\/www\.flyert\.com(\.cn)?\/.*\.php\?.*module=basicdata&type=forumlist, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=adv->adv0
-ReplaceBody =type=http-response, pattern=^https?:\/\/www\.tailgdd\.com\/v\d\/smart\/app\/config\/get$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=footResource->footResource0
-ReplaceBody =type=http-response, pattern=^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ReplaceBody.js, requires-body=true, max-size=0, argument=TAG_AD_INFO->SUCCEED
 Spotify.Crack.Dev =type=http-request, pattern=^https?:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:bootstrap|user-customization-service), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/Spotify.Crack.Dev.js, requires-body=true, max-size=0, binary-body-mode=true
 UnblockURLinWeChat =type=http-response, pattern=^https?:\/\/(weixin110\.qq|security.wechat)\.com\/cgi-bin\/mmspamsupport-bin\/newredirectconfirmcgi\?, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/UnblockURLinWeChat.js, requires-body=true, max-size=0
 adrive =type=http-response, pattern=^https?:\/\/api\.alipan\.com\/apps\/v2\/users\/home\/(news|widgets), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/adrive.js, requires-body=true, max-size=0

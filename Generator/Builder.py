@@ -171,7 +171,7 @@ def generate_app_modules(rules, parent_dir):
         content = "\n".join(l for l in build_sgmodule(text, app).splitlines() if not l.startswith('#!desc=')) + "\n"
         save_sgmodule(content, os.path.join(dir_modules, f"{app}.sgmodule"))
 
-def generate_merged_sgmodule(sources, parent_dir):
+def generate_main_sgmodule(sources, parent_dir):
     merged = "\n".join(filter(None, (load_source(u) for u in sources)))
     if not merged: return print("No valid rules found — module generation skipped.")
     content = build_sgmodule(merged, "融合模块")
@@ -182,6 +182,6 @@ def main():
     parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     try: entries=[l.strip() for l in open(os.path.join(parent_dir,"Generator","Generate.conf")) if l.strip() and not l.startswith('#')]
     except Exception as e: return print(f"Failed to read input file: {e}")
-    generate_merged_sgmodule(entries, parent_dir)
+    generate_main_sgmodule(entries, parent_dir)
 
 if __name__=="__main__": main()

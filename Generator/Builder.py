@@ -84,8 +84,13 @@ def build_sgmodule(rule_text, project_name):
             )
         elif rule_type in ["header-add","header-del"]:
             header_rewrite_lines.append(f"{url_pattern} {rule_type} {header_matcher}")
+    del_lines = [line for line in header_rewrite_lines if "header-del" in line]
+    add_lines = [line for line in header_rewrite_lines if "header-add" in line]
+    replace_lines = [line for line in header_rewrite_lines if "header-replace" in line and "regex" not in line]
+    regex_lines   = [line for line in header_rewrite_lines if "header-replace-regex" in line]
+    seen = set(); header_rewrite_lines = [x for x in del_lines + add_lines + replace_lines + regex_lines if not (x in seen or seen.add(x))]
     if header_rewrite_lines:
-        sgmodule_content += "\n[Header Rewrite]\n" + '\n'.join(sorted(set(header_rewrite_lines))) + '\n'
+        sgmodule_content += "\n[Header Rewrite]\n" + '\n'.join(header_rewrite_lines) + '\n' if header_rewrite_lines else ''
 
     maplocal_pattern = r'^(?!#)(.*?)\s*mock-response-body\s+(.*)$'
     map_local_lines = []

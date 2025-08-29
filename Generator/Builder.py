@@ -39,6 +39,7 @@ def build_sgmodule(rule_text, project_name):
             rule_lines.append(line)
     rule_lines = list(set(rule_lines))
     rule_lines.sort(key=lambda x: (
+        0 if ',DIRECT' in x.replace(' ', '').upper() else 1,
         priority_index.get(next((p for p in priority_list if x.startswith(p)), ''), len(priority_list)),
         (lambda ip: 0 if ip and ip.version == 4 else 1 if ip and ip.version == 6 else 2)(
             (lambda s: ipaddress.ip_address(s) if s and re.match(r'^\d', s) else None)(

@@ -16,10 +16,11 @@
 ^https?:\/\/s3plus\.meituan\.net\/v\d\/mss_\w+\/brandcpt - reject
 ^https?:\/\/s3plus\.meituan\.net\/v\d\/mss_\w+\/waimai-alita\/\w+\.zip$ - reject
 ^https?:\/\/sqt\.meituan\.com\/s\/gateway\/mweb\/api\/marketingResource\/show - reject
+^https?:\/\/w\.meituan\.net/v\d/mss_\w+/waimai-mach - reject
 ^https?:\/\/www\.meituan\.com\/api\/v\d\/appstatus\? - reject
 
 [Script]
 meituan =type=http-response, pattern=^https?:\/\/p\d\.meituan\.net\/linglong\/, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/meituan.js, requires-body=true, max-size=0
 
 [MITM]
-hostname = %APPEND% apimobile.meituan.com,flowplus.meituan.net,img.meituan.net,p*.meituan.net,portal-portm.meituan.com,s3plus.meituan.net,sqt.meituan.com
+hostname = %APPEND% apimobile.meituan.com,flowplus.meituan.net,img.meituan.net,p*.meituan.net,portal-portm.meituan.com,s3plus.meituan.net,sqt.meituan.com,w.meituan.net

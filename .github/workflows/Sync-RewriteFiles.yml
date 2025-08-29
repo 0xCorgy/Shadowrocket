@@ -48,12 +48,21 @@ jobs:
 
       - name: Download QingRexConfig files
         run: |
-          api_url="https://api.github.com/repos/QingRex/LoonKissSurge/contents/Surge"
-          curl -s "$api_url" | grep '"download_url":' | cut -d '"' -f 4 | grep '\.sgmodule$' | while read -r raw_url; do
-            filename=$(basename "$raw_url")
-            echo "Downloading $filename from $raw_url"
-            curl -fsSL "$raw_url" -o "Rewrite/QingRexConfig/$filename" || (echo "Retrying..." && curl -fsSL "$raw_url" -o "Rewrite/QingRexConfig/$filename") || true
-          done
+          download_dir() {
+            api_url="$1"
+            target_dir="$2"
+            mkdir -p "Rewrite/QingRexConfig/$target_dir"
+            curl -s "$api_url" \
+              | grep '"download_url":' | cut -d '"' -f 4 | grep '\.sgmodule$' \
+              | while read -r raw_url; do
+                  filename=$(basename "$raw_url")
+                  echo "Downloading $filename -> $target_dir/"
+                  curl -fsSL "$raw_url" -o "Rewrite/QingRexConfig/$target_dir/$filename" || (echo "Retrying..." && curl -fsSL "$raw_url" -o "Rewrite/QingRexConfig/$target_dir/$filename") || true
+                done
+          }
+          download_dir "https://api.github.com/repos/QingRex/LoonKissSurge/contents/Surge" Main
+          download_dir "https://api.github.com/repos/QingRex/LoonKissSurge/contents/Surge/Beta" Beta
+          download_dir "https://api.github.com/repos/QingRex/LoonKissSurge/contents/Surge/Official" Official
 
       - name: Clear previous JSInventory.md contents
         run: |

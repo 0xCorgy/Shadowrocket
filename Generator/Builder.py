@@ -94,6 +94,16 @@ def build_sgmodule(rule_text, project_name):
     seen = set(); header_rewrite_lines = [x for x in del_lines + add_lines + replace_lines + regex_lines if not (x in seen or seen.add(x))]
     sgmodule_content += "\n[Header Rewrite]\n" + '\n'.join(header_rewrite_lines) + '\n' if header_rewrite_lines else ''
 
+    body_pattern = r'^(?!#)(.*?)\s*url\s+(jsonjq-response-body|json-response-body|json-request-body)\s+(.*)$'
+    body_jq_lines = []
+    for m in re.finditer(body_pattern, rule_text, re.MULTILINE):
+        matcher, body_type, body_expr = m.group(1).strip(), m.group(2).strip(), m.group(3).strip()
+        if body_expr.startswith("'") and body_expr.endswith("'"):
+            prefix = {'jsonjq-response-body':'http-response-jq','json-request-body':'http-request'}.get(body_type,'http-response')
+            body_jq_lines.append(f"{prefix} {matcher} {body_expr}")
+    if body_jq_lines:
+        sgmodule_content += "\n[Body Rewrite]\n" + '\n'.join(sorted(set(body_jq_lines))) + '\n' if body_jq_lines else ''
+
     maplocal_pattern = r'^(?!#)(.*?)\s*mock-response-body\s+(.*)$'
     map_local_lines = []
     for match in re.finditer(maplocal_pattern, rule_text, re.MULTILINE):
@@ -121,16 +131,6 @@ def build_sgmodule(rule_text, project_name):
         line += f' header="content-type: {content_type}"' if 'header' not in kv_pairs else ''
         map_local_lines.append(line)
     sgmodule_content += "\n[Map Local]\n" + '\n'.join(sorted(set(map_local_lines))) + '\n' if map_local_lines else ''
-
-    body_pattern = r'^(?!#)(.*?)\s*url\s+(jsonjq-response-body|json-response-body|json-request-body)\s+(.*)$'
-    body_jq_lines = []
-    for m in re.finditer(body_pattern, rule_text, re.MULTILINE):
-        matcher, body_type, body_expr = m.group(1).strip(), m.group(2).strip(), m.group(3).strip()
-        if body_expr.startswith("'") and body_expr.endswith("'"):
-            prefix = {'jsonjq-response-body':'http-response-jq','json-request-body':'http-request'}.get(body_type,'http-response')
-            body_jq_lines.append(f"{prefix} {matcher} {body_expr}")
-    if body_jq_lines:
-        sgmodule_content += "\n[Body Rewrite]\n" + '\n'.join(sorted(set(body_jq_lines))) + '\n' if body_jq_lines else ''
 
     script_pattern = r'^(?!#)(.*?)\s*url\s+(script-(?:response|request)-(?:body|header)|script-echo-response|script-analyze-echo-response)\s+(\S+)'
     script_lines = []

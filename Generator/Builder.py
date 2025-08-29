@@ -26,7 +26,7 @@ def build_sgmodule(rule_text, project_name):
     desc_matches = re.findall(r'^\s*#!arguments-desc\s*=\s*(.+)', rule_text, re.MULTILINE)
     desc_items = [desc.strip() for line in desc_matches for desc in line.split('；') if desc.strip()]
     if desc_items:
-        header_lines.append(f"#!arguments-desc=\\n 参数说明：\\n {'；\\n '.join(desc_items)}；\\n ")
+        header_lines.append(f"#!arguments-desc=\\n 参数说明：\\n {'；\\n '.join(desc_items)}；")
     sgmodule_content = '\n'.join(header_lines) + '\n' if header_lines else ''
 
     rule_pattern = r'^(?!#)(.*?)\s*(DOMAIN(?:-SUFFIX|-KEYWORD)?|IP-CIDR|AND|URL-REGEX),'
@@ -66,7 +66,7 @@ def build_sgmodule(rule_text, project_name):
         url_rewrite_lines.append(f"{pattern} {destination} {redirect_type}")
     sgmodule_content += "\n[URL Rewrite]\n" + '\n'.join(sorted(set(url_rewrite_lines))) + '\n' if url_rewrite_lines else ''
 
-    header_pattern = r'^(?!#)(\S+)\s+url\s+(request-header|response-header)\s+(.*?)\s*(?:\s+(.*))?$'
+    header_pattern = r'^(?!#)(.*?)\s*url\s+(request-header|response-header)\s+(.*?)\s*(?:\s+(.*))?$'
     header_rewrite_lines = []
     for match in re.finditer(header_pattern, rule_text, re.MULTILINE):
         url_pattern = match.group(1).strip()

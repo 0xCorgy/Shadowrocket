@@ -6,33 +6,15 @@ import requests
 import ipaddress
 
 def load_source(url):
-    if os.path.isfile(url):
-        try:
-            with open(url, 'r', encoding='utf-8') as file:
-                return file.read()
-        except IOError as e:
-            print(f"Failed to read local file: {url}: {e}")
-            return None
-    elif url.startswith("https://"):
-        try:
-            response = requests.get(url)
-            response.raise_for_status()
-            return response.text
-        except requests.RequestException as e:
-            print(f"Failed to download content from URL: {url}: {e}")
-            return None
-    else:
-        local_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), url)
-        if os.path.isfile(local_path):
-            try:
-                with open(local_path, 'r', encoding='utf-8') as file:
-                    return file.read()
-            except IOError as e:
-                print(f"Error reading local file {local_path}: {e}")
-                return None
-        else:
-            print(f"Local file not found: {local_path}")
-            return None
+    paths = [url, os.path.join(os.path.dirname(os.path.abspath(__file__)), url)]
+    if url.startswith("https://"):
+        try: r = requests.get(url); r.raise_for_status(); return r.text
+        except Exception: print(f"Failed to download {url}"); return None
+    for p in paths:
+        if os.path.isfile(p):
+            try: return open(p, encoding='utf-8').read()
+            except Exception: print(f"Failed to read {p}"); return None
+    print(f"Local file not found: {paths[-1]}"); return None
 
 def build_sgmodule(rule_text, project_name):
     formatted_time = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
@@ -168,57 +150,38 @@ def build_sgmodule(rule_text, project_name):
 
     return sgmodule_content
 
-def generate_app_modules(merged_rule_text, parent_dir):
-    modules_dir = os.path.join(parent_dir, "Release", "Modules")
-    os.makedirs(modules_dir, exist_ok=True)
-    for f in os.listdir(modules_dir):
-        file_path = os.path.join(modules_dir, f); os.remove(file_path) if os.path.isfile(file_path) else None
-    app_sections, current_app, buffer = {}, None, []
-    for line in merged_rule_text.splitlines():
+def save_sgmodule(content, path):
+    try: open(path, 'w', encoding='utf-8').write(content)
+    except Exception as e: print(f"Failed to save output file: {path}: {e}")
+
+def generate_app_modules(rules, parent_dir):
+    dir_modules = os.path.join(parent_dir, "Release", "Modules")
+    os.makedirs(dir_modules, exist_ok=True)
+    for f in os.listdir(dir_modules):
+        fp = os.path.join(dir_modules, f)
+        if os.path.isfile(fp): os.remove(fp)
+    apps, buf, current = {}, [], None
+    for line in rules.splitlines():
         if line.startswith("# >"):
-            if current_app and buffer: app_sections[current_app] = "\n".join(buffer); buffer = []
-            current_app = line[3:].strip()
-        elif current_app: buffer.append(line)
-    if current_app and buffer: app_sections[current_app] = "\n".join(buffer)
-    for app_name, rule_text in app_sections.items():
-        sgmodule_content = build_sgmodule(rule_text, app_name)
-        sgmodule_content = '\n'.join(line for line in sgmodule_content.splitlines() if not line.startswith('#!desc=')) + '\n'
-        output_file = os.path.join(modules_dir, f"{app_name}.sgmodule")
-        save_sgmodule(sgmodule_content, output_file)
+            if current and buf: apps[current] = "\n".join(buf); buf=[]
+            current=line[3:].strip()
+        elif current: buf.append(line)
+    if current and buf: apps[current] = "\n".join(buf)
+    for app, text in apps.items():
+        content = "\n".join(l for l in build_sgmodule(text, app).splitlines() if not l.startswith('#!desc=')) + "\n"
+        save_sgmodule(content, os.path.join(dir_modules, f"{app}.sgmodule"))
 
-def generate_merged_sgmodule(rule_sources, parent_dir):
-    project_name = "融合模块"
-    merged_rule_text = "\n".join(filter(None, (load_source(url) for url in rule_sources)))
-    if not merged_rule_text:
-        print("No valid rules found — module generation skipped.")
-        return
-    sgmodule_content = build_sgmodule(merged_rule_text, project_name)
-    if sgmodule_content:
-        output_file = os.path.join(parent_dir, "Release", "Module.sgmodule")
-        save_sgmodule(sgmodule_content, output_file)
-        print(sgmodule_content)
-        print(f"Module successfully generated and saved to: {output_file}")
-    generate_app_modules(merged_rule_text, parent_dir)
-
-def save_sgmodule(content, file_path):
-    try:
-        with open(file_path, 'w', encoding='utf-8') as f:
-            f.write(content)
-    except IOError as e:
-        print(f"Failed to save output file: {file_path}: {e}")
+def generate_merged_sgmodule(sources, parent_dir):
+    merged = "\n".join(filter(None, (load_source(u) for u in sources)))
+    if not merged: return print("No valid rules found — module generation skipped.")
+    content = build_sgmodule(merged, "融合模块")
+    if content: save_sgmodule(content, os.path.join(parent_dir, "Release", "Module.sgmodule")); print(content)
+    generate_app_modules(merged, parent_dir)
 
 def main():
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    parent_dir = os.path.dirname(current_dir)
-    input_file_path = os.path.join(parent_dir, "Generator", "Generate.conf")
-    print("Input file path:", input_file_path)
-    try:
-        with open(input_file_path, 'r') as file:
-            build_entries = [line.strip() for line in file if line.strip() and not line.strip().startswith('#')]
-    except IOError as e:
-        print(f"Failed to read input file: {e}")
-        exit(1)
-    generate_merged_sgmodule(build_entries, parent_dir)
+    parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    try: entries=[l.strip() for l in open(os.path.join(parent_dir,"Generator","Generate.conf")) if l.strip() and not l.startswith('#')]
+    except Exception as e: return print(f"Failed to read input file: {e}")
+    generate_merged_sgmodule(entries, parent_dir)
 
-if __name__ == "__main__":
-    main()
+if __name__=="__main__": main()

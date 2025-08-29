@@ -6,15 +6,15 @@ import requests
 import ipaddress
 
 def load_source(url):
-    paths = [url, os.path.join(os.path.dirname(os.path.abspath(__file__)), url)]
+    candidate_paths = [url, os.path.join(os.path.dirname(os.path.abspath(__file__)), url)]
     if url.startswith("https://"):
-        try: r = requests.get(url); r.raise_for_status(); return r.text
+        try: response = requests.get(url); response.raise_for_status(); return response.text
         except Exception: print(f"Failed to download {url}"); return None
-    for p in paths:
-        if os.path.isfile(p):
-            try: return open(p, encoding='utf-8').read()
-            except Exception: print(f"Failed to read {p}"); return None
-    print(f"Local file not found: {paths[-1]}"); return None
+    for file_path in candidate_paths:
+        if os.path.isfile(file_path):
+            try: return open(file_path, encoding='utf-8').read()
+            except Exception: print(f"Failed to read {file_path}"); return None
+    print(f"Local file not found: {candidate_paths[-1]}"); return None
 
 def build_sgmodule(rule_text, project_name):
     formatted_time = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
@@ -157,26 +157,26 @@ def save_sgmodule(content, path):
 def generate_app_modules(rules, parent_dir):
     dir_modules = os.path.join(parent_dir, "Release", "Modules")
     os.makedirs(dir_modules, exist_ok=True)
-    for f in os.listdir(dir_modules):
-        fp = os.path.join(dir_modules, f)
-        if os.path.isfile(fp): os.remove(fp)
-    apps, buf, current = {}, [], None
+    for filename in os.listdir(dir_modules):
+        file_path = os.path.join(dir_modules, filename)
+        if os.path.isfile(file_path): os.remove(file_path)
+    apps_dict, buffer_lines, current_app = {}, [], None
     for line in rules.splitlines():
         if line.startswith("# >"):
-            if current and buf: apps[current] = "\n".join(buf); buf=[]
-            current=line[3:].strip()
-        elif current: buf.append(line)
-    if current and buf: apps[current] = "\n".join(buf)
-    for app, text in apps.items():
-        content = "\n".join(l for l in build_sgmodule(text, app).splitlines() if not l.startswith('#!desc=')) + "\n"
-        save_sgmodule(content, os.path.join(dir_modules, f"{app}.sgmodule"))
+            if current_app and buffer_lines: apps_dict[current_app] = "\n".join(buffer_lines); buffer_lines=[]
+            current_app = line[3:].strip()
+        elif current_app: buffer_lines.append(line)
+    if current_app and buffer_lines: apps_dict[current_app] = "\n".join(buffer_lines)
+    for app_name, text in apps_dict.items():
+        content = "\n".join(line for line in build_sgmodule(text, app_name).splitlines() if not line.startswith('#!desc=')) + "\n"
+        save_sgmodule(content, os.path.join(dir_modules, f"{app_name}.sgmodule"))
 
 def generate_main_sgmodule(sources, parent_dir):
-    merged = "\n".join(filter(None, (load_source(u) for u in sources)))
-    if not merged: return print("No valid rules found — module generation skipped.")
-    content = build_sgmodule(merged, "融合模块")
+    merged_rules = "\n".join(filter(None, (load_source(u) for u in sources)))
+    if not merged_rules: return print("No valid rules found — module generation skipped.")
+    content = build_sgmodule(merged_rules, "融合模块")
     if content: save_sgmodule(content, os.path.join(parent_dir, "Release", "Module.sgmodule")); print(content)
-    generate_app_modules(merged, parent_dir)
+    generate_app_modules(merged_rules, parent_dir)
 
 def main():
     parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

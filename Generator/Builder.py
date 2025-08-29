@@ -120,18 +120,15 @@ def build_sgmodule(rule_text, project_name):
         map_local_lines.append(line)
     sgmodule_content += "\n[Map Local]\n" + '\n'.join(sorted(set(map_local_lines))) + '\n' if map_local_lines else ''
 
-    body_pattern = r'^(?!#)(.*?)\s*url\s+jsonjq-response-body\s+(.*)$'
+    body_pattern = r'^(?!#)(.*?)\s*url\s+(jsonjq-response-body|json-response-body|json-request-body)\s+(.*)$'
     body_jq_lines = []
-    for match in re.finditer(body_pattern, rule_text, re.MULTILINE):
-        body_matcher = match.group(1).strip()
-        body_expr = match.group(2).strip()
+    for m in re.finditer(body_pattern, rule_text, re.MULTILINE):
+        matcher, body_type, body_expr = m.group(1).strip(), m.group(2).strip(), m.group(3).strip()
         if body_expr.startswith("'") and body_expr.endswith("'"):
-            line = f"http-response-jq {body_matcher} {body_expr}"
-            body_jq_lines.append(line)
-        elif body_expr.startswith('jq-path="') and body_expr.endswith('"'):
-            line = f"http-response-jq {body_matcher} {body_expr}"
-            body_jq_lines.append(line)
-    sgmodule_content += "\n[Body Rewrite]\n" + '\n'.join(sorted(set(body_jq_lines))) + '\n' if body_jq_lines else ''
+            prefix = {'jsonjq-response-body':'http-response-jq','json-request-body':'http-request'}.get(body_type,'http-response')
+            body_jq_lines.append(f"{prefix} {matcher} {body_expr}")
+    if body_jq_lines:
+        sgmodule_content += "\n[Body Rewrite]\n" + '\n'.join(sorted(set(body_jq_lines))) + '\n' if body_jq_lines else ''
 
     script_pattern = r'^(?!#)(.*?)\s*url\s+(script-(?:response|request)-(?:body|header)|script-echo-response|script-analyze-echo-response)\s+(\S+)'
     script_lines = []

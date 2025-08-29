@@ -1,4 +1,4 @@
-#!name=小艺
+#!name=小蚁
 
 [URL Rewrite]
 ^https?:\/\/api.xiaoyi.com\/v5\/app\/config\?userid=.* - reject

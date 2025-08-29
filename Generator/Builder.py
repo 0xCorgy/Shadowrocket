@@ -66,6 +66,28 @@ def build_sgmodule(rule_text, project_name):
         url_rewrite_lines.append(f"{pattern} {destination} {redirect_type}")
     sgmodule_content += "\n[URL Rewrite]\n" + '\n'.join(sorted(set(url_rewrite_lines))) + '\n' if url_rewrite_lines else ''
 
+    header_pattern = r'^(?!#)(\S+)\s+url\s+(request-header|response-header)\s+(\S+)(?:\s+(.*))?$'
+    header_rewrite_lines = []
+    for match in re.finditer(header_pattern, rule_text, re.MULTILINE):
+        url_pattern = match.group(1).strip()
+        rule_type = match.group(2).strip()
+        header_matcher = match.group(3).strip()
+        header_replacement = (match.group(4) or "").strip()
+        if rule_type in ["request-header","response-header"]:
+            prefix = "http-request" if rule_type=="request-header" else "http-response"
+            line = f"{prefix} {url_pattern} {header_matcher}" + (
+                f" {header_replacement}" if header_matcher.startswith(("header-add","header-del")) else
+                f" header-replace {header_replacement[len(rule_type):].strip()}" if header_replacement.startswith(rule_type) else
+                f" header-replace {header_replacement}" if header_replacement else ""
+            )
+        elif rule_type in ["header-add","header-del"]:
+            line = f"{url_pattern} {rule_type} {header_matcher}"
+        else:
+            continue
+        header_rewrite_lines.append(line)
+    if header_rewrite_lines:
+        sgmodule_content += "\n[Header Rewrite]\n" + '\n'.join(sorted(set(header_rewrite_lines))) + '\n' if header_rewrite_lines else ''
+
     maplocal_pattern = r'^(?!#)(.*?)\s*mock-response-body\s+(.*)$'
     map_local_lines = []
     for match in re.finditer(maplocal_pattern, rule_text, re.MULTILINE):

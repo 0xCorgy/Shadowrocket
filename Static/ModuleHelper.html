@@ -658,7 +658,7 @@
       };
 
       const load = async () => {
-        setStatus('正在准备数据', 5);
+        setStatus('正在准备数据', 0);
 
         const list = await fetchJSON(`https://api.github.com/repos/${state.owner}/${state.repo}/contents/${state.path}`);
         const files = list.filter(x => x.type === 'file');
@@ -669,17 +669,14 @@
         });
 
         let done = 0;
-        const batchSize = 20;
+        const total = files.length;
 
-        for (let i = 0; i < files.length; i += batchSize) {
-          const batch = files.slice(i, i + batchSize);
-          await Promise.all(batch.map(async f => {
-            const txt = await fetch(f.download_url).then(r => r.text());
-            parseFile(f.name, txt);
-          }));
-          done += batch.length;
-          setStatus(`正在加载 ${done}/${files.length}`, Math.round(done / files.length * 100));
-        }
+        await Promise.all(files.map(async f => {
+          const txt = await fetch(f.download_url).then(r => r.text());
+          parseFile(f.name, txt);
+          done++;
+          setStatus(`正在加载 ${done}/${total}`, Math.round(done / total * 100));
+        }));
 
         setStatus(`成功加载：${state.apps.size}个应用`, 100);
         renderResults($('#q').value.trim());

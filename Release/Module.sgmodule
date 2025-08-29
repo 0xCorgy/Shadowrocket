@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-08-28 09:41:26
+#!desc=2025-08-29 08:01:53
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -1988,7 +1988,7 @@ http-response-jq ^https?:\/\/api\.wfdata\.club\/v2\/yesfeng\/slideshow\? '.data 
 http-response-jq ^https?:\/\/api\.xiachufang\.com\/v2\/config\/get\.json$ 'del(.content.tab_name[] | select(. == "减脂" or . == "商店" or . == "分类"))'
 http-response-jq ^https?:\/\/api\.xiachufang\.com\/v2\/homepage\/paged_waterfall_recommendations\.json$ 'del(.multiplex_cells[] | select(.recommendation_cell.impression_sensor_events[]?.properties.target_type? == "ad"))'
 http-response-jq ^https?:\/\/api\.xiaoheihe\.cn\/bbs\/app\/feeds\/news '.result.links |= map(if .content_type == 27 then del(.title, .ad_pm, .img_gif, .idea_id, .ad_report, .label, .source, .intranet_only, .ad_cm, .content_type, .PROTOCOL, .img, .ad_ratio) else . end)'
-http-response-jq ^https?:\/\/api\.xiaoyuzhoufm\.com\/v1\/discovery-feed\/list '.data |= map(select(.type != "DISCOVERY_HEADER" and .type != "DISCOVERY_BANNER"))'
+http-response-jq ^https?:\/\/api\.xiaoyuzhoufm\.com\/v1\/discovery-feed\/list '.data |= map(select(.type == "DISCOVERY_EPISODE_RECOMMEND" or .type == "EDITOR_PICK"))'
 http-response-jq ^https?:\/\/api\.xiuxiu\.meitu\.com\/v\d\/common\/config\.json 'delpaths([["data","home_top_live"]])'
 http-response-jq ^https?:\/\/api\.xiuxiu\.meitu\.com\/v\d\/common\/config\.json 'delpaths([["data","splashControl"]])'
 http-response-jq ^https?:\/\/apiv2\.douyucdn\.cn\/japi\/entrance\/roomRes\/nc\/m\/list 'delpaths([["data","entrance_d"]])'

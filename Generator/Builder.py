@@ -170,11 +170,9 @@ def build_sgmodule(rule_text, project_name):
 
 def generate_app_modules(merged_rule_text, parent_dir):
     modules_dir = os.path.join(parent_dir, "Release", "Modules")
-    if os.path.exists(modules_dir):
-        for f in os.listdir(modules_dir):
-            file_path = os.path.join(modules_dir, f)
-            if os.path.isfile(file_path): os.remove(file_path)
     os.makedirs(modules_dir, exist_ok=True)
+    for f in os.listdir(modules_dir):
+        file_path = os.path.join(modules_dir, f); os.remove(file_path) if os.path.isfile(file_path) else None
     app_sections, current_app, buffer = {}, None, []
     for line in merged_rule_text.splitlines():
         if line.startswith("# >"):

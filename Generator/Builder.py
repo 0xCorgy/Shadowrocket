@@ -186,22 +186,18 @@ def generate_app_modules(merged_rule_text, parent_dir):
         output_file = os.path.join(modules_dir, f"{app_name}.sgmodule")
         save_sgmodule(sgmodule_content, output_file)
 
-def generate_sgmodule(rule_sources, project_name, parent_dir):
-    merged_rule_text = ""
-    for url in rule_sources:
-        rule_text = load_source(url)
-        if rule_text:
-            merged_rule_text += rule_text + "\n"
-        else:
-            print(f"Unable to retrieve or process rule source: {url}")
+def generate_merged_sgmodule(rule_sources, parent_dir):
+    project_name = "融合模块"
+    merged_rule_text = "\n".join(filter(None, (load_source(url) for url in rule_sources)))
+    if not merged_rule_text:
+        print("No valid rules found — module generation skipped.")
+        return
     sgmodule_content = build_sgmodule(merged_rule_text, project_name)
     if sgmodule_content:
         output_file = os.path.join(parent_dir, "Release", "Module.sgmodule")
         save_sgmodule(sgmodule_content, output_file)
         print(sgmodule_content)
         print(f"Module successfully generated and saved to: {output_file}")
-    else:
-        print("No valid content found — module generation skipped.")
     generate_app_modules(merged_rule_text, parent_dir)
 
 def save_sgmodule(content, file_path):
@@ -222,7 +218,7 @@ def main():
     except IOError as e:
         print(f"Failed to read input file: {e}")
         exit(1)
-    generate_sgmodule(build_entries, "融合模块", parent_dir)
+    generate_merged_sgmodule(build_entries, parent_dir)
 
 if __name__ == "__main__":
     main()

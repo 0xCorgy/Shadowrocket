@@ -3,5 +3,9 @@
 [URL Rewrite]
 ^https?:\/\/119\.29\.29\.\d+\/d\?dn - reject-200
 
+[Header Rewrite]
+http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ (\r\n)Accept-Language:.+(\r\n) header-replace $1Accept-Language: en-us$2
+http-request ^https?:\/\/github\.com\/ (\r\n)Accept-Language:.+(\r\n) header-replace $1Accept-Language: en-us$2
+
 [MITM]
-hostname = %APPEND% 119.29.29.*
+hostname = %APPEND% 119.29.29.*,gist.githubusercontent.com,github.com,raw.githubusercontent.com

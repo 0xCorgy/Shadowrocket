@@ -67,31 +67,25 @@ def build_sgmodule(rule_text, project_name):
         url_rewrite_lines.append(f"{pattern} {destination} {redirect_type}")
     sgmodule_content += "\n[URL Rewrite]\n" + '\n'.join(sorted(set(url_rewrite_lines))) + '\n' if url_rewrite_lines else ''
 
-    header_pattern = r'^(?!#)(.*?)\s*url\s+(request-header|response-header|header-add|header-del|header-replace|header-replace-regex)\s+(.*?)\s*(?:\s+(.*))?$'
-    header_rewrite_lines = []
-    for match in re.finditer(header_pattern, rule_text, re.MULTILINE):
-        url_pattern = match.group(1).strip()
-        rule_type = match.group(2).strip()
-        header_matcher = match.group(3).strip()
-        header_replacement = (match.group(4) or "").strip()
-        if rule_type in ["request-header","response-header"]:
-            prefix = "http-request" if rule_type=="request-header" else "http-response"
-            header_rewrite_lines.append(
-                f"{prefix} {url_pattern} {header_matcher}" + (
-                    f" {header_replacement}" if header_matcher.startswith(("header-add","header-del")) else
-                    f" header-replace {header_replacement[len(rule_type):].strip()}" if header_replacement.startswith(rule_type) else
-                    f" header-replace {header_replacement}" if header_replacement else ""
-                )
-            )
-        elif rule_type in ["header-add","header-del"]:
-            header_rewrite_lines.append(f"{url_pattern} {rule_type} {header_matcher}")
-        elif rule_type in ["header-replace","header-replace-regex"]:
-            header_rewrite_lines.append(f"{url_pattern} {rule_type} {header_matcher}" + (f" {header_replacement}" if header_replacement else ""))
-    del_lines = [line for line in header_rewrite_lines if "header-del" in line]
-    add_lines = [line for line in header_rewrite_lines if "header-add" in line]
-    replace_lines = [line for line in header_rewrite_lines if any(tok.startswith("header-replace") and "regex" not in tok for tok in line.split())]
-    regex_lines   = [line for line in header_rewrite_lines if any(tok.startswith("header-replace-regex") for tok in line.split())]
-    seen = set(); header_rewrite_lines = [x for x in del_lines + add_lines + replace_lines + regex_lines if not (x in seen or seen.add(x))]
+    header_pattern=r'^(?!#)(.*?)\s+url\s+(request-header|response-header)\s+(.*?)$'
+    header_rewrite_lines=[]
+    for m in re.finditer(header_pattern,rule_text,re.M):
+        url,tp,body=m.group(1).strip(),m.group(2).strip(),m.group(3).strip()
+        pf="http-request" if tp=="request-header" else "http-response"
+        if "Accept-Language" in body and "en-us" in body.lower():
+            header_rewrite_lines.append(f"{pf} {url} header-replace Accept-Language en-us")
+        elif re.search(r'([-\w]+):\.\+',body):
+            m2 = re.search(r'([-\w]+):', body)
+            if m2:
+                header_rewrite_lines.append(f"{pf} {url} header-del {m2.group(1)}")
+        elif "x-reddit-translations: enabled" in body:
+            header_rewrite_lines.append(f"{pf} {url} header-add x-reddit-translations enabled")
+    del_lines=[x for x in header_rewrite_lines if "header-del" in x]
+    add_lines=[x for x in header_rewrite_lines if "header-add" in x]
+    replace_lines=[x for x in header_rewrite_lines if "header-replace" in x]
+    ordered=del_lines+add_lines+replace_lines
+    seen={};[seen.setdefault(tuple(l.split()[:3]),l) for l in ordered]
+    header_rewrite_lines=list(seen.values())
     sgmodule_content += "\n[Header Rewrite]\n" + '\n'.join(header_rewrite_lines) + '\n' if header_rewrite_lines else ''
 
     jq_pattern = r'^(?!#)(.*?)\s*url\s+jsonjq-response-body\s+(.*)$'

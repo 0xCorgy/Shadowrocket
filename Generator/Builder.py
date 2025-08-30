@@ -83,8 +83,8 @@ def build_sgmodule(rule_text, project_name):
             header_rewrite_lines.append(f"{operation_type} {request_url} header-del {header_del_match.group(1)}")
         elif header_add_match: 
             header_rewrite_lines.append(f'{operation_type} {request_url} header-add {header_add_match.group(1)} "{header_add_match.group(2)}"')
-    ordered_header_lines = [line for line in header_rewrite_lines if "header-del" in line] + [line for line in header_rewrite_lines if "header-add" in line] + [line for line in header_rewrite_lines if "header-replace" in line]
-    unique_lines = {}; [unique_lines.setdefault(tuple(line.split()[:3]), line) for line in ordered_header_lines]
+    header_rewrite_lines = [line for operation in ['header-del', 'header-add', 'header-replace'] for line in header_rewrite_lines if operation in line]
+    unique_lines = {tuple(line.split()[:3]): line for line in header_rewrite_lines}
     header_rewrite_lines = list(unique_lines.values())
     sgmodule_content += "\n[Header Rewrite]\n" + '\n'.join(header_rewrite_lines) + '\n' if header_rewrite_lines else ''
 

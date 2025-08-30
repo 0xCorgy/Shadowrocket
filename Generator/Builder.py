@@ -149,7 +149,7 @@ def build_sgmodule(rule_text, project_name):
         argument_match = re.search(r'argument\s*=\s*(["\'].*["\']|{.*}|\[.*\])', line)
         if argument_match:
             params.append(f'argument={argument_match.group(1)}')
-        script_line = ', '.join(params)
+        script_line = ', '.join(f'{k}={f"""{v}""" if "," in v or " " in v else v}' for k,v in (p.split("=",1) for p in params))
         script_rewrite_lines.append(script_line)
     sgmodule_content += "\n[Script]\n" + '\n'.join(sorted(set(script_rewrite_lines))) + '\n' if script_rewrite_lines else ''
 

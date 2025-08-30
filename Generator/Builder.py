@@ -18,27 +18,27 @@ def load_source(url):
 
 def build_sgmodule(rule_text, project_name):
     formatted_time = (datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S")
-    header_lines = [f"#!name={project_name}", f"#!desc={formatted_time}"]
+    header_details_lines = [f"#!name={project_name}", f"#!desc={formatted_time}"]
     arguments_list = re.findall(r'^\s*#!arguments\s*=\s*(.+)', rule_text, re.MULTILINE)
     arguments_list = [", ".join(part.strip() for part in line.split(',')) for line in arguments_list]
     if arguments_list:
-        header_lines.append("#!arguments=" + ", ".join(arguments_list))
+        header_details_lines.append("#!arguments=" + ", ".join(arguments_list))
     desc_matches = re.findall(r'^\s*#!arguments-desc\s*=\s*(.+)', rule_text, re.MULTILINE)
     desc_items = [desc.strip() for line in desc_matches for desc in line.split('；') if desc.strip()]
     if desc_items:
-        header_lines.append(f"#!arguments-desc=\\n 参数说明：\\n {'；\\n '.join(desc_items)}；\\n ")
-    sgmodule_content = '\n'.join(header_lines) + '\n' if header_lines else ''
+        header_details_lines.append(f"#!arguments-desc=\\n 参数说明：\\n {'；\\n '.join(desc_items)}；\\n ")
+    sgmodule_content = '\n'.join(header_details_lines) + '\n' if header_details_lines else ''
 
     rule_pattern = r'^(?!#)(.*?)\s*(DOMAIN(?:-SUFFIX|-KEYWORD)?|IP-CIDR|AND|URL-REGEX),'
     priority_list = ['DOMAIN,', 'DOMAIN-SUFFIX,', 'DOMAIN-KEYWORD,', 'IP-CIDR,', 'AND,', 'URL-REGEX,']
     priority_index = {p: i for i, p in enumerate(priority_list)}
-    rule_lines = []
+    rule_match_lines = []
     for line in rule_text.splitlines():
         line = line.strip()
         if line and re.match(rule_pattern, line):
-            rule_lines.append(line)
-    rule_lines = list(set(rule_lines))
-    rule_lines.sort(key=lambda x: (
+            rule_match_lines.append(line)
+    rule_match_lines = list(set(rule_match_lines))
+    rule_match_lines.sort(key=lambda x: (
         0 if ',DIRECT' in x.replace(' ', '').upper() else 1,
         priority_index.get(next((p for p in priority_list if x.startswith(p)), ''), len(priority_list)),
         (lambda ip: 0 if ip and ip.version == 4 else 1 if ip and ip.version == 6 else 2)(
@@ -51,7 +51,7 @@ def build_sgmodule(rule_text, project_name):
         ),
         x.upper()
     ))
-    sgmodule_content += "\n[Rule]\n" + '\n'.join(rule_lines) + '\n' if rule_lines else ''
+    sgmodule_content += "\n[Rule]\n" + '\n'.join(rule_match_lines) + '\n' if rule_match_lines else ''
 
     rewrite_pattern = r'^(?!#)(.*?)\s*url\s+(reject(?:-200|-array|-dict|-img|-tinygif)?)'
     redirect_pattern = r'^(?!#)(.*?)\s*url\s+(302|307|header)\s+(.*)$'

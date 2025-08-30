@@ -67,19 +67,17 @@ def build_sgmodule(rule_text, project_name):
         url_rewrite_lines.append(f"{pattern} {destination} {redirect_type}")
     sgmodule_content += "\n[URL Rewrite]\n" + '\n'.join(sorted(set(url_rewrite_lines))) + '\n' if url_rewrite_lines else ''
 
-    header_pattern=r'^(?!#)(.*?)\s+url\s+(request-header|response-header)\s+(.*?)$'
+    header_pattern=r'^(?!#)(.*?)\s*url\s+(request-header|response-header)\s+(.*)$'
     header_rewrite_lines=[]
     for m in re.finditer(header_pattern,rule_text,re.M):
         url,tp,body=m.group(1).strip(),m.group(2).strip(),m.group(3).strip()
         pf="http-request" if tp=="request-header" else "http-response"
-        if "Accept-Language" in body and "en-us" in body.lower():
-            header_rewrite_lines.append(f"{pf} {url} header-replace Accept-Language en-us")
-        elif re.search(r'([-\w]+):\.\+',body):
-            m2 = re.search(r'([-\w]+):', body)
-            if m2:
-                header_rewrite_lines.append(f"{pf} {url} header-del {m2.group(1)}")
-        elif "x-reddit-translations: enabled" in body:
-            header_rewrite_lines.append(f"{pf} {url} header-add x-reddit-translations enabled")
+        m_accept=re.search(r'(?i)Accept-Language\s*:\s*en-us',body)
+        m_del=re.search(r'([-\w]+)\s*:\s*\.\+',body)
+        m_add=re.search(r'(?i)x-reddit-translations\s*:\s*enabled',body)
+        if m_accept: header_rewrite_lines.append(f"{pf} {url} header-replace Accept-Language en-us")
+        elif m_del: header_rewrite_lines.append(f"{pf} {url} header-del {m_del.group(1)}")
+        elif m_add: header_rewrite_lines.append(f"{pf} {url} header-add x-reddit-translations enabled")
     del_lines=[x for x in header_rewrite_lines if "header-del" in x]
     add_lines=[x for x in header_rewrite_lines if "header-add" in x]
     replace_lines=[x for x in header_rewrite_lines if "header-replace" in x]

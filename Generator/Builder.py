@@ -99,8 +99,7 @@ def build_sgmodule(rule_text, project_name):
             body_rewrite_lines.append(f"http-response {matcher} {old} {new}")
         else:
             body_rewrite_lines.append(f"http-request {matcher} {old} {new}")
-    if body_rewrite_lines:
-        sgmodule_content += "\n[Body Rewrite]\n" + '\n'.join(sorted(set(body_rewrite_lines))) + '\n' if body_rewrite_lines else ''
+    sgmodule_content += "\n[Body Rewrite]\n" + '\n'.join(sorted(set(body_rewrite_lines))) + '\n' if body_rewrite_lines else ''
 
     maplocal_pattern = r'^(?!#)(.*?)\s*mock-response-body\s+(.*)$'
     map_local_lines = []
@@ -152,8 +151,7 @@ def build_sgmodule(rule_text, project_name):
             params.append(f'argument={argument_match.group(1)}')
         script_line = ', '.join(params)
         script_rewrite_lines.append(script_line)
-    if script_rewrite_lines:
-        sgmodule_content += "\n[Script]\n" + '\n'.join(sorted(set(script_rewrite_lines))) + '\n' if script_rewrite_lines else ''
+    sgmodule_content += "\n[Script]\n" + '\n'.join(sorted(set(script_rewrite_lines))) + '\n' if script_rewrite_lines else ''
 
     mitm_pattern = r'^\s*hostname\s*=\s*([^\n#]*)\s*(?=#|$)'
     mitm_matches = set()

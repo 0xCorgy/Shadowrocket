@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-08-30 10:35:19
+#!desc=2025-08-30 15:57:26
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -1811,6 +1811,8 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 ^https?:\/\/zyfile\.izuiyou\.com\/zyfile\/c2\/a0\/[a-z0-9-]+\.json - reject-200
 
 [Header Rewrite]
+http-request ^https?:\/\/gql-fed\.reddit\.com\/ header-del x-reddit-translations
+http-request ^https?:\/\/gql-fed\.reddit\.com\/ header-add x-reddit-translations "enabled"
 http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace Accept-Language en-us
 http-request ^https?:\/\/github\.com\/ header-replace Accept-Language en-us
 

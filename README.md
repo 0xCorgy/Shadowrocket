@@ -90,7 +90,7 @@ Telegram使用**新加坡节点**，Google、AI工具使用**美国节点**；<b
 [![一键安装 融合模块](https://img.shields.io/static/v1?label=一键安装&message=融合模块&color=grey&logo=googledocs&logoColor=white&labelColor=blue&messageColor=white)](https://xiangwanguan.github.io/Shadowrocket/Static/Redirect.html?url=shadowrocket://install?module=https://xiangwanguan.github.io/Shadowrocket/Release/Module.sgmodule)<br>
 
 ### [独立模块](#独立模块)
-[独立模块](https://github.com/XiangwanGuan/Shadowrocket/tree/main/Release/Modules)由[生成器](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Generator/Builder.py)同步构建，请使用[模块助手](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Static/ModuleHelper.html)进行查询与安装，同时提供**反解密模块制作**、**原始模块查询**等功能；<br>
+[独立模块](https://github.com/XiangwanGuan/Shadowrocket/tree/main/Release/Modules)由[生成器](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Generator/Builder.py)同步构建，请使用[模块助手](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Static/ModuleHelper.html)进行查询与安装，助手同时提供**反解密模块制作**、**查看原始模块**等功能；<br>
 
 [![一键跳转 模块助手](https://img.shields.io/static/v1?label=一键跳转&message=模块助手&color=grey&logo=googledocs&logoColor=white&labelColor=blue&messageColor=white)](https://xiangwanguan.github.io/Shadowrocket/Static/ModuleHelper.html)<br>
 

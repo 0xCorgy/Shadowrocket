@@ -71,19 +71,20 @@ def build_sgmodule(rule_text, project_name):
     header_rewrite_lines = []
     for match in re.finditer(header_pattern, rule_text, re.M):
         request_url, header_type, header_content = match.group(1).strip(), match.group(2).strip(), match.group(3).strip()
-        operation_type = f"http-{header_type.split('-')[0]}" + ("-regex" if "-regex" in header_content else "")
+        operation_type = f"http-{header_type.split('-')[0]}"
         header_content = header_content.replace("-regex", "").strip()
         header_replace_match = re.search(r'([\w-]+)\s*:\s*"?([^"]+)"?', header_content)
-        header_del_match = re.search(r'(\S+)\s+\S+-header-del', header_content, re.I)
-        header_add_match = re.search(r'(\S+)\s+\S+-header-add\s+"?([^"]+)"?', header_content, re.I)
         if header_replace_match:
             header_value = header_replace_match.group(2)
-            header_rewrite_lines.append(f"{operation_type} {request_url} {'header-replace-regex' if '-regex' in operation_type else 'header-replace'} {header_replace_match.group(1)} {header_value}")
-        elif header_del_match:
-            header_rewrite_lines.append(f"{operation_type} {request_url} header-del {header_del_match.group(1)}")
-        elif header_add_match:
-            header_add_value = header_add_match.group(2)
-            header_rewrite_lines.append(f'{operation_type} {request_url} header-add {header_add_match.group(1)} {header_add_value}')
+            header_rewrite_lines.append(f"{operation_type} {request_url} {'header-replace-regex' if '-regex' in match.group(3) else 'header-replace'} {header_replace_match.group(1)} {header_value}")
+        else:
+            header_del_match = re.search(r'(\S+)\s+\S+-header-del', header_content, re.I)
+            header_add_match = re.search(r'(\S+)\s+\S+-header-add\s+"?([^"]+)"?', header_content, re.I)
+            if header_del_match:
+                header_rewrite_lines.append(f"{operation_type} {request_url} header-del {header_del_match.group(1)}")
+            elif header_add_match:
+                header_add_value = header_add_match.group(2)
+                header_rewrite_lines.append(f'{operation_type} {request_url} header-add {header_add_match.group(1)} {header_add_value}')
     header_rewrite_lines = [line for operation in ['header-del', 'header-add', 'header-replace'] for line in header_rewrite_lines if operation in line]
     unique_lines = {tuple(line.split()[:3]): line for line in header_rewrite_lines}
     header_rewrite_lines = list(unique_lines.values())

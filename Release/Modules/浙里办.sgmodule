@@ -1,7 +1,7 @@
 #!name=浙里办
 
 [Body Rewrite]
-http-response ^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic "data":\{.+\} "data":{}
+http-response-jq ^https?:\/\/portal\.zjzwfw\.gov\.cn\/app_api\/appHome\/selectStartPic 'if (getpath([]) | has("data")) then (setpath(["data"]; {})) else . end'
 
 [MITM]
 hostname = %APPEND% portal.zjzwfw.gov.cn

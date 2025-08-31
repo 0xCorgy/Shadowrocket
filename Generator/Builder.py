@@ -174,9 +174,6 @@ def save_sgmodule(content, path):
 def generate_app_modules(rules, parent_dir):
     dir_modules = os.path.join(parent_dir, "Release", "Modules")
     os.makedirs(dir_modules, exist_ok=True)
-    for filename in os.listdir(dir_modules):
-        file_path = os.path.join(dir_modules, filename)
-        if os.path.isfile(file_path): os.remove(file_path)
     apps_dict, buffer_lines, current_app = {}, [], None
     for line in rules.splitlines():
         if line.startswith("# >"):
@@ -184,6 +181,9 @@ def generate_app_modules(rules, parent_dir):
             current_app = line[3:].strip()
         elif current_app: buffer_lines.append(line)
     if current_app and buffer_lines: apps_dict[current_app] = "\n".join(buffer_lines)
+    existing_files = set(os.listdir(dir_modules))
+    for filename in existing_files:
+        if filename.replace(".sgmodule", "") not in apps_dict: os.remove(os.path.join(dir_modules, filename))
     for app_name, text in apps_dict.items():
         content = "\n".join(line for line in build_sgmodule(text, app_name).splitlines() if not line.startswith('#!desc=')) + "\n"
         save_sgmodule(content, os.path.join(dir_modules, f"{app_name}.sgmodule"))

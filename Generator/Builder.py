@@ -69,7 +69,7 @@ def build_sgmodule(rule_text, project_name):
 
     header_pattern = r'^(?!#)(.*?)\s*url\s+(request-header|response-header)\s+(.*)$'
     header_rewrite_lines = []
-    for match in re.finditer(header_pattern, rule_text, re.M):
+    for match in re.finditer(header_pattern, rule_text, re.MULTILINE):
         request_url, header_type, header_content = match.group(1).strip(), match.group(2).strip(), match.group(3).strip()
         operation_type = f"http-{header_type.split('-')[0]}"
         header_content = header_content.replace("-regex", "").strip()

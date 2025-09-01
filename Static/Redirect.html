@@ -98,28 +98,28 @@
     }
 
     function initRedirect() {
-      const rawUrl = getQueryParam("url");
+      const rawUrl = getQueryParam('url');
       const targetUrl = decodeUrl(rawUrl);
 
-      const redirectLink = document.getElementById("redirect-link");
-      const message = document.getElementById("message");
-      const title = document.getElementById("title");
+      const redirectLink = document.getElementById('redirect-link');
+      const message = document.getElementById('message');
+      const title = document.getElementById('title');
 
       if (targetUrl && isValidUrlScheme(targetUrl)) {
         redirectLink.href = targetUrl;
-        redirectLink.style.display = "inline-block";
-        message.textContent = "";
+        redirectLink.style.display = 'inline-block';
+        message.textContent = '';
 
         setTimeout(() => {
           window.location.href = targetUrl;
         }, 1500);
       } else {
-        title.style.display = "none";
-        message.textContent = "无效！请检查参数是否正确！";
+        title.style.display = 'none';
+        message.textContent = '无效！请检查参数是否正确！';
       }
     }
 
-    window.addEventListener("DOMContentLoaded", initRedirect);
+    window.addEventListener('DOMContentLoaded', initRedirect);
   </script>
 </body>
 

@@ -1,7 +1,7 @@
 {
   "name": "模块助手",
   "short_name": "助手",
-  "start_url": "index.html",
+  "start_url": "ModuleHelper.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2563eb",

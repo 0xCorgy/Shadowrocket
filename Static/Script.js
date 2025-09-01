@@ -292,5 +292,14 @@
     );
   };
 
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("Serviceworker.js")
+        .then((reg) => console.log("ServiceWorker 注册成功:", reg))
+        .catch((err) => console.error("ServiceWorker 注册失败:", err));
+    });
+  }
+
   main();
 })();

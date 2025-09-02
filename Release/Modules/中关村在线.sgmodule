@@ -1,5 +1,9 @@
 #!name=中关村在线
 
+[Rule]
+DOMAIN, apppv.zol.com.cn, REJECT
+DOMAIN, pvnapp.zol.com.cn, REJECT
+
 [URL Rewrite]
 ^https?:\/\/apicloud\.zol\.com\.cn\/Article\/WapLaunchLogo - reject-dict
 

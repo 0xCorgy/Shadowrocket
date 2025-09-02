@@ -1,5 +1,9 @@
 #!name=搜狐
 
+[Rule]
+DOMAIN-SUFFIX, ad.sohu.com, REJECT
+DOMAIN-SUFFIX, ads.sohu.com, REJECT
+
 [URL Rewrite]
 ^https?:\/\/(api|api-bk\d+)\.tv\.sohu\.com\/agg\/api\/app\/config\/bootstrap - reject
 ^https?:\/\/agn\.aty\.sohu\.com\/m? - reject-img
@@ -16,4 +20,4 @@
 ^https?:\/\/s\.go\.sohu\.com\/adgtr\/\?gbcode= - reject-img
 
 [MITM]
-hostname = %APPEND% *.souhu.com
+hostname = %APPEND% *.sohu.com

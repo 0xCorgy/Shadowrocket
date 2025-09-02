@@ -1,7 +1,0 @@
-#!name=怪兽赤兔
-
-[URL Rewrite]
-^https?:\/\/awg\.enmonster\.com\/apa\/(advert\/demand\/home\/poster|index\/advert\/skin) - reject-dict
-
-[MITM]
-hostname = %APPEND% awg.enmonster.com

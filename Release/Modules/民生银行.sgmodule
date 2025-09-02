@@ -1,5 +1,11 @@
 #!name=民生银行
 
+[Rule]
+DOMAIN-KEYWORD, c-hzgt2.getui.com, REJECT
+DOMAIN-KEYWORD, cm-10-134.getui.com, REJECT
+DOMAIN-KEYWORD, cm-10-35.getui.com, REJECT
+DOMAIN-KEYWORD, sdk.open.talk.getui.com, REJECT
+
 [URL Rewrite]
 ^https?:\/\/rs.creditcard.cmbc.com.cn/mmc/img/126f35586ece469aa2daf2e451ba7b4d.jpg - reject-200
 ^https?:\/\/www\.cmbc\.com\.cn\/m\/image\/banner\/.*.png - reject-200

@@ -1,5 +1,8 @@
 #!name=收钱吧 小程序
 
+[Rule]
+DOMAIN, ads-shopping.shouqianba.com, REJECT
+
 [URL Rewrite]
 ^https?:\/\/api\.pinduoduo\.com\/api\/ktt_gateway\/activity\/feeds\/personal_home_page\/ - reject
 

@@ -1,5 +1,9 @@
 #!name=买单吧
 
+[Rule]
+DOMAIN-SUFFIX, c-hzgt2.getui.com, REJECT
+DOMAIN-SUFFIX, gs.getui.com, REJECT
+
 [URL Rewrite]
 ^https?:\/\/creditcard.*\.bankcomm\.(com|cn)\/.*Ads\.do - reject
 ^https?:\/\/creditcard\.bankcomm\.(com|cn)\/tfimg\/public00\/M00\/4C\/6F - reject-img

@@ -1,5 +1,9 @@
 #!name=易车
 
+[Rule]
+DOMAIN, adx.yiche.com, REJECT
+DOMAIN, log.ycapp.yiche.com, REJECT
+
 [URL Rewrite]
 ^https?:\/\/api\.ycapp\.yiche\.com\/appnews\/getadlist - reject-img
 ^https?:\/\/api\.ycapp\.yiche\.com\/yicheapp\/getadlist - reject-img

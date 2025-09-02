@@ -1,4 +1,4 @@
-#!name=考公雷达
+#!name=公考雷达
 
 [URL Rewrite]
 ^https?:\/\/api\.gongkaoleida\.com\/api\/v2\/ad\/info - reject-dict

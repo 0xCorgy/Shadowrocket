@@ -1,5 +1,9 @@
 #!name=58同城
 
+[Rule]
+DOMAIN, track.58.com, REJECT
+DOMAIN, tracklog.58.com, REJECT
+
 [URL Rewrite]
 ^https?:\/\/.+?\.58cdn\.com\.cn\/brandads\/ - reject-200
 ^https?:\/\/app\.58\.com\/api\/home\/(advertising|appadv)\/ - reject

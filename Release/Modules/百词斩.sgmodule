@@ -1,5 +1,9 @@
 #!name=百词斩
 
+[Rule]
+DOMAIN, advertise.baicizhan.com, REJECT
+DOMAIN, advertise.baicizhan.org, REJECT
+
 [URL Rewrite]
 ^https?:\/\/7n\.bczcdn\.com\/launchad\/ - reject-200
 

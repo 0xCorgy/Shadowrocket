@@ -1,5 +1,8 @@
 #!name=米家
 
+[Rule]
+DOMAIN, sdkconfig.ad.xiaomi.com, REJECT
+
 [URL Rewrite]
 ^https?:\/\/home\.mi\.com\/cgi-op\/api\/v1\/recommendation\/(banner|carousel\/banners|myTab|openingBanner) - reject-dict
 ^https?:\/\/home\.mi\.com\/cgi-op\/api\/v1\/resource\/realtime\/openingBanner - reject-dict

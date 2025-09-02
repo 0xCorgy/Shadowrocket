@@ -1,5 +1,8 @@
 #!name=Talkatone
 
+[Rule]
+DOMAIN-SUFFIX, tappx.com, REJECT
+
 [URL Rewrite]
 ^https?:\/\/alt-r\.my\.com\/mobile - reject-dict
 ^https?:\/\/imgx\.jampp\.com\/imgsrv\/tn - reject-img

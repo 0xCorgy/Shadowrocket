@@ -1,6 +1,10 @@
 #!name=小红书
 
 [Rule]
+DOMAIN, ads-img-qc.xhscdn.com, REJECT
+DOMAIN, ads-video-al.xhscdn.com, REJECT
+DOMAIN, ads-video-qc.xhscdn.com, REJECT
+DOMAIN, t-ads.xiaohongshu.com, REJECT
 AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,xiaohongshu.com)), REJECT
 
 [URL Rewrite]

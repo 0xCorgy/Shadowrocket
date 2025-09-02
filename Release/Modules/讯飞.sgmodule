@@ -1,5 +1,11 @@
 #!name=讯飞
 
+[Rule]
+DOMAIN-KEYWORD, bj.imp.voiceads.cn, REJECT
+DOMAIN-KEYWORD, iflyad.bj.openstorage.cn, REJECT
+DOMAIN-KEYWORD, m.panda.voiceads.cn, REJECT
+DOMAIN-KEYWORD, ossp.voicecloud.cn, REJECT
+
 [URL Rewrite]
 ^https?:\/\/imeclient\.openspeech\.cn\/adservice\/ - reject-200
 

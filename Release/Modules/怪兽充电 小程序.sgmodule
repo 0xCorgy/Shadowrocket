@@ -1,7 +1,0 @@
-#!name=怪兽充电 小程序
-
-[URL Rewrite]
-^https?:\/\/aag\.enmonster\.com\/apa\/index\/advert\/skin - reject
-
-[MITM]
-hostname = %APPEND% aag.enmonster.com

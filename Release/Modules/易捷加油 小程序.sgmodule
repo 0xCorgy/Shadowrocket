@@ -1,7 +1,0 @@
-#!name=易捷加油 小程序
-
-[URL Rewrite]
-^https?:\/\/ocrifs\.ejoy\.sinopec\.com\/advertitfs\/advert\/findAdvertInfo - reject-dict
-
-[MITM]
-hostname = %APPEND% ocrifs.ejoy.sinopec.com

@@ -1,5 +1,13 @@
 #!name=太平洋科技
 
+[Rule]
+DOMAIN, ad-analysis.pconline.com.cn, REJECT
+DOMAIN, iad0ssl.pcauto.com.cn, REJECT
+DOMAIN, iad0ssl.pconline.com.cn, REJECT
+DOMAIN, imgad0.pcauto.com.cn, REJECT
+DOMAIN, imgad0.pconline.com.cn, REJECT
+DOMAIN, ivy.pchouse.com.cn, REJECT
+
 [URL Rewrite]
 ^https?:\/\/agent-count\.(pcauto|pconline)\.com\.cn\/counter\/adAnalyse\/ - reject
 ^https?:\/\/mrobot\.(pcauto|pconline)\.com\.cn\/[a-z0-9-]+\/onlineinfo\/(ad|cms\/launch) - reject-200

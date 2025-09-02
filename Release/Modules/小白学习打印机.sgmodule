@@ -1,4 +1,4 @@
-#!name=小白学习打印机 开屏广告
+#!name=小白学习打印机
 
 [URL Rewrite]
 ^https?:\/\/api\.xbxxhz\.com\/big_data\/v1\/home_pages - reject

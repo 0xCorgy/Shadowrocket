@@ -2,6 +2,7 @@
 
 [URL Rewrite]
 ^https?:\/\/a\.sinopecsales\.com\/app\/cms - reject-dict
+^https?:\/\/ocrifs\.ejoy\.sinopec\.com\/advertitfs\/advert\/findAdvertInfo - reject-dict
 
 [MITM]
-hostname = %APPEND% a.sinopecsales.com
+hostname = %APPEND% a.sinopecsales.com,ocrifs.ejoy.sinopec.com

@@ -1,5 +1,9 @@
 #!name=虎扑
 
+[Rule]
+DOMAIN, adx-api.hupu.com, REJECT
+DOMAIN, adx.hupu.com, REJECT
+
 [URL Rewrite]
 ^https?:\/\/business\.msstatic\.com\/advertiser - reject-200
 ^https?:\/\/du\.hupucdn\.com\/\w+h\d{4} - reject-img

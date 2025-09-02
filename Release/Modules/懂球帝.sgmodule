@@ -1,5 +1,8 @@
 #!name=懂球帝
 
+[Rule]
+DOMAIN-KEYWORD, apimg.qunliao.info, REJECT
+
 [URL Rewrite]
 ^https?:\/\/ap\.dongdianqiu\.com\/plat\/v4 - reject
 

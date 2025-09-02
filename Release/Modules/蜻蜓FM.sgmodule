@@ -1,5 +1,10 @@
 #!name=蜻蜓FM
 
+[Rule]
+DOMAIN, ad-cdn.qingting.fm, REJECT
+DOMAIN, ad.qingting.fm, REJECT
+DOMAIN, adlaunch.qingting.fm, REJECT
+
 [URL Rewrite]
 ^https?:\/\/app\.qtfm\.cn\/m-bff\/v\d\/i_listen\/guess_you_like\? - reject-dict
 ^https?:\/\/app\.qtfm\.cn\/recommendapi\/v\d\/emotion$ - reject

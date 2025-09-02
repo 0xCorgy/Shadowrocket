@@ -1,4 +1,4 @@
-#!name=来电 小程序净化
+#!name=来电 小程序
 
 [URL Rewrite]
 ^https?:\/\/mobile-api\.imlaidian\.com\/api\/args - reject-dict

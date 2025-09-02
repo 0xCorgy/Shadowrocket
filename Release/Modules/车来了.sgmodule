@@ -1,5 +1,9 @@
 #!name=车来了
 
+[Rule]
+DOMAIN, ad.chelaile.net.cn, REJECT
+DOMAIN, logs.chelaile.net.cn, REJECT
+
 [URL Rewrite]
 ^https?:\/\/(api|atrace)\.chelaile\.net\.cn\/adpub\/ - reject
 ^https?:\/\/api\.chelaile\.net\.cn\/goocity\/advert\/ - reject

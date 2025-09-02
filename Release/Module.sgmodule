@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-09-02 11:16:54
+#!desc=2025-09-02 11:39:36
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -299,7 +299,9 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 ^https?:\/\/(cdn-)?topic\.kkmh\.com\/gamecard\/v\d\/activityModule\/fetchButtonInfo\?buttonConfigId - reject-dict
 ^https?:\/\/(cdn-)?topic\.kkmh\.com\/gamecard\/v\d\/activityModule\/userSignInInfo\?activitySignInConfigId - reject-dict
 ^https?:\/\/(cdn-)?topic\.kkmh\.com\/gamecard\/v\d\/activityText\/getUserActivityTextInfo\?activityTextConfigId - reject-dict
-^https?:\/\/(client\.app\.coc|app)\.10086\.cn\/biz-orange\/DN\/emotionMarket - reject
+^https?:\/\/(client\.)?app(\.coc)?\.10086\.cn\/biz-orange\/DN\/emotionMarket - reject
+^https?:\/\/(client\.)?app(\.coc)?\.10086\.cn\/biz-orange\/DN\/explorePage\/getAdverList - reject
+^https?:\/\/(client\.)?app(\.coc)?\.10086\.cn\/biz-orange\/DN\/init\/startInit - reject
 ^https?:\/\/(csc|osg)-service\.sgcc\.com\.cn:\d+\/.*\/app_api\/selectInfoByCondition - reject-dict
 ^https?:\/\/(csc|osg)-service\.sgcc\.com\.cn:\d+\/.*\/inner\/cache - reject
 ^https?:\/\/(csc|osg)-service\.sgcc\.com\.cn:\d+\/emss-pfa-appset-front\/appForceUpdate - reject
@@ -909,8 +911,6 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 ^https?:\/\/client-lz\.rili\.cn\/lizhi\/api\/fortune\/overview\? - reject-dict
 ^https?:\/\/client-lz\.rili\.cn\/lizhi\/api\/fortune\/question_spots\/panel\? - reject-dict
 ^https?:\/\/client-lz\.rili\.cn\/lizhi\/api\/jujia\/flow\? - reject-dict
-^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/explorePage\/getAdverList - reject
-^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/DN\/init\/startInit - reject
 ^https?:\/\/client\.mail\.163\.com\/apptrack\/confinfo\/searchMultiAds - reject
 ^https?:\/\/client\.qunar\.com\/pitcher-proxy\?qrt=p_splashAd - reject
 ^https?:\/\/client\.tujia\.com\/bnbapp-node - reject-dict

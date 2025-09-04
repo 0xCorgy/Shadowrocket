@@ -1,0 +1,7 @@
+#!name=联想至像打印
+
+[URL Rewrite]
+^https?:\/\/abcapi\.lenovoimage\.com\/v1\/promote\/startup - reject-dict
+
+[MITM]
+hostname = %APPEND% abcapi.lenovoimage.com

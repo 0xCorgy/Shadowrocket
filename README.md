@@ -16,7 +16,7 @@
 苹果、微软、谷歌等**系统服务**已单独建立专属分流策略，避免与通用规则冲突；<br>
 海外主流**AI平台**已独立分流，保障访问速度与稳定性；<br>
 **微信**与**电报**已单独分流，降低因策略调整导致封号或异常的风险；<br>
-针对**国内**与**国外**的**媒体**及**规则**，分别构建独立分流通道，实现更灵活的控制；<br>
+针对**国内**与**国外**的**媒体**及**规则**，分别使用独立的分流策略，实现更灵活的控制；<br>
 
 本项目所使用的**规则集**源自[blackmatrix7](https://github.com/blackmatrix7/ios_rule_script/tree/master/rule/Shadowrocket)的仓库，由[GitHub Actions](https://github.com/XiangwanGuan/Shadowrocket/blob/main/.github/workflows/Sync-RuleFiles.yml)**每日自动同步**；<br>
 本项目所使用的**GeoLite2数据库**源自[MaxMind](https://www.maxmind.com)提供的免费版本，由[GitHub Actions](https://github.com/XiangwanGuan/Shadowrocket/blob/main/.github/workflows/Sync-GeoLite2Files.yml)**每日自动同步**；<br>
@@ -91,6 +91,8 @@ Telegram使用**新加坡节点**，Google、AI工具使用**美国节点**；<b
 
 ### [独立模块](#独立模块)
 [独立模块](https://github.com/XiangwanGuan/Shadowrocket/tree/main/Release/Modules)由[生成器](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Generator/Builder.py)同步构建，请使用[模块助手](https://github.com/XiangwanGuan/Shadowrocket/blob/main/Static/ModuleHelper.html)进行查询与安装，助手同时提供**反解密模块制作**、**查看原始模块**等功能；<br>
+
+使用须知：[融合模块](#融合模块)已包含[独立模块](#独立模块)的所有功能，**请勿重复使用**！
 
 [![一键跳转 模块助手](https://img.shields.io/static/v1?label=一键跳转&message=模块助手&color=grey&logo=googledocs&logoColor=white&labelColor=blue&messageColor=white)](https://xiangwanguan.github.io/Shadowrocket/Static/ModuleHelper.html)<br>
 

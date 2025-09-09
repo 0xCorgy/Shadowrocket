@@ -1,4 +1,5 @@
 #!name=启信宝
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/appc-v6\.qixin\.com\/v4\/enterprise\/getRecommendEnts$ - reject-dict

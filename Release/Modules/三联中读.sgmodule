@@ -1,4 +1,5 @@
 #!name=三联中读
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/apis.lifeweek.com.cn/api/baseConfig/getIosNewConfig - reject

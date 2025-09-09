@@ -1,4 +1,5 @@
 #!name=无他相机
+#!desc=2025-09-09 10:10:26
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/api-release\.wuta-cam\.com\/ad_tree$ '.regular.homepage_25_bottom_nav_bar|=map(.button_list|=map(select(.name|IN("home","me"))))'

@@ -1,4 +1,5 @@
 #!name=交通银行
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/download1\.bankcomm\.com\/chngweb\/CHNRCSP\/media - reject-200

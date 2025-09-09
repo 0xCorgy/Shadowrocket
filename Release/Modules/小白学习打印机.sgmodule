@@ -1,4 +1,5 @@
 #!name=小白学习打印机
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/api\.xbxxhz\.com\/big_data\/v1\/home_pages - reject

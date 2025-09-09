@@ -1,4 +1,5 @@
 #!name=LING Club
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/api\.00bang\.cn\/llb\/baseinfo\/advertise\/getAdvertiseByPageCode - reject-200

@@ -1,4 +1,5 @@
 #!name=智慧苏州
+#!desc=2025-09-09 10:10:27
 
 [Map Local]
 ^https?:\/\/newapp2\.szsmk\.com\/app\/config\/(queryCarousel|queryRecommendation)\/ data-type=text data="{"code":"000000","message":"操作成功","list":[]}" status-code=200 header="content-type: application/json"

@@ -1,4 +1,5 @@
 #!name=看天下
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/open3\.vistastory\.com\/v\d\/api.*get_popup - reject

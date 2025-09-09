@@ -1,4 +1,5 @@
 #!name=浦发银行
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/lban\.spdb\.com\.cn\/mspmk-web-component\/getAdvList\.ah$ - reject

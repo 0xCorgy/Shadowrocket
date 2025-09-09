@@ -1,4 +1,5 @@
 #!name=苏e行
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/ad\.shunchangzhixing\.com\/getAd - reject-dict

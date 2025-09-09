@@ -1,4 +1,5 @@
 #!name=两步路
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/helper\.2bulu\.com\/(greenPea\/queryTasks|proSpecial\/allData|saveSplashFrequencyStatistics|getPopInfo|getAppEntranceConfig|promote\/list|getSplash|outing\/reqFoundNewList|outing\/reqIndex) - reject

@@ -1,4 +1,5 @@
 #!name=京东云无线宝
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/router-app-api\.jdcloud\.com\/v\d\/board\/routerAppSplash - reject-200

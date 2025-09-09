@@ -1,4 +1,5 @@
 #!name=萤石云视频
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/api\.ys7\.com\/api\/ads - reject

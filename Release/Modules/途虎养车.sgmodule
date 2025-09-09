@@ -1,4 +1,5 @@
 #!name=途虎养车
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/cl-gateway\.tuhu\.cn\/cl-common-api\/api\/personalCenter\/getAutoSuperConfig - reject

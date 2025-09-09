@@ -1,4 +1,5 @@
 #!name=前程无忧 51Job
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/appapi\.51jobapp\.com\/api\/market\/get_launch\.php\? - reject-dict

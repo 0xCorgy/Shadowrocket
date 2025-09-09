@@ -1,4 +1,5 @@
 #!name=掌阅
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/book\.img\.ireader\.com\/group6\/M00 - reject-img

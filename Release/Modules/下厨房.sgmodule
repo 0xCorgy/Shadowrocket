@@ -1,4 +1,5 @@
 #!name=下厨房
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/res1\.hubcloud\.com\.cn - reject-200

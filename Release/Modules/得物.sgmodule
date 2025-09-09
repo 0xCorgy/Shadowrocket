@@ -1,4 +1,5 @@
 #!name=得物
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/app\.dewu\.com\/api\/v1\/app\/advertisement - reject

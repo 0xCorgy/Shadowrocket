@@ -1,4 +1,5 @@
 #!name=有兔阅读(米兔)
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/app\.zhoudamozi\.com\/ad\/.+ - reject-200

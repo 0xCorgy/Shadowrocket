@@ -1,4 +1,5 @@
 #!name=MIX
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/dispatcher\.camera360\.com\/api\/v\d\/list$ - reject

@@ -1,4 +1,5 @@
 #!name=crunchyroll
+#!desc=2025-09-09 10:10:26
 
 [Body Rewrite]
 http-response ^https?:\/\/beta-api\.crunchyroll\.com\/cms offset_ms":\d+ offset_ms":99999999999999

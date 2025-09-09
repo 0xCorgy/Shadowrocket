@@ -1,4 +1,5 @@
 #!name=小红书
+#!desc=2025-09-09 10:10:27
 
 [Rule]
 DOMAIN, ads-img-qc.xhscdn.com, REJECT

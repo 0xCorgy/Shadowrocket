@@ -1,4 +1,5 @@
 #!name=合利宝展业通
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/promote-trx\.helipay\.com\/promote-business-client\/pos\/appAdvertisement\/appAdvertisementList - reject-200

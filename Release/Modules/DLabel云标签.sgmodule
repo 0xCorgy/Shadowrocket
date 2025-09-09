@@ -1,4 +1,5 @@
 #!name=DLabel云标签
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/dudian-oss\.oss-cn-shenzhen\.aliyuncs\.com\/dlabel\/1\/startpage - reject

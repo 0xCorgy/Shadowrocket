@@ -1,4 +1,5 @@
 #!name=中国人寿
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/ecssmobile\.e-chinalife\.com:8082\/ecss\/web\/appupdate\/customization\/getFlashScreenInfo - reject-dict

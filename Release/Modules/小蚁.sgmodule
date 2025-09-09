@@ -1,4 +1,5 @@
 #!name=小蚁
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/api.xiaoyi.com\/v5\/app\/config\?userid=.* - reject

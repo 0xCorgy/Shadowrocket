@@ -1,4 +1,5 @@
 #!name=纵横小说
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/api1\.zongheng\.com\/iosapi\/system\/startup$ - reject

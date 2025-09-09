@@ -185,7 +185,11 @@ def generate_app_modules(rules, parent_dir):
         if filename.replace(".sgmodule", "") not in apps_dict: os.remove(os.path.join(dir_modules, filename))
     for app_name, text in apps_dict.items():
         content = "\n".join(line for line in build_sgmodule(text, app_name).splitlines() if not line.startswith('#!desc=')) + "\n"
-        save_sgmodule(content, os.path.join(dir_modules, f"{app_name}.sgmodule"))
+        filepath = os.path.join(dir_modules, f"{app_name}.sgmodule")
+        if os.path.exists(filepath):
+            with open(filepath, "r", encoding="utf-8") as f: 
+                if "\n".join(line for line in f.read().splitlines() if not line.startswith('#!desc=')) + "\n" == content: continue
+        save_sgmodule(content, filepath)
 
 def generate_main_sgmodule(sources, parent_dir):
     merged_rules = "\n".join(filter(None, (load_source(u) for u in sources)))

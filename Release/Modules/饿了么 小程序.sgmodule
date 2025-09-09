@@ -1,4 +1,5 @@
 #!name=饿了么 小程序
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/waimai-guide\.ele\.me\/\w+\/mtop\.alsc\.eleme\.\w+\.trigger\.respond - reject-dict

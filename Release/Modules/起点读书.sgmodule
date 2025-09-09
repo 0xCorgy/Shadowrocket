@@ -1,4 +1,5 @@
 #!name=起点读书
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/magev6\.if\.qidian\.com\/argus\/api\/v1\/adv\/ - reject-dict

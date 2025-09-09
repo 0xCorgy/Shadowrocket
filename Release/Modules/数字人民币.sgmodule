@@ -1,4 +1,5 @@
 #!name=数字人民币
+#!desc=2025-09-09 10:10:26
 
 [Script]
 ecny =type=http-response, pattern=^https?:\/\/mgs\.wallet\.pbcdci\.cn:\d+\/mgw\.htm$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ecny.js, requires-body=true, max-size=0

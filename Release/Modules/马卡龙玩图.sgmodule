@@ -1,4 +1,5 @@
 #!name=马卡龙玩图
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/app\.api\.versa-ai\.com\/launch\/ads\? - reject-200

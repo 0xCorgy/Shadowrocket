@@ -1,4 +1,5 @@
 #!name=华宝智投
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/api\.touker\.com\/v2\/IAdvertisementAPI\.queryStartAdvertisement - reject-200

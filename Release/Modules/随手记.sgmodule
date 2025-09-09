@@ -1,4 +1,5 @@
 #!name=随手记
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/api\.feidee\.net\/v1\/configs\/client\/configs - reject

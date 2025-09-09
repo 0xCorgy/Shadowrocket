@@ -1,4 +1,5 @@
 #!name=中国广电
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/app\.10099\.com\.cn\/contact-web\/api\/version\/getFlashScreenPage - reject-200

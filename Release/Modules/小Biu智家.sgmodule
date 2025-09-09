@@ -1,4 +1,5 @@
 #!name=小Biu智家
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/shcss\.suning\.com\/shcss-web\/api\/appImage\/queryAppImage\.do - reject-200

@@ -1,4 +1,5 @@
 #!name=西施眼
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/vapp\.tmuyun\.com\/api\/app_start_page\/list\/new - reject-dict

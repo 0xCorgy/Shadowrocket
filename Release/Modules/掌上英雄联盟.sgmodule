@@ -1,4 +1,5 @@
 #!name=掌上英雄联盟
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/mlol\.qt\.qq\.com\/go\/recommend\/(?!v2\/platactivity.*) - reject

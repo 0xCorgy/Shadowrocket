@@ -1,4 +1,5 @@
 #!name=朴朴超市
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/101\.42\.130\.147\/httpdns\/resolve\/ - reject

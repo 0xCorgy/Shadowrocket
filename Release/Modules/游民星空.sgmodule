@@ -1,4 +1,5 @@
 #!name=游民星空
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/.+\.gamersky.com/v1/statisticAd - reject-dict

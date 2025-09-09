@@ -1,4 +1,5 @@
 #!name=书旗小说
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/.+\.pglstatp-toutiao\.com - reject

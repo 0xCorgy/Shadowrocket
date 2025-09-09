@@ -1,4 +1,5 @@
 #!name=一起考教师
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/api\.17kjs\.com\/meta\/ads_targets - reject

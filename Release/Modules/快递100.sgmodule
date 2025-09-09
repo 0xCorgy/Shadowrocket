@@ -1,4 +1,5 @@
 #!name=快递100
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/p\.kuaidi100\.com\/advertisement\/ - reject-dict

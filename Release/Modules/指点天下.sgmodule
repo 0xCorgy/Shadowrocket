@@ -1,4 +1,5 @@
 #!name=指点天下
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/zua\.zhidiantianxia\.cn\/api\/adverts - reject

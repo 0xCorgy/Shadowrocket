@@ -1,4 +1,5 @@
 #!name=Soul
+#!desc=2025-09-09 10:10:26
 
 [Rule]
 DOMAIN, ad-h5-cdn.soulapp.cn, REJECT

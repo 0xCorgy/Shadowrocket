@@ -1,4 +1,5 @@
 #!name=曜影医疗
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/patient-api\.suh\.cn\/apt\/api\/userinfo\/GetNotice\?appname=pmsys&channel=6&device=ios&language=1&source=2&version= - reject-dict

@@ -1,4 +1,5 @@
 #!name=36氪
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/gateway\.36kr\.com\/api\/adx\/ad\/show - reject

@@ -1,4 +1,5 @@
 #!name=Pikpak
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/access.mypikpak.com/access_controller/v1/area_accessible - reject

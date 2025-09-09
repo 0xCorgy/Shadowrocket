@@ -1,4 +1,5 @@
 #!name=Jump
+#!desc=2025-09-09 10:10:26
 
 [Body Rewrite]
 http-response-jq ^https?:\/\/switch.jumpvg.com\/jump\/getlaunchad\/v2$ 'del(.data.adList)|.data.launchAd.showType=0'

@@ -1,4 +1,5 @@
 #!name=稿定设计
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/www\.gaoding\.com\/api\/v\d\/cp\/search-words\/v2\/placeholder - reject-dict

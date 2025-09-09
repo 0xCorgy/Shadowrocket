@@ -1,4 +1,5 @@
 #!name=华住会
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/appapi\.huazhu\.com:\d+\/client\/app\/getAppStartPage\/ - reject

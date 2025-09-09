@@ -1,4 +1,5 @@
 #!name=美团充电宝 小程序
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/cdb\.meituan\.com\/marketing\/source\/getPageSlotList - reject-dict

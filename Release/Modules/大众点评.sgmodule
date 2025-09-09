@@ -1,4 +1,5 @@
 #!name=大众点评
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/103\.37\.155\.60\/fetch - reject

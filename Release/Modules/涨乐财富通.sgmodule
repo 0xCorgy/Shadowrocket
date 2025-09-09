@@ -1,4 +1,5 @@
 #!name=涨乐财富通
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/c\.zhangle\.com\/pic\/mktg\/diversity\/.+\.jpg$ - reject-dict

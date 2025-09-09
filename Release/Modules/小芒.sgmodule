@@ -1,4 +1,5 @@
 #!name=小芒
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/mgesq.api.mgtv.com/v2/user/center/icon - reject-dict

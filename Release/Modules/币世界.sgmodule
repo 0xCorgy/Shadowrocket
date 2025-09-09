@@ -1,4 +1,5 @@
 #!name=币世界
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/iapi\.bishijie\.com\/actopen\/advertising\/ - reject

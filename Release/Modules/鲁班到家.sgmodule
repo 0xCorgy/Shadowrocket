@@ -1,4 +1,5 @@
 #!name=鲁班到家
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/order-app-api\.lbdj\.com\/lbdj\/apporder\/ad\/ - reject-dict

@@ -1,4 +1,5 @@
 #!name=建行生活
+#!desc=2025-09-09 10:10:26
 
 [Rule]
 DOMAIN, o2o-ad-log-gateway.alibaba.com, REJECT

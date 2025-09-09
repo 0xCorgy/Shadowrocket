@@ -1,4 +1,5 @@
 #!name=中信银行
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/imcs\.citicbank\.com\/cloud\/([a-fA-F0-9]{32})\.(jpg|png) - reject

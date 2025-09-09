@@ -1,4 +1,5 @@
 #!name=阿里云盘
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/api\.alipan\.com\/adrive\/v1\/file\/getTopFolders - reject-dict

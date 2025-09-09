@@ -1,4 +1,5 @@
 #!name=微博轻享版
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/api\.weibo\.cn\/2\/ad\/ - reject-dict

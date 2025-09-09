@@ -1,4 +1,5 @@
 #!name=猫眼
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/p0\.pipi\.cn\/(adAdmin|mediaplus\/maoyantong_ads_fe)\/\w+\.(jpg|png)\?imageMogr2\/thumbnail\/(860x0|!165x165|!1049x1169) - reject

@@ -1,4 +1,5 @@
 #!name=马达出行
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/ebk\.17u\.cn\/tctrafficappversionadmin\/api\/getLatestVersionApp - reject-dict

@@ -1,4 +1,5 @@
 #!name=拦截100
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/tagit\.hyhuo\.com\/recover\/list - reject

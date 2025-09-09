@@ -1,4 +1,5 @@
 #!name=百度
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/[\s\S]*\.baidu\.com/.*?ad[xs]\.php - reject-img

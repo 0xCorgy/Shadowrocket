@@ -1,4 +1,5 @@
 #!name=优酷
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
 ^https?:\/\/acs\.youku\.com\/gw\/mtop\.youku\.(pisp\.scripts\.get|xspace\.play\.position\.preload\.query|xspace\.poplayer\.position\.query) - reject-dict

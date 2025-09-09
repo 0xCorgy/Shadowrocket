@@ -1,4 +1,5 @@
 #!name=酷狗铃声
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/api\.ring\.kugou\.com\/user\/notice\/recommend$ - reject-dict

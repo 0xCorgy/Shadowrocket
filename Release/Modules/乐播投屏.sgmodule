@@ -1,4 +1,5 @@
 #!name=乐播投屏
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/saas\.hpplay\.cn\/api\/lebo-desk\/endpoint\/app-resource\/app-user-banner - reject-dict

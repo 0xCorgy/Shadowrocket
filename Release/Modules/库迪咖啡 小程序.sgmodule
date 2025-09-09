@@ -1,4 +1,5 @@
 #!name=库迪咖啡 小程序
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/gateway\.cotticoffee\.com\/cotti-capi\/customer\/position\/adSortList - reject-dict

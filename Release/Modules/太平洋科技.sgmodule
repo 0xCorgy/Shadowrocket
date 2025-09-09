@@ -1,4 +1,5 @@
 #!name=太平洋科技
+#!desc=2025-09-09 10:10:26
 
 [Rule]
 DOMAIN, ad-analysis.pconline.com.cn, REJECT

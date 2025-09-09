@@ -1,4 +1,5 @@
 #!name=小蚕霸王餐
+#!desc=2025-09-09 10:10:26
 
 [Rule]
 AND, ((URL-REGEX,^https?:\/\/gw\.xiaocantech\.com\/rpc),(USER-AGENT,GetBannerList*)), REJECT

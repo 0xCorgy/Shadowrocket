@@ -1,4 +1,5 @@
 #!name=功能类
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/119\.29\.29\.\d+\/d\?dn - reject-200

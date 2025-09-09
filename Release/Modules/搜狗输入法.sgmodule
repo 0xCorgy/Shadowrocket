@@ -1,4 +1,5 @@
 #!name=搜狗输入法
+#!desc=2025-09-09 10:10:26
 
 [Rule]
 DOMAIN-SUFFIX, push-service-ios.sginput.qq.com, REJECT

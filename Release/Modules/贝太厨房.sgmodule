@@ -1,4 +1,5 @@
 #!name=贝太厨房
+#!desc=2025-09-09 10:10:26
 
 [URL Rewrite]
 ^https?:\/\/channel\.beitaichufang\.com\/channel\/api\/v\d\/promote\/ios\/start\/page - reject

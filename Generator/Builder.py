@@ -187,8 +187,9 @@ def generate_app_modules(rules, parent_dir):
         full_content = build_sgmodule(text, app_name).rstrip("\n") + "\n"
         strip = lambda s: "\n".join(l for l in s.splitlines() if not l.startswith('#!desc=')) + "\n"
         filepath = os.path.join(dir_modules, f"{app_name}.sgmodule")
-        if os.path.exists(filepath) and strip(open(filepath, encoding="utf-8").read()) == strip(full_content):
-            continue
+        if os.path.exists(filepath):
+            with open(filepath, encoding="utf-8") as f:
+                if strip(f.read()) == strip(full_content): continue
         save_sgmodule(full_content, filepath)
 
 def generate_main_sgmodule(sources, parent_dir):

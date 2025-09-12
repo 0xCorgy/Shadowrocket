@@ -17,7 +17,6 @@ https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/jingxiAd.js<b
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/lvtusuishenting/ltsst-ad.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/maimai/maimai_ads.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/refs/heads/main/Scripts/miguvideo/miguvideo_ads.js<br>
-https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/myBlockAds.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/picc/picc_ads.js<br>
 https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/PupuSplashAds.js<br>
 https://raw.githubusercontent.com/app2smile/rules/master/js/qq-news.js<br>
@@ -71,6 +70,7 @@ https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/quark
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/sdb.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/sougou.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/sptcc.js<br>
+https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/taobao.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/tuhu.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/usmile.js<br>
 https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/wechatApplet.js<br>

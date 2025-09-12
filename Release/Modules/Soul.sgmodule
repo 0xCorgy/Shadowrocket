@@ -1,7 +1,10 @@
 #!name=Soul
-#!desc=2025-09-09 10:10:26
+#!desc=2025-09-12 14:53:50
 
 [Rule]
+DOMAIN-SUFFIX, soulapp.cn, DIRECT
+IP-CIDR, 8.210.3.170/32, DIRECT, no-resolve
+IP-CIDR, 47.75.72.47/32, DIRECT, no-resolve
 DOMAIN, ad-h5-cdn.soulapp.cn, REJECT
 DOMAIN, ad-h5-station-cdn.soulapp.cn, REJECT
 DOMAIN, ad-r.soulapp.cn, REJECT
@@ -15,26 +18,14 @@ IP-CIDR, 120.27.235.201/32, REJECT, no-resolve
 IP-CIDR, 121.196.197.147/32, REJECT, no-resolve
 
 [URL Rewrite]
-^https?:\/\/api-chat\.soulapp\.cn\/chat\/entrance\/first - reject-dict
-^https?:\/\/api-global\.soulapp\.me\/app\/open\/get - reject
-^https?:\/\/chat-live\.soulapp\.cn\/live\/planet\/recListV2 - reject-200
-^https?:\/\/ssp\.soulapp\.cn\/api\/ad\/config - reject-dict
-^https?:\/\/ssp\.soulapp\.cn\/api\/q - reject-dict
+^https:\/\/chat-live\.soulapp\.cn\/live\/planet\/recListV2 - reject-200
+^https:\/\/ssp\.soulapp\.cn\/api\/q - reject-dict
+
+[Body Rewrite]
+http-response-jq ^https:\/\/(?:api-\w+|gateway-mobile-gray|post)\.soulapp\.cn\/(?:furion\/position\/content|hot\/soul\/rank|mobile\/app\/version\/queryIos|official\/scene\/module|teenager\/config|v2\/post\/gift\/list|v\d\/post\/homepage\/guide\/card) 'delpaths([["data"]])'
 
 [Script]
-req_replace_body =type=http-request, pattern=^https?:\/\/data-collector\.soulapp\.cn\/api\/data\/report\/v\d, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/req_replace_body.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https?:\/\/47\.110\.187\.87\/winterfell\/v2\/getIpByDomain, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https?:\/\/api-a\.soulapp\.cn\/official\/scene\/module, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https?:\/\/api-a\.soulapp\.cn\/v2\/post\/gift\/list, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https?:\/\/api-account\.soulapp\.cn\/teenager\/config, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https?:\/\/api-chat\.soulapp\.cn\/chat\/limitInfo, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https?:\/\/api-user\.soulapp\.cn\/furion\/position\/content, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https?:\/\/api-user\.soulapp\.cn\/v\d\/planet\/config, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https?:\/\/chat-live\.soulapp\.cn\/chatroom\/chatClassifyRoomList, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https?:\/\/gateway-mobile-gray\.soulapp\.cn\/mobile\/app\/version\/queryIos, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https?:\/\/post\.soulapp\.cn\/hot\/soul\/rank, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https?:\/\/post\.soulapp\.cn\/v\d\/post\/homepage\/guide\/card, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https?:\/\/post\.soulapp\.cn\/v\d\/post\/recSquare\/subTabs, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
+soul_ads =type=http-response, pattern=^https:\/\/(?:api-\w+|chat-live|post)\.soulapp\.cn\/(?:chat\/limitInfo|chatroom\/chatClassifyRoomList|homepage\/diamond\/position\/info|v2\/post\/recSquare\/subTabs|v6\/planet\/config), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
 
 [MITM]
-hostname = %APPEND% 47.110.187.87,api-a.soulapp.cn,api-account.soulapp.cn,api-chat.soulapp.cn,api-global.soulapp.me,api-pay.soulapp.cn,api-user.soulapp.cn,chat-live.soulapp.cn,gateway-mobile-gray.soulapp.cn,post.soulapp.cn,ssp.soulapp.cn
+hostname = %APPEND% api*.soulapp.cn,gateway-mobile-gray.soulapp.cn,post.soulapp.cn,ssp.soulapp.cn

@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-09-12 14:53:49
+#!desc=2025-09-12 15:00:46
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -279,8 +279,6 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 
 [URL Rewrite]
 ^(^https?:\/\/www\.vgtime\.com\/app\/topic\/\d+\.jhtml\?.*?&close_ad=)false(&page=\d&sign=\w+&timestamp=\d+&font_size=\d$) $1true$2 302
-^https:\/\/chat-live\.soulapp\.cn\/live\/planet\/recListV2 - reject-200
-^https:\/\/ssp\.soulapp\.cn\/api\/q - reject-dict
 ^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/music\/common\/upload\/t_splash_info\/ - reject
 ^https?:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:ad-|pendragon) - reject-200
 ^https?:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/artistview\/v1\/artist\/(.*)&platform=iphone https://spclient.wg.spotify.com/artistview/v1/artist/$1&platform=ipad header
@@ -910,6 +908,7 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 ^https?:\/\/cgate\.zhaopin\.com\/resumeapi\/resumeCheck\/positionDetailBottomTipCheck$ - reject-dict
 ^https?:\/\/cgbank\.oss-cn-shenzhen\.aliyuncs\.com\/visual\/advertisingImg\/.+.jpg - reject-200
 ^https?:\/\/channel\.beitaichufang\.com\/channel\/api\/v\d\/promote\/ios\/start\/page - reject
+^https?:\/\/chat-live\.soulapp\.cn\/live\/planet\/recListV2 - reject-200
 ^https?:\/\/cheyouapi\.ycapp\.yiche\.com\/appforum\/getusermessagecount - reject-img
 ^https?:\/\/cheyouquan\.kakamobi\.com\/api\/open\/group\/recommend-subscribe-tag - reject-dict
 ^https?:\/\/chl\.tf\.cn\/channelmg\/sys\/socso\/socsonew\/queryIsRealNameAdertInfo - reject-dict
@@ -1692,6 +1691,7 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 ^https?:\/\/squirrel\.kakamobi\.cn\/api\/open\/recommend-goods\/get-my-page-banner - reject-dict
 ^https?:\/\/sso\.ifanr\.com\/jiong\/IOS\/appso\/splash\/ - reject
 ^https?:\/\/ssp\.dzh\.com\.cn/v2api/adgroupjson - reject
+^https?:\/\/ssp\.soulapp\.cn\/api\/q - reject-dict
 ^https?:\/\/st7niu\.aicarmap\.com\/st_?!(a2|a3|e9)\w+\.webp$ - reject
 ^https?:\/\/starplucker\.cyapi\.cn\/v3\/(config\/cypage\/\w+\/conditions|notification\/message_center|operation\/homefeatures) - reject-200
 ^https?:\/\/stars\.shuqireader\.com\/kkios\/render\/load\/resource\/appConfig - reject-dict
@@ -1963,7 +1963,7 @@ http-response ^https?:\/\/www\.flyert(rip)?\.com(\.cn)?\/.*\.php\?.*module=basic
 http-response ^https?:\/\/www\.flyert(rip)?\.com(\.cn)?\/.*\.php\?.*module=threadpost relatedrecommend relatedrecommend0
 http-response ^https?:\/\/www\.tailgdd\.com\/v\d\/smart\/app\/config\/get$ footResource footResource0
 http-response ^https?:\/\/yunbusiness\.ccb\.com\/basic_service\/txCtrl\? "TAG_AD_INFO" "SUCCEED"
-http-response-jq ^https:\/\/(?:api-\w+|gateway-mobile-gray|post)\.soulapp\.cn\/(?:furion\/position\/content|hot\/soul\/rank|mobile\/app\/version\/queryIos|official\/scene\/module|teenager\/config|v2\/post\/gift\/list|v\d\/post\/homepage\/guide\/card) 'delpaths([["data"]])'
+http-response-jq ^https?:\/\/(?:api-\w+|gateway-mobile-gray|post)\.soulapp\.cn\/(?:furion\/position\/content|hot\/soul\/rank|mobile\/app\/version\/queryIos|official\/scene\/module|teenager\/config|v2\/post\/gift\/list|v\d\/post\/homepage\/guide\/card) 'delpaths([["data"]])'
 http-response-jq ^https?:\/\/(apissl|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? '.sidebarExSquareStyle.commonlyUsedList |= map(select(.title == "设置" or .title == "历史记录" or .title == "草稿箱" or .title == "我的钱包" or .title == "小程序" or .title == "未成年人模式" or .title == "官方客服" or .title == "内容偏好" or .title == "离线模式" or .title == "稍后再看" or .title == "举报中心" or .title == "挂件"))'
 http-response-jq ^https?:\/\/(apissl|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? 'delpaths([["reskinConfig"]])'
 http-response-jq ^https?:\/\/(apissl|az\d-api(-js|-idc)?)\.(gifshow|ksapisrv)\.com\/rest\/system\/startup\? 'delpaths([["sidebarExSquareStyle","moreList"]])'
@@ -2539,7 +2539,7 @@ rrtv_json =type=http-response, pattern=^https?:\/\/api\.rr\.tv\/user\/privilege\
 rrtv_json =type=http-response, pattern=^https?:\/\/api\.rr\.tv\/v3plus\/index\/channel\?pageNum=1&position=CHANNEL_MY, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/rrtv_json.js, requires-body=true, max-size=0
 sdb =type=http-response, pattern=^https?:\/\/cdn\.sdb\.com\.cn\/bron-coms\/bron-coms\/material-image, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/sdb.js, requires-body=true, max-size=0
 sougou =type=http-response, pattern=^https?:\/\/sec\.sginput\.qq\.com\/q, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/sougou.js, requires-body=true, max-size=0
-soul_ads =type=http-response, pattern=^https:\/\/(?:api-\w+|chat-live|post)\.soulapp\.cn\/(?:chat\/limitInfo|chatroom\/chatClassifyRoomList|homepage\/diamond\/position\/info|v2\/post\/recSquare\/subTabs|v6\/planet\/config), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
+soul_ads =type=http-response, pattern=^https?:\/\/(?:api-\w+|chat-live|post)\.soulapp\.cn\/(?:chat\/limitInfo|chatroom\/chatClassifyRoomList|homepage\/diamond\/position\/info|v2\/post\/recSquare\/subTabs|v6\/planet\/config), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
 sptcc =type=http-response, pattern=^https?:\/\/online\.sptcc\.com:\d+\/handapp_update\/AppInfo, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/sptcc.js, requires-body=true, max-size=0
 tieba-json =type=http-response, pattern=^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/(c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)$|tiebaads\/commonbatch|c\/s\/sync$), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/tieba-json.js, requires-body=true, max-size=0
 tieba-proto =type=http-response, pattern=^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/tieba-proto.js, requires-body=true, max-size=0, binary-body-mode=true

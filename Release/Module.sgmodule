@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-09-12 15:25:01
+#!desc=2025-09-12 15:35:49
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -132,6 +132,8 @@ DOMAIN, lofter.httpdns.c.163.com, REJECT
 DOMAIN, log.ycapp.yiche.com, REJECT
 DOMAIN, logs.chelaile.net.cn, REJECT
 DOMAIN, m-vali.cp31.ott.cibntv.net, REJECT
+DOMAIN, mall-dsp2.qinlinkeji.com, REJECT
+DOMAIN, mallapi2.qinlinkeji.com, REJECT
 DOMAIN, mc.atm.youku.com, REJECT
 DOMAIN, mdrecv.app.cntvwb.cn, REJECT
 DOMAIN, minfo.wps.cn, REJECT
@@ -142,6 +144,7 @@ DOMAIN, msmp.abchina.com.cn, REJECT
 DOMAIN, music.httpdns.c.163.com, REJECT
 DOMAIN, nbsdk-baichuan.alicdn.com, REJECT
 DOMAIN, o2o-ad-log-gateway.alibaba.com, REJECT
+DOMAIN, open-pixon.ads-pixiv.net, REJECT
 DOMAIN, pgdt.gtimg.cn, REJECT
 DOMAIN, pgdt.ugdtimg.com, REJECT
 DOMAIN, pp-cdnfile2pcdn.msstatic.com, REJECT

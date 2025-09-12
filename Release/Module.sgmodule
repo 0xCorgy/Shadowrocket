@@ -1,13 +1,17 @@
 #!name=融合模块
-#!desc=2025-09-12 15:00:46
+#!desc=2025-09-12 15:25:01
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
 [Rule]
+DOMAIN, dorangesource.alicdn.com, DIRECT
+DOMAIN, push.m.youku.com, DIRECT
+DOMAIN, un-acs.youku.com, DIRECT
 DOMAIN-SUFFIX, soulapp.cn, DIRECT
 IP-CIDR, 8.210.3.170/32, DIRECT, no-resolve
 IP-CIDR, 47.75.72.47/32, DIRECT, no-resolve
 DOMAIN, access.if.iqiyi.com, REJECT
+DOMAIN, acs4baichuan.m.taobao.com, REJECT
 DOMAIN, ad-analysis.pconline.com.cn, REJECT
 DOMAIN, ad-cdn.qingting.fm, REJECT
 DOMAIN, ad-h5-cdn.soulapp.cn, REJECT
@@ -63,9 +67,12 @@ DOMAIN, adx.babytree.com, REJECT
 DOMAIN, adx.yiche.com, REJECT
 DOMAIN, adx.zuoyebang.com, REJECT
 DOMAIN, amap-aos-info-nogw.amap.com, REJECT
+DOMAIN, amdc.m.youku.com, REJECT
 DOMAIN, api.biliapi.com, REJECT
 DOMAIN, api.biliapi.net, REJECT
 DOMAIN, api.iqiyi.com, REJECT
+DOMAIN, api.sm.cn, REJECT
+DOMAIN, apiv4-iyes.youku.com, REJECT
 DOMAIN, app-ad.variflight.com, REJECT
 DOMAIN, app.biliapi.com, REJECT
 DOMAIN, app.biliapi.net, REJECT
@@ -73,7 +80,9 @@ DOMAIN, appcloud.zhihu.com, REJECT
 DOMAIN, appcloud2.in.zhihu.com, REJECT
 DOMAIN, apppv.zol.com.cn, REJECT
 DOMAIN, axxd.xmseeyouyima.com, REJECT
+DOMAIN, baichuan-sdk.alicdn.com, REJECT
 DOMAIN, bbtads.babytree.com, REJECT
+DOMAIN, cad.youku.com, REJECT
 DOMAIN, cdn-ad.wtzw.com, REJECT
 DOMAIN, cdn-new-ad.wtzw.com, REJECT
 DOMAIN, counter.kingsoft.com, REJECT
@@ -99,6 +108,8 @@ DOMAIN, httpdns.calorietech.com, REJECT
 DOMAIN, httpdns.music.163.com, REJECT
 DOMAIN, httpdns.n.netease.com, REJECT
 DOMAIN, httpdns.yunxindns.com, REJECT
+DOMAIN, huichuan-mc.sm.cn, REJECT
+DOMAIN, huichuan.sm.cn, REJECT
 DOMAIN, huyafile.msstatic.com, REJECT
 DOMAIN, iad0ssl.pcauto.com.cn, REJECT
 DOMAIN, iad0ssl.pconline.com.cn, REJECT
@@ -112,6 +123,7 @@ DOMAIN, info4.video.qq.com, REJECT
 DOMAIN, info6.video.qq.com, REJECT
 DOMAIN, ios.video.mpush.qq.com, REJECT
 DOMAIN, ivy.pchouse.com.cn, REJECT
+DOMAIN, iyes.youku.com, REJECT
 DOMAIN, kad.gotokeep.com, REJECT
 DOMAIN, layer.bz.mgtv.com, REJECT
 DOMAIN, livewebbs2.msstatic.com, REJECT
@@ -119,6 +131,8 @@ DOMAIN, livewebbs2pcdn.msstatic.com, REJECT
 DOMAIN, lofter.httpdns.c.163.com, REJECT
 DOMAIN, log.ycapp.yiche.com, REJECT
 DOMAIN, logs.chelaile.net.cn, REJECT
+DOMAIN, m-vali.cp31.ott.cibntv.net, REJECT
+DOMAIN, mc.atm.youku.com, REJECT
 DOMAIN, mdrecv.app.cntvwb.cn, REJECT
 DOMAIN, minfo.wps.cn, REJECT
 DOMAIN, mob.bz.mgtv.com, REJECT
@@ -126,10 +140,12 @@ DOMAIN, mobad.ijinshan.com, REJECT
 DOMAIN, mqtt.zhihu.com, REJECT
 DOMAIN, msmp.abchina.com.cn, REJECT
 DOMAIN, music.httpdns.c.163.com, REJECT
+DOMAIN, nbsdk-baichuan.alicdn.com, REJECT
 DOMAIN, o2o-ad-log-gateway.alibaba.com, REJECT
 DOMAIN, pgdt.gtimg.cn, REJECT
 DOMAIN, pgdt.ugdtimg.com, REJECT
 DOMAIN, pp-cdnfile2pcdn.msstatic.com, REJECT
+DOMAIN, pre-acs.youku.com, REJECT
 DOMAIN, pvnapp.zol.com.cn, REJECT
 DOMAIN, rc-topic-api.bz.mgtv.com, REJECT
 DOMAIN, rprain.bz.mgtv.com, REJECT
@@ -157,10 +173,15 @@ DOMAIN, tracking.babytree.com, REJECT
 DOMAIN, tracklog.58.com, REJECT
 DOMAIN, u1.img.mobile.sina.cn, REJECT
 DOMAIN, ups.ksmobile.net, REJECT
+DOMAIN, vali-g1.cp31.ott.cibntv.net, REJECT
+DOMAIN, vali-ugc.cp31.ott.cibntv.net, REJECT
 DOMAIN, vdapprecv.app.cntvwb.cn, REJECT
 DOMAIN, vip.bz.mgtv.com, REJECT
 DOMAIN, vv6.video.qq.com, REJECT
 DOMAIN, ws.ksmobile.net, REJECT
+DOMAIN, yk-ssp.ad.youku.com, REJECT
+DOMAIN, ykad-data.youku.com, REJECT
+DOMAIN, youku-acs.m.taobao.com, REJECT
 DOMAIN, ysad.yy.com, REJECT
 DOMAIN, zxid-m.mobileservice.cn, REJECT
 DOMAIN-SUFFIX, a.cctv.com, REJECT
@@ -2520,8 +2541,6 @@ meituanwm =type=http-response, pattern=^https?:\/\/web\.meituan\.com\/api\/minip
 meituanwm =type=http-response, pattern=^https?:\/\/web\.meituan\.com\/api\/miniprogram\/tabbar\/all\/query, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/meituanwm.js, requires-body=true, max-size=0
 miguvideo_ads =type=http-response, pattern=^https?:\/\/display-sc\.miguvideo\.com\/display\/v3\/static\/PERSONAL_CENTER$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/miguvideo_ads.js, requires-body=true, max-size=0
 mishop =type=http-response, pattern=^https?:\/\/api\.m\.mi\.com\/v\d\/order\/expressView, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/mishop.js, requires-body=true, max-size=0
-myBlockAds =type=http-response, pattern=^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/myBlockAds.js, requires-body=true, max-size=0
-myBlockAds =type=http-response, pattern=^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/myBlockAds.js, requires-body=true, max-size=0
 peiyinxiu =type=http-response, pattern=^https?:\/\/iosapi\.peiyinxiu\.com\/Api\/Film\/GetConfigValue, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/peiyinxiu.js, requires-body=true, max-size=0
 picc_ads =type=http-response, pattern=^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/a\/config\/homeInit\/v, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/picc_ads.js, requires-body=true, max-size=0
 picc_ads =type=http-response, pattern=^https?:\/\/zgrb\.epicc\.com\.cn\/G-HAPP\/mpageconfig\/myPageConfigList\/v, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/picc_ads.js, requires-body=true, max-size=0
@@ -2541,6 +2560,8 @@ sdb =type=http-response, pattern=^https?:\/\/cdn\.sdb\.com\.cn\/bron-coms\/bron-
 sougou =type=http-response, pattern=^https?:\/\/sec\.sginput\.qq\.com\/q, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/sougou.js, requires-body=true, max-size=0
 soul_ads =type=http-response, pattern=^https?:\/\/(?:api-\w+|chat-live|post)\.soulapp\.cn\/(?:chat\/limitInfo|chatroom\/chatClassifyRoomList|homepage\/diamond\/position\/info|v2\/post\/recSquare\/subTabs|v6\/planet\/config), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/soul_ads.js, requires-body=true, max-size=0
 sptcc =type=http-response, pattern=^https?:\/\/online\.sptcc\.com:\d+\/handapp_update\/AppInfo, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/sptcc.js, requires-body=true, max-size=0
+taobao =type=http-response, pattern=^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/taobao.js, requires-body=true, max-size=0
+taobao =type=http-response, pattern=^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/taobao.js, requires-body=true, max-size=0
 tieba-json =type=http-response, pattern=^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/(c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)$|tiebaads\/commonbatch|c\/s\/sync$), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/tieba-json.js, requires-body=true, max-size=0
 tieba-proto =type=http-response, pattern=^https?:\/\/(tiebac|c\.tieba)\.baidu\.com\/c\/f\/(frs\/(page|threadlist|generalTabList)|pb\/page|excellent\/personalized)\?cmd, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/tieba-proto.js, requires-body=true, max-size=0, binary-body-mode=true
 tuhu =type=http-response, pattern=^https?:\/\/cl-gateway\.tuhu\.cn\/cl-common-api\/api\/personalCenter\/getCmsModuleList, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/tuhu.js, requires-body=true, max-size=0

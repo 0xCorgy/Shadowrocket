@@ -1,5 +1,5 @@
 #!name=淘宝
-#!desc=2025-09-09 10:10:26
+#!desc=2025-09-12 15:25:01
 
 [Rule]
 AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,%E6%B7%98%E5%AE%9D*)), REJECT
@@ -16,8 +16,8 @@ AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,%E6%B7%98%E5%
 ^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(volvo\.secondfloor\.getconfig|wireless\.home\.newface\.awesome\.get) - reject-dict
 
 [Script]
-myBlockAds =type=http-response, pattern=^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/myBlockAds.js, requires-body=true, max-size=0
-myBlockAds =type=http-response, pattern=^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/myBlockAds.js, requires-body=true, max-size=0
+taobao =type=http-response, pattern=^https?:\/\/guide-acs\.m\.taobao\.com\/gw\/mtop\.taobao\.(cloudvideo\.video\.query|wireless\.home\.splash\.awesome\.get), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/taobao.js, requires-body=true, max-size=0
+taobao =type=http-response, pattern=^https?:\/\/poplayer\.template\.alibaba\.com\/\w+\.json, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/taobao.js, requires-body=true, max-size=0
 
 [MITM]
 hostname = %APPEND% acs.m.taobao.com,amdc.m.taobao.com,guide-acs.m.taobao.com,poplayer.template.alibaba.com

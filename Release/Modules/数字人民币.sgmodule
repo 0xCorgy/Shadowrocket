@@ -1,7 +1,9 @@
 #!name=数字人民币
-#!desc=2025-09-15 18:16:57
+#!desc=2025-09-15 20:52:41
 
 [Rule]
+DOMAIN, mdap.wallet.pbcdci.cn, REJECT
+DOMAIN, mdc.wallet.pbcdci.cn, REJECT
 IP-CIDR, 1.202.85.193/32, REJECT, no-resolve
 
 [Script]

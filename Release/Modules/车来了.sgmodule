@@ -1,10 +1,9 @@
 #!name=车来了
-#!desc=2025-09-10 09:03:32
+#!desc=2025-09-15 20:52:41
 
 [Rule]
 DOMAIN, ad.chelaile.net.cn, REJECT
 DOMAIN, logs.chelaile.net.cn, REJECT
-DOMAIN-SUFFIX, atrace.chelaile.net.cn, REJECT
 
 [URL Rewrite]
 ^https?:\/\/(api|atrace)\.chelaile\.net\.cn\/adpub\/ - reject

@@ -1,10 +1,5 @@
 #!name=黄油相机
-#!desc=2025-09-15 18:16:55
-
-[Rule]
-DOMAIN-SUFFIX, adkwai.com, REJECT
-DOMAIN-SUFFIX, anythinktech.com, REJECT
-DOMAIN-SUFFIX, mob.com, REJECT
+#!desc=2025-09-15 20:52:41
 
 [URL Rewrite]
 ^https?:\/\/api\d\.bybutter\.com\/v\d\/app\/placements\/\d\/advertisements - reject

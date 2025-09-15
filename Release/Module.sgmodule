@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-09-15 19:00:26
+#!desc=2025-09-15 20:52:41
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -145,6 +145,8 @@ DOMAIN, mallapi2.qinlinkeji.com, REJECT
 DOMAIN, mbads.paas.cmbchina.com, REJECT
 DOMAIN, mc.atm.youku.com, REJECT
 DOMAIN, mdap.mpaas.cn-hangzhou.aliyuncs.com, REJECT
+DOMAIN, mdap.wallet.pbcdci.cn, REJECT
+DOMAIN, mdc.wallet.pbcdci.cn, REJECT
 DOMAIN, minfo.wps.cn, REJECT
 DOMAIN, mob.bz.mgtv.com, REJECT
 DOMAIN, mobad.ijinshan.com, REJECT
@@ -214,7 +216,6 @@ DOMAIN-SUFFIX, ad.sohu.com, REJECT
 DOMAIN-SUFFIX, adcanvas.com, REJECT
 DOMAIN-SUFFIX, adeng.hpplay.cn, REJECT
 DOMAIN-SUFFIX, adjust.com, REJECT
-DOMAIN-SUFFIX, adkwai.com, REJECT
 DOMAIN-SUFFIX, adnet.sohu.com, REJECT
 DOMAIN-SUFFIX, ads.linkedin.com, REJECT
 DOMAIN-SUFFIX, ads.sohu.com, REJECT
@@ -226,7 +227,6 @@ DOMAIN-SUFFIX, adx-api.hupu.com, REJECT
 DOMAIN-SUFFIX, adx.hupu.com, REJECT
 DOMAIN-SUFFIX, afp.zol-img.com.cn, REJECT
 DOMAIN-SUFFIX, alexametrics.com, REJECT
-DOMAIN-SUFFIX, anythinktech.com, REJECT
 DOMAIN-SUFFIX, api.dsp.yhd.com, REJECT
 DOMAIN-SUFFIX, api.union.vip.com, REJECT
 DOMAIN-SUFFIX, apilog.qbb6.com, REJECT
@@ -237,7 +237,6 @@ DOMAIN-SUFFIX, appier.net, REJECT
 DOMAIN-SUFFIX, applovin.com, REJECT
 DOMAIN-SUFFIX, applvn.com, REJECT
 DOMAIN-SUFFIX, apppv.zol.com.cn, REJECT
-DOMAIN-SUFFIX, atrace.chelaile.net.cn, REJECT
 DOMAIN-SUFFIX, aty.sohu.com, REJECT
 DOMAIN-SUFFIX, beacon.sina.com.cn, REJECT
 DOMAIN-SUFFIX, client-api.ele.me, REJECT
@@ -271,7 +270,6 @@ DOMAIN-SUFFIX, meituan.xn, REJECT
 DOMAIN-SUFFIX, meituan.yoga, REJECT
 DOMAIN-SUFFIX, meituangov.cn, REJECT
 DOMAIN-SUFFIX, mistat.xiaomi.com, REJECT
-DOMAIN-SUFFIX, mob.com, REJECT
 DOMAIN-SUFFIX, mobile-pubt.ele.me, REJECT
 DOMAIN-SUFFIX, ms.vipstatic.com, REJECT
 DOMAIN-SUFFIX, mstat.zol.com.cn, REJECT

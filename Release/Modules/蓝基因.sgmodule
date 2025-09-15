@@ -1,5 +1,8 @@
 #!name=蓝基因
-#!desc=2025-09-09 10:10:26
+#!desc=2025-09-15 18:16:55
+
+[Rule]
+DOMAIN-KEYWORD, medicine.lanjiyin.com.cn, REJECT
 
 [URL Rewrite]
 ^https?:\/\/tk\.lanjiyin\.com\.cn\/ad\/getAdList - reject

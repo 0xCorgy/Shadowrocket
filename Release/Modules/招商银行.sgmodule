@@ -1,5 +1,9 @@
 #!name=招商银行
-#!desc=2025-09-09 10:10:27
+#!desc=2025-09-15 18:16:58
+
+[Rule]
+DOMAIN, mbads.paas.cmbchina.com, REJECT
+DOMAIN, yl.zh.cmbchina.com, REJECT
 
 [URL Rewrite]
 ^https?:\/\/mbmodule-openapi\.paas\.cmbchina\.com\/graphic\/v2\/module\/graphic - reject-dict

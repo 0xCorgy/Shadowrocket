@@ -1,5 +1,8 @@
 #!name=领英
-#!desc=2025-09-09 10:10:26
+#!desc=2025-09-15 18:16:55
+
+[Rule]
+DOMAIN-SUFFIX, ads.linkedin.com, REJECT
 
 [URL Rewrite]
 ^https?:\/\/www\.linkedin\.com\/voyager\/api\/graphql\?queryId=voyagerAdstracking - reject-dict

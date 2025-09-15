@@ -1,5 +1,8 @@
 #!name=帆书(樊登读书)
-#!desc=2025-09-09 10:10:26
+#!desc=2025-09-15 18:16:55
+
+[Rule]
+DOMAIN, popup.dushu365.com, REJECT
 
 [URL Rewrite]
 ^https?:\/\/g(.*)\.dushu365\.com\/chief-orch\/config\/config\/v\d+\/(shortCut|appUpdateUnite|loadingAd|appConfig) - reject

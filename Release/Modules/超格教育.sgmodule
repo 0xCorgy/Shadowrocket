@@ -1,5 +1,8 @@
 #!name=超格教育
-#!desc=2025-09-09 10:10:26
+#!desc=2025-09-15 18:16:54
+
+[Rule]
+DOMAIN, ifconfig.me, REJECT
 
 [URL Rewrite]
 ^https?:\/\/mapi\.chaogejiaoyu\.com\/api\/ad\/adCheck - reject-dict

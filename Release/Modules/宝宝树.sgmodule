@@ -1,14 +1,9 @@
 #!name=宝宝树
-#!desc=2025-09-12 09:06:47
+#!desc=2025-09-15 18:16:54
 
 [Rule]
-DOMAIN, ads.babytree.com, REJECT
-DOMAIN, adx-backend.babytree.com, REJECT
-DOMAIN, adx.babytree.com, REJECT
-DOMAIN, bbtads.babytree.com, REJECT
 DOMAIN, titan.babytree.com, REJECT
 DOMAIN, titan01.babytree.com, REJECT
-DOMAIN, tracking.babytree.com, REJECT
 
 [URL Rewrite]
 ^https?:\/\/api\.babytree\.com\/api\/(advertising|mobile_activity) - reject

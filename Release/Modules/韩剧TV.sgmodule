@@ -1,12 +1,9 @@
 #!name=韩剧TV
-#!desc=2025-09-09 10:10:26
+#!desc=2025-09-15 18:16:55
 
 [Rule]
-DOMAIN, adsmind.ugdtimg.com, REJECT
-DOMAIN, adx-bj.anythinktech.com, REJECT
 DOMAIN, adx-os.bridgeturbo.com, REJECT
 DOMAIN, da.bridgeturbo.com, REJECT
-DOMAIN, pgdt.ugdtimg.com, REJECT
 
 [URL Rewrite]
 ^https?:\/\/api\.hanju\.koudaibaobao\.com\/api\/carp\/kp\? - reject

@@ -1,5 +1,8 @@
 #!name=小米有品
-#!desc=2025-09-09 10:10:26
+#!desc=2025-09-15 18:16:57
+
+[Rule]
+DOMAIN, stat.youpin.mi.com, REJECT
 
 [URL Rewrite]
 ^https?:\/\/shopapi\.io\.mi\.com\/mtop\/mf\/resource\/homePage\/pageConfig - reject-200

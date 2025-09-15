@@ -1,5 +1,9 @@
 #!name=网上国网
-#!desc=2025-09-09 10:10:26
+#!desc=2025-09-15 18:16:57
+
+[Rule]
+DOMAIN, csc-apm.sgcc.com.cn, REJECT
+DOMAIN, mdap.mpaas.cn-hangzhou.aliyuncs.com, REJECT
 
 [URL Rewrite]
 ^https?:\/\/(csc|osg)-service\.sgcc\.com\.cn:\d+\/.*\/app_api\/selectInfoByCondition - reject-dict

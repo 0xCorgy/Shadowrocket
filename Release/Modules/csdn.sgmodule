@@ -1,5 +1,5 @@
-#!name=csdn
-#!desc=2025-09-09 10:10:26
+#!name=CSDN
+#!desc=2025-09-15 08:58:45
 
 [URL Rewrite]
 ^https?:\/\/app-gw\.csdn\.net\/abtesting\/v2\/getList? - reject

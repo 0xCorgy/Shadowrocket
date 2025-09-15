@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-09-14 10:51:26
+#!desc=2025-09-15 08:58:58
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -204,6 +204,7 @@ DOMAIN-SUFFIX, adx-api.hupu.com, REJECT
 DOMAIN-SUFFIX, adx.hupu.com, REJECT
 DOMAIN-SUFFIX, afp.qiyi.com, REJECT
 DOMAIN-SUFFIX, alexametrics.com, REJECT
+DOMAIN-SUFFIX, api.union.vip.com, REJECT
 DOMAIN-SUFFIX, app-measurement.com ,REJECT
 DOMAIN-SUFFIX, appier.net ,REJECT
 DOMAIN-SUFFIX, applovin.com ,REJECT
@@ -222,6 +223,8 @@ DOMAIN-SUFFIX, gemini.yahoo.com, REJECT
 DOMAIN-SUFFIX, gs.getui.com, REJECT
 DOMAIN-SUFFIX, mdrecv.app.cntvwb.cn, REJECT
 DOMAIN-SUFFIX, mishop.pandora.xiaomi.com, REJECT
+DOMAIN-SUFFIX, ms.vipstatic.com, REJECT
+DOMAIN-SUFFIX, n-st.vip.com, REJECT
 DOMAIN-SUFFIX, new.xiongzhangad.com, REJECT
 DOMAIN-SUFFIX, pangle.io ,REJECT
 DOMAIN-SUFFIX, push-service-ios.sginput.qq.com, REJECT

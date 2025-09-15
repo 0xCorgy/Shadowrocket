@@ -1,5 +1,10 @@
 #!name=唯品会
-#!desc=2025-09-09 10:10:26
+#!desc=2025-09-15 08:59:01
+
+[Rule]
+DOMAIN-SUFFIX, api.union.vip.com, REJECT
+DOMAIN-SUFFIX, ms.vipstatic.com, REJECT
+DOMAIN-SUFFIX, n-st.vip.com, REJECT
 
 [URL Rewrite]
 ^https?:\/\/b\.appsimg\.com\/upload\/momin - reject

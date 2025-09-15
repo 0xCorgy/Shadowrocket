@@ -1,5 +1,5 @@
-#!name=雅虎
-#!desc=2025-09-09 10:10:27
+#!name=Yahoo
+#!desc=2025-09-15 08:59:02
 
 [Rule]
 DOMAIN, admarketing.yahoo.net, REJECT

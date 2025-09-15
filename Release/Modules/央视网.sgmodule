@@ -1,5 +1,5 @@
-#!name=央视
-#!desc=2025-09-09 10:10:27
+#!name=央视网
+#!desc=2025-09-15 08:59:02
 
 [Rule]
 DOMAIN, galaxy.bjcathay.com, REJECT

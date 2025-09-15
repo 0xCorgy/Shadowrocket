@@ -1,5 +1,5 @@
-#!name=top-widget
-#!desc=2025-09-09 10:10:26
+#!name=Top Widgets
+#!desc=2025-09-15 08:59:01
 
 [URL Rewrite]
 ^https?:\/\/top-widgets-api\.xiaozujian\.com\/api\/ad\/config - reject

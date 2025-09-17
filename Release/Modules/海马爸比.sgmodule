@@ -1,9 +1,9 @@
 #!name=海马爸比
-#!desc=2025-09-09 10:10:26
+#!desc=2025-09-17 08:25:58
 
 [URL Rewrite]
-^https?:\/\/39\.98\.135\.211\/admin\/filter\/advert\/getAdvertLists - reject-dict
-^https?:\/\/39\.98\.135\.211\/admin\/filter\/crowdFunding\/getNewProductData - reject-dict
+^https?:\/\/hmbaby\.simshine\.cn\/admin\/filter\/advert\/getAdvertLists - reject-dict
+^https?:\/\/hmbaby\.simshine\.cn\/admin\/filter\/crowdFunding\/getNewProductData - reject-dict
 
 [MITM]
-hostname = %APPEND% 39.98.135.211
+hostname = %APPEND% hmbaby.simshine.cn

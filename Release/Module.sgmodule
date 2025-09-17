@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-09-17 08:42:35
+#!desc=2025-09-17 09:23:59
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -121,7 +121,6 @@ DOMAIN, iad0ssl.pconline.com.cn, REJECT
 DOMAIN, iadmat.nosdn.127.net, REJECT
 DOMAIN, iadmatapk.nosdn.127.net, REJECT
 DOMAIN, iadmusicmat.music.126.net, REJECT
-DOMAIN, ifconfig.me, REJECT
 DOMAIN, img.auction-ads.wpscdn.cn, REJECT
 DOMAIN, imgad0.pcauto.com.cn, REJECT
 DOMAIN, imgad0.pconline.com.cn, REJECT
@@ -155,7 +154,6 @@ DOMAIN, msmp.abchina.com.cn, REJECT
 DOMAIN, music.httpdns.c.163.com, REJECT
 DOMAIN, o2o-ad-log-gateway.alibaba.com, REJECT
 DOMAIN, open-pixon.ads-pixiv.net, REJECT
-DOMAIN, openapi.boc.cn, REJECT
 DOMAIN, pgdt.gtimg.cn, REJECT
 DOMAIN, popup.dushu365.com, REJECT
 DOMAIN, pp-cdnfile2pcdn.msstatic.com, REJECT

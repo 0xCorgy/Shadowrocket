@@ -1,8 +1,8 @@
 #!name=小宇宙
-#!desc=2025-09-09 10:10:27
+#!desc=2025-09-18 09:40:18
 
 [URL Rewrite]
-^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/ai - reject-dict
+^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/ai-summary - reject-200
 ^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/category - reject-dict
 ^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/flash - reject-dict
 ^https?:\/\/api\.xiaoyuzhoufm\.com\/v\d\/search\/get - reject-dict

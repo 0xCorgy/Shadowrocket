@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-09-18 09:40:15
+#!desc=2025-09-19 15:28:05
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -139,6 +139,7 @@ DOMAIN, lofter.httpdns.c.163.com, REJECT
 DOMAIN, log.17gwx.com, REJECT
 DOMAIN, log.ycapp.yiche.com, REJECT
 DOMAIN, logs.chelaile.net.cn, REJECT
+DOMAIN, lx0.meituan.com, REJECT
 DOMAIN, mall-dsp2.qinlinkeji.com, REJECT
 DOMAIN, mallapi2.qinlinkeji.com, REJECT
 DOMAIN, mbads.paas.cmbchina.com, REJECT
@@ -260,6 +261,7 @@ DOMAIN-SUFFIX, imp.zol.com.cn, REJECT
 DOMAIN-SUFFIX, js.zol.com.cn, REJECT
 DOMAIN-SUFFIX, log.moji.com, REJECT
 DOMAIN-SUFFIX, logstat.caixin.com, REJECT
+DOMAIN-SUFFIX, lx.meituan.net, REJECT
 DOMAIN-SUFFIX, mads.meituan.com, REJECT
 DOMAIN-SUFFIX, me.api.moji.com, REJECT
 DOMAIN-SUFFIX, medal.blog.csdn.net, REJECT
@@ -973,6 +975,7 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 ^https?:\/\/capis(-?\w*)?\.didapinche\.com\/publish\/api\/upgrade - reject-dict
 ^https?:\/\/capis(-\d)?\.didapinche\.com\/ad\/ - reject
 ^https?:\/\/capis(-\d)?\.didapinche\.com\/adbase - reject
+^https?:\/\/catdot\.dianping\.com\/broker-service\/hijack - reject
 ^https?:\/\/catfront\.dianping\.com\/api\/metric\?v=\d&p=rn_gcbu_mrn-joy-poidetail - reject
 ^https?:\/\/cc\.163\.com\/act\/m\/daily\/ad_ - reject
 ^https?:\/\/ccmsupport-sz\.tenpay\.com\/cgi-bin\/common\/ccm_page_element.cgi - reject

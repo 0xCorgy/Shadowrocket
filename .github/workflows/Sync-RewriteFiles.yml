@@ -46,30 +46,6 @@ jobs:
             curl -fsS -o "$download_filepath" "$download_url" || (echo "Retrying..." && curl -fsS -o "$download_filepath" "$download_url") || true
           done < download_file_links.list
 
-      - name: Download ZirawellConfig Filter files
-        run: |
-          mkdir -p Rewrite/ZirawellConfig/Filter
-          download_dir_flat() {
-            api_url="$1"
-            curl -s "$api_url" \
-              | jq -c '.[]' \
-              | while read -r item; do
-                  type=$(echo "$item" | jq -r '.type')
-                  name=$(echo "$item" | jq -r '.name')
-                  path=$(echo "$item" | jq -r '.path')
-                  download_url=$(echo "$item" | jq -r '.download_url')
-
-                  if [ "$type" = "file" ] && [[ "$name" == *.list ]]; then
-                    echo "Downloading $name"
-                    curl -fsSL "$download_url" -o "Rewrite/ZirawellConfig/Filter/$name" \
-                      || (echo "Retrying..." && curl -fsSL "$download_url" -o "Rewrite/ZirawellConfig/Filter/$name") || true
-                  elif [ "$type" = "dir" ]; then
-                    download_dir_flat "https://api.github.com/repos/zirawell/R-Store/contents/$path?ref=b489066058cd463eba792e353cdae26b71c15269"
-                  fi
-              done
-          }
-          download_dir_flat "https://api.github.com/repos/zirawell/R-Store/contents/Rule/QuanX/Adblock/App?ref=b489066058cd463eba792e353cdae26b71c15269"
-
       - name: Download QingRexConfig files
         run: |
           download_dir() {

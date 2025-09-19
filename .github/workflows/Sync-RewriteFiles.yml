@@ -46,24 +46,30 @@ jobs:
             curl -fsS -o "$download_filepath" "$download_url" || (echo "Retrying..." && curl -fsS -o "$download_filepath" "$download_url") || true
           done < download_file_links.list
 
-      - name: Download ZirawellConfig Filter files (flat)
+      - name: Download ZirawellConfig Filter files (flat, recursive)
         run: |
           mkdir -p Rewrite/ZirawellConfig/Filter
           download_dir_flat() {
             api_url="$1"
-            curl -s "$api_url" \
-              | jq -r '.[] | "\(.type)|\(.name)|\(.path)|\(.download_url)"' \
-              | while IFS='|' read -r type name path download_url; do
-                  if [ "$type" = "file" ] && [[ "$name" == *.list ]]; then
-                    echo "Downloading $name"
-                    curl -fsSL "$download_url" -o "Rewrite/ZirawellConfig/Filter/$name" \
-                      || (echo "Retrying..." && curl -fsSL "$download_url" -o "Rewrite/ZirawellConfig/Filter/$name") || true
-                  elif [ "$type" = "dir" ]; then
-                    download_dir_flat "https://api.github.com/repos/zirawell/R-Store/contents/$path?ref=b489066058cd463eba792e353cdae26b71c15269"
-                  fi
-              done
+            prefix="$2"
+            items=$(curl -s "$api_url" | jq -c '.[]')
+            for item in $items; do
+              type=$(echo "$item" | jq -r '.type')
+              name=$(echo "$item" | jq -r '.name')
+              path=$(echo "$item" | jq -r '.path')
+              download_url=$(echo "$item" | jq -r '.download_url')
+              if [ "$type" = "file" ] && [[ "$name" == *.list ]]; then
+                target_name="$prefix$name"
+                echo "Downloading $name -> $target_name"
+                curl -fsSL "$download_url" -o "Rewrite/ZirawellConfig/Filter/$target_name" \
+                  || (echo "Retrying..." && curl -fsSL "$download_url" -o "Rewrite/ZirawellConfig/Filter/$target_name") || true
+              elif [ "$type" = "dir" ]; then
+                new_prefix="$prefix$(basename "$path")_"
+                download_dir_flat "https://api.github.com/repos/zirawell/R-Store/contents/$path?ref=b489066058cd463eba792e353cdae26b71c15269" "$new_prefix"
+              fi
+            done
           }
-          download_dir_flat "https://api.github.com/repos/zirawell/R-Store/contents/Rule/QuanX/Adblock/App?ref=b489066058cd463eba792e353cdae26b71c15269"
+          download_dir_flat "https://api.github.com/repos/zirawell/R-Store/contents/Rule/QuanX/Adblock/App?ref=b489066058cd463eba792e353cdae26b71c15269" ""
 
       - name: Download QingRexConfig files
         run: |

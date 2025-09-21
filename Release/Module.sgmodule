@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-09-19 15:28:05
+#!desc=2025-09-21 17:51:11
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -124,9 +124,6 @@ DOMAIN, iadmusicmat.music.126.net, REJECT
 DOMAIN, img.auction-ads.wpscdn.cn, REJECT
 DOMAIN, imgad0.pcauto.com.cn, REJECT
 DOMAIN, imgad0.pconline.com.cn, REJECT
-DOMAIN, info4.video.qq.com, REJECT
-DOMAIN, info6.video.qq.com, REJECT
-DOMAIN, ios.video.mpush.qq.com, REJECT
 DOMAIN, ivy.pchouse.com.cn, REJECT
 DOMAIN, kad.gotokeep.com, REJECT
 DOMAIN, layer.bz.mgtv.com, REJECT
@@ -155,7 +152,6 @@ DOMAIN, msmp.abchina.com.cn, REJECT
 DOMAIN, music.httpdns.c.163.com, REJECT
 DOMAIN, o2o-ad-log-gateway.alibaba.com, REJECT
 DOMAIN, open-pixon.ads-pixiv.net, REJECT
-DOMAIN, pgdt.gtimg.cn, REJECT
 DOMAIN, popup.dushu365.com, REJECT
 DOMAIN, pp-cdnfile2pcdn.msstatic.com, REJECT
 DOMAIN, pre-acs.youku.com, REJECT
@@ -185,7 +181,6 @@ DOMAIN, sugar.zhihu.com, REJECT
 DOMAIN, t-ads.xiaohongshu.com, REJECT
 DOMAIN, titan.babytree.com, REJECT
 DOMAIN, titan01.babytree.com, REJECT
-DOMAIN, tpns.qq.com, REJECT
 DOMAIN, track.58.com, REJECT
 DOMAIN, trackercollect.ddxq.mobi, REJECT
 DOMAIN, tracklog.58.com, REJECT
@@ -195,7 +190,6 @@ DOMAIN, union.chinalifeonline.com.cn, REJECT
 DOMAIN, ups.ksmobile.net, REJECT
 DOMAIN, vip.bz.mgtv.com, REJECT
 DOMAIN, vstlog.17usoft.com, REJECT
-DOMAIN, vv6.video.qq.com, REJECT
 DOMAIN, ws.ksmobile.net, REJECT
 DOMAIN, yk-ssp.ad.youku.com, REJECT
 DOMAIN, ykad-data.youku.com, REJECT
@@ -251,7 +245,6 @@ DOMAIN-SUFFIX, dynamic.zol.com.cn, REJECT
 DOMAIN-SUFFIX, ehaier.com, REJECT
 DOMAIN-SUFFIX, erebor.douban.com, REJECT
 DOMAIN-SUFFIX, fds.api.moji.com, REJECT
-DOMAIN-SUFFIX, gdt.qq.com, REJECT
 DOMAIN-SUFFIX, gemini.yahoo.com, REJECT
 DOMAIN-SUFFIX, go.sohu.com, REJECT
 DOMAIN-SUFFIX, grand.ele.me, REJECT
@@ -316,8 +309,6 @@ DOMAIN-KEYWORD, medicine.lanjiyin.com.cn, REJECT
 DOMAIN-KEYWORD, ossp.voicecloud.cn, REJECT
 DOMAIN-KEYWORD, report.meituan, REJECT
 DOMAIN-KEYWORD, sdk.open.talk.getui.com, REJECT
-DOMAIN-KEYWORD, trace.qq.com, REJECT
-DOMAIN-KEYWORD, trace.video.qq.com, REJECT
 IP-CIDR, 1.202.85.193/32, REJECT, no-resolve
 IP-CIDR, 47.56.131.76/32, REJECT, no-resolve
 IP-CIDR, 47.97.215.55/32, REJECT, no-resolve
@@ -359,8 +350,6 @@ AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,Cainiao4iPhon
 AND, ((URL-REGEX,^https?:\/\/gw\.xiaocantech\.com\/rpc),(USER-AGENT,GetBannerList*)), REJECT
 AND, ((URL-REGEX,^https?:\/\/\[((([0-9A-Fa-f]{1,4}:){7}([0-9A-Fa-f]{1,4}|:))|(([0-9A-Fa-f]{1,4}:){6}(:[0-9A-Fa-f]{1,4}|((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){5}(((:[0-9A-Fa-f]{1,4}){1,2})|:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3})|:))|(([0-9A-Fa-f]{1,4}:){4}(((:[0-9A-Fa-f]{1,4}){1,3})|((:[0-9A-Fa-f]{1,4})?:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){3}(((:[0-9A-Fa-f]{1,4}){1,4})|((:[0-9A-Fa-f]{1,4}){0,2}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){2}(((:[0-9A-Fa-f]{1,4}){1,5})|((:[0-9A-Fa-f]{1,4}){0,3}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(([0-9A-Fa-f]{1,4}:){1}(((:[0-9A-Fa-f]{1,4}){1,6})|((:[0-9A-Fa-f]{1,4}){0,4}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:))|(:(((:[0-9A-Fa-f]{1,4}){1,7})|((:[0-9A-Fa-f]{1,4}){0,5}:((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}))|:)))\]\/d(\d)?\?),(USER-AGENT,*com.xunmeng.pinduoduo*)), REJECT
 URL-REGEX, ^https?:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/, REJECT
-URL-REGEX, ^https?:\/\/apd-vlive\.apdcdn\.tc\.qq\.com\/vmind\.qqvideo\.tc\.qq\.com\/\w+, REJECT
-URL-REGEX, ^https?:\/\/apd-\w+\.v\.smtcdns\.com\/(defaultts|omts|vmind\.qqvideo)\.tc\.qq\.com\/\w+, REJECT
 URL-REGEX, ^https?:\/\/file-share\.izuiyou\.com\/octopus\/media\/templates\/search_home_page_(nv|nv_v2)\/search_home_page_nv, REJECT
 URL-REGEX, ^https?:\/\/log\.stat\.kugou\.com\/mobile\/ad\.html, REJECT
 URL-REGEX, ^https?:\/\/mercury-gateway\.ixiaochuan\.cn\/mercury\/v1\/ad\/, REJECT-TINYGIF
@@ -374,7 +363,6 @@ URL-REGEX, ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/app\/pasterAdvert\/, REJECT
 URL-REGEX, ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/app\/startup\/config, REJECT-TINYGIF
 URL-REGEX, ^https?:\/\/wapi\.kuwo\.cn\/openapi\/v\d\/user\/freeMode\/, REJECT-TINYGIF
 URL-REGEX, ^https?:\/\/w{32}\.jddebug\.com\/diagnose\?, REJECT
-URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.video)\.qq\.com\/\w+, REJECT
 
 [URL Rewrite]
 ^(^https?:\/\/www\.vgtime\.com\/app\/topic\/\d+\.jhtml\?.*?&close_ad=)false(&page=\d&sign=\w+&timestamp=\d+&font_size=\d$) $1true$2 302
@@ -1885,7 +1873,6 @@ URL-REGEX, ^https?:\/\/[\d\.:]*\/?(defaultts\.tc|vmind\.qqvideo\.tc|finderpdd\.v
 ^https?:\/\/venus\.yhd\.com\/memhome\/launchConfig - reject
 ^https?:\/\/vip\d\.kuwo\.cn\/commercia\/vipconf\/projectPage\/getPageContent - reject-dict
 ^https?:\/\/vod-movie\.maoyan\.com\/vod\/video\/onlineMovies\.json - reject-dict
-^https?:\/\/vv\.video\.qq\.com\/(diff|get)vmind - reject-dict
 ^https?:\/\/vv\.video\.qq\.com\/getvmind\? - reject-200
 ^https?:\/\/w\.line\.me\/adp\/api\/ad\/v\d\/ - reject
 ^https?:\/\/w\.meituan\.net\/v\d\/mss_\w+\/waimai-mach\/\d+\/\d+\/pt-im-guider-tip-card - reject
@@ -2044,7 +2031,6 @@ http-request ^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace Acc
 http-request ^https?:\/\/github\.com\/ header-replace Accept-Language en-us
 
 [Body Rewrite]
-http-request ^https?:\/\/vv\.video\.qq\.com\/getvinfo &sppreviewtype=\d(.*)&spsrt=\d &sppreviewtype=0$1&spsrt=0
 http-response ^https?:\/\/adservice\.sigmob\.cn\/extconfig false true
 http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_SmartPush pushData SUCCEED
 http-response ^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=lite_advertising jdLiteAdvertisingVO SUCCEED

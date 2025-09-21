@@ -56,6 +56,7 @@ jobs:
               | grep '"download_url":' | cut -d '"' -f 4 | grep '\.sgmodule$' \
               | while read -r raw_url; do
                   filename=$(basename "$raw_url")
+                  filename=$(python3 -c "import urllib.parse; print(urllib.parse.unquote('$filename'))")
                   echo "Downloading $filename -> $target_dir/"
                   curl -fsSL "$raw_url" -o "Rewrite/QingRexConfig/$target_dir/$filename" || (echo "Retrying..." && curl -fsSL "$raw_url" -o "Rewrite/QingRexConfig/$target_dir/$filename") || true
                 done

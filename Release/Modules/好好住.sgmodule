@@ -1,8 +1,0 @@
-#!name=好好住
-#!desc=2025-09-09 10:10:26
-
-[URL Rewrite]
-^https?:\/\/api\.haohaozhu\.cn\/index\.php\/home\/AppInit\/getStartPhoto - reject
-
-[MITM]
-hostname = %APPEND% api.haohaozhu.cn

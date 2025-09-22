@@ -1,8 +1,0 @@
-#!name=Linxi
-#!desc=2025-09-15 18:16:55
-
-[URL Rewrite]
-^https?:\/\/api\.internetofcity\.cn\/api\/resource\/anon\/popups\/(getSplashList|getList) - reject
-
-[MITM]
-hostname = %APPEND% api.internetofcity.cn

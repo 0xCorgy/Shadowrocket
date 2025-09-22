@@ -1,9 +1,0 @@
-#!name=国泰君安
-#!desc=2025-09-09 10:10:26
-
-[URL Rewrite]
-^https?:\/\/dl[0-9]{1}\.app\.gtja\.com\/dzswem\/kvController - reject-200
-^https?:\/\/dl\.app\.gtja\.com\/dzswem\/kvController - reject-200
-
-[MITM]
-hostname = %APPEND% dl*.app.gtja.com,dl.app.gtja.com

@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-09-24 08:43:59
+#!desc=2025-09-24 18:28:22
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -711,7 +711,7 @@ URL-REGEX, ^https?:\/\/w{32}\.jddebug\.com\/diagnose\?, REJECT
 ^https?:\/\/api\.laifeng\.com\/v\d\/start\/ads - reject
 ^https?:\/\/api\.live\.bilibili\.com\/xlive\/e-commerce-interface\/v1\/ecommerce-user\/get_shopping_info\? - reject-dict
 ^https?:\/\/api\.m\.jd\.com\/\?loginType=11 - reject-dict
-^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|xview2Config|stationPullService|getWidget|widget|hybrid|jdDiscoveryRedPoint|queryMaterialAdverts) - reject-200
+^https?:\/\/api\.m\.jd\.com\/client\.action\?functionId=(searchBoxWord|xview2Config|stationPullService|getWidget|widget|hybrid|jdDiscoveryRedPoint|queryMaterialAdverts|apollo_style) - reject-200
 ^https?:\/\/api\.m\.jd\.com\/openUpgrade - reject
 ^https?:\/\/api\.m\.mi\.com\/v\d\/app\/popup_info$ - reject-dict
 ^https?:\/\/api\.m\.mi\.com\/v\d\/app\/start - reject-200

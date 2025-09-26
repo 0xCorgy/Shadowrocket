@@ -1,8 +1,8 @@
 #!name=闲鱼
-#!desc=2025-09-17 08:42:36
+#!desc=2025-09-26 09:59:28
 
 [Rule]
-AND, ((URL-REGEX,^https?:\/\/.+\/amdc\/mobileDispatch),(USER-AGENT,%E9%97%B2%E9%B1%BC*)), REJECT
+AND, ((URL-REGEX,"^http:\/\/.+\/amdc\/mobileDispatch"),(USER-AGENT,"%E9%97%B2%E9%B1%BC*")), REJECT
 
 [URL Rewrite]
 ^https?:\/\/acs\.m\.goofish\.com\/gw\/mtop\.taobao\.idle\.item\.buy\.feeds\/ - reject-dict

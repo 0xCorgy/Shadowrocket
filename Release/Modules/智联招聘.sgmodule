@@ -1,8 +1,8 @@
 #!name=智联招聘
-#!desc=2025-09-09 10:10:27
+#!desc=2025-09-26 10:01:59
 
 [Rule]
-URL-REGEX, ^https?:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/, REJECT
+URL-REGEX, "^https?:\/\/(ask|cgate)\.zhaopin\.com\/operation\/ad\/", REJECT
 
 [URL Rewrite]
 ^https?:\/\/cgate\.zhaopin\.com\/bdp\/commercial\/queryLinkData$ - reject

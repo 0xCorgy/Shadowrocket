@@ -1,5 +1,5 @@
 #!name=酷狗音乐
-#!desc=2025-09-09 10:10:26
+#!desc=2025-09-26 10:01:59
 
 [Rule]
 DOMAIN, ad.tencentmusic.com, REJECT
@@ -10,7 +10,7 @@ DOMAIN, adserviceretry.kugou.com, REJECT
 DOMAIN, adsmind.gdtimg.com, REJECT
 DOMAIN, adstats.tencentmusic.com, REJECT
 DOMAIN, splashimgretrybssdl.cloud.kugou.com, REJECT
-URL-REGEX, ^https?:\/\/log\.stat\.kugou\.com\/mobile\/ad\.html, REJECT
+URL-REGEX, "^https?:\/\/log\.stat\.kugou\.com\/mobile\/ad\.html", REJECT
 
 [URL Rewrite]
 ^https?:\/\/ep\.kugou\.com\/v\d\/album_shop\/get_entrance_info - reject-dict

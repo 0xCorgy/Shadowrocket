@@ -5,9 +5,9 @@ Please note that you may need to reinstall app for script to work.
 
 QuantumultX rewrite link:
 https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/QuanX/Adblock/App/W/网易有道词典/rewrite/163youdao.conf
+
 Surge module link:
 https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/App/W/网易有道词典/163youdao.sgmodule
-
 ********************************/
 
 const url = $request.url;

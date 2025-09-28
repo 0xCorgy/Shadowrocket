@@ -10,7 +10,6 @@ https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/QuanX/Adblock/Apple
 Surge module link:
 https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/App/Z/转转/zhuanzhuan.sgmodule
 https://raw.githubusercontent.com/zirawell/R-Store/main/Rule/Surge/Adblock/Applet/Wechat/Z/转转/zhuanzhuan.sgmodule
-
 ********************************/
 
 const url = $request.url;

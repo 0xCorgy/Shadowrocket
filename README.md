@@ -128,19 +128,19 @@ ca-p12 =
 首页-全局路由：
 选择**配置**；<br>
 首页-全局路由：
-开启**启用回退**；**（仅推荐在使用[基础配置](#基础配置)时开启！）**<br>
+**关闭**启用回退；<br>
 设置-按需求连接：
-开启**始终开启**；<br>
+**开启**始终开启；<br>
 设置-代理：
 代理类型选择**HTTP**，代理地址选择**127.0.0.1**；<br>
 设置-配置：
-开启**自动后台更新**，间隔选择**7**；**（仅适用于默认配置，如有修改请勿开启！）**<br>
+**关闭**自动后台更新；<br>
 设置-订阅：
-开启**自动后台更新**，间隔选择**24**；<br>
+**开启**自动后台更新，间隔选择**24**；<br>
 设置-GeoLite2数据库：
-开启**自动后台更新**，间隔选择**7**；<br>
+**开启**自动后台更新，间隔选择**7**；<br>
 设置-GeoLite2数据库：
-拷贝下载链接：[Country.mmdb](https://xiangwanguan.github.io/Shadowrocket/GeoLite2/Country.mmdb) & [ASN.mmdb](https://xiangwanguan.github.io/Shadowrocket/GeoLite2/ASN.mmdb)，粘贴至对应的**URL输入框**中 ，并点击**更新**；<br>
+拷贝链接：[Country.mmdb](https://xiangwanguan.github.io/Shadowrocket/GeoLite2/Country.mmdb) & [ASN.mmdb](https://xiangwanguan.github.io/Shadowrocket/GeoLite2/ASN.mmdb)，粘贴至对应的**URL输入框**中 ，并点击**更新**；<br>
 设置-温和策略机制：
 选择**开启**；<br>
 设置-排除路由0.0.0.0/31：

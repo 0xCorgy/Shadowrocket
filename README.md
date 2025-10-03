@@ -114,10 +114,10 @@ Telegram使用**新加坡节点**，Google、AI工具使用**美国节点**；<b
 [MITM]
 enable = true
 
-# 确认"ca-passphrase="后面填写的证书密码是否正确，Shadowrocket是默认密码；
-ca-passphrase = Shadowrocket
+# 请在"ca-passphrase="后面填写证书密码；
+ca-passphrase = 
 
-# 须在"ca-p12="后面粘贴证书内容；
+# 请在"ca-p12="后面粘贴证书内容；
 ca-p12 = 
 ```
 **配置** > 点击**已安装证书的配置文件**后面的**ⓘ图标** > **HTTPS解密** > 证书后面的**ⓘ图标** > **复制**；<br>

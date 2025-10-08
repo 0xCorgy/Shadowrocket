@@ -1,9 +1,9 @@
 #!name=Spotify
-#!desc=2025-09-09 10:10:26
+#!desc=2025-10-08 12:27:34
 
 [Rule]
-AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN,spclient.wg.spotify.com)), REJECT-NO-DROP
-AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,-spclient.spotify.com)), REJECT-NO-DROP
+AND, ((PROTOCOL,QUIC),(DOMAIN,spclient.wg.spotify.com)), REJECT-NO-DROP
+AND, ((PROTOCOL,QUIC),(DOMAIN-SUFFIX,-spclient.spotify.com)), REJECT-NO-DROP
 
 [URL Rewrite]
 ^https?:\/\/(?:\w+-spclient|spclient\.wg)\.spotify\.com(?::443)?\/(?:ad-|pendragon) - reject-200

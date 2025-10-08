@@ -1,12 +1,12 @@
 #!name=小红书
-#!desc=2025-10-08 12:47:32
+#!desc=2025-09-14 10:51:26
 
 [Rule]
 DOMAIN, ads-img-qc.xhscdn.com, REJECT
 DOMAIN, ads-video-al.xhscdn.com, REJECT
 DOMAIN, ads-video-qc.xhscdn.com, REJECT
 DOMAIN, t-ads.xiaohongshu.com, REJECT
-AND, ((PROTOCOL,QUIC),(DOMAIN-SUFFIX,xiaohongshu.com)), REJECT
+AND, ((PROTOCOL,UDP),(DST-PORT,443),(DOMAIN-SUFFIX,xiaohongshu.com)), REJECT-NO-DROP
 
 [URL Rewrite]
 ^https?:\/\/ci\.xiaohongshu\.com\/system_config\/watermark - reject-img

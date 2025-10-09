@@ -1,5 +1,5 @@
 #!name=知乎
-#!desc=2025-10-09 15:36:05
+#!desc=2025-10-09 20:45:43
 
 [Rule]
 DOMAIN, appcloud.zhihu.com, REJECT
@@ -39,7 +39,7 @@ IP-CIDR, 2402:4e00:1200:ed00:0:9089:6dac:96b6/128, REJECT, no-resolve
 ^https?:\/\/zhuanlan\.zhihu\.com\/api\/articles\/\d+\/recommendation - reject
 
 [Body Rewrite]
-http-response ^https?:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\? "recommend_queries":^.*$ "recommend_queries":{}
+http-response ^https?:\/\/api\.zhihu\.com\/search\/recommend_query\/v2\? "recommend_queries":\{.+\} "recommend_queries":{}
 
 [Script]
 zhihu =type=http-response, pattern=^https?:\/\/api\.zhihu\.com\/(moments_v\d|topstory\/recommend(_v\d)?), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/zhihu.js, requires-body=true, max-size=0

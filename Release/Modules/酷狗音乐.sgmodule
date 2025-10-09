@@ -1,5 +1,5 @@
 #!name=酷狗音乐
-#!desc=2025-09-26 10:01:59
+#!desc=2025-10-09 14:59:13
 
 [Rule]
 DOMAIN, ad.tencentmusic.com, REJECT
@@ -30,7 +30,7 @@ URL-REGEX, "^https?:\/\/log\.stat\.kugou\.com\/mobile\/ad\.html", REJECT
 ^https?:\/\/m1fxgroup\.kugou\.com\/fxsing\/yqc\/alongInfo\/getUserAlongInfo - reject-dict
 
 [Body Rewrite]
-http-response-jq ^https?:\/\/gateway(retry)?\.kugou\.com\/ocean\/v\d\/tab\/list_v\d 'def namesToRemove:["AI帮唱","长相思2","K歌","小说","游戏"];def removeParentIfNameMatches:if type=="object"then with_entries(select(.value|(type=="object"and .name as $name|$name|IN(namesToRemove[])|not)))|map_values(removeParentIfNameMatches)else .end;removeParentIfNameMatches'
+http-response-jq ^https?:\/\/gateway(retry)?\.kugou\.com\/ocean\/v\d\/tab\/list_v\d 'def namesToRemove:["AI帮唱","长相思2","K歌","小说","游戏"];def removeParentIfNameMatches:if type=="object"then with_entries(select(.value|(type=="object"and .name as $name|$name|IN(namesToRemove[])|not)))|map_values(removeParentIfNameMatches)else. end;removeParentIfNameMatches'
 
 [MITM]
 hostname = %APPEND% ep.kugou.com,fx.service.kugou.com,gateway.kugou.com,gatewayretry.kugou.com,gzacshow.kugou.com,hwstore.kugou.com,m1fxgroup.kugou.com

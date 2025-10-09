@@ -1,5 +1,5 @@
 #!name=爱奇艺
-#!desc=2025-09-09 10:10:26
+#!desc=2025-10-09 14:48:17
 
 [Rule]
 DOMAIN, access.if.iqiyi.com, REJECT
@@ -24,7 +24,6 @@ http-response-jq ^https?:\/\/cards\.iqiyi\.com\/views_plt\/3\.0\/player_tabs_v2\
 http-response-jq ^https?:\/\/cards\.iqiyi\.com\/views_plt\/3\.0\/player_tabs_v2\? 'delpaths([["kv_pair","activity_tab"]])'
 http-response-jq ^https?:\/\/cards\.iqiyi\.com\/views_search\/3\.0\/hot_query_search\? '.cards |= map(select(.alias_name as $name | $name != "ad_trueview" and $name != "ad_mobile_flow" and $name != "search_mid_text_ad")) | if .base.statistics.ad_str? then del(.base.statistics) else . end'
 http-response-jq ^https?:\/\/cards\.iqiyi\.com\/waterfall(-plt)?\/3\.0\/feed\? 'del(.base.statistics | select(.ad_str)) | del(.. | select(.block_class?))'
-http-response-jq ^https?:\/\/comment-card\.iqiyi\.com\/views_comment\/3\.0\/long_video_comments\? ''
 http-response-jq ^https?:\/\/comment-card\.iqiyi\.com\/views_comment\/3\.0\/long_video_comments\? '.cards |= map(select(has("alias_name")))'
 http-response-jq ^https?:\/\/iface2\.iqiyi\.com\/aggregate\/3\.0\/getMyMenus\? '.data |= map(select(.statistic.block != "wd_liebiao_2") | select(all(.menuList[]?.statistic2.block; . != "wd_liebiao_3")))'
 http-response-jq ^https?:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/common_switch\? 'delpaths([["content","resource","cast_device_ad"]])'

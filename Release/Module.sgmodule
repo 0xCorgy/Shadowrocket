@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-10-08 14:28:31
+#!desc=2025-10-09 14:48:16
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -2241,7 +2241,6 @@ http-response-jq ^https?:\/\/cards\.iqiyi\.com\/views_plt\/3\.0\/player_tabs_v2\
 http-response-jq ^https?:\/\/cards\.iqiyi\.com\/views_plt\/3\.0\/player_tabs_v2\? 'delpaths([["kv_pair","activity_tab"]])'
 http-response-jq ^https?:\/\/cards\.iqiyi\.com\/views_search\/3\.0\/hot_query_search\? '.cards |= map(select(.alias_name as $name | $name != "ad_trueview" and $name != "ad_mobile_flow" and $name != "search_mid_text_ad")) | if .base.statistics.ad_str? then del(.base.statistics) else . end'
 http-response-jq ^https?:\/\/cards\.iqiyi\.com\/waterfall(-plt)?\/3\.0\/feed\? 'del(.base.statistics | select(.ad_str)) | del(.. | select(.block_class?))'
-http-response-jq ^https?:\/\/comment-card\.iqiyi\.com\/views_comment\/3\.0\/long_video_comments\? ''
 http-response-jq ^https?:\/\/comment-card\.iqiyi\.com\/views_comment\/3\.0\/long_video_comments\? '.cards |= map(select(has("alias_name")))'
 http-response-jq ^https?:\/\/common\.diditaxi\.com\.cn\/common\/v5\/usercenter\/layout$ '.data.instances.center_wallet_finance_card.data.view_info |= map(select(.title == "优惠卡券" or .title == "余额" or .title == "福利金"))'
 http-response-jq ^https?:\/\/common\.diditaxi\.com\.cn\/common\/v5\/usercenter\/layout$ 'delpaths([["data","instances","center_marketing_card"]])'

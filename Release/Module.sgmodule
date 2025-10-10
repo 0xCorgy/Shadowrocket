@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-10-09 20:47:11
+#!desc=2025-10-10 10:26:38
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -2077,7 +2077,7 @@ http-response-jq ^https?:\/\/api\.cc\.163\.com\/v\d\/mgamerecpage\/recommend_pag
 http-response-jq ^https?:\/\/api\.coolapk\.com\/v6\/feed\/detail\? '.data.hotReplyRows |= if . then map(select(.id?)) else . end | .data.topReplyRows |= if . then map(select(.id?)) else . end | reduce ("detailSponsorCard", "include_goods", "include_goods_ids") as $key (.; .data[$key]=[])'
 http-response-jq ^https?:\/\/api\.coolapk\.com\/v6\/feed\/replyList 'if .data? and ((.data | type) == "array") and (.data | length > 0) then .data |= map(select(.id?)) else . end'
 http-response-jq ^https?:\/\/api\.coolapk\.com\/v6\/main\/dataList '.data |= (if (type=="array" and length>0) then map(select((.entityTemplate!="sponsorCard") and (.title!="精选配件"))) else . end)'
-http-response-jq ^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8 '.data|=(if length>0 then map(select((.entityTemplate!="sponsorCard") and ([8639,29349,33006,32557]|index(.entityId)|not) and (.title?|type=="string" and test("值得买|红包")|not))) else. end)'
+http-response-jq ^https?:\/\/api\.coolapk\.com\/v6\/main\/indexV8 '.data|=(if length>0 then map(select((.entityTemplate!="sponsorCard") and ([8639,29349,33006,32557]|index(.entityId)|not) and ((.title//""|test("值得买|红包"))|not))) else. end)'
 http-response-jq ^https?:\/\/api\.coolapk\.com\/v6\/main\/init '.data |= map(select(.entityId? | [944,945,6390] | index(.) | not) | if .entityId == 20131 then .entities |= map(select(.title != "酷品")) else . end)'
 http-response-jq ^https?:\/\/api\.coolapk\.com\/v6\/page\/dataList 'if (.data | length > 0) then .data |= map(select((.title? != "酷安热搜") and (.entityTemplate? != "imageScaleCard") and (.entityTemplate? != "sponsorCard"))) else . end'
 http-response-jq ^https?:\/\/api\.gotokeep\.com\/config\/v3\/basic\? '.data.bottomBarControl.tabs |= map(select(.tabType | . == "home" or . == "dynamic_sports" or . == "personal")) | .data.homeTabs |= map(select(.type | . == "socialTab" or . == "union_feed_all" or . == "homeRecommend" or . == "suitTab" or . == "union_feed_route"))'
@@ -2302,11 +2302,10 @@ http-response-jq ^https?:\/\/goway\.reader\.yueyouxs\.com\/assemble\/app\/basic\
 http-response-jq ^https?:\/\/gql(-fed)?\.reddit\.com ' walk(   if type == "object" then      (if .isNsfw == true then .isNsfw = false else . end)     | (if .isNsfwMediaBlocked == true then .isNsfwMediaBlocked = false else . end)     | (if .isNsfwContentShown == false then .isNsfwContentShown = true else . end)      | (if (.commentsPageAds | type == "array") then (.commentsPageAds = []) else . end)      | (if ( (.node | type == "object") and (.node.cells | type == "array") and (.node.cells | any(.__typename? == "AdMetadataCell" or .isAdPost? == true)) ) then empty else . end)     | (if (.node | type == "object") and (.node.adPayload | type == "object") then empty else . end)     | (if .__typename == "AdPost" then empty else . end)   else .  end)'
 http-response-jq ^https?:\/\/haojia-api\.smzdm\.com\/detail\/\d+\? 'delpaths([["data","quan_log"]])'
 http-response-jq ^https?:\/\/haojia-api\.smzdm\.com\/home\/list\? '.data.rows |= map(select(.cell_type == "39001")) | .data.banner_v2 |= map(select(.cell_type == "21028"))'
-http-response-jq ^https?:\/\/haojia-api\.smzdm\.com\/home\/list\? 'delpaths([["data","header_operation","theme"]])'
 http-response-jq ^https?:\/\/haojia-cdn\.smzdm\.com\/preload\/\d+\/fiphone\/v\d+_\d+_\d+\/wx\d+\/im\d+\/[0-9a-z]+\/[0-9a-z]+\.json$ 'delpaths([["data","quan_log"]])'
 http-response-jq ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/other_modul\? 'delpaths([["data","banner"]])'
 http-response-jq ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/user_related_modul\? 'delpaths([["data","super_coupon"]])'
-http-response-jq ^https?:\/\/homepage-api\.smzdm\.com\/v3\/home\? '.data.component|=map(if(.zz_content|type=="array")then.zz_content|=map(select((.ad_campaign_id?|type=="string"and length>0)or(.tag?|type=="string"and length>0)or(.model_type?=="ads"and type=="string")|not))else. end)|.data.component|=map(select(if has("zz_type")then .zz_type|IN(["circular_banner","filter","list"][])else true end))|del(.data.theme)|.data.component|=map(if .zz_content|type=="object"then .zz_content|del(.circular_banner_option)else. end)'
+http-response-jq ^https?:\/\/homepage-api\.smzdm\.com\/v3\/home\? '.data.component|=map(if(.zz_content|type=="array")then.zz_content|=map(select((.ad_campaign_id?|type=="string"and length>0)//false or (.tag?|type=="string"and length>0)//false or (.model_type?=="ads"and type=="string")//false|not))else. end)|.data.component|=map(select(if has("zz_type")then .zz_type|IN(["circular_banner","filter","list"][])else true end))|del(.data.theme)|.data.component|=map(if .zz_content|type=="object"then .zz_content|del(.circular_banner_option)else. end)'
 http-response-jq ^https?:\/\/iface2\.iqiyi\.com\/aggregate\/3\.0\/getMyMenus\? '.data |= map(select(.statistic.block != "wd_liebiao_2") | select(all(.menuList[]?.statistic2.block; . != "wd_liebiao_3")))'
 http-response-jq ^https?:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/common_switch\? 'delpaths([["content","resource","cast_device_ad"]])'
 http-response-jq ^https?:\/\/iface2\.iqiyi\.com\/fusion\/3\.0\/common_switch\? 'if (getpath(["content","switchs","app_ad"]) | has("app_ad_duration")) then (setpath(["content","switchs","app_ad","app_ad_duration"]; 0)) else . end'

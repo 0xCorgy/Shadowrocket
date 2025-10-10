@@ -1,5 +1,5 @@
 #!name=什么值得买
-#!desc=2025-10-09 15:16:20
+#!desc=2025-10-10 10:26:38
 
 [Rule]
 DOMAIN, adx-api.zdmimg.com, REJECT
@@ -24,11 +24,10 @@ http-response-jq ^https?:\/\/app-api\.smzdm\.com\/util\/update$ 'if (getpath(["d
 http-response-jq ^https?:\/\/app-api\.smzdm\.com\/util\/update$ 'if (getpath(["data"]) | has("silence_local_push")) then (setpath(["data","silence_local_push"]; 0)) else . end'
 http-response-jq ^https?:\/\/haojia-api\.smzdm\.com\/detail\/\d+\? 'delpaths([["data","quan_log"]])'
 http-response-jq ^https?:\/\/haojia-api\.smzdm\.com\/home\/list\? '.data.rows |= map(select(.cell_type == "39001")) | .data.banner_v2 |= map(select(.cell_type == "21028"))'
-http-response-jq ^https?:\/\/haojia-api\.smzdm\.com\/home\/list\? 'delpaths([["data","header_operation","theme"]])'
 http-response-jq ^https?:\/\/haojia-cdn\.smzdm\.com\/preload\/\d+\/fiphone\/v\d+_\d+_\d+\/wx\d+\/im\d+\/[0-9a-z]+\/[0-9a-z]+\.json$ 'delpaths([["data","quan_log"]])'
 http-response-jq ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/other_modul\? 'delpaths([["data","banner"]])'
 http-response-jq ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/user_related_modul\? 'delpaths([["data","super_coupon"]])'
-http-response-jq ^https?:\/\/homepage-api\.smzdm\.com\/v3\/home\? '.data.component|=map(if(.zz_content|type=="array")then.zz_content|=map(select((.ad_campaign_id?|type=="string"and length>0)or(.tag?|type=="string"and length>0)or(.model_type?=="ads"and type=="string")|not))else. end)|.data.component|=map(select(if has("zz_type")then .zz_type|IN(["circular_banner","filter","list"][])else true end))|del(.data.theme)|.data.component|=map(if .zz_content|type=="object"then .zz_content|del(.circular_banner_option)else. end)'
+http-response-jq ^https?:\/\/homepage-api\.smzdm\.com\/v3\/home\? '.data.component|=map(if(.zz_content|type=="array")then.zz_content|=map(select((.ad_campaign_id?|type=="string"and length>0)//false or (.tag?|type=="string"and length>0)//false or (.model_type?=="ads"and type=="string")//false|not))else. end)|.data.component|=map(select(if has("zz_type")then .zz_type|IN(["circular_banner","filter","list"][])else true end))|del(.data.theme)|.data.component|=map(if .zz_content|type=="object"then .zz_content|del(.circular_banner_option)else. end)'
 http-response-jq ^https?:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags\? '.data.search_hot.home |= map(select(.article_tag.article_title != "广告"))'
 http-response-jq ^https?:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags\? 'delpaths([["data","hongbao"]])'
 http-response-jq ^https?:\/\/s-api\.smzdm\.com\/sou\/filter\/tags\/hot_tags\? 'delpaths([["data","search_faxian"]])'

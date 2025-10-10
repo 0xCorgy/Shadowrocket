@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-10-10 10:26:38
+#!desc=2025-10-10 10:46:00
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -2302,6 +2302,7 @@ http-response-jq ^https?:\/\/goway\.reader\.yueyouxs\.com\/assemble\/app\/basic\
 http-response-jq ^https?:\/\/gql(-fed)?\.reddit\.com ' walk(   if type == "object" then      (if .isNsfw == true then .isNsfw = false else . end)     | (if .isNsfwMediaBlocked == true then .isNsfwMediaBlocked = false else . end)     | (if .isNsfwContentShown == false then .isNsfwContentShown = true else . end)      | (if (.commentsPageAds | type == "array") then (.commentsPageAds = []) else . end)      | (if ( (.node | type == "object") and (.node.cells | type == "array") and (.node.cells | any(.__typename? == "AdMetadataCell" or .isAdPost? == true)) ) then empty else . end)     | (if (.node | type == "object") and (.node.adPayload | type == "object") then empty else . end)     | (if .__typename == "AdPost" then empty else . end)   else .  end)'
 http-response-jq ^https?:\/\/haojia-api\.smzdm\.com\/detail\/\d+\? 'delpaths([["data","quan_log"]])'
 http-response-jq ^https?:\/\/haojia-api\.smzdm\.com\/home\/list\? '.data.rows |= map(select(.cell_type == "39001")) | .data.banner_v2 |= map(select(.cell_type == "21028"))'
+http-response-jq ^https?:\/\/haojia-api\.smzdm\.com\/home\/list\? 'delpaths([["data","header_operation","theme"]])'
 http-response-jq ^https?:\/\/haojia-cdn\.smzdm\.com\/preload\/\d+\/fiphone\/v\d+_\d+_\d+\/wx\d+\/im\d+\/[0-9a-z]+\/[0-9a-z]+\.json$ 'delpaths([["data","quan_log"]])'
 http-response-jq ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/other_modul\? 'delpaths([["data","banner"]])'
 http-response-jq ^https?:\/\/haojia\.m\.smzdm\.com\/detail_modul\/user_related_modul\? 'delpaths([["data","super_coupon"]])'

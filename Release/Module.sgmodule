@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-10-11 17:58:46
+#!desc=2025-10-12 09:20:28
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -1517,7 +1517,7 @@ URL-REGEX, "^https?:\/\/w{32}\.jddebug\.com\/diagnose\?", REJECT
 ^https?:\/\/mobileso\.bz\.mgtv\.com\/spotlight\/search\/v1\? - reject-dict
 ^https?:\/\/monkey\.kakamobi\.cn\/api\/open\/live-room\/get-resource - reject-dict
 ^https?:\/\/monkey\.kakamobi\.cn\/api\/open\/live\/get-recommend-live-protocol - reject-dict
-^https?:\/\/mp\.weixin\.qq\.com\/mp\/(ad_|advertisement|getappmsgad|cps_product_info|masonryfeed|relatedarticle|relatedsearchword|geticon|getainfo) - reject-dict
+^https?:\/\/mp\.weixin\.qq\.com\/mp\/(ad_|advertisement|getappmsgad|cps_product_info|masonryfeed|relatedarticle|relatedsearchword|geticon|getainfo|jsmonitor) - reject-dict
 ^https?:\/\/mp\.weixin\.qq\.com\/wapad\/getaddata\?action=getad - reject-200
 ^https?:\/\/mp\.weixin\.qq\.com\/wapad\/reportaddata\?action=exposure_report - reject-200
 ^https?:\/\/mpcs\.suning\.com\/mpcs\/dm\/getDmInfo - reject
@@ -1809,7 +1809,7 @@ URL-REGEX, "^https?:\/\/w{32}\.jddebug\.com\/diagnose\?", REJECT
 ^https?:\/\/tower\.ubixioe\.com\/mob\/mediation - reject
 ^https?:\/\/tqt\.weibo\.cn\/.*advert - reject
 ^https?:\/\/tqt\.weibo\.cn\/overall\/redirect\.php\?r=(tqt_sdkad|tqtad) - reject
-^https?:\/\/truthsocial\.com\/api\/v5\/truth\/ads - reject
+^https?:\/\/truthsocial\.com\/api\/v\d\/truth\/ads - reject
 ^https?:\/\/ucmp-static\.sf-express\.com\/proxy\/wxbase\/wxTicket\/wxLiveStreamInfo\?pageNo - reject-dict
 ^https?:\/\/ucmp\.sf-express\.com\/cx-wechat-query\/query\/info-flow\/reconsitution-list - reject
 ^https?:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberActLengthy\/fullGiveActivityService\/fullGiveInfo - reject-dict

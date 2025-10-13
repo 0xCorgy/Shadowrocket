@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-10-12 09:20:28
+#!desc=2025-10-13 20:23:51
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -330,6 +330,7 @@ IP-CIDR, 116.211.198.237/32, REJECT, no-resolve
 IP-CIDR, 118.89.204.198/32, REJECT, no-resolve
 IP-CIDR, 119.29.126.137/32, REJECT, no-resolve
 IP-CIDR, 120.27.235.201/32, REJECT, no-resolve
+IP-CIDR, 120.240.95.37/32, REJECT, no-resolve
 IP-CIDR, 121.196.197.147/32, REJECT, no-resolve
 IP-CIDR, 122.229.8.47/32, REJECT, no-resolve
 IP-CIDR, 122.229.29.89/32, REJECT, no-resolve

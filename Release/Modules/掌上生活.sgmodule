@@ -1,15 +1,10 @@
 #!name=掌上生活
-#!desc=2025-10-14 19:04:26
+#!desc=2025-09-09 10:10:27
 
 [URL Rewrite]
-^https?:\/\/.*mbasecc\.\w+\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec - reject
-^https?:\/\/.*mbasecc\.\w+\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.preloadService\/preload - reject
-^https?:\/\/intellicc\.\w+\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.adrender\.api\.AdWork - reject
-^https?:\/\/intellicc\.\w+\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.RecommendRenderControllerApi\/getRecommendResult - reject-dict
-^https?:\/\/intellicc\.\w+\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec - reject
-^https?:\/\/interactivecc\.\w+\.cmbchina\.com\/Edge\/api\/atpcore\.api\.AccompanyingServiceControllerApi\/queryAccompanyingServiceUserConfForApp - reject-dict
-^https?:\/\/mars\.ccc\.cmbchina\.com\/MarsReceiver - reject-dict
-^https?:\/\/marscc\.bcs\.cmbchina\.com\/MarsReceiver - reject-dict
+^https?:\/\/intellicc\.bas\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.render\.api\.render\/getDynamicDataSec - reject
+^https?:\/\/intellicc\.bcs\.cmbchina\.com\/Edge\/api\/mlife\.intelli\.adrender\.api\.AdWork\/getAdsBySlotId - reject-dict
+^https?:\/\/mbasecc\.(bas|bcs)\.cmbchina\.com\/Edge\/api\/mlife\.clientface\.clientservice\.api\.advertiseService\/preCacheAdvertiseSec - reject-dict
 
 [MITM]
-hostname = %APPEND% *mbasecc.b*s.cmbchina.com,intellicc.b*s.cmbchina.com,interactivecc.b*s.cmbchina.com,mars.ccc.cmbchina.com,marscc.bcs.cmbchina.com
+hostname = %APPEND% intellicc.bas.cmbchina.com,intellicc.bcs.cmbchina.com,mbasecc.bas.cmbchina.com,mbasecc.bcs.cmbchina.com

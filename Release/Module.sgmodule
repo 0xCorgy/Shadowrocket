@@ -1,5 +1,5 @@
 #!name=融合模块
-#!desc=2025-10-13 20:23:51
+#!desc=2025-10-16 15:11:52
 #!arguments=YouTube ·屏蔽上传按钮:true, YouTube ·屏蔽选段按钮:true, YouTube ·屏蔽短片按钮:true, YouTube ·字幕翻译语言:zh-Hans, YouTube ·歌词翻译语言:zh-Hans
 #!arguments-desc=\n 参数说明：\n YouTube字幕翻译语言：默认中文，填off关闭；\n YouTube歌词翻译语言：默认中文，填off关闭；\n 
 
@@ -2541,6 +2541,7 @@ dushu365 =type=http-response, pattern=^https?:\/\/g(.*)\.dushu365\.com\/user-orc
 ecny =type=http-response, pattern=^https?:\/\/mgs\.wallet\.pbcdci\.cn:\d+\/mgw\.htm$, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/ecny.js, requires-body=true, max-size=0
 eleme =type=http-response, pattern=^https?:\/\/waimai-guide\.ele\.me\/(gw|h5)\/mtop\.alsc\.eleme\.miniapp\.homepage, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/eleme.js, requires-body=true, max-size=0
 fliggy =type=http-response, pattern=^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.ssif\.pattern\.home, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/fliggy.js, requires-body=true, max-size=0
+fliggy =type=http-response, pattern=^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.fliggy\.traveldetail\.ultron\.detail\.firstscreen\.get, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/fliggy.js, requires-body=true, max-size=0
 flyert =type=http-response, pattern=^https?:\/\/www\.flyert(rip)?\.com(\.cn)?\/.*plugin, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/flyert.js, requires-body=true, max-size=0
 foliday =type=http-response, pattern=^https?:\/\/apis\.folidaymall\.com\/online\/capi\/component\/getPageComponents, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/foliday.js, requires-body=true, max-size=0
 freshippo =type=http-response, pattern=^https?:\/\/acs(\.|-)m\.(taobao|freshippo)\.com\/gw\/mtop\.wdk\.render\.query(indexpage|mypage|tabfeedstream), script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/freshippo.js, requires-body=true, max-size=0

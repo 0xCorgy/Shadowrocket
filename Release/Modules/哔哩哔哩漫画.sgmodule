@@ -1,5 +1,5 @@
 #!name=哔哩哔哩漫画
-#!desc=2025-09-09 10:10:26
+#!desc=2025-10-17 08:10:09
 
 [URL Rewrite]
 ^https?:\/\/i\d\.hdslb\.com\/bfs\/fawkes - reject-dict
@@ -12,6 +12,7 @@
 ^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.SeasonV\d\/GetSeasonInfo - reject-dict
 
 [Script]
+bilibiliManga =type=http-response, pattern=^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Comment\/Main, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/bilibiliManga.js, requires-body=true, max-size=0
 bilibiliManga =type=http-response, pattern=^https?:\/\/manga\.bilibili\.com\/twirp\/comic\.v\d\.Home\/HomeFeed, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/bilibiliManga.js, requires-body=true, max-size=0
 bilibiliManga =type=http-response, pattern=^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.User\/GetInitInfo, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/bilibiliManga.js, requires-body=true, max-size=0
 bilibiliManga =type=http-response, pattern=^https?:\/\/manga\.bilibili\.com\/twirp\/user\.v\d\.User\/UCenterConf, script-path=https://xiangwanguan.github.io/Shadowrocket/Rewrite/JavaScript/bilibiliManga.js, requires-body=true, max-size=0
